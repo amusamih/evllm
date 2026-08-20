@@ -1,0 +1,109 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "schema": { "type": "string", "const": "EVLLM_ACCESS_POLICY_V1" },
+    "policy_id": {
+      "type": "string",
+      "pattern": "^urn:evllm:policy:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "policy_version": { "$ref": "#/$defs/__schema0" },
+    "purpose_id": {
+      "type": "string",
+      "pattern": "^urn:evllm:policy:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "bundle_types": {
+      "minItems": 1,
+      "maxItems": 10,
+      "type": "array",
+      "items": { "$ref": "#/$defs/__schema1" }
+    },
+    "access_class": { "type": "string", "const": "restricted" },
+    "domain_scope": { "maxItems": 256, "type": "array", "items": { "$ref": "#/$defs/__schema2" } },
+    "permitted_role_ids": {
+      "maxItems": 128,
+      "type": "array",
+      "items": { "$ref": "#/$defs/__schema3" }
+    },
+    "permitted_organization_ids": {
+      "maxItems": 128,
+      "type": "array",
+      "items": { "$ref": "#/$defs/__schema4" }
+    },
+    "permitted_operations": {
+      "minItems": 1,
+      "maxItems": 64,
+      "type": "array",
+      "items": { "$ref": "#/$defs/__schema5" }
+    },
+    "minimization_rule": { "type": "string", "minLength": 1, "maxLength": 16384 },
+    "retention_profile_id": {
+      "type": "string",
+      "pattern": "^urn:evllm:profile:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "retention_profile_version": { "$ref": "#/$defs/__schema0" },
+    "controller_organization_id": {
+      "type": "string",
+      "pattern": "^urn:evllm:org:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "delegation_allowed": { "type": "boolean" },
+    "fail_closed": { "type": "boolean", "const": true },
+    "status": { "type": "string", "enum": ["pending", "active", "retired"] }
+  },
+  "required": [
+    "schema",
+    "policy_id",
+    "policy_version",
+    "purpose_id",
+    "bundle_types",
+    "access_class",
+    "domain_scope",
+    "permitted_role_ids",
+    "permitted_organization_ids",
+    "permitted_operations",
+    "minimization_rule",
+    "retention_profile_id",
+    "retention_profile_version",
+    "controller_organization_id",
+    "delegation_allowed",
+    "fail_closed",
+    "status"
+  ],
+  "additionalProperties": false,
+  "$defs": {
+    "__schema0": { "type": "integer", "exclusiveMinimum": 0, "maximum": 9007199254740991 },
+    "__schema1": {
+      "type": "string",
+      "enum": [
+        "evidence",
+        "verification",
+        "assessment",
+        "assistant-support",
+        "listing",
+        "agreement",
+        "dispute",
+        "logistics",
+        "audit",
+        "authoritative-source"
+      ]
+    },
+    "__schema2": {
+      "type": "object",
+      "properties": {
+        "resource_id": { "type": "string", "minLength": 1 },
+        "resource_version": { "$ref": "#/$defs/__schema0" }
+      },
+      "required": ["resource_id"],
+      "additionalProperties": false
+    },
+    "__schema3": {
+      "type": "string",
+      "pattern": "^urn:evllm:role:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "__schema4": {
+      "type": "string",
+      "pattern": "^urn:evllm:org:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "__schema5": { "type": "string", "minLength": 1, "maxLength": 256 }
+  }
+}

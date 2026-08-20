@@ -1,0 +1,11 @@
+{
+  "schema": "EVLLM_COMPLEMENTARY_SYNTHESIS_CONFIG_MANIFEST_V1",
+  "source_commit": "b31f5cae831cb4a062dfd342126bd4ed941c098d",
+  "source_remote": "https://github.com/amusamih/evllm.git",
+  "freeze_sha256": "0xf2e5d0488ac4382b9ce4133555bdb073e8536a6ef3a14382bf1eab63f14a20fd",
+  "corpus_file_sha256": "0x02fb13f83830b991fc566683cec9722088df3ee1d88339c10ceadd181d9de979",
+  "model": "gpt-4o-mini-2024-07-18",
+  "temperature": 0,
+  "store": false,
+  "planned_observations": 150
+}

@@ -1,0 +1,150 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "schema": { "type": "string", "const": "EVLLM_KEY_OPERATION_AUTHORIZATION_V1" },
+    "authorization_id": {
+      "type": "string",
+      "pattern": "^urn:evllm:authorization:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "authorization_version": { "$ref": "#/$defs/__schema0" },
+    "issuer_service_actor_id": {
+      "type": "string",
+      "pattern": "^urn:evllm:actor:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "issuer_service_organization_id": {
+      "type": "string",
+      "pattern": "^urn:evllm:org:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "issuer_service_credential_id": {
+      "type": "string",
+      "pattern": "^urn:evllm:credential:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "issuer_service_address": { "type": "string", "pattern": "^0x[0-9a-f]{40}$" },
+    "repository_id": {
+      "type": "string",
+      "pattern": "^urn:evllm:repository:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "operation": { "type": "string", "minLength": 1, "maxLength": 256 },
+    "requesting_actor_id": {
+      "type": "string",
+      "pattern": "^urn:evllm:actor:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "requesting_organization_id": {
+      "type": "string",
+      "pattern": "^urn:evllm:org:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "requesting_credential_id": {
+      "type": "string",
+      "pattern": "^urn:evllm:credential:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "bundle_id": {
+      "type": "string",
+      "pattern": "^urn:evllm:bundle:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "bundle_version": { "$ref": "#/$defs/__schema0" },
+    "bundle_type": {
+      "type": "string",
+      "enum": [
+        "evidence",
+        "verification",
+        "assessment",
+        "assistant-support",
+        "listing",
+        "agreement",
+        "dispute",
+        "logistics",
+        "audit",
+        "authoritative-source"
+      ]
+    },
+    "domain_resource_id": { "type": "string", "pattern": "^urn:evllm:.*" },
+    "domain_resource_version": { "$ref": "#/$defs/__schema0" },
+    "purpose_id": {
+      "type": "string",
+      "pattern": "^urn:evllm:policy:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "policy_id": {
+      "type": "string",
+      "pattern": "^urn:evllm:policy:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "policy_version": { "$ref": "#/$defs/__schema0" },
+    "source_authority_ids": {
+      "minItems": 1,
+      "maxItems": 16,
+      "type": "array",
+      "items": { "$ref": "#/$defs/__schema1" }
+    },
+    "source_authority_digest": { "$ref": "#/$defs/__schema2" },
+    "operation_context_digest": { "$ref": "#/$defs/__schema2" },
+    "nonce": { "$ref": "#/$defs/__schema3" },
+    "issued_at": { "$ref": "#/$defs/__schema4" },
+    "expires_at": { "$ref": "#/$defs/__schema4" },
+    "idempotency_key_hash": { "$ref": "#/$defs/__schema3" },
+    "signature": {
+      "type": "string",
+      "pattern": "^(?:[A-Za-z0-9_-]{4})*(?:[A-Za-z0-9_-]{2}|[A-Za-z0-9_-]{3})?$"
+    },
+    "typed_data_digest": { "$ref": "#/$defs/__schema3" },
+    "signature_digest": { "$ref": "#/$defs/__schema2" },
+    "state": { "type": "string", "enum": ["issued", "consumed", "expired", "rejected"] },
+    "result_ref": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "version": { "$ref": "#/$defs/__schema0" }
+      },
+      "required": ["id", "version"],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "schema",
+    "authorization_id",
+    "authorization_version",
+    "issuer_service_actor_id",
+    "issuer_service_organization_id",
+    "issuer_service_credential_id",
+    "issuer_service_address",
+    "repository_id",
+    "operation",
+    "requesting_actor_id",
+    "requesting_organization_id",
+    "requesting_credential_id",
+    "bundle_id",
+    "bundle_version",
+    "bundle_type",
+    "domain_resource_id",
+    "domain_resource_version",
+    "purpose_id",
+    "policy_id",
+    "policy_version",
+    "source_authority_ids",
+    "source_authority_digest",
+    "operation_context_digest",
+    "nonce",
+    "issued_at",
+    "expires_at",
+    "idempotency_key_hash",
+    "signature",
+    "typed_data_digest",
+    "signature_digest",
+    "state"
+  ],
+  "additionalProperties": false,
+  "$defs": {
+    "__schema0": { "type": "integer", "exclusiveMinimum": 0, "maximum": 9007199254740991 },
+    "__schema1": { "type": "string", "pattern": "^urn:evllm:.*" },
+    "__schema2": {
+      "type": "object",
+      "properties": {
+        "alg": { "type": "string", "const": "SHA-256" },
+        "value": { "type": "string", "pattern": "^[A-Za-z0-9_-]{43}$" }
+      },
+      "required": ["alg", "value"],
+      "additionalProperties": false
+    },
+    "__schema3": { "type": "string", "pattern": "^0x[0-9a-f]{64}$" },
+    "__schema4": { "type": "integer", "minimum": 0, "maximum": 9007199254740991 }
+  }
+}

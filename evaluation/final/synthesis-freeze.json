@@ -1,0 +1,43 @@
+{
+  "schema": "EVLLM_FINAL_SYNTHESIS_EVALUATION_FREEZE_V1",
+  "frozenAt": "2026-08-17T18:27:08.435Z",
+  "outputsCollected": false,
+  "researchQuestion": "Can the final governed EVLLM reduce user-visible operations while preserving deterministic decision accuracy, structured record coverage, citation traceability, and normalized missing/conflict detection?",
+  "corpus": {
+    "caseCount": 30,
+    "logicalCorpusSha256": "0xd0bb1da08e59fb3a4054fc7ad2ec188f5e1a364a4c6dfebb54f23b1fad9b13ac",
+    "corpusFileSha256": "0xc42a600069462750ab7d3c489ef4dca8a1331e03afc7aecc365412f9eb3431e7"
+  },
+  "model": {
+    "model": "gpt-4o-mini-2024-07-18",
+    "temperature": 0,
+    "store": false,
+    "repetitionsPerCase": 5,
+    "plannedMaximumModelResponses": 150
+  },
+  "conditions": [
+    "raw-structured-record-access",
+    "sequential-deterministic-query",
+    "governed-evllm-synthesis"
+  ],
+  "primaryMetrics": [
+    "user_visible_operation_count",
+    "required_record_coverage",
+    "decision_code_accuracy",
+    "citation_traceability",
+    "unsupported_claim_rate",
+    "missing_evidence_reason_accuracy",
+    "conflict_reason_accuracy",
+    "single_response_supported_synthesis_success"
+  ],
+  "analysis": {
+    "confidenceLevel": 0.95,
+    "binaryIntervals": "Wilson score",
+    "pairedUnit": "case after averaging five governed repetitions",
+    "pairedEffects": "10000-resample case-level bootstrap",
+    "multipleComparisons": "Holm correction within each metric family",
+    "zeroFailureRule": "Report numerator, denominator, and 95% upper confidence bound."
+  },
+  "interpretationBoundary": "Machine-measured interface behavior only; no subjective usability claim. Route-comparison cases use the implemented six-component Contextual Battery Route Sustainability Assessment and never an overall sustainability score.",
+  "designation": "Only results bound to this freeze, the recorded source commit, and the exact corpus hashes belong to the final synthesis evidence set."
+}

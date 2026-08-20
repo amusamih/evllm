@@ -1,0 +1,95 @@
+name: evllm-formal-repositories
+
+x-seaweed-common: &seaweed-common
+  image: chrislusf/seaweedfs:4.41@sha256:43b768cd62b00d132439cda881b93fd1adebf1b315e996e794087743821d771d
+  command: ["mini", "-dir=/data"]
+  restart: "no"
+
+services:
+  repository-org-1:
+    <<: *seaweed-common
+    environment:
+      AWS_ACCESS_KEY_ID: ${EVLLM_REPOSITORY_ORG_1_ACCESS_KEY:?required}
+      AWS_SECRET_ACCESS_KEY: ${EVLLM_REPOSITORY_ORG_1_SECRET_KEY:?required}
+      S3_BUCKET: evllm
+    ports: ["127.0.0.1:18333:8333"]
+    networks: [repository-org-1]
+    volumes: [repository-org-1-data:/data]
+
+  repository-org-2:
+    <<: *seaweed-common
+    environment:
+      AWS_ACCESS_KEY_ID: ${EVLLM_REPOSITORY_ORG_2_ACCESS_KEY:?required}
+      AWS_SECRET_ACCESS_KEY: ${EVLLM_REPOSITORY_ORG_2_SECRET_KEY:?required}
+      S3_BUCKET: evllm
+    ports: ["127.0.0.1:28333:8333"]
+    networks: [repository-org-2]
+    volumes: [repository-org-2-data:/data]
+
+  repository-org-3:
+    <<: *seaweed-common
+    environment:
+      AWS_ACCESS_KEY_ID: ${EVLLM_REPOSITORY_ORG_3_ACCESS_KEY:?required}
+      AWS_SECRET_ACCESS_KEY: ${EVLLM_REPOSITORY_ORG_3_SECRET_KEY:?required}
+      S3_BUCKET: evllm
+    ports: ["127.0.0.1:38333:8333"]
+    networks: [repository-org-3]
+    volumes: [repository-org-3-data:/data]
+
+  repository-org-4:
+    <<: *seaweed-common
+    environment:
+      AWS_ACCESS_KEY_ID: ${EVLLM_REPOSITORY_ORG_4_ACCESS_KEY:?required}
+      AWS_SECRET_ACCESS_KEY: ${EVLLM_REPOSITORY_ORG_4_SECRET_KEY:?required}
+      S3_BUCKET: evllm
+    ports: ["127.0.0.1:48333:8333"]
+    networks: [repository-org-4]
+    volumes: [repository-org-4-data:/data]
+
+  repository-org-5:
+    <<: *seaweed-common
+    environment:
+      AWS_ACCESS_KEY_ID: ${EVLLM_REPOSITORY_ORG_5_ACCESS_KEY:?required}
+      AWS_SECRET_ACCESS_KEY: ${EVLLM_REPOSITORY_ORG_5_SECRET_KEY:?required}
+      S3_BUCKET: evllm
+    ports: ["127.0.0.1:58333:8333"]
+    networks: [repository-org-5]
+    volumes: [repository-org-5-data:/data]
+
+  repository-org-6:
+    <<: *seaweed-common
+    environment:
+      AWS_ACCESS_KEY_ID: ${EVLLM_REPOSITORY_ORG_6_ACCESS_KEY:?required}
+      AWS_SECRET_ACCESS_KEY: ${EVLLM_REPOSITORY_ORG_6_SECRET_KEY:?required}
+      S3_BUCKET: evllm
+    ports: ["127.0.0.1:63333:8333"]
+    networks: [repository-org-6]
+    volumes: [repository-org-6-data:/data]
+
+  neutral-replica:
+    <<: *seaweed-common
+    environment:
+      AWS_ACCESS_KEY_ID: ${EVLLM_NEUTRAL_REPLICA_ACCESS_KEY:?required}
+      AWS_SECRET_ACCESS_KEY: ${EVLLM_NEUTRAL_REPLICA_SECRET_KEY:?required}
+      S3_BUCKET: evllm
+    ports: ["127.0.0.1:64333:8333"]
+    networks: [neutral-replica]
+    volumes: [neutral-replica-data:/data]
+
+networks:
+  repository-org-1: { internal: true }
+  repository-org-2: { internal: true }
+  repository-org-3: { internal: true }
+  repository-org-4: { internal: true }
+  repository-org-5: { internal: true }
+  repository-org-6: { internal: true }
+  neutral-replica: { internal: true }
+
+volumes:
+  repository-org-1-data:
+  repository-org-2-data:
+  repository-org-3-data:
+  repository-org-4-data:
+  repository-org-5-data:
+  repository-org-6-data:
+  neutral-replica-data:

@@ -1,0 +1,16 @@
+{
+  "schema": "EVLLM_EVALUATION_CONFIG_MANIFEST_V1",
+  "formal_evidence": true,
+  "source_commit": "3382b07c46d3e802d898c65388696fc56142910c",
+  "source_remote": "https://github.com/amusamih/evllm.git",
+  "freeze_sha256": "0xa801fcd3dd38bee672709c8dae56c342ee8464d1f9a070e4519d8d88c246b1ed",
+  "corpus_file_sha256": "0x79066ede421a0abe691ba3fc72261e15534a7fd1ab6782a29081f396e41d9aca",
+  "plan_sha256": "0xb8442257e9d6bbee4184cf1647e72e935a4ac615ae3e812676ffd12c0afc9b9e",
+  "model": "gpt-4o-mini-2024-07-18",
+  "temperature": 0,
+  "store": false,
+  "max_output_tokens": 1200,
+  "planned_observations": 4128,
+  "planned_model_bearing_observations": 3840,
+  "concurrency": 5
+}

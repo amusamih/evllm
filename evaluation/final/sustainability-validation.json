@@ -1,0 +1,1179 @@
+{
+  "schema": "EVLLM_SUSTAINABILITY_VALIDATION_V1",
+  "method": "Contextual Battery Route Sustainability Assessment",
+  "routes": [
+    "continued-compatible-ev-use",
+    "stationary-storage-repurposing",
+    "recycling"
+  ],
+  "componentOrder": [
+    "G",
+    "C",
+    "I",
+    "E",
+    "A",
+    "U"
+  ],
+  "overallScorePresent": false,
+  "scenarios": {
+    "nominal": {
+      "schema": "EVLLM_DETERMINISTIC_ROUTE_ASSESSMENT_V1",
+      "assessmentInputId": "urn:evllm:assessment:00000000-0000-4000-8000-000000000101",
+      "assessmentInputVersion": 1,
+      "decisionState": "answer",
+      "preferredRoute": "continued-compatible-ev-use",
+      "dominance": [
+        {
+          "dominant": "continued-compatible-ev-use",
+          "dominated": "stationary-storage-repurposing"
+        },
+        {
+          "dominant": "continued-compatible-ev-use",
+          "dominated": "recycling"
+        },
+        {
+          "dominant": "stationary-storage-repurposing",
+          "dominated": "recycling"
+        }
+      ],
+      "routes": [
+        {
+          "routeId": "continued-compatible-ev-use",
+          "G": "PASS",
+          "C": {
+            "lower": "100",
+            "upper": "100",
+            "value": "100"
+          },
+          "I": [
+            {
+              "category": "gwp",
+              "unit": "kg-co2e/service",
+              "value": "4"
+            },
+            {
+              "category": "mineral-depletion",
+              "unit": "kg-sb-e/service",
+              "value": "1"
+            }
+          ],
+          "E": {
+            "currency": "EUR",
+            "netPresentValue": "10",
+            "paybackPeriod": 2
+          },
+          "A": {
+            "coverage": "1",
+            "verifiedFraction": "0.5",
+            "freshnessFraction": "1",
+            "conflictCount": 0,
+            "missingCritical": [],
+            "weakestCriticalVerification": "verified"
+          },
+          "U": {
+            "gatePassFrequency": "1",
+            "rankStable": true,
+            "scenarioCount": 3,
+            "percentiles": [
+              {
+                "probability": "0.025",
+                "value": "9"
+              },
+              {
+                "probability": "0.5",
+                "value": "11"
+              },
+              {
+                "probability": "0.975",
+                "value": "13"
+              }
+            ]
+          },
+          "reasonCodes": []
+        },
+        {
+          "routeId": "stationary-storage-repurposing",
+          "G": "PASS",
+          "C": {
+            "lower": "75",
+            "upper": "75",
+            "value": "75"
+          },
+          "I": [
+            {
+              "category": "gwp",
+              "unit": "kg-co2e/service",
+              "value": "4"
+            },
+            {
+              "category": "mineral-depletion",
+              "unit": "kg-sb-e/service",
+              "value": "1"
+            }
+          ],
+          "E": {
+            "currency": "EUR",
+            "netPresentValue": "8",
+            "paybackPeriod": 2
+          },
+          "A": {
+            "coverage": "1",
+            "verifiedFraction": "0.5",
+            "freshnessFraction": "1",
+            "conflictCount": 0,
+            "missingCritical": [],
+            "weakestCriticalVerification": "verified"
+          },
+          "U": {
+            "gatePassFrequency": "1",
+            "rankStable": true,
+            "scenarioCount": 3,
+            "percentiles": [
+              {
+                "probability": "0.025",
+                "value": "9"
+              },
+              {
+                "probability": "0.5",
+                "value": "11"
+              },
+              {
+                "probability": "0.975",
+                "value": "13"
+              }
+            ]
+          },
+          "reasonCodes": []
+        },
+        {
+          "routeId": "recycling",
+          "G": "PASS",
+          "C": {
+            "lower": "50",
+            "upper": "50",
+            "value": "50"
+          },
+          "I": [
+            {
+              "category": "gwp",
+              "unit": "kg-co2e/service",
+              "value": "4"
+            },
+            {
+              "category": "mineral-depletion",
+              "unit": "kg-sb-e/service",
+              "value": "1"
+            }
+          ],
+          "E": {
+            "currency": "EUR",
+            "netPresentValue": "6",
+            "paybackPeriod": 2
+          },
+          "A": {
+            "coverage": "1",
+            "verifiedFraction": "0.5",
+            "freshnessFraction": "1",
+            "conflictCount": 0,
+            "missingCritical": [],
+            "weakestCriticalVerification": "verified"
+          },
+          "U": {
+            "gatePassFrequency": "1",
+            "rankStable": true,
+            "scenarioCount": 3,
+            "percentiles": [
+              {
+                "probability": "0.025",
+                "value": "9"
+              },
+              {
+                "probability": "0.5",
+                "value": "11"
+              },
+              {
+                "probability": "0.975",
+                "value": "13"
+              }
+            ]
+          },
+          "reasonCodes": []
+        }
+      ],
+      "warnings": [],
+      "reproductionHash": {
+        "alg": "SHA-256",
+        "value": "JRBfLGWlX-VoN6uQ5HLymK36v05tbCwxwHdneI0k5K0"
+      }
+    },
+    "safetyFailure": {
+      "schema": "EVLLM_DETERMINISTIC_ROUTE_ASSESSMENT_V1",
+      "assessmentInputId": "urn:evllm:assessment:00000000-0000-4000-8000-000000000102",
+      "assessmentInputVersion": 1,
+      "decisionState": "abstain",
+      "dominance": [
+        {
+          "dominant": "stationary-storage-repurposing",
+          "dominated": "recycling"
+        }
+      ],
+      "routes": [
+        {
+          "routeId": "continued-compatible-ev-use",
+          "G": "FAIL",
+          "C": {
+            "lower": "100",
+            "upper": "100",
+            "value": "100"
+          },
+          "I": [
+            {
+              "category": "gwp",
+              "unit": "kg-co2e/service",
+              "value": "4.25"
+            },
+            {
+              "category": "mineral-depletion",
+              "unit": "kg-sb-e/service",
+              "value": "1"
+            }
+          ],
+          "E": {
+            "currency": "EUR",
+            "netPresentValue": "10",
+            "paybackPeriod": 2
+          },
+          "A": {
+            "coverage": "1",
+            "verifiedFraction": "0.5",
+            "freshnessFraction": "1",
+            "conflictCount": 0,
+            "missingCritical": [],
+            "weakestCriticalVerification": "verified"
+          },
+          "U": {
+            "gatePassFrequency": "1",
+            "rankStable": true,
+            "scenarioCount": 3,
+            "percentiles": [
+              {
+                "probability": "0.025",
+                "value": "10"
+              },
+              {
+                "probability": "0.5",
+                "value": "12"
+              },
+              {
+                "probability": "0.975",
+                "value": "14"
+              }
+            ]
+          },
+          "reasonCodes": [
+            "TECHNICAL_RULE_FAILED",
+            "TECHNICAL_GATE_FAILED"
+          ]
+        },
+        {
+          "routeId": "stationary-storage-repurposing",
+          "G": "PASS",
+          "C": {
+            "lower": "75",
+            "upper": "75",
+            "value": "75"
+          },
+          "I": [
+            {
+              "category": "gwp",
+              "unit": "kg-co2e/service",
+              "value": "4.25"
+            },
+            {
+              "category": "mineral-depletion",
+              "unit": "kg-sb-e/service",
+              "value": "1"
+            }
+          ],
+          "E": {
+            "currency": "EUR",
+            "netPresentValue": "8",
+            "paybackPeriod": 2
+          },
+          "A": {
+            "coverage": "1",
+            "verifiedFraction": "0.5",
+            "freshnessFraction": "1",
+            "conflictCount": 0,
+            "missingCritical": [],
+            "weakestCriticalVerification": "verified"
+          },
+          "U": {
+            "gatePassFrequency": "1",
+            "rankStable": true,
+            "scenarioCount": 3,
+            "percentiles": [
+              {
+                "probability": "0.025",
+                "value": "10"
+              },
+              {
+                "probability": "0.5",
+                "value": "12"
+              },
+              {
+                "probability": "0.975",
+                "value": "14"
+              }
+            ]
+          },
+          "reasonCodes": []
+        },
+        {
+          "routeId": "recycling",
+          "G": "PASS",
+          "C": {
+            "lower": "50",
+            "upper": "50",
+            "value": "50"
+          },
+          "I": [
+            {
+              "category": "gwp",
+              "unit": "kg-co2e/service",
+              "value": "4.25"
+            },
+            {
+              "category": "mineral-depletion",
+              "unit": "kg-sb-e/service",
+              "value": "1"
+            }
+          ],
+          "E": {
+            "currency": "EUR",
+            "netPresentValue": "6",
+            "paybackPeriod": 2
+          },
+          "A": {
+            "coverage": "1",
+            "verifiedFraction": "0.5",
+            "freshnessFraction": "1",
+            "conflictCount": 0,
+            "missingCritical": [],
+            "weakestCriticalVerification": "verified"
+          },
+          "U": {
+            "gatePassFrequency": "1",
+            "rankStable": true,
+            "scenarioCount": 3,
+            "percentiles": [
+              {
+                "probability": "0.025",
+                "value": "10"
+              },
+              {
+                "probability": "0.5",
+                "value": "12"
+              },
+              {
+                "probability": "0.975",
+                "value": "14"
+              }
+            ]
+          },
+          "reasonCodes": []
+        }
+      ],
+      "warnings": [
+        "ROUTE_RANK_UNSTABLE"
+      ],
+      "reproductionHash": {
+        "alg": "SHA-256",
+        "value": "vbH2NUf9PtDFYiFqokld9P3tEEY5ZAyko82ty-KH2x0"
+      }
+    },
+    "missingEvidence": {
+      "schema": "EVLLM_DETERMINISTIC_ROUTE_ASSESSMENT_V1",
+      "assessmentInputId": "urn:evllm:assessment:00000000-0000-4000-8000-000000000103",
+      "assessmentInputVersion": 1,
+      "decisionState": "abstain",
+      "dominance": [
+        {
+          "dominant": "continued-compatible-ev-use",
+          "dominated": "recycling"
+        }
+      ],
+      "routes": [
+        {
+          "routeId": "continued-compatible-ev-use",
+          "G": "PASS",
+          "C": {
+            "lower": "100",
+            "upper": "100",
+            "value": "100"
+          },
+          "I": [
+            {
+              "category": "gwp",
+              "unit": "kg-co2e/service",
+              "value": "4.5"
+            },
+            {
+              "category": "mineral-depletion",
+              "unit": "kg-sb-e/service",
+              "value": "1"
+            }
+          ],
+          "E": {
+            "currency": "EUR",
+            "netPresentValue": "10",
+            "paybackPeriod": 2
+          },
+          "A": {
+            "coverage": "1",
+            "verifiedFraction": "0.5",
+            "freshnessFraction": "1",
+            "conflictCount": 0,
+            "missingCritical": [],
+            "weakestCriticalVerification": "verified"
+          },
+          "U": {
+            "gatePassFrequency": "1",
+            "rankStable": true,
+            "scenarioCount": 3,
+            "percentiles": [
+              {
+                "probability": "0.025",
+                "value": "11"
+              },
+              {
+                "probability": "0.5",
+                "value": "13"
+              },
+              {
+                "probability": "0.975",
+                "value": "15"
+              }
+            ]
+          },
+          "reasonCodes": []
+        },
+        {
+          "routeId": "stationary-storage-repurposing",
+          "G": "UNKNOWN",
+          "C": {
+            "lower": "75",
+            "upper": "75",
+            "value": "75"
+          },
+          "I": [
+            {
+              "category": "gwp",
+              "unit": "kg-co2e/service",
+              "value": "4.5"
+            },
+            {
+              "category": "mineral-depletion",
+              "unit": "kg-sb-e/service",
+              "value": "1"
+            }
+          ],
+          "E": {
+            "currency": "EUR",
+            "netPresentValue": "8",
+            "paybackPeriod": 2
+          },
+          "A": {
+            "coverage": "0.5",
+            "verifiedFraction": "0",
+            "freshnessFraction": "1",
+            "conflictCount": 0,
+            "missingCritical": [
+              "condition-and-safety"
+            ],
+            "weakestCriticalVerification": "missing"
+          },
+          "U": {
+            "gatePassFrequency": "1",
+            "rankStable": true,
+            "scenarioCount": 3,
+            "percentiles": [
+              {
+                "probability": "0.025",
+                "value": "11"
+              },
+              {
+                "probability": "0.5",
+                "value": "13"
+              },
+              {
+                "probability": "0.975",
+                "value": "15"
+              }
+            ]
+          },
+          "reasonCodes": [
+            "CRITICAL_EVIDENCE_UNKNOWN"
+          ]
+        },
+        {
+          "routeId": "recycling",
+          "G": "PASS",
+          "C": {
+            "lower": "50",
+            "upper": "50",
+            "value": "50"
+          },
+          "I": [
+            {
+              "category": "gwp",
+              "unit": "kg-co2e/service",
+              "value": "4.5"
+            },
+            {
+              "category": "mineral-depletion",
+              "unit": "kg-sb-e/service",
+              "value": "1"
+            }
+          ],
+          "E": {
+            "currency": "EUR",
+            "netPresentValue": "6",
+            "paybackPeriod": 2
+          },
+          "A": {
+            "coverage": "1",
+            "verifiedFraction": "0.5",
+            "freshnessFraction": "1",
+            "conflictCount": 0,
+            "missingCritical": [],
+            "weakestCriticalVerification": "verified"
+          },
+          "U": {
+            "gatePassFrequency": "1",
+            "rankStable": true,
+            "scenarioCount": 3,
+            "percentiles": [
+              {
+                "probability": "0.025",
+                "value": "11"
+              },
+              {
+                "probability": "0.5",
+                "value": "13"
+              },
+              {
+                "probability": "0.975",
+                "value": "15"
+              }
+            ]
+          },
+          "reasonCodes": []
+        }
+      ],
+      "warnings": [
+        "MISSING_OR_INSUFFICIENT_CRITICAL_EVIDENCE"
+      ],
+      "reproductionHash": {
+        "alg": "SHA-256",
+        "value": "t8PQ2NnpXVKIWuOTderHdTsM9rYCqSzmmFoO0FOV_Fc"
+      }
+    },
+    "conflictingEvidence": {
+      "schema": "EVLLM_DETERMINISTIC_ROUTE_ASSESSMENT_V1",
+      "assessmentInputId": "urn:evllm:assessment:00000000-0000-4000-8000-000000000104",
+      "assessmentInputVersion": 1,
+      "decisionState": "requires_external_decision",
+      "dominance": [
+        {
+          "dominant": "continued-compatible-ev-use",
+          "dominated": "stationary-storage-repurposing"
+        }
+      ],
+      "routes": [
+        {
+          "routeId": "continued-compatible-ev-use",
+          "G": "PASS",
+          "C": {
+            "lower": "100",
+            "upper": "100",
+            "value": "100"
+          },
+          "I": [
+            {
+              "category": "gwp",
+              "unit": "kg-co2e/service",
+              "value": "4.75"
+            },
+            {
+              "category": "mineral-depletion",
+              "unit": "kg-sb-e/service",
+              "value": "1"
+            }
+          ],
+          "E": {
+            "currency": "EUR",
+            "netPresentValue": "10",
+            "paybackPeriod": 2
+          },
+          "A": {
+            "coverage": "1",
+            "verifiedFraction": "0.5",
+            "freshnessFraction": "1",
+            "conflictCount": 0,
+            "missingCritical": [],
+            "weakestCriticalVerification": "verified"
+          },
+          "U": {
+            "gatePassFrequency": "1",
+            "rankStable": true,
+            "scenarioCount": 3,
+            "percentiles": [
+              {
+                "probability": "0.025",
+                "value": "12"
+              },
+              {
+                "probability": "0.5",
+                "value": "14"
+              },
+              {
+                "probability": "0.975",
+                "value": "16"
+              }
+            ]
+          },
+          "reasonCodes": []
+        },
+        {
+          "routeId": "stationary-storage-repurposing",
+          "G": "PASS",
+          "C": {
+            "lower": "75",
+            "upper": "75",
+            "value": "75"
+          },
+          "I": [
+            {
+              "category": "gwp",
+              "unit": "kg-co2e/service",
+              "value": "4.75"
+            },
+            {
+              "category": "mineral-depletion",
+              "unit": "kg-sb-e/service",
+              "value": "1"
+            }
+          ],
+          "E": {
+            "currency": "EUR",
+            "netPresentValue": "8",
+            "paybackPeriod": 2
+          },
+          "A": {
+            "coverage": "1",
+            "verifiedFraction": "0.5",
+            "freshnessFraction": "1",
+            "conflictCount": 0,
+            "missingCritical": [],
+            "weakestCriticalVerification": "verified"
+          },
+          "U": {
+            "gatePassFrequency": "1",
+            "rankStable": true,
+            "scenarioCount": 3,
+            "percentiles": [
+              {
+                "probability": "0.025",
+                "value": "12"
+              },
+              {
+                "probability": "0.5",
+                "value": "14"
+              },
+              {
+                "probability": "0.975",
+                "value": "16"
+              }
+            ]
+          },
+          "reasonCodes": []
+        },
+        {
+          "routeId": "recycling",
+          "G": "UNKNOWN",
+          "C": {
+            "lower": "50",
+            "upper": "50",
+            "value": "50"
+          },
+          "I": [
+            {
+              "category": "gwp",
+              "unit": "kg-co2e/service",
+              "value": "4.75"
+            },
+            {
+              "category": "mineral-depletion",
+              "unit": "kg-sb-e/service",
+              "value": "1"
+            }
+          ],
+          "E": {
+            "currency": "EUR",
+            "netPresentValue": "6",
+            "paybackPeriod": 2
+          },
+          "A": {
+            "coverage": "0.5",
+            "verifiedFraction": "0",
+            "freshnessFraction": "1",
+            "conflictCount": 1,
+            "missingCritical": [
+              "condition-and-safety"
+            ],
+            "weakestCriticalVerification": "missing"
+          },
+          "U": {
+            "gatePassFrequency": "1",
+            "rankStable": true,
+            "scenarioCount": 3,
+            "percentiles": [
+              {
+                "probability": "0.025",
+                "value": "12"
+              },
+              {
+                "probability": "0.5",
+                "value": "14"
+              },
+              {
+                "probability": "0.975",
+                "value": "16"
+              }
+            ]
+          },
+          "reasonCodes": [
+            "CRITICAL_EVIDENCE_UNKNOWN"
+          ]
+        }
+      ],
+      "warnings": [
+        "MISSING_OR_INSUFFICIENT_CRITICAL_EVIDENCE",
+        "CRITICAL_EVIDENCE_CONFLICT"
+      ],
+      "reproductionHash": {
+        "alg": "SHA-256",
+        "value": "PrqtRBbgexwznR9WxZjLgrXKtKWVY-Li7HyfsJRSUqc"
+      }
+    },
+    "contextSensitivity": {
+      "baseline": {
+        "schema": "EVLLM_DETERMINISTIC_ROUTE_ASSESSMENT_V1",
+        "assessmentInputId": "urn:evllm:assessment:00000000-0000-4000-8000-000000000105",
+        "assessmentInputVersion": 1,
+        "decisionState": "answer",
+        "preferredRoute": "continued-compatible-ev-use",
+        "dominance": [
+          {
+            "dominant": "continued-compatible-ev-use",
+            "dominated": "stationary-storage-repurposing"
+          },
+          {
+            "dominant": "continued-compatible-ev-use",
+            "dominated": "recycling"
+          },
+          {
+            "dominant": "stationary-storage-repurposing",
+            "dominated": "recycling"
+          }
+        ],
+        "routes": [
+          {
+            "routeId": "continued-compatible-ev-use",
+            "G": "PASS",
+            "C": {
+              "lower": "100",
+              "upper": "100",
+              "value": "100"
+            },
+            "I": [
+              {
+                "category": "gwp",
+                "unit": "kg-co2e/service",
+                "value": "5"
+              },
+              {
+                "category": "mineral-depletion",
+                "unit": "kg-sb-e/service",
+                "value": "1"
+              }
+            ],
+            "E": {
+              "currency": "EUR",
+              "netPresentValue": "10",
+              "paybackPeriod": 2
+            },
+            "A": {
+              "coverage": "1",
+              "verifiedFraction": "0.5",
+              "freshnessFraction": "1",
+              "conflictCount": 0,
+              "missingCritical": [],
+              "weakestCriticalVerification": "verified"
+            },
+            "U": {
+              "gatePassFrequency": "1",
+              "rankStable": true,
+              "scenarioCount": 3,
+              "percentiles": [
+                {
+                  "probability": "0.025",
+                  "value": "13"
+                },
+                {
+                  "probability": "0.5",
+                  "value": "15"
+                },
+                {
+                  "probability": "0.975",
+                  "value": "17"
+                }
+              ]
+            },
+            "reasonCodes": []
+          },
+          {
+            "routeId": "stationary-storage-repurposing",
+            "G": "PASS",
+            "C": {
+              "lower": "75",
+              "upper": "75",
+              "value": "75"
+            },
+            "I": [
+              {
+                "category": "gwp",
+                "unit": "kg-co2e/service",
+                "value": "5"
+              },
+              {
+                "category": "mineral-depletion",
+                "unit": "kg-sb-e/service",
+                "value": "1"
+              }
+            ],
+            "E": {
+              "currency": "EUR",
+              "netPresentValue": "8",
+              "paybackPeriod": 2
+            },
+            "A": {
+              "coverage": "1",
+              "verifiedFraction": "0.5",
+              "freshnessFraction": "1",
+              "conflictCount": 0,
+              "missingCritical": [],
+              "weakestCriticalVerification": "verified"
+            },
+            "U": {
+              "gatePassFrequency": "1",
+              "rankStable": true,
+              "scenarioCount": 3,
+              "percentiles": [
+                {
+                  "probability": "0.025",
+                  "value": "13"
+                },
+                {
+                  "probability": "0.5",
+                  "value": "15"
+                },
+                {
+                  "probability": "0.975",
+                  "value": "17"
+                }
+              ]
+            },
+            "reasonCodes": []
+          },
+          {
+            "routeId": "recycling",
+            "G": "PASS",
+            "C": {
+              "lower": "50",
+              "upper": "50",
+              "value": "50"
+            },
+            "I": [
+              {
+                "category": "gwp",
+                "unit": "kg-co2e/service",
+                "value": "5"
+              },
+              {
+                "category": "mineral-depletion",
+                "unit": "kg-sb-e/service",
+                "value": "1"
+              }
+            ],
+            "E": {
+              "currency": "EUR",
+              "netPresentValue": "6",
+              "paybackPeriod": 2
+            },
+            "A": {
+              "coverage": "1",
+              "verifiedFraction": "0.5",
+              "freshnessFraction": "1",
+              "conflictCount": 0,
+              "missingCritical": [],
+              "weakestCriticalVerification": "verified"
+            },
+            "U": {
+              "gatePassFrequency": "1",
+              "rankStable": true,
+              "scenarioCount": 3,
+              "percentiles": [
+                {
+                  "probability": "0.025",
+                  "value": "13"
+                },
+                {
+                  "probability": "0.5",
+                  "value": "15"
+                },
+                {
+                  "probability": "0.975",
+                  "value": "17"
+                }
+              ]
+            },
+            "reasonCodes": []
+          }
+        ],
+        "warnings": [],
+        "reproductionHash": {
+          "alg": "SHA-256",
+          "value": "Bm22W4R-ZtVqNfWgH4ADt6a0ePY_bBKxO2W_3DQQoh8"
+        }
+      },
+      "changed": {
+        "schema": "EVLLM_DETERMINISTIC_ROUTE_ASSESSMENT_V1",
+        "assessmentInputId": "urn:evllm:assessment:00000000-0000-4000-8000-000000000105",
+        "assessmentInputVersion": 1,
+        "decisionState": "answer",
+        "preferredRoute": "continued-compatible-ev-use",
+        "dominance": [
+          {
+            "dominant": "continued-compatible-ev-use",
+            "dominated": "stationary-storage-repurposing"
+          },
+          {
+            "dominant": "continued-compatible-ev-use",
+            "dominated": "recycling"
+          },
+          {
+            "dominant": "stationary-storage-repurposing",
+            "dominated": "recycling"
+          }
+        ],
+        "routes": [
+          {
+            "routeId": "continued-compatible-ev-use",
+            "G": "PASS",
+            "C": {
+              "lower": "100",
+              "upper": "100",
+              "value": "100"
+            },
+            "I": [
+              {
+                "category": "gwp",
+                "unit": "kg-co2e/service",
+                "value": "4.5"
+              },
+              {
+                "category": "mineral-depletion",
+                "unit": "kg-sb-e/service",
+                "value": "1"
+              }
+            ],
+            "E": {
+              "currency": "EUR",
+              "netPresentValue": "10",
+              "paybackPeriod": 2
+            },
+            "A": {
+              "coverage": "1",
+              "verifiedFraction": "0.5",
+              "freshnessFraction": "1",
+              "conflictCount": 0,
+              "missingCritical": [],
+              "weakestCriticalVerification": "verified"
+            },
+            "U": {
+              "gatePassFrequency": "1",
+              "rankStable": true,
+              "scenarioCount": 3,
+              "percentiles": [
+                {
+                  "probability": "0.025",
+                  "value": "13"
+                },
+                {
+                  "probability": "0.5",
+                  "value": "15"
+                },
+                {
+                  "probability": "0.975",
+                  "value": "17"
+                }
+              ]
+            },
+            "reasonCodes": []
+          },
+          {
+            "routeId": "stationary-storage-repurposing",
+            "G": "PASS",
+            "C": {
+              "lower": "75",
+              "upper": "75",
+              "value": "75"
+            },
+            "I": [
+              {
+                "category": "gwp",
+                "unit": "kg-co2e/service",
+                "value": "5"
+              },
+              {
+                "category": "mineral-depletion",
+                "unit": "kg-sb-e/service",
+                "value": "1"
+              }
+            ],
+            "E": {
+              "currency": "EUR",
+              "netPresentValue": "8",
+              "paybackPeriod": 2
+            },
+            "A": {
+              "coverage": "1",
+              "verifiedFraction": "0.5",
+              "freshnessFraction": "1",
+              "conflictCount": 0,
+              "missingCritical": [],
+              "weakestCriticalVerification": "verified"
+            },
+            "U": {
+              "gatePassFrequency": "1",
+              "rankStable": true,
+              "scenarioCount": 3,
+              "percentiles": [
+                {
+                  "probability": "0.025",
+                  "value": "13"
+                },
+                {
+                  "probability": "0.5",
+                  "value": "15"
+                },
+                {
+                  "probability": "0.975",
+                  "value": "17"
+                }
+              ]
+            },
+            "reasonCodes": []
+          },
+          {
+            "routeId": "recycling",
+            "G": "PASS",
+            "C": {
+              "lower": "50",
+              "upper": "50",
+              "value": "50"
+            },
+            "I": [
+              {
+                "category": "gwp",
+                "unit": "kg-co2e/service",
+                "value": "5"
+              },
+              {
+                "category": "mineral-depletion",
+                "unit": "kg-sb-e/service",
+                "value": "1"
+              }
+            ],
+            "E": {
+              "currency": "EUR",
+              "netPresentValue": "6",
+              "paybackPeriod": 2
+            },
+            "A": {
+              "coverage": "1",
+              "verifiedFraction": "0.5",
+              "freshnessFraction": "1",
+              "conflictCount": 0,
+              "missingCritical": [],
+              "weakestCriticalVerification": "verified"
+            },
+            "U": {
+              "gatePassFrequency": "1",
+              "rankStable": true,
+              "scenarioCount": 3,
+              "percentiles": [
+                {
+                  "probability": "0.025",
+                  "value": "13"
+                },
+                {
+                  "probability": "0.5",
+                  "value": "15"
+                },
+                {
+                  "probability": "0.975",
+                  "value": "17"
+                }
+              ]
+            },
+            "reasonCodes": []
+          }
+        ],
+        "warnings": [],
+        "reproductionHash": {
+          "alg": "SHA-256",
+          "value": "bh6xwPOiPwbfl-hQIr3VYwH9YJWzy_u-zehRfSt6qDU"
+        }
+      },
+      "changedComponent": "I",
+      "unchangedComponents": [
+        "C",
+        "E"
+      ]
+    },
+    "deterministicReplay": {
+      "byteIdentical": true,
+      "firstHash": {
+        "alg": "SHA-256",
+        "value": "JRBfLGWlX-VoN6uQ5HLymK36v05tbCwxwHdneI0k5K0"
+      },
+      "replayHash": {
+        "alg": "SHA-256",
+        "value": "JRBfLGWlX-VoN6uQ5HLymK36v05tbCwxwHdneI0k5K0"
+      }
+    }
+  },
+  "assertions": {
+    "nominalAnswers": true,
+    "failedGateCannotBePreferred": true,
+    "missingCriticalEvidenceAbstains": true,
+    "conflictRequiresExternalDecision": true,
+    "contextChangesEnvironmentalIndicator": true,
+    "contextPreservesCircularity": true,
+    "contextPreservesEconomics": true,
+    "deterministicReplay": true
+  }
+}

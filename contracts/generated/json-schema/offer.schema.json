@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "schema": { "type": "string", "const": "EVLLM_OFFER_V1" },
+    "offer_id": {
+      "type": "string",
+      "pattern": "^urn:evllm:offer:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "offer_version": { "type": "number", "const": 1 },
+    "listing_id": {
+      "type": "string",
+      "pattern": "^urn:evllm:listing:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "listing_version": { "type": "number", "const": 1 },
+    "buyer_organization_id": {
+      "type": "string",
+      "pattern": "^urn:evllm:org:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "amount": { "type": "string", "pattern": "^0x[0-9a-f]{64}$" },
+    "buyer_refund_address": { "type": "string", "pattern": "^0x[0-9a-f]{40}$" },
+    "binding_actor_id": {
+      "type": "string",
+      "pattern": "^urn:evllm:actor:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "binding_time": { "$ref": "#/$defs/__schema0" },
+    "expires_at": { "$ref": "#/$defs/__schema0" },
+    "terms_commitment": {
+      "type": "object",
+      "properties": {
+        "alg": { "type": "string", "const": "SHA-256" },
+        "value": { "type": "string", "pattern": "^[A-Za-z0-9_-]{43}$" }
+      },
+      "required": ["alg", "value"],
+      "additionalProperties": false
+    },
+    "state": {
+      "type": "string",
+      "enum": ["submitted", "accepted", "rejected", "withdrawn", "expired"]
+    }
+  },
+  "required": [
+    "schema",
+    "offer_id",
+    "offer_version",
+    "listing_id",
+    "listing_version",
+    "buyer_organization_id",
+    "amount",
+    "buyer_refund_address",
+    "binding_actor_id",
+    "binding_time",
+    "expires_at",
+    "terms_commitment",
+    "state"
+  ],
+  "additionalProperties": false,
+  "$defs": { "__schema0": { "type": "integer", "minimum": 0, "maximum": 9007199254740991 } }
+}

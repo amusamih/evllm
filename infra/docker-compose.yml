@@ -1,0 +1,28 @@
+name: evllm
+
+services:
+  postgres:
+    image: pgvector/pgvector:0.8.2-pg17-trixie@sha256:5c97c57367a485a8e99389548db67d441ab1a878f5492c3df04989f34ecf3c75
+    environment:
+      POSTGRES_DB: ${EVLLM_DB_NAME:-evllm}
+      POSTGRES_PASSWORD: ${EVLLM_DB_PASSWORD:?EVLLM_DB_PASSWORD must be set}
+      POSTGRES_USER: ${EVLLM_DB_USER:-evllm}
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB} && psql -U $${POSTGRES_USER} -d
+          $${POSTGRES_DB} -c 'SELECT 1' >/dev/null",
+        ]
+      interval: 5s
+      timeout: 5s
+      retries: 12
+      start_period: 10s
+    ports:
+      - "127.0.0.1:${EVLLM_DB_PORT:-5432}:5432"
+    restart: unless-stopped
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+
+volumes:
+  postgres-data:

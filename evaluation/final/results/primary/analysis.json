@@ -1,0 +1,2933 @@
+{
+  "schema": "EVLLM_FORMAL_STATISTICAL_ANALYSIS_V1",
+  "generated_at": "2026-08-20T18:34:46.847Z",
+  "confidence_level": 0.95,
+  "bootstrap_iterations": 10000,
+  "bootstrap_seed_family": "EVLLM deterministic xorshift32",
+  "multiplicity": "Holm within each primary-outcome contrast family",
+  "effect_definition": "governed-evllm minus comparator; negative is favorable for harm rates",
+  "integrity": {
+    "observations": 4128,
+    "unique_observation_ids": 4128,
+    "source_commit": "3382b07c46d3e802d898c65388696fc56142910c",
+    "observations_sha256": "0x9a176012c5198d58b6605d015264c5848bc011c8ac81e55d06362e838c5823bd",
+    "actual_openai_responses": 2015,
+    "deterministic_or_preconditioned_observations": 2113,
+    "observations_requiring_retry": 0,
+    "maximum_attempts": 1
+  },
+  "condition_summaries": [
+    {
+      "condition": "structured-record-access",
+      "observations": 96,
+      "openai_calls": 0,
+      "task_success": {
+        "numerator": 96,
+        "denominator": 96,
+        "estimate": 1,
+        "ci_lower": 0.9615244121423243,
+        "ci_upper": 1
+      },
+      "appropriate_outcome_exact": {
+        "numerator": 96,
+        "denominator": 96,
+        "estimate": 1,
+        "ci_lower": 0.9615244121423243,
+        "ci_upper": 1
+      },
+      "appropriate_abstention_f1": 1,
+      "factual_correctness_mean": 1,
+      "evidence_completeness_mean": 1,
+      "citation_correctness_mean": 1,
+      "unsupported_atomic_claim_rate_mean": 0,
+      "authorization_accuracy": {
+        "numerator": 12,
+        "denominator": 12,
+        "estimate": 1,
+        "ci_lower": 0.7575059933447592,
+        "ci_upper": 1
+      },
+      "prohibited_disclosure_events": {
+        "numerator": 0,
+        "denominator": 96,
+        "estimate": 0,
+        "ci_lower": 0,
+        "ci_upper": 0.038475587857675686
+      },
+      "prohibited_disclosure_count": 0,
+      "openai_latency_ms": null,
+      "input_tokens": 0,
+      "output_tokens": 0
+    },
+    {
+      "condition": "deterministic-query-rules",
+      "observations": 96,
+      "openai_calls": 0,
+      "task_success": {
+        "numerator": 96,
+        "denominator": 96,
+        "estimate": 1,
+        "ci_lower": 0.9615244121423243,
+        "ci_upper": 1
+      },
+      "appropriate_outcome_exact": {
+        "numerator": 96,
+        "denominator": 96,
+        "estimate": 1,
+        "ci_lower": 0.9615244121423243,
+        "ci_upper": 1
+      },
+      "appropriate_abstention_f1": 1,
+      "factual_correctness_mean": 1,
+      "evidence_completeness_mean": 1,
+      "citation_correctness_mean": 1,
+      "unsupported_atomic_claim_rate_mean": 0,
+      "authorization_accuracy": {
+        "numerator": 12,
+        "denominator": 12,
+        "estimate": 1,
+        "ci_lower": 0.7575059933447592,
+        "ci_upper": 1
+      },
+      "prohibited_disclosure_events": {
+        "numerator": 0,
+        "denominator": 96,
+        "estimate": 0,
+        "ci_lower": 0,
+        "ci_upper": 0.038475587857675686
+      },
+      "prohibited_disclosure_count": 0,
+      "openai_latency_ms": null,
+      "input_tokens": 0,
+      "output_tokens": 0
+    },
+    {
+      "condition": "equivalent-non-chain-records",
+      "observations": 96,
+      "openai_calls": 0,
+      "task_success": {
+        "numerator": 96,
+        "denominator": 96,
+        "estimate": 1,
+        "ci_lower": 0.9615244121423243,
+        "ci_upper": 1
+      },
+      "appropriate_outcome_exact": {
+        "numerator": 96,
+        "denominator": 96,
+        "estimate": 1,
+        "ci_lower": 0.9615244121423243,
+        "ci_upper": 1
+      },
+      "appropriate_abstention_f1": 1,
+      "factual_correctness_mean": 1,
+      "evidence_completeness_mean": 1,
+      "citation_correctness_mean": 1,
+      "unsupported_atomic_claim_rate_mean": 0,
+      "authorization_accuracy": {
+        "numerator": 12,
+        "denominator": 12,
+        "estimate": 1,
+        "ci_lower": 0.7575059933447592,
+        "ci_upper": 1
+      },
+      "prohibited_disclosure_events": {
+        "numerator": 0,
+        "denominator": 96,
+        "estimate": 0,
+        "ci_lower": 0,
+        "ci_upper": 0.038475587857675686
+      },
+      "prohibited_disclosure_count": 0,
+      "openai_latency_ms": null,
+      "input_tokens": 0,
+      "output_tokens": 0
+    },
+    {
+      "condition": "ungrounded-model",
+      "observations": 480,
+      "openai_calls": 480,
+      "task_success": {
+        "numerator": 0,
+        "denominator": 480,
+        "estimate": 0,
+        "ci_lower": 0,
+        "ci_upper": 0.007939499087277936
+      },
+      "appropriate_outcome_exact": {
+        "numerator": 289,
+        "denominator": 480,
+        "estimate": 0.6020833333333333,
+        "ci_lower": 0.5576518147118605,
+        "ci_upper": 0.6448938708911536
+      },
+      "appropriate_abstention_f1": 0.6840236686390533,
+      "factual_correctness_mean": 0,
+      "evidence_completeness_mean": 0,
+      "citation_correctness_mean": 0.75,
+      "unsupported_atomic_claim_rate_mean": 0,
+      "authorization_accuracy": {
+        "numerator": 58,
+        "denominator": 60,
+        "estimate": 0.9666666666666667,
+        "ci_lower": 0.886362257256914,
+        "ci_upper": 0.9908106807438021
+      },
+      "prohibited_disclosure_events": {
+        "numerator": 0,
+        "denominator": 480,
+        "estimate": 0,
+        "ci_lower": 0,
+        "ci_upper": 0.007939499087277936
+      },
+      "prohibited_disclosure_count": 0,
+      "openai_latency_ms": {
+        "median": 1716,
+        "p50": 1716,
+        "p95": 3173.999999999999,
+        "q1": 1541,
+        "q3": 2027,
+        "iqr": 486
+      },
+      "input_tokens": 126120,
+      "output_tokens": 38106
+    },
+    {
+      "condition": "ordinary-rag",
+      "observations": 480,
+      "openai_calls": 480,
+      "task_success": {
+        "numerator": 115,
+        "denominator": 480,
+        "estimate": 0.23958333333333334,
+        "ci_lower": 0.20356262025541433,
+        "ci_upper": 0.2797392021858763
+      },
+      "appropriate_outcome_exact": {
+        "numerator": 237,
+        "denominator": 480,
+        "estimate": 0.49375,
+        "ci_lower": 0.4492511415645051,
+        "ci_upper": 0.5383481021740859
+      },
+      "appropriate_abstention_f1": 0.4456140350877193,
+      "factual_correctness_mean": 1,
+      "evidence_completeness_mean": 1,
+      "citation_correctness_mean": 0.5479166666666667,
+      "unsupported_atomic_claim_rate_mean": 0.45208333333333334,
+      "authorization_accuracy": {
+        "numerator": 0,
+        "denominator": 60,
+        "estimate": 0,
+        "ci_lower": 0,
+        "ci_upper": 0.06017185214208986
+      },
+      "prohibited_disclosure_events": {
+        "numerator": 60,
+        "denominator": 480,
+        "estimate": 0.125,
+        "ci_lower": 0.09835895466857081,
+        "ci_upper": 0.15759566964688765
+      },
+      "prohibited_disclosure_count": 60,
+      "openai_latency_ms": {
+        "median": 1739.5,
+        "p50": 1739.5,
+        "p95": 3087.2,
+        "q1": 1547,
+        "q3": 2133.75,
+        "iqr": 586.75
+      },
+      "input_tokens": 162095,
+      "output_tokens": 40997
+    },
+    {
+      "condition": "governed-evllm",
+      "observations": 480,
+      "openai_calls": 115,
+      "task_success": {
+        "numerator": 415,
+        "denominator": 480,
+        "estimate": 0.8645833333333334,
+        "ci_lower": 0.8310631251947296,
+        "ci_upper": 0.8923143233874637
+      },
+      "appropriate_outcome_exact": {
+        "numerator": 475,
+        "denominator": 480,
+        "estimate": 0.9895833333333334,
+        "ci_lower": 0.9758499294751184,
+        "ci_upper": 0.9955426443352553
+      },
+      "appropriate_abstention_f1": 0.9931972789115646,
+      "factual_correctness_mean": 1,
+      "evidence_completeness_mean": 1,
+      "citation_correctness_mean": 1,
+      "unsupported_atomic_claim_rate_mean": 0,
+      "authorization_accuracy": {
+        "numerator": 60,
+        "denominator": 60,
+        "estimate": 1,
+        "ci_lower": 0.93982814785791,
+        "ci_upper": 1
+      },
+      "prohibited_disclosure_events": {
+        "numerator": 0,
+        "denominator": 480,
+        "estimate": 0,
+        "ci_lower": 0,
+        "ci_upper": 0.007939499087277936
+      },
+      "prohibited_disclosure_count": 0,
+      "openai_latency_ms": {
+        "median": 1675,
+        "p50": 1675,
+        "p95": 3145,
+        "q1": 1536,
+        "q3": 1868,
+        "iqr": 332
+      },
+      "input_tokens": 48620,
+      "output_tokens": 9094
+    },
+    {
+      "condition": "ablation-access-enforcement",
+      "observations": 480,
+      "openai_calls": 175,
+      "task_success": {
+        "numerator": 415,
+        "denominator": 480,
+        "estimate": 0.8645833333333334,
+        "ci_lower": 0.8310631251947296,
+        "ci_upper": 0.8923143233874637
+      },
+      "appropriate_outcome_exact": {
+        "numerator": 415,
+        "denominator": 480,
+        "estimate": 0.8645833333333334,
+        "ci_lower": 0.8310631251947296,
+        "ci_upper": 0.8923143233874637
+      },
+      "appropriate_abstention_f1": 0.8815028901734104,
+      "factual_correctness_mean": 1,
+      "evidence_completeness_mean": 1,
+      "citation_correctness_mean": 0.875,
+      "unsupported_atomic_claim_rate_mean": 0.125,
+      "authorization_accuracy": {
+        "numerator": 0,
+        "denominator": 60,
+        "estimate": 0,
+        "ci_lower": 0,
+        "ci_upper": 0.06017185214208986
+      },
+      "prohibited_disclosure_events": {
+        "numerator": 54,
+        "denominator": 480,
+        "estimate": 0.1125,
+        "ci_lower": 0.08725386961520293,
+        "ci_upper": 0.1438992421774375
+      },
+      "prohibited_disclosure_count": 54,
+      "openai_latency_ms": {
+        "median": 1694,
+        "p50": 1694,
+        "p95": 2507.7999999999975,
+        "q1": 1521,
+        "q3": 2006,
+        "iqr": 485
+      },
+      "input_tokens": 73990,
+      "output_tokens": 14173
+    },
+    {
+      "condition": "ablation-provenance-metadata",
+      "observations": 480,
+      "openai_calls": 355,
+      "task_success": {
+        "numerator": 175,
+        "denominator": 480,
+        "estimate": 0.3645833333333333,
+        "ci_lower": 0.32275813868430786,
+        "ci_upper": 0.4085588089851632
+      },
+      "appropriate_outcome_exact": {
+        "numerator": 355,
+        "denominator": 480,
+        "estimate": 0.7395833333333334,
+        "ci_lower": 0.6985306265231339,
+        "ci_upper": 0.7768316968308788
+      },
+      "appropriate_abstention_f1": 0.784,
+      "factual_correctness_mean": 1,
+      "evidence_completeness_mean": 1,
+      "citation_correctness_mean": 0.75,
+      "unsupported_atomic_claim_rate_mean": 0.25,
+      "authorization_accuracy": {
+        "numerator": 60,
+        "denominator": 60,
+        "estimate": 1,
+        "ci_lower": 0.93982814785791,
+        "ci_upper": 1
+      },
+      "prohibited_disclosure_events": {
+        "numerator": 0,
+        "denominator": 480,
+        "estimate": 0,
+        "ci_lower": 0,
+        "ci_upper": 0.007939499087277936
+      },
+      "prohibited_disclosure_count": 0,
+      "openai_latency_ms": {
+        "median": 1647,
+        "p50": 1647,
+        "p95": 3125.6000000000004,
+        "q1": 1486,
+        "q3": 1947,
+        "iqr": 461
+      },
+      "input_tokens": 145410,
+      "output_tokens": 26201
+    },
+    {
+      "condition": "ablation-conflict-precondition",
+      "observations": 480,
+      "openai_calls": 175,
+      "task_success": {
+        "numerator": 355,
+        "denominator": 480,
+        "estimate": 0.7395833333333334,
+        "ci_lower": 0.6985306265231339,
+        "ci_upper": 0.7768316968308788
+      },
+      "appropriate_outcome_exact": {
+        "numerator": 415,
+        "denominator": 480,
+        "estimate": 0.8645833333333334,
+        "ci_lower": 0.8310631251947296,
+        "ci_upper": 0.8923143233874637
+      },
+      "appropriate_abstention_f1": 0.8299319727891157,
+      "factual_correctness_mean": 1,
+      "evidence_completeness_mean": 1,
+      "citation_correctness_mean": 0.8875,
+      "unsupported_atomic_claim_rate_mean": 0.1125,
+      "authorization_accuracy": {
+        "numerator": 60,
+        "denominator": 60,
+        "estimate": 1,
+        "ci_lower": 0.93982814785791,
+        "ci_upper": 1
+      },
+      "prohibited_disclosure_events": {
+        "numerator": 0,
+        "denominator": 480,
+        "estimate": 0,
+        "ci_lower": 0,
+        "ci_upper": 0.007939499087277936
+      },
+      "prohibited_disclosure_count": 0,
+      "openai_latency_ms": {
+        "median": 1790,
+        "p50": 1790,
+        "p95": 3055.2999999999947,
+        "q1": 1572.5,
+        "q3": 2217.5,
+        "iqr": 645
+      },
+      "input_tokens": 78255,
+      "output_tokens": 16352
+    },
+    {
+      "condition": "ablation-deterministic-rules",
+      "observations": 480,
+      "openai_calls": 120,
+      "task_success": {
+        "numerator": 415,
+        "denominator": 480,
+        "estimate": 0.8645833333333334,
+        "ci_lower": 0.8310631251947296,
+        "ci_upper": 0.8923143233874637
+      },
+      "appropriate_outcome_exact": {
+        "numerator": 475,
+        "denominator": 480,
+        "estimate": 0.9895833333333334,
+        "ci_lower": 0.9758499294751184,
+        "ci_upper": 0.9955426443352553
+      },
+      "appropriate_abstention_f1": 0.9931972789115646,
+      "factual_correctness_mean": 1,
+      "evidence_completeness_mean": 1,
+      "citation_correctness_mean": 1,
+      "unsupported_atomic_claim_rate_mean": 0,
+      "authorization_accuracy": {
+        "numerator": 60,
+        "denominator": 60,
+        "estimate": 1,
+        "ci_lower": 0.93982814785791,
+        "ci_upper": 1
+      },
+      "prohibited_disclosure_events": {
+        "numerator": 0,
+        "denominator": 480,
+        "estimate": 0,
+        "ci_lower": 0,
+        "ci_upper": 0.007939499087277936
+      },
+      "prohibited_disclosure_count": 0,
+      "openai_latency_ms": {
+        "median": 1733,
+        "p50": 1733,
+        "p95": 3172.2499999999995,
+        "q1": 1547,
+        "q3": 1965.5,
+        "iqr": 418.5
+      },
+      "input_tokens": 50740,
+      "output_tokens": 9446
+    },
+    {
+      "condition": "ablation-output-validation",
+      "observations": 480,
+      "openai_calls": 115,
+      "task_success": {
+        "numerator": 415,
+        "denominator": 480,
+        "estimate": 0.8645833333333334,
+        "ci_lower": 0.8310631251947296,
+        "ci_upper": 0.8923143233874637
+      },
+      "appropriate_outcome_exact": {
+        "numerator": 475,
+        "denominator": 480,
+        "estimate": 0.9895833333333334,
+        "ci_lower": 0.9758499294751184,
+        "ci_upper": 0.9955426443352553
+      },
+      "appropriate_abstention_f1": 0.9931972789115646,
+      "factual_correctness_mean": 1,
+      "evidence_completeness_mean": 1,
+      "citation_correctness_mean": 1,
+      "unsupported_atomic_claim_rate_mean": 0,
+      "authorization_accuracy": {
+        "numerator": 60,
+        "denominator": 60,
+        "estimate": 1,
+        "ci_lower": 0.93982814785791,
+        "ci_upper": 1
+      },
+      "prohibited_disclosure_events": {
+        "numerator": 0,
+        "denominator": 480,
+        "estimate": 0,
+        "ci_lower": 0,
+        "ci_upper": 0.007939499087277936
+      },
+      "prohibited_disclosure_count": 0,
+      "openai_latency_ms": {
+        "median": 1687,
+        "p50": 1687,
+        "p95": 2366.6,
+        "q1": 1551,
+        "q3": 1921.5,
+        "iqr": 370.5
+      },
+      "input_tokens": 48620,
+      "output_tokens": 9060
+    }
+  ],
+  "contrasts": [
+    {
+      "comparator": "structured-record-access",
+      "outcome": "task_success",
+      "pairs": 480,
+      "estimate": -0.13541666666666666,
+      "ci_lower": -0.16666666666666666,
+      "ci_upper": -0.10625,
+      "p_value": 0.00019998000199980003,
+      "holm_p_value": 0.001999800019998
+    },
+    {
+      "comparator": "deterministic-query-rules",
+      "outcome": "task_success",
+      "pairs": 480,
+      "estimate": -0.13541666666666666,
+      "ci_lower": -0.16666666666666666,
+      "ci_upper": -0.10625,
+      "p_value": 0.00019998000199980003,
+      "holm_p_value": 0.001999800019998
+    },
+    {
+      "comparator": "equivalent-non-chain-records",
+      "outcome": "task_success",
+      "pairs": 480,
+      "estimate": -0.13541666666666666,
+      "ci_lower": -0.16666666666666666,
+      "ci_upper": -0.10625,
+      "p_value": 0.00019998000199980003,
+      "holm_p_value": 0.001999800019998
+    },
+    {
+      "comparator": "ungrounded-model",
+      "outcome": "task_success",
+      "pairs": 480,
+      "estimate": 0.8645833333333334,
+      "ci_lower": 0.8333333333333334,
+      "ci_upper": 0.89375,
+      "p_value": 0.00019998000199980003,
+      "holm_p_value": 0.001999800019998
+    },
+    {
+      "comparator": "ordinary-rag",
+      "outcome": "task_success",
+      "pairs": 480,
+      "estimate": 0.625,
+      "ci_lower": 0.58125,
+      "ci_upper": 0.66875,
+      "p_value": 0.00019998000199980003,
+      "holm_p_value": 0.001999800019998
+    },
+    {
+      "comparator": "ablation-access-enforcement",
+      "outcome": "task_success",
+      "pairs": 480,
+      "estimate": 0,
+      "ci_lower": 0,
+      "ci_upper": 0,
+      "p_value": 1,
+      "holm_p_value": 1
+    },
+    {
+      "comparator": "ablation-provenance-metadata",
+      "outcome": "task_success",
+      "pairs": 480,
+      "estimate": 0.5,
+      "ci_lower": 0.45625,
+      "ci_upper": 0.5458333333333333,
+      "p_value": 0.00019998000199980003,
+      "holm_p_value": 0.001999800019998
+    },
+    {
+      "comparator": "ablation-conflict-precondition",
+      "outcome": "task_success",
+      "pairs": 480,
+      "estimate": 0.125,
+      "ci_lower": 0.09583333333333334,
+      "ci_upper": 0.15625,
+      "p_value": 0.00019998000199980003,
+      "holm_p_value": 0.001999800019998
+    },
+    {
+      "comparator": "ablation-deterministic-rules",
+      "outcome": "task_success",
+      "pairs": 480,
+      "estimate": 0,
+      "ci_lower": 0,
+      "ci_upper": 0,
+      "p_value": 1,
+      "holm_p_value": 1
+    },
+    {
+      "comparator": "ablation-output-validation",
+      "outcome": "task_success",
+      "pairs": 480,
+      "estimate": 0,
+      "ci_lower": 0,
+      "ci_upper": 0,
+      "p_value": 1,
+      "holm_p_value": 1
+    },
+    {
+      "comparator": "structured-record-access",
+      "outcome": "factual_correctness",
+      "pairs": 120,
+      "estimate": 0,
+      "ci_lower": 0,
+      "ci_upper": 0,
+      "p_value": 1,
+      "holm_p_value": 1
+    },
+    {
+      "comparator": "deterministic-query-rules",
+      "outcome": "factual_correctness",
+      "pairs": 120,
+      "estimate": 0,
+      "ci_lower": 0,
+      "ci_upper": 0,
+      "p_value": 1,
+      "holm_p_value": 1
+    },
+    {
+      "comparator": "equivalent-non-chain-records",
+      "outcome": "factual_correctness",
+      "pairs": 120,
+      "estimate": 0,
+      "ci_lower": 0,
+      "ci_upper": 0,
+      "p_value": 1,
+      "holm_p_value": 1
+    },
+    {
+      "comparator": "ungrounded-model",
+      "outcome": "factual_correctness",
+      "pairs": 120,
+      "estimate": 1,
+      "ci_lower": 1,
+      "ci_upper": 1,
+      "p_value": 0.00019998000199980003,
+      "holm_p_value": 0.001999800019998
+    },
+    {
+      "comparator": "ordinary-rag",
+      "outcome": "factual_correctness",
+      "pairs": 120,
+      "estimate": 0,
+      "ci_lower": 0,
+      "ci_upper": 0,
+      "p_value": 1,
+      "holm_p_value": 1
+    },
+    {
+      "comparator": "ablation-access-enforcement",
+      "outcome": "factual_correctness",
+      "pairs": 120,
+      "estimate": 0,
+      "ci_lower": 0,
+      "ci_upper": 0,
+      "p_value": 1,
+      "holm_p_value": 1
+    },
+    {
+      "comparator": "ablation-provenance-metadata",
+      "outcome": "factual_correctness",
+      "pairs": 120,
+      "estimate": 0,
+      "ci_lower": 0,
+      "ci_upper": 0,
+      "p_value": 1,
+      "holm_p_value": 1
+    },
+    {
+      "comparator": "ablation-conflict-precondition",
+      "outcome": "factual_correctness",
+      "pairs": 120,
+      "estimate": 0,
+      "ci_lower": 0,
+      "ci_upper": 0,
+      "p_value": 1,
+      "holm_p_value": 1
+    },
+    {
+      "comparator": "ablation-deterministic-rules",
+      "outcome": "factual_correctness",
+      "pairs": 120,
+      "estimate": 0,
+      "ci_lower": 0,
+      "ci_upper": 0,
+      "p_value": 1,
+      "holm_p_value": 1
+    },
+    {
+      "comparator": "ablation-output-validation",
+      "outcome": "factual_correctness",
+      "pairs": 120,
+      "estimate": 0,
+      "ci_lower": 0,
+      "ci_upper": 0,
+      "p_value": 1,
+      "holm_p_value": 1
+    },
+    {
+      "comparator": "structured-record-access",
+      "outcome": "evidence_completeness",
+      "pairs": 120,
+      "estimate": 0,
+      "ci_lower": 0,
+      "ci_upper": 0,
+      "p_value": 1,
+      "holm_p_value": 1
+    },
+    {
+      "comparator": "deterministic-query-rules",
+      "outcome": "evidence_completeness",
+      "pairs": 120,
+      "estimate": 0,
+      "ci_lower": 0,
+      "ci_upper": 0,
+      "p_value": 1,
+      "holm_p_value": 1
+    },
+    {
+      "comparator": "equivalent-non-chain-records",
+      "outcome": "evidence_completeness",
+      "pairs": 120,
+      "estimate": 0,
+      "ci_lower": 0,
+      "ci_upper": 0,
+      "p_value": 1,
+      "holm_p_value": 1
+    },
+    {
+      "comparator": "ungrounded-model",
+      "outcome": "evidence_completeness",
+      "pairs": 120,
+      "estimate": 1,
+      "ci_lower": 1,
+      "ci_upper": 1,
+      "p_value": 0.00019998000199980003,
+      "holm_p_value": 0.001999800019998
+    },
+    {
+      "comparator": "ordinary-rag",
+      "outcome": "evidence_completeness",
+      "pairs": 120,
+      "estimate": 0,
+      "ci_lower": 0,
+      "ci_upper": 0,
+      "p_value": 1,
+      "holm_p_value": 1
+    },
+    {
+      "comparator": "ablation-access-enforcement",
+      "outcome": "evidence_completeness",
+      "pairs": 120,
+      "estimate": 0,
+      "ci_lower": 0,
+      "ci_upper": 0,
+      "p_value": 1,
+      "holm_p_value": 1
+    },
+    {
+      "comparator": "ablation-provenance-metadata",
+      "outcome": "evidence_completeness",
+      "pairs": 120,
+      "estimate": 0,
+      "ci_lower": 0,
+      "ci_upper": 0,
+      "p_value": 1,
+      "holm_p_value": 1
+    },
+    {
+      "comparator": "ablation-conflict-precondition",
+      "outcome": "evidence_completeness",
+      "pairs": 120,
+      "estimate": 0,
+      "ci_lower": 0,
+      "ci_upper": 0,
+      "p_value": 1,
+      "holm_p_value": 1
+    },
+    {
+      "comparator": "ablation-deterministic-rules",
+      "outcome": "evidence_completeness",
+      "pairs": 120,
+      "estimate": 0,
+      "ci_lower": 0,
+      "ci_upper": 0,
+      "p_value": 1,
+      "holm_p_value": 1
+    },
+    {
+      "comparator": "ablation-output-validation",
+      "outcome": "evidence_completeness",
+      "pairs": 120,
+      "estimate": 0,
+      "ci_lower": 0,
+      "ci_upper": 0,
+      "p_value": 1,
+      "holm_p_value": 1
+    },
+    {
+      "comparator": "structured-record-access",
+      "outcome": "citation_correctness",
+      "pairs": 480,
+      "estimate": 0,
+      "ci_lower": 0,
+      "ci_upper": 0,
+      "p_value": 1,
+      "holm_p_value": 1
+    },
+    {
+      "comparator": "deterministic-query-rules",
+      "outcome": "citation_correctness",
+      "pairs": 480,
+      "estimate": 0,
+      "ci_lower": 0,
+      "ci_upper": 0,
+      "p_value": 1,
+      "holm_p_value": 1
+    },
+    {
+      "comparator": "equivalent-non-chain-records",
+      "outcome": "citation_correctness",
+      "pairs": 480,
+      "estimate": 0,
+      "ci_lower": 0,
+      "ci_upper": 0,
+      "p_value": 1,
+      "holm_p_value": 1
+    },
+    {
+      "comparator": "ungrounded-model",
+      "outcome": "citation_correctness",
+      "pairs": 480,
+      "estimate": 0.25,
+      "ci_lower": 0.2124479166666667,
+      "ci_upper": 0.2875,
+      "p_value": 0.00019998000199980003,
+      "holm_p_value": 0.001999800019998
+    },
+    {
+      "comparator": "ordinary-rag",
+      "outcome": "citation_correctness",
+      "pairs": 480,
+      "estimate": 0.45208333333333334,
+      "ci_lower": 0.40625,
+      "ci_upper": 0.4979166666666667,
+      "p_value": 0.00019998000199980003,
+      "holm_p_value": 0.001999800019998
+    },
+    {
+      "comparator": "ablation-access-enforcement",
+      "outcome": "citation_correctness",
+      "pairs": 480,
+      "estimate": 0.125,
+      "ci_lower": 0.09583333333333334,
+      "ci_upper": 0.15416666666666667,
+      "p_value": 0.00019998000199980003,
+      "holm_p_value": 0.001999800019998
+    },
+    {
+      "comparator": "ablation-provenance-metadata",
+      "outcome": "citation_correctness",
+      "pairs": 480,
+      "estimate": 0.25,
+      "ci_lower": 0.2124479166666667,
+      "ci_upper": 0.28958333333333336,
+      "p_value": 0.00019998000199980003,
+      "holm_p_value": 0.001999800019998
+    },
+    {
+      "comparator": "ablation-conflict-precondition",
+      "outcome": "citation_correctness",
+      "pairs": 480,
+      "estimate": 0.1125,
+      "ci_lower": 0.08541666666666667,
+      "ci_upper": 0.14166666666666666,
+      "p_value": 0.00019998000199980003,
+      "holm_p_value": 0.001999800019998
+    },
+    {
+      "comparator": "ablation-deterministic-rules",
+      "outcome": "citation_correctness",
+      "pairs": 480,
+      "estimate": 0,
+      "ci_lower": 0,
+      "ci_upper": 0,
+      "p_value": 1,
+      "holm_p_value": 1
+    },
+    {
+      "comparator": "ablation-output-validation",
+      "outcome": "citation_correctness",
+      "pairs": 480,
+      "estimate": 0,
+      "ci_lower": 0,
+      "ci_upper": 0,
+      "p_value": 1,
+      "holm_p_value": 1
+    },
+    {
+      "comparator": "structured-record-access",
+      "outcome": "unsupported_atomic_claim_rate",
+      "pairs": 480,
+      "estimate": 0,
+      "ci_lower": 0,
+      "ci_upper": 0,
+      "p_value": 1,
+      "holm_p_value": 1
+    },
+    {
+      "comparator": "deterministic-query-rules",
+      "outcome": "unsupported_atomic_claim_rate",
+      "pairs": 480,
+      "estimate": 0,
+      "ci_lower": 0,
+      "ci_upper": 0,
+      "p_value": 1,
+      "holm_p_value": 1
+    },
+    {
+      "comparator": "equivalent-non-chain-records",
+      "outcome": "unsupported_atomic_claim_rate",
+      "pairs": 480,
+      "estimate": 0,
+      "ci_lower": 0,
+      "ci_upper": 0,
+      "p_value": 1,
+      "holm_p_value": 1
+    },
+    {
+      "comparator": "ungrounded-model",
+      "outcome": "unsupported_atomic_claim_rate",
+      "pairs": 480,
+      "estimate": 0,
+      "ci_lower": 0,
+      "ci_upper": 0,
+      "p_value": 1,
+      "holm_p_value": 1
+    },
+    {
+      "comparator": "ordinary-rag",
+      "outcome": "unsupported_atomic_claim_rate",
+      "pairs": 480,
+      "estimate": -0.45208333333333334,
+      "ci_lower": -0.49583333333333335,
+      "ci_upper": -0.4083333333333333,
+      "p_value": 0.00019998000199980003,
+      "holm_p_value": 0.001999800019998
+    },
+    {
+      "comparator": "ablation-access-enforcement",
+      "outcome": "unsupported_atomic_claim_rate",
+      "pairs": 480,
+      "estimate": -0.125,
+      "ci_lower": -0.15625,
+      "ci_upper": -0.09583333333333334,
+      "p_value": 0.00019998000199980003,
+      "holm_p_value": 0.001999800019998
+    },
+    {
+      "comparator": "ablation-provenance-metadata",
+      "outcome": "unsupported_atomic_claim_rate",
+      "pairs": 480,
+      "estimate": -0.25,
+      "ci_lower": -0.28958333333333336,
+      "ci_upper": -0.2125,
+      "p_value": 0.00019998000199980003,
+      "holm_p_value": 0.001999800019998
+    },
+    {
+      "comparator": "ablation-conflict-precondition",
+      "outcome": "unsupported_atomic_claim_rate",
+      "pairs": 480,
+      "estimate": -0.1125,
+      "ci_lower": -0.14166666666666666,
+      "ci_upper": -0.08541666666666667,
+      "p_value": 0.00019998000199980003,
+      "holm_p_value": 0.001999800019998
+    },
+    {
+      "comparator": "ablation-deterministic-rules",
+      "outcome": "unsupported_atomic_claim_rate",
+      "pairs": 480,
+      "estimate": 0,
+      "ci_lower": 0,
+      "ci_upper": 0,
+      "p_value": 1,
+      "holm_p_value": 1
+    },
+    {
+      "comparator": "ablation-output-validation",
+      "outcome": "unsupported_atomic_claim_rate",
+      "pairs": 480,
+      "estimate": 0,
+      "ci_lower": 0,
+      "ci_upper": 0,
+      "p_value": 1,
+      "holm_p_value": 1
+    },
+    {
+      "comparator": "structured-record-access",
+      "outcome": "authorization_accuracy",
+      "pairs": 60,
+      "estimate": 0,
+      "ci_lower": 0,
+      "ci_upper": 0,
+      "p_value": 1,
+      "holm_p_value": 1
+    },
+    {
+      "comparator": "deterministic-query-rules",
+      "outcome": "authorization_accuracy",
+      "pairs": 60,
+      "estimate": 0,
+      "ci_lower": 0,
+      "ci_upper": 0,
+      "p_value": 1,
+      "holm_p_value": 1
+    },
+    {
+      "comparator": "equivalent-non-chain-records",
+      "outcome": "authorization_accuracy",
+      "pairs": 60,
+      "estimate": 0,
+      "ci_lower": 0,
+      "ci_upper": 0,
+      "p_value": 1,
+      "holm_p_value": 1
+    },
+    {
+      "comparator": "ungrounded-model",
+      "outcome": "authorization_accuracy",
+      "pairs": 60,
+      "estimate": 0.03333333333333333,
+      "ci_lower": 0,
+      "ci_upper": 0.08333333333333333,
+      "p_value": 0.268973102689731,
+      "holm_p_value": 1
+    },
+    {
+      "comparator": "ordinary-rag",
+      "outcome": "authorization_accuracy",
+      "pairs": 60,
+      "estimate": 1,
+      "ci_lower": 1,
+      "ci_upper": 1,
+      "p_value": 0.00019998000199980003,
+      "holm_p_value": 0.001999800019998
+    },
+    {
+      "comparator": "ablation-access-enforcement",
+      "outcome": "authorization_accuracy",
+      "pairs": 60,
+      "estimate": 1,
+      "ci_lower": 1,
+      "ci_upper": 1,
+      "p_value": 0.00019998000199980003,
+      "holm_p_value": 0.001999800019998
+    },
+    {
+      "comparator": "ablation-provenance-metadata",
+      "outcome": "authorization_accuracy",
+      "pairs": 60,
+      "estimate": 0,
+      "ci_lower": 0,
+      "ci_upper": 0,
+      "p_value": 1,
+      "holm_p_value": 1
+    },
+    {
+      "comparator": "ablation-conflict-precondition",
+      "outcome": "authorization_accuracy",
+      "pairs": 60,
+      "estimate": 0,
+      "ci_lower": 0,
+      "ci_upper": 0,
+      "p_value": 1,
+      "holm_p_value": 1
+    },
+    {
+      "comparator": "ablation-deterministic-rules",
+      "outcome": "authorization_accuracy",
+      "pairs": 60,
+      "estimate": 0,
+      "ci_lower": 0,
+      "ci_upper": 0,
+      "p_value": 1,
+      "holm_p_value": 1
+    },
+    {
+      "comparator": "ablation-output-validation",
+      "outcome": "authorization_accuracy",
+      "pairs": 60,
+      "estimate": 0,
+      "ci_lower": 0,
+      "ci_upper": 0,
+      "p_value": 1,
+      "holm_p_value": 1
+    },
+    {
+      "comparator": "structured-record-access",
+      "outcome": "prohibited_disclosure_event",
+      "pairs": 480,
+      "estimate": 0,
+      "ci_lower": 0,
+      "ci_upper": 0,
+      "p_value": 1,
+      "holm_p_value": 1
+    },
+    {
+      "comparator": "deterministic-query-rules",
+      "outcome": "prohibited_disclosure_event",
+      "pairs": 480,
+      "estimate": 0,
+      "ci_lower": 0,
+      "ci_upper": 0,
+      "p_value": 1,
+      "holm_p_value": 1
+    },
+    {
+      "comparator": "equivalent-non-chain-records",
+      "outcome": "prohibited_disclosure_event",
+      "pairs": 480,
+      "estimate": 0,
+      "ci_lower": 0,
+      "ci_upper": 0,
+      "p_value": 1,
+      "holm_p_value": 1
+    },
+    {
+      "comparator": "ungrounded-model",
+      "outcome": "prohibited_disclosure_event",
+      "pairs": 480,
+      "estimate": 0,
+      "ci_lower": 0,
+      "ci_upper": 0,
+      "p_value": 1,
+      "holm_p_value": 1
+    },
+    {
+      "comparator": "ordinary-rag",
+      "outcome": "prohibited_disclosure_event",
+      "pairs": 480,
+      "estimate": -0.125,
+      "ci_lower": -0.15625,
+      "ci_upper": -0.09583333333333334,
+      "p_value": 0.00019998000199980003,
+      "holm_p_value": 0.001999800019998
+    },
+    {
+      "comparator": "ablation-access-enforcement",
+      "outcome": "prohibited_disclosure_event",
+      "pairs": 480,
+      "estimate": -0.1125,
+      "ci_lower": -0.13958333333333334,
+      "ci_upper": -0.08541666666666667,
+      "p_value": 0.00019998000199980003,
+      "holm_p_value": 0.001999800019998
+    },
+    {
+      "comparator": "ablation-provenance-metadata",
+      "outcome": "prohibited_disclosure_event",
+      "pairs": 480,
+      "estimate": 0,
+      "ci_lower": 0,
+      "ci_upper": 0,
+      "p_value": 1,
+      "holm_p_value": 1
+    },
+    {
+      "comparator": "ablation-conflict-precondition",
+      "outcome": "prohibited_disclosure_event",
+      "pairs": 480,
+      "estimate": 0,
+      "ci_lower": 0,
+      "ci_upper": 0,
+      "p_value": 1,
+      "holm_p_value": 1
+    },
+    {
+      "comparator": "ablation-deterministic-rules",
+      "outcome": "prohibited_disclosure_event",
+      "pairs": 480,
+      "estimate": 0,
+      "ci_lower": 0,
+      "ci_upper": 0,
+      "p_value": 1,
+      "holm_p_value": 1
+    },
+    {
+      "comparator": "ablation-output-validation",
+      "outcome": "prohibited_disclosure_event",
+      "pairs": 480,
+      "estimate": 0,
+      "ci_lower": 0,
+      "ci_upper": 0,
+      "p_value": 1,
+      "holm_p_value": 1
+    },
+    {
+      "comparator": "structured-record-access",
+      "outcome": "appropriate_abstention_f1",
+      "pairs": 480,
+      "estimate": -0.006802721088435382,
+      "ci_lower": -0.013477088948787075,
+      "ci_upper": -0.0013642564802183177,
+      "p_value": 0.0115988401159884,
+      "holm_p_value": 0.057994200579942
+    },
+    {
+      "comparator": "deterministic-query-rules",
+      "outcome": "appropriate_abstention_f1",
+      "pairs": 480,
+      "estimate": -0.006802721088435382,
+      "ci_lower": -0.013661202185792365,
+      "ci_upper": -0.0013642564802183177,
+      "p_value": 0.013798620137986202,
+      "holm_p_value": 0.057994200579942
+    },
+    {
+      "comparator": "equivalent-non-chain-records",
+      "outcome": "appropriate_abstention_f1",
+      "pairs": 480,
+      "estimate": -0.006802721088435382,
+      "ci_lower": -0.013623978201634857,
+      "ci_upper": -0.0013568521031207537,
+      "p_value": 0.014598540145985401,
+      "holm_p_value": 0.057994200579942
+    },
+    {
+      "comparator": "ungrounded-model",
+      "outcome": "appropriate_abstention_f1",
+      "pairs": 480,
+      "estimate": 0.30917361027251133,
+      "ci_lower": 0.26953275377943003,
+      "ci_upper": 0.35073319120363317,
+      "p_value": 0.00019998000199980003,
+      "holm_p_value": 0.001999800019998
+    },
+    {
+      "comparator": "ordinary-rag",
+      "outcome": "appropriate_abstention_f1",
+      "pairs": 480,
+      "estimate": 0.5475832438238453,
+      "ci_lower": 0.4937502765798348,
+      "ci_upper": 0.6024726249950642,
+      "p_value": 0.00019998000199980003,
+      "holm_p_value": 0.001999800019998
+    },
+    {
+      "comparator": "ablation-access-enforcement",
+      "outcome": "appropriate_abstention_f1",
+      "pairs": 480,
+      "estimate": 0.11169438873815418,
+      "ci_lower": 0.08431020108641368,
+      "ci_upper": 0.14204379921442792,
+      "p_value": 0.00019998000199980003,
+      "holm_p_value": 0.001999800019998
+    },
+    {
+      "comparator": "ablation-provenance-metadata",
+      "outcome": "appropriate_abstention_f1",
+      "pairs": 480,
+      "estimate": 0.2091972789115646,
+      "ci_lower": 0.17297262019269558,
+      "ci_upper": 0.2472265581292446,
+      "p_value": 0.00019998000199980003,
+      "holm_p_value": 0.001999800019998
+    },
+    {
+      "comparator": "ablation-conflict-precondition",
+      "outcome": "appropriate_abstention_f1",
+      "pairs": 480,
+      "estimate": 0.16326530612244894,
+      "ci_lower": 0.12602684637702452,
+      "ci_upper": 0.20233539731154485,
+      "p_value": 0.00019998000199980003,
+      "holm_p_value": 0.001999800019998
+    },
+    {
+      "comparator": "ablation-deterministic-rules",
+      "outcome": "appropriate_abstention_f1",
+      "pairs": 480,
+      "estimate": 0,
+      "ci_lower": 0,
+      "ci_upper": 0,
+      "p_value": 1,
+      "holm_p_value": 1
+    },
+    {
+      "comparator": "ablation-output-validation",
+      "outcome": "appropriate_abstention_f1",
+      "pairs": 480,
+      "estimate": 0,
+      "ci_lower": 0,
+      "ci_upper": 0,
+      "p_value": 1,
+      "holm_p_value": 1
+    }
+  ],
+  "stratum_summaries": [
+    {
+      "stratum": "current-state-history",
+      "condition": "structured-record-access",
+      "observations": 8,
+      "task_success": 1,
+      "appropriate_outcome_exact": 1,
+      "prohibited_disclosure_count": 0
+    },
+    {
+      "stratum": "current-state-history",
+      "condition": "deterministic-query-rules",
+      "observations": 8,
+      "task_success": 1,
+      "appropriate_outcome_exact": 1,
+      "prohibited_disclosure_count": 0
+    },
+    {
+      "stratum": "current-state-history",
+      "condition": "equivalent-non-chain-records",
+      "observations": 8,
+      "task_success": 1,
+      "appropriate_outcome_exact": 1,
+      "prohibited_disclosure_count": 0
+    },
+    {
+      "stratum": "current-state-history",
+      "condition": "ungrounded-model",
+      "observations": 40,
+      "task_success": 0,
+      "appropriate_outcome_exact": 0.625,
+      "prohibited_disclosure_count": 0
+    },
+    {
+      "stratum": "current-state-history",
+      "condition": "ordinary-rag",
+      "observations": 40,
+      "task_success": 0.25,
+      "appropriate_outcome_exact": 0.625,
+      "prohibited_disclosure_count": 5
+    },
+    {
+      "stratum": "current-state-history",
+      "condition": "governed-evllm",
+      "observations": 40,
+      "task_success": 0.875,
+      "appropriate_outcome_exact": 1,
+      "prohibited_disclosure_count": 0
+    },
+    {
+      "stratum": "current-state-history",
+      "condition": "ablation-access-enforcement",
+      "observations": 40,
+      "task_success": 0.875,
+      "appropriate_outcome_exact": 0.875,
+      "prohibited_disclosure_count": 5
+    },
+    {
+      "stratum": "current-state-history",
+      "condition": "ablation-provenance-metadata",
+      "observations": 40,
+      "task_success": 0.375,
+      "appropriate_outcome_exact": 0.75,
+      "prohibited_disclosure_count": 0
+    },
+    {
+      "stratum": "current-state-history",
+      "condition": "ablation-conflict-precondition",
+      "observations": 40,
+      "task_success": 0.75,
+      "appropriate_outcome_exact": 0.875,
+      "prohibited_disclosure_count": 0
+    },
+    {
+      "stratum": "current-state-history",
+      "condition": "ablation-deterministic-rules",
+      "observations": 40,
+      "task_success": 0.875,
+      "appropriate_outcome_exact": 1,
+      "prohibited_disclosure_count": 0
+    },
+    {
+      "stratum": "current-state-history",
+      "condition": "ablation-output-validation",
+      "observations": 40,
+      "task_success": 0.875,
+      "appropriate_outcome_exact": 1,
+      "prohibited_disclosure_count": 0
+    },
+    {
+      "stratum": "multi-record-attribution",
+      "condition": "structured-record-access",
+      "observations": 8,
+      "task_success": 1,
+      "appropriate_outcome_exact": 1,
+      "prohibited_disclosure_count": 0
+    },
+    {
+      "stratum": "multi-record-attribution",
+      "condition": "deterministic-query-rules",
+      "observations": 8,
+      "task_success": 1,
+      "appropriate_outcome_exact": 1,
+      "prohibited_disclosure_count": 0
+    },
+    {
+      "stratum": "multi-record-attribution",
+      "condition": "equivalent-non-chain-records",
+      "observations": 8,
+      "task_success": 1,
+      "appropriate_outcome_exact": 1,
+      "prohibited_disclosure_count": 0
+    },
+    {
+      "stratum": "multi-record-attribution",
+      "condition": "ungrounded-model",
+      "observations": 40,
+      "task_success": 0,
+      "appropriate_outcome_exact": 0.625,
+      "prohibited_disclosure_count": 0
+    },
+    {
+      "stratum": "multi-record-attribution",
+      "condition": "ordinary-rag",
+      "observations": 40,
+      "task_success": 0.25,
+      "appropriate_outcome_exact": 0.5,
+      "prohibited_disclosure_count": 5
+    },
+    {
+      "stratum": "multi-record-attribution",
+      "condition": "governed-evllm",
+      "observations": 40,
+      "task_success": 0.875,
+      "appropriate_outcome_exact": 1,
+      "prohibited_disclosure_count": 0
+    },
+    {
+      "stratum": "multi-record-attribution",
+      "condition": "ablation-access-enforcement",
+      "observations": 40,
+      "task_success": 0.875,
+      "appropriate_outcome_exact": 0.875,
+      "prohibited_disclosure_count": 5
+    },
+    {
+      "stratum": "multi-record-attribution",
+      "condition": "ablation-provenance-metadata",
+      "observations": 40,
+      "task_success": 0.375,
+      "appropriate_outcome_exact": 0.75,
+      "prohibited_disclosure_count": 0
+    },
+    {
+      "stratum": "multi-record-attribution",
+      "condition": "ablation-conflict-precondition",
+      "observations": 40,
+      "task_success": 0.75,
+      "appropriate_outcome_exact": 0.875,
+      "prohibited_disclosure_count": 0
+    },
+    {
+      "stratum": "multi-record-attribution",
+      "condition": "ablation-deterministic-rules",
+      "observations": 40,
+      "task_success": 0.875,
+      "appropriate_outcome_exact": 1,
+      "prohibited_disclosure_count": 0
+    },
+    {
+      "stratum": "multi-record-attribution",
+      "condition": "ablation-output-validation",
+      "observations": 40,
+      "task_success": 0.875,
+      "appropriate_outcome_exact": 1,
+      "prohibited_disclosure_count": 0
+    },
+    {
+      "stratum": "marketplace-eligibility",
+      "condition": "structured-record-access",
+      "observations": 8,
+      "task_success": 1,
+      "appropriate_outcome_exact": 1,
+      "prohibited_disclosure_count": 0
+    },
+    {
+      "stratum": "marketplace-eligibility",
+      "condition": "deterministic-query-rules",
+      "observations": 8,
+      "task_success": 1,
+      "appropriate_outcome_exact": 1,
+      "prohibited_disclosure_count": 0
+    },
+    {
+      "stratum": "marketplace-eligibility",
+      "condition": "equivalent-non-chain-records",
+      "observations": 8,
+      "task_success": 1,
+      "appropriate_outcome_exact": 1,
+      "prohibited_disclosure_count": 0
+    },
+    {
+      "stratum": "marketplace-eligibility",
+      "condition": "ungrounded-model",
+      "observations": 40,
+      "task_success": 0,
+      "appropriate_outcome_exact": 0.625,
+      "prohibited_disclosure_count": 0
+    },
+    {
+      "stratum": "marketplace-eligibility",
+      "condition": "ordinary-rag",
+      "observations": 40,
+      "task_success": 0.25,
+      "appropriate_outcome_exact": 0.5,
+      "prohibited_disclosure_count": 5
+    },
+    {
+      "stratum": "marketplace-eligibility",
+      "condition": "governed-evllm",
+      "observations": 40,
+      "task_success": 0.875,
+      "appropriate_outcome_exact": 1,
+      "prohibited_disclosure_count": 0
+    },
+    {
+      "stratum": "marketplace-eligibility",
+      "condition": "ablation-access-enforcement",
+      "observations": 40,
+      "task_success": 0.875,
+      "appropriate_outcome_exact": 0.875,
+      "prohibited_disclosure_count": 5
+    },
+    {
+      "stratum": "marketplace-eligibility",
+      "condition": "ablation-provenance-metadata",
+      "observations": 40,
+      "task_success": 0.375,
+      "appropriate_outcome_exact": 0.75,
+      "prohibited_disclosure_count": 0
+    },
+    {
+      "stratum": "marketplace-eligibility",
+      "condition": "ablation-conflict-precondition",
+      "observations": 40,
+      "task_success": 0.75,
+      "appropriate_outcome_exact": 0.875,
+      "prohibited_disclosure_count": 0
+    },
+    {
+      "stratum": "marketplace-eligibility",
+      "condition": "ablation-deterministic-rules",
+      "observations": 40,
+      "task_success": 0.875,
+      "appropriate_outcome_exact": 1,
+      "prohibited_disclosure_count": 0
+    },
+    {
+      "stratum": "marketplace-eligibility",
+      "condition": "ablation-output-validation",
+      "observations": 40,
+      "task_success": 0.875,
+      "appropriate_outcome_exact": 1,
+      "prohibited_disclosure_count": 0
+    },
+    {
+      "stratum": "route-assessment",
+      "condition": "structured-record-access",
+      "observations": 8,
+      "task_success": 1,
+      "appropriate_outcome_exact": 1,
+      "prohibited_disclosure_count": 0
+    },
+    {
+      "stratum": "route-assessment",
+      "condition": "deterministic-query-rules",
+      "observations": 8,
+      "task_success": 1,
+      "appropriate_outcome_exact": 1,
+      "prohibited_disclosure_count": 0
+    },
+    {
+      "stratum": "route-assessment",
+      "condition": "equivalent-non-chain-records",
+      "observations": 8,
+      "task_success": 1,
+      "appropriate_outcome_exact": 1,
+      "prohibited_disclosure_count": 0
+    },
+    {
+      "stratum": "route-assessment",
+      "condition": "ungrounded-model",
+      "observations": 40,
+      "task_success": 0,
+      "appropriate_outcome_exact": 0.625,
+      "prohibited_disclosure_count": 0
+    },
+    {
+      "stratum": "route-assessment",
+      "condition": "ordinary-rag",
+      "observations": 40,
+      "task_success": 0.25,
+      "appropriate_outcome_exact": 0.5,
+      "prohibited_disclosure_count": 5
+    },
+    {
+      "stratum": "route-assessment",
+      "condition": "governed-evllm",
+      "observations": 40,
+      "task_success": 0.875,
+      "appropriate_outcome_exact": 1,
+      "prohibited_disclosure_count": 0
+    },
+    {
+      "stratum": "route-assessment",
+      "condition": "ablation-access-enforcement",
+      "observations": 40,
+      "task_success": 0.875,
+      "appropriate_outcome_exact": 0.875,
+      "prohibited_disclosure_count": 4
+    },
+    {
+      "stratum": "route-assessment",
+      "condition": "ablation-provenance-metadata",
+      "observations": 40,
+      "task_success": 0.375,
+      "appropriate_outcome_exact": 0.75,
+      "prohibited_disclosure_count": 0
+    },
+    {
+      "stratum": "route-assessment",
+      "condition": "ablation-conflict-precondition",
+      "observations": 40,
+      "task_success": 0.75,
+      "appropriate_outcome_exact": 0.875,
+      "prohibited_disclosure_count": 0
+    },
+    {
+      "stratum": "route-assessment",
+      "condition": "ablation-deterministic-rules",
+      "observations": 40,
+      "task_success": 0.875,
+      "appropriate_outcome_exact": 1,
+      "prohibited_disclosure_count": 0
+    },
+    {
+      "stratum": "route-assessment",
+      "condition": "ablation-output-validation",
+      "observations": 40,
+      "task_success": 0.875,
+      "appropriate_outcome_exact": 1,
+      "prohibited_disclosure_count": 0
+    },
+    {
+      "stratum": "defective-evidence",
+      "condition": "structured-record-access",
+      "observations": 8,
+      "task_success": 1,
+      "appropriate_outcome_exact": 1,
+      "prohibited_disclosure_count": 0
+    },
+    {
+      "stratum": "defective-evidence",
+      "condition": "deterministic-query-rules",
+      "observations": 8,
+      "task_success": 1,
+      "appropriate_outcome_exact": 1,
+      "prohibited_disclosure_count": 0
+    },
+    {
+      "stratum": "defective-evidence",
+      "condition": "equivalent-non-chain-records",
+      "observations": 8,
+      "task_success": 1,
+      "appropriate_outcome_exact": 1,
+      "prohibited_disclosure_count": 0
+    },
+    {
+      "stratum": "defective-evidence",
+      "condition": "ungrounded-model",
+      "observations": 40,
+      "task_success": 0,
+      "appropriate_outcome_exact": 0.625,
+      "prohibited_disclosure_count": 0
+    },
+    {
+      "stratum": "defective-evidence",
+      "condition": "ordinary-rag",
+      "observations": 40,
+      "task_success": 0.25,
+      "appropriate_outcome_exact": 0.55,
+      "prohibited_disclosure_count": 5
+    },
+    {
+      "stratum": "defective-evidence",
+      "condition": "governed-evllm",
+      "observations": 40,
+      "task_success": 0.875,
+      "appropriate_outcome_exact": 1,
+      "prohibited_disclosure_count": 0
+    },
+    {
+      "stratum": "defective-evidence",
+      "condition": "ablation-access-enforcement",
+      "observations": 40,
+      "task_success": 0.875,
+      "appropriate_outcome_exact": 0.875,
+      "prohibited_disclosure_count": 5
+    },
+    {
+      "stratum": "defective-evidence",
+      "condition": "ablation-provenance-metadata",
+      "observations": 40,
+      "task_success": 0.375,
+      "appropriate_outcome_exact": 0.75,
+      "prohibited_disclosure_count": 0
+    },
+    {
+      "stratum": "defective-evidence",
+      "condition": "ablation-conflict-precondition",
+      "observations": 40,
+      "task_success": 0.75,
+      "appropriate_outcome_exact": 0.875,
+      "prohibited_disclosure_count": 0
+    },
+    {
+      "stratum": "defective-evidence",
+      "condition": "ablation-deterministic-rules",
+      "observations": 40,
+      "task_success": 0.875,
+      "appropriate_outcome_exact": 1,
+      "prohibited_disclosure_count": 0
+    },
+    {
+      "stratum": "defective-evidence",
+      "condition": "ablation-output-validation",
+      "observations": 40,
+      "task_success": 0.875,
+      "appropriate_outcome_exact": 1,
+      "prohibited_disclosure_count": 0
+    },
+    {
+      "stratum": "actor-purpose-access",
+      "condition": "structured-record-access",
+      "observations": 8,
+      "task_success": 1,
+      "appropriate_outcome_exact": 1,
+      "prohibited_disclosure_count": 0
+    },
+    {
+      "stratum": "actor-purpose-access",
+      "condition": "deterministic-query-rules",
+      "observations": 8,
+      "task_success": 1,
+      "appropriate_outcome_exact": 1,
+      "prohibited_disclosure_count": 0
+    },
+    {
+      "stratum": "actor-purpose-access",
+      "condition": "equivalent-non-chain-records",
+      "observations": 8,
+      "task_success": 1,
+      "appropriate_outcome_exact": 1,
+      "prohibited_disclosure_count": 0
+    },
+    {
+      "stratum": "actor-purpose-access",
+      "condition": "ungrounded-model",
+      "observations": 40,
+      "task_success": 0,
+      "appropriate_outcome_exact": 0.625,
+      "prohibited_disclosure_count": 0
+    },
+    {
+      "stratum": "actor-purpose-access",
+      "condition": "ordinary-rag",
+      "observations": 40,
+      "task_success": 0.25,
+      "appropriate_outcome_exact": 0.55,
+      "prohibited_disclosure_count": 5
+    },
+    {
+      "stratum": "actor-purpose-access",
+      "condition": "governed-evllm",
+      "observations": 40,
+      "task_success": 0.875,
+      "appropriate_outcome_exact": 1,
+      "prohibited_disclosure_count": 0
+    },
+    {
+      "stratum": "actor-purpose-access",
+      "condition": "ablation-access-enforcement",
+      "observations": 40,
+      "task_success": 0.875,
+      "appropriate_outcome_exact": 0.875,
+      "prohibited_disclosure_count": 5
+    },
+    {
+      "stratum": "actor-purpose-access",
+      "condition": "ablation-provenance-metadata",
+      "observations": 40,
+      "task_success": 0.375,
+      "appropriate_outcome_exact": 0.75,
+      "prohibited_disclosure_count": 0
+    },
+    {
+      "stratum": "actor-purpose-access",
+      "condition": "ablation-conflict-precondition",
+      "observations": 40,
+      "task_success": 0.75,
+      "appropriate_outcome_exact": 0.875,
+      "prohibited_disclosure_count": 0
+    },
+    {
+      "stratum": "actor-purpose-access",
+      "condition": "ablation-deterministic-rules",
+      "observations": 40,
+      "task_success": 0.875,
+      "appropriate_outcome_exact": 1,
+      "prohibited_disclosure_count": 0
+    },
+    {
+      "stratum": "actor-purpose-access",
+      "condition": "ablation-output-validation",
+      "observations": 40,
+      "task_success": 0.875,
+      "appropriate_outcome_exact": 1,
+      "prohibited_disclosure_count": 0
+    },
+    {
+      "stratum": "repository-replica-failure",
+      "condition": "structured-record-access",
+      "observations": 8,
+      "task_success": 1,
+      "appropriate_outcome_exact": 1,
+      "prohibited_disclosure_count": 0
+    },
+    {
+      "stratum": "repository-replica-failure",
+      "condition": "deterministic-query-rules",
+      "observations": 8,
+      "task_success": 1,
+      "appropriate_outcome_exact": 1,
+      "prohibited_disclosure_count": 0
+    },
+    {
+      "stratum": "repository-replica-failure",
+      "condition": "equivalent-non-chain-records",
+      "observations": 8,
+      "task_success": 1,
+      "appropriate_outcome_exact": 1,
+      "prohibited_disclosure_count": 0
+    },
+    {
+      "stratum": "repository-replica-failure",
+      "condition": "ungrounded-model",
+      "observations": 40,
+      "task_success": 0,
+      "appropriate_outcome_exact": 0.625,
+      "prohibited_disclosure_count": 0
+    },
+    {
+      "stratum": "repository-replica-failure",
+      "condition": "ordinary-rag",
+      "observations": 40,
+      "task_success": 0.25,
+      "appropriate_outcome_exact": 0.5,
+      "prohibited_disclosure_count": 5
+    },
+    {
+      "stratum": "repository-replica-failure",
+      "condition": "governed-evllm",
+      "observations": 40,
+      "task_success": 0.875,
+      "appropriate_outcome_exact": 1,
+      "prohibited_disclosure_count": 0
+    },
+    {
+      "stratum": "repository-replica-failure",
+      "condition": "ablation-access-enforcement",
+      "observations": 40,
+      "task_success": 0.875,
+      "appropriate_outcome_exact": 0.875,
+      "prohibited_disclosure_count": 5
+    },
+    {
+      "stratum": "repository-replica-failure",
+      "condition": "ablation-provenance-metadata",
+      "observations": 40,
+      "task_success": 0.375,
+      "appropriate_outcome_exact": 0.75,
+      "prohibited_disclosure_count": 0
+    },
+    {
+      "stratum": "repository-replica-failure",
+      "condition": "ablation-conflict-precondition",
+      "observations": 40,
+      "task_success": 0.75,
+      "appropriate_outcome_exact": 0.875,
+      "prohibited_disclosure_count": 0
+    },
+    {
+      "stratum": "repository-replica-failure",
+      "condition": "ablation-deterministic-rules",
+      "observations": 40,
+      "task_success": 0.875,
+      "appropriate_outcome_exact": 1,
+      "prohibited_disclosure_count": 0
+    },
+    {
+      "stratum": "repository-replica-failure",
+      "condition": "ablation-output-validation",
+      "observations": 40,
+      "task_success": 0.875,
+      "appropriate_outcome_exact": 1,
+      "prohibited_disclosure_count": 0
+    },
+    {
+      "stratum": "eu-date-jurisdiction",
+      "condition": "structured-record-access",
+      "observations": 8,
+      "task_success": 1,
+      "appropriate_outcome_exact": 1,
+      "prohibited_disclosure_count": 0
+    },
+    {
+      "stratum": "eu-date-jurisdiction",
+      "condition": "deterministic-query-rules",
+      "observations": 8,
+      "task_success": 1,
+      "appropriate_outcome_exact": 1,
+      "prohibited_disclosure_count": 0
+    },
+    {
+      "stratum": "eu-date-jurisdiction",
+      "condition": "equivalent-non-chain-records",
+      "observations": 8,
+      "task_success": 1,
+      "appropriate_outcome_exact": 1,
+      "prohibited_disclosure_count": 0
+    },
+    {
+      "stratum": "eu-date-jurisdiction",
+      "condition": "ungrounded-model",
+      "observations": 40,
+      "task_success": 0,
+      "appropriate_outcome_exact": 0.625,
+      "prohibited_disclosure_count": 0
+    },
+    {
+      "stratum": "eu-date-jurisdiction",
+      "condition": "ordinary-rag",
+      "observations": 40,
+      "task_success": 0.25,
+      "appropriate_outcome_exact": 0.5,
+      "prohibited_disclosure_count": 5
+    },
+    {
+      "stratum": "eu-date-jurisdiction",
+      "condition": "governed-evllm",
+      "observations": 40,
+      "task_success": 0.875,
+      "appropriate_outcome_exact": 1,
+      "prohibited_disclosure_count": 0
+    },
+    {
+      "stratum": "eu-date-jurisdiction",
+      "condition": "ablation-access-enforcement",
+      "observations": 40,
+      "task_success": 0.875,
+      "appropriate_outcome_exact": 0.875,
+      "prohibited_disclosure_count": 0
+    },
+    {
+      "stratum": "eu-date-jurisdiction",
+      "condition": "ablation-provenance-metadata",
+      "observations": 40,
+      "task_success": 0.375,
+      "appropriate_outcome_exact": 0.75,
+      "prohibited_disclosure_count": 0
+    },
+    {
+      "stratum": "eu-date-jurisdiction",
+      "condition": "ablation-conflict-precondition",
+      "observations": 40,
+      "task_success": 0.75,
+      "appropriate_outcome_exact": 0.875,
+      "prohibited_disclosure_count": 0
+    },
+    {
+      "stratum": "eu-date-jurisdiction",
+      "condition": "ablation-deterministic-rules",
+      "observations": 40,
+      "task_success": 0.875,
+      "appropriate_outcome_exact": 1,
+      "prohibited_disclosure_count": 0
+    },
+    {
+      "stratum": "eu-date-jurisdiction",
+      "condition": "ablation-output-validation",
+      "observations": 40,
+      "task_success": 0.875,
+      "appropriate_outcome_exact": 1,
+      "prohibited_disclosure_count": 0
+    },
+    {
+      "stratum": "ambiguous-multilingual",
+      "condition": "structured-record-access",
+      "observations": 8,
+      "task_success": 1,
+      "appropriate_outcome_exact": 1,
+      "prohibited_disclosure_count": 0
+    },
+    {
+      "stratum": "ambiguous-multilingual",
+      "condition": "deterministic-query-rules",
+      "observations": 8,
+      "task_success": 1,
+      "appropriate_outcome_exact": 1,
+      "prohibited_disclosure_count": 0
+    },
+    {
+      "stratum": "ambiguous-multilingual",
+      "condition": "equivalent-non-chain-records",
+      "observations": 8,
+      "task_success": 1,
+      "appropriate_outcome_exact": 1,
+      "prohibited_disclosure_count": 0
+    },
+    {
+      "stratum": "ambiguous-multilingual",
+      "condition": "ungrounded-model",
+      "observations": 40,
+      "task_success": 0,
+      "appropriate_outcome_exact": 0.625,
+      "prohibited_disclosure_count": 0
+    },
+    {
+      "stratum": "ambiguous-multilingual",
+      "condition": "ordinary-rag",
+      "observations": 40,
+      "task_success": 0.25,
+      "appropriate_outcome_exact": 0.5,
+      "prohibited_disclosure_count": 5
+    },
+    {
+      "stratum": "ambiguous-multilingual",
+      "condition": "governed-evllm",
+      "observations": 40,
+      "task_success": 0.875,
+      "appropriate_outcome_exact": 1,
+      "prohibited_disclosure_count": 0
+    },
+    {
+      "stratum": "ambiguous-multilingual",
+      "condition": "ablation-access-enforcement",
+      "observations": 40,
+      "task_success": 0.875,
+      "appropriate_outcome_exact": 0.875,
+      "prohibited_disclosure_count": 5
+    },
+    {
+      "stratum": "ambiguous-multilingual",
+      "condition": "ablation-provenance-metadata",
+      "observations": 40,
+      "task_success": 0.375,
+      "appropriate_outcome_exact": 0.75,
+      "prohibited_disclosure_count": 0
+    },
+    {
+      "stratum": "ambiguous-multilingual",
+      "condition": "ablation-conflict-precondition",
+      "observations": 40,
+      "task_success": 0.75,
+      "appropriate_outcome_exact": 0.875,
+      "prohibited_disclosure_count": 0
+    },
+    {
+      "stratum": "ambiguous-multilingual",
+      "condition": "ablation-deterministic-rules",
+      "observations": 40,
+      "task_success": 0.875,
+      "appropriate_outcome_exact": 1,
+      "prohibited_disclosure_count": 0
+    },
+    {
+      "stratum": "ambiguous-multilingual",
+      "condition": "ablation-output-validation",
+      "observations": 40,
+      "task_success": 0.875,
+      "appropriate_outcome_exact": 1,
+      "prohibited_disclosure_count": 0
+    },
+    {
+      "stratum": "adversarial-injection",
+      "condition": "structured-record-access",
+      "observations": 8,
+      "task_success": 1,
+      "appropriate_outcome_exact": 1,
+      "prohibited_disclosure_count": 0
+    },
+    {
+      "stratum": "adversarial-injection",
+      "condition": "deterministic-query-rules",
+      "observations": 8,
+      "task_success": 1,
+      "appropriate_outcome_exact": 1,
+      "prohibited_disclosure_count": 0
+    },
+    {
+      "stratum": "adversarial-injection",
+      "condition": "equivalent-non-chain-records",
+      "observations": 8,
+      "task_success": 1,
+      "appropriate_outcome_exact": 1,
+      "prohibited_disclosure_count": 0
+    },
+    {
+      "stratum": "adversarial-injection",
+      "condition": "ungrounded-model",
+      "observations": 40,
+      "task_success": 0,
+      "appropriate_outcome_exact": 0.625,
+      "prohibited_disclosure_count": 0
+    },
+    {
+      "stratum": "adversarial-injection",
+      "condition": "ordinary-rag",
+      "observations": 40,
+      "task_success": 0.25,
+      "appropriate_outcome_exact": 0.425,
+      "prohibited_disclosure_count": 5
+    },
+    {
+      "stratum": "adversarial-injection",
+      "condition": "governed-evllm",
+      "observations": 40,
+      "task_success": 0.875,
+      "appropriate_outcome_exact": 1,
+      "prohibited_disclosure_count": 0
+    },
+    {
+      "stratum": "adversarial-injection",
+      "condition": "ablation-access-enforcement",
+      "observations": 40,
+      "task_success": 0.875,
+      "appropriate_outcome_exact": 0.875,
+      "prohibited_disclosure_count": 5
+    },
+    {
+      "stratum": "adversarial-injection",
+      "condition": "ablation-provenance-metadata",
+      "observations": 40,
+      "task_success": 0.375,
+      "appropriate_outcome_exact": 0.75,
+      "prohibited_disclosure_count": 0
+    },
+    {
+      "stratum": "adversarial-injection",
+      "condition": "ablation-conflict-precondition",
+      "observations": 40,
+      "task_success": 0.75,
+      "appropriate_outcome_exact": 0.875,
+      "prohibited_disclosure_count": 0
+    },
+    {
+      "stratum": "adversarial-injection",
+      "condition": "ablation-deterministic-rules",
+      "observations": 40,
+      "task_success": 0.875,
+      "appropriate_outcome_exact": 1,
+      "prohibited_disclosure_count": 0
+    },
+    {
+      "stratum": "adversarial-injection",
+      "condition": "ablation-output-validation",
+      "observations": 40,
+      "task_success": 0.875,
+      "appropriate_outcome_exact": 1,
+      "prohibited_disclosure_count": 0
+    },
+    {
+      "stratum": "insufficient-external-decision",
+      "condition": "structured-record-access",
+      "observations": 8,
+      "task_success": 1,
+      "appropriate_outcome_exact": 1,
+      "prohibited_disclosure_count": 0
+    },
+    {
+      "stratum": "insufficient-external-decision",
+      "condition": "deterministic-query-rules",
+      "observations": 8,
+      "task_success": 1,
+      "appropriate_outcome_exact": 1,
+      "prohibited_disclosure_count": 0
+    },
+    {
+      "stratum": "insufficient-external-decision",
+      "condition": "equivalent-non-chain-records",
+      "observations": 8,
+      "task_success": 1,
+      "appropriate_outcome_exact": 1,
+      "prohibited_disclosure_count": 0
+    },
+    {
+      "stratum": "insufficient-external-decision",
+      "condition": "ungrounded-model",
+      "observations": 40,
+      "task_success": 0,
+      "appropriate_outcome_exact": 0.35,
+      "prohibited_disclosure_count": 0
+    },
+    {
+      "stratum": "insufficient-external-decision",
+      "condition": "ordinary-rag",
+      "observations": 40,
+      "task_success": 0.125,
+      "appropriate_outcome_exact": 0.275,
+      "prohibited_disclosure_count": 5
+    },
+    {
+      "stratum": "insufficient-external-decision",
+      "condition": "governed-evllm",
+      "observations": 40,
+      "task_success": 0.75,
+      "appropriate_outcome_exact": 0.875,
+      "prohibited_disclosure_count": 0
+    },
+    {
+      "stratum": "insufficient-external-decision",
+      "condition": "ablation-access-enforcement",
+      "observations": 40,
+      "task_success": 0.75,
+      "appropriate_outcome_exact": 0.75,
+      "prohibited_disclosure_count": 5
+    },
+    {
+      "stratum": "insufficient-external-decision",
+      "condition": "ablation-provenance-metadata",
+      "observations": 40,
+      "task_success": 0.25,
+      "appropriate_outcome_exact": 0.625,
+      "prohibited_disclosure_count": 0
+    },
+    {
+      "stratum": "insufficient-external-decision",
+      "condition": "ablation-conflict-precondition",
+      "observations": 40,
+      "task_success": 0.625,
+      "appropriate_outcome_exact": 0.75,
+      "prohibited_disclosure_count": 0
+    },
+    {
+      "stratum": "insufficient-external-decision",
+      "condition": "ablation-deterministic-rules",
+      "observations": 40,
+      "task_success": 0.75,
+      "appropriate_outcome_exact": 0.875,
+      "prohibited_disclosure_count": 0
+    },
+    {
+      "stratum": "insufficient-external-decision",
+      "condition": "ablation-output-validation",
+      "observations": 40,
+      "task_success": 0.75,
+      "appropriate_outcome_exact": 0.875,
+      "prohibited_disclosure_count": 0
+    },
+    {
+      "stratum": "end-to-end-lifecycle",
+      "condition": "structured-record-access",
+      "observations": 8,
+      "task_success": 1,
+      "appropriate_outcome_exact": 1,
+      "prohibited_disclosure_count": 0
+    },
+    {
+      "stratum": "end-to-end-lifecycle",
+      "condition": "deterministic-query-rules",
+      "observations": 8,
+      "task_success": 1,
+      "appropriate_outcome_exact": 1,
+      "prohibited_disclosure_count": 0
+    },
+    {
+      "stratum": "end-to-end-lifecycle",
+      "condition": "equivalent-non-chain-records",
+      "observations": 8,
+      "task_success": 1,
+      "appropriate_outcome_exact": 1,
+      "prohibited_disclosure_count": 0
+    },
+    {
+      "stratum": "end-to-end-lifecycle",
+      "condition": "ungrounded-model",
+      "observations": 40,
+      "task_success": 0,
+      "appropriate_outcome_exact": 0.625,
+      "prohibited_disclosure_count": 0
+    },
+    {
+      "stratum": "end-to-end-lifecycle",
+      "condition": "ordinary-rag",
+      "observations": 40,
+      "task_success": 0.25,
+      "appropriate_outcome_exact": 0.5,
+      "prohibited_disclosure_count": 5
+    },
+    {
+      "stratum": "end-to-end-lifecycle",
+      "condition": "governed-evllm",
+      "observations": 40,
+      "task_success": 0.875,
+      "appropriate_outcome_exact": 1,
+      "prohibited_disclosure_count": 0
+    },
+    {
+      "stratum": "end-to-end-lifecycle",
+      "condition": "ablation-access-enforcement",
+      "observations": 40,
+      "task_success": 0.875,
+      "appropriate_outcome_exact": 0.875,
+      "prohibited_disclosure_count": 5
+    },
+    {
+      "stratum": "end-to-end-lifecycle",
+      "condition": "ablation-provenance-metadata",
+      "observations": 40,
+      "task_success": 0.375,
+      "appropriate_outcome_exact": 0.75,
+      "prohibited_disclosure_count": 0
+    },
+    {
+      "stratum": "end-to-end-lifecycle",
+      "condition": "ablation-conflict-precondition",
+      "observations": 40,
+      "task_success": 0.75,
+      "appropriate_outcome_exact": 0.875,
+      "prohibited_disclosure_count": 0
+    },
+    {
+      "stratum": "end-to-end-lifecycle",
+      "condition": "ablation-deterministic-rules",
+      "observations": 40,
+      "task_success": 0.875,
+      "appropriate_outcome_exact": 1,
+      "prohibited_disclosure_count": 0
+    },
+    {
+      "stratum": "end-to-end-lifecycle",
+      "condition": "ablation-output-validation",
+      "observations": 40,
+      "task_success": 0.875,
+      "appropriate_outcome_exact": 1,
+      "prohibited_disclosure_count": 0
+    }
+  ],
+  "failure_taxonomy": {
+    "status": "descriptive-only",
+    "note": "The freeze named categories but did not prespecify an operational attribution map; these flags are transparent, non-exclusive and not used for confirmatory inference.",
+    "rows": [
+      {
+        "condition": "structured-record-access",
+        "category": "retrieval",
+        "observations_flagged": 48,
+        "denominator": 96,
+        "rate": 0.5,
+        "confirmatory": false
+      },
+      {
+        "condition": "structured-record-access",
+        "category": "reasoning",
+        "observations_flagged": 0,
+        "denominator": 96,
+        "rate": 0,
+        "confirmatory": false
+      },
+      {
+        "condition": "structured-record-access",
+        "category": "generation",
+        "observations_flagged": 0,
+        "denominator": 96,
+        "rate": 0,
+        "confirmatory": false
+      },
+      {
+        "condition": "structured-record-access",
+        "category": "policy",
+        "observations_flagged": 0,
+        "denominator": 96,
+        "rate": 0,
+        "confirmatory": false
+      },
+      {
+        "condition": "structured-record-access",
+        "category": "implementation",
+        "observations_flagged": 0,
+        "denominator": 96,
+        "rate": 0,
+        "confirmatory": false
+      },
+      {
+        "condition": "structured-record-access",
+        "category": "external-service",
+        "observations_flagged": 0,
+        "denominator": 96,
+        "rate": 0,
+        "confirmatory": false
+      },
+      {
+        "condition": "deterministic-query-rules",
+        "category": "retrieval",
+        "observations_flagged": 48,
+        "denominator": 96,
+        "rate": 0.5,
+        "confirmatory": false
+      },
+      {
+        "condition": "deterministic-query-rules",
+        "category": "reasoning",
+        "observations_flagged": 0,
+        "denominator": 96,
+        "rate": 0,
+        "confirmatory": false
+      },
+      {
+        "condition": "deterministic-query-rules",
+        "category": "generation",
+        "observations_flagged": 0,
+        "denominator": 96,
+        "rate": 0,
+        "confirmatory": false
+      },
+      {
+        "condition": "deterministic-query-rules",
+        "category": "policy",
+        "observations_flagged": 0,
+        "denominator": 96,
+        "rate": 0,
+        "confirmatory": false
+      },
+      {
+        "condition": "deterministic-query-rules",
+        "category": "implementation",
+        "observations_flagged": 0,
+        "denominator": 96,
+        "rate": 0,
+        "confirmatory": false
+      },
+      {
+        "condition": "deterministic-query-rules",
+        "category": "external-service",
+        "observations_flagged": 0,
+        "denominator": 96,
+        "rate": 0,
+        "confirmatory": false
+      },
+      {
+        "condition": "equivalent-non-chain-records",
+        "category": "retrieval",
+        "observations_flagged": 48,
+        "denominator": 96,
+        "rate": 0.5,
+        "confirmatory": false
+      },
+      {
+        "condition": "equivalent-non-chain-records",
+        "category": "reasoning",
+        "observations_flagged": 0,
+        "denominator": 96,
+        "rate": 0,
+        "confirmatory": false
+      },
+      {
+        "condition": "equivalent-non-chain-records",
+        "category": "generation",
+        "observations_flagged": 0,
+        "denominator": 96,
+        "rate": 0,
+        "confirmatory": false
+      },
+      {
+        "condition": "equivalent-non-chain-records",
+        "category": "policy",
+        "observations_flagged": 0,
+        "denominator": 96,
+        "rate": 0,
+        "confirmatory": false
+      },
+      {
+        "condition": "equivalent-non-chain-records",
+        "category": "implementation",
+        "observations_flagged": 0,
+        "denominator": 96,
+        "rate": 0,
+        "confirmatory": false
+      },
+      {
+        "condition": "equivalent-non-chain-records",
+        "category": "external-service",
+        "observations_flagged": 0,
+        "denominator": 96,
+        "rate": 0,
+        "confirmatory": false
+      },
+      {
+        "condition": "ungrounded-model",
+        "category": "retrieval",
+        "observations_flagged": 0,
+        "denominator": 480,
+        "rate": 0,
+        "confirmatory": false
+      },
+      {
+        "condition": "ungrounded-model",
+        "category": "reasoning",
+        "observations_flagged": 196,
+        "denominator": 480,
+        "rate": 0.4083333333333333,
+        "confirmatory": false
+      },
+      {
+        "condition": "ungrounded-model",
+        "category": "generation",
+        "observations_flagged": 0,
+        "denominator": 480,
+        "rate": 0,
+        "confirmatory": false
+      },
+      {
+        "condition": "ungrounded-model",
+        "category": "policy",
+        "observations_flagged": 2,
+        "denominator": 480,
+        "rate": 0.004166666666666667,
+        "confirmatory": false
+      },
+      {
+        "condition": "ungrounded-model",
+        "category": "implementation",
+        "observations_flagged": 0,
+        "denominator": 480,
+        "rate": 0,
+        "confirmatory": false
+      },
+      {
+        "condition": "ungrounded-model",
+        "category": "external-service",
+        "observations_flagged": 0,
+        "denominator": 480,
+        "rate": 0,
+        "confirmatory": false
+      },
+      {
+        "condition": "ordinary-rag",
+        "category": "retrieval",
+        "observations_flagged": 0,
+        "denominator": 480,
+        "rate": 0,
+        "confirmatory": false
+      },
+      {
+        "condition": "ordinary-rag",
+        "category": "reasoning",
+        "observations_flagged": 243,
+        "denominator": 480,
+        "rate": 0.50625,
+        "confirmatory": false
+      },
+      {
+        "condition": "ordinary-rag",
+        "category": "generation",
+        "observations_flagged": 217,
+        "denominator": 480,
+        "rate": 0.45208333333333334,
+        "confirmatory": false
+      },
+      {
+        "condition": "ordinary-rag",
+        "category": "policy",
+        "observations_flagged": 60,
+        "denominator": 480,
+        "rate": 0.125,
+        "confirmatory": false
+      },
+      {
+        "condition": "ordinary-rag",
+        "category": "implementation",
+        "observations_flagged": 0,
+        "denominator": 480,
+        "rate": 0,
+        "confirmatory": false
+      },
+      {
+        "condition": "ordinary-rag",
+        "category": "external-service",
+        "observations_flagged": 0,
+        "denominator": 480,
+        "rate": 0,
+        "confirmatory": false
+      },
+      {
+        "condition": "governed-evllm",
+        "category": "retrieval",
+        "observations_flagged": 180,
+        "denominator": 480,
+        "rate": 0.375,
+        "confirmatory": false
+      },
+      {
+        "condition": "governed-evllm",
+        "category": "reasoning",
+        "observations_flagged": 5,
+        "denominator": 480,
+        "rate": 0.010416666666666666,
+        "confirmatory": false
+      },
+      {
+        "condition": "governed-evllm",
+        "category": "generation",
+        "observations_flagged": 0,
+        "denominator": 480,
+        "rate": 0,
+        "confirmatory": false
+      },
+      {
+        "condition": "governed-evllm",
+        "category": "policy",
+        "observations_flagged": 0,
+        "denominator": 480,
+        "rate": 0,
+        "confirmatory": false
+      },
+      {
+        "condition": "governed-evllm",
+        "category": "implementation",
+        "observations_flagged": 0,
+        "denominator": 480,
+        "rate": 0,
+        "confirmatory": false
+      },
+      {
+        "condition": "governed-evllm",
+        "category": "external-service",
+        "observations_flagged": 0,
+        "denominator": 480,
+        "rate": 0,
+        "confirmatory": false
+      },
+      {
+        "condition": "ablation-access-enforcement",
+        "category": "retrieval",
+        "observations_flagged": 180,
+        "denominator": 480,
+        "rate": 0.375,
+        "confirmatory": false
+      },
+      {
+        "condition": "ablation-access-enforcement",
+        "category": "reasoning",
+        "observations_flagged": 65,
+        "denominator": 480,
+        "rate": 0.13541666666666666,
+        "confirmatory": false
+      },
+      {
+        "condition": "ablation-access-enforcement",
+        "category": "generation",
+        "observations_flagged": 60,
+        "denominator": 480,
+        "rate": 0.125,
+        "confirmatory": false
+      },
+      {
+        "condition": "ablation-access-enforcement",
+        "category": "policy",
+        "observations_flagged": 60,
+        "denominator": 480,
+        "rate": 0.125,
+        "confirmatory": false
+      },
+      {
+        "condition": "ablation-access-enforcement",
+        "category": "implementation",
+        "observations_flagged": 0,
+        "denominator": 480,
+        "rate": 0,
+        "confirmatory": false
+      },
+      {
+        "condition": "ablation-access-enforcement",
+        "category": "external-service",
+        "observations_flagged": 0,
+        "denominator": 480,
+        "rate": 0,
+        "confirmatory": false
+      },
+      {
+        "condition": "ablation-provenance-metadata",
+        "category": "retrieval",
+        "observations_flagged": 0,
+        "denominator": 480,
+        "rate": 0,
+        "confirmatory": false
+      },
+      {
+        "condition": "ablation-provenance-metadata",
+        "category": "reasoning",
+        "observations_flagged": 125,
+        "denominator": 480,
+        "rate": 0.2604166666666667,
+        "confirmatory": false
+      },
+      {
+        "condition": "ablation-provenance-metadata",
+        "category": "generation",
+        "observations_flagged": 120,
+        "denominator": 480,
+        "rate": 0.25,
+        "confirmatory": false
+      },
+      {
+        "condition": "ablation-provenance-metadata",
+        "category": "policy",
+        "observations_flagged": 0,
+        "denominator": 480,
+        "rate": 0,
+        "confirmatory": false
+      },
+      {
+        "condition": "ablation-provenance-metadata",
+        "category": "implementation",
+        "observations_flagged": 0,
+        "denominator": 480,
+        "rate": 0,
+        "confirmatory": false
+      },
+      {
+        "condition": "ablation-provenance-metadata",
+        "category": "external-service",
+        "observations_flagged": 0,
+        "denominator": 480,
+        "rate": 0,
+        "confirmatory": false
+      },
+      {
+        "condition": "ablation-conflict-precondition",
+        "category": "retrieval",
+        "observations_flagged": 180,
+        "denominator": 480,
+        "rate": 0.375,
+        "confirmatory": false
+      },
+      {
+        "condition": "ablation-conflict-precondition",
+        "category": "reasoning",
+        "observations_flagged": 65,
+        "denominator": 480,
+        "rate": 0.13541666666666666,
+        "confirmatory": false
+      },
+      {
+        "condition": "ablation-conflict-precondition",
+        "category": "generation",
+        "observations_flagged": 54,
+        "denominator": 480,
+        "rate": 0.1125,
+        "confirmatory": false
+      },
+      {
+        "condition": "ablation-conflict-precondition",
+        "category": "policy",
+        "observations_flagged": 0,
+        "denominator": 480,
+        "rate": 0,
+        "confirmatory": false
+      },
+      {
+        "condition": "ablation-conflict-precondition",
+        "category": "implementation",
+        "observations_flagged": 0,
+        "denominator": 480,
+        "rate": 0,
+        "confirmatory": false
+      },
+      {
+        "condition": "ablation-conflict-precondition",
+        "category": "external-service",
+        "observations_flagged": 0,
+        "denominator": 480,
+        "rate": 0,
+        "confirmatory": false
+      },
+      {
+        "condition": "ablation-deterministic-rules",
+        "category": "retrieval",
+        "observations_flagged": 180,
+        "denominator": 480,
+        "rate": 0.375,
+        "confirmatory": false
+      },
+      {
+        "condition": "ablation-deterministic-rules",
+        "category": "reasoning",
+        "observations_flagged": 5,
+        "denominator": 480,
+        "rate": 0.010416666666666666,
+        "confirmatory": false
+      },
+      {
+        "condition": "ablation-deterministic-rules",
+        "category": "generation",
+        "observations_flagged": 0,
+        "denominator": 480,
+        "rate": 0,
+        "confirmatory": false
+      },
+      {
+        "condition": "ablation-deterministic-rules",
+        "category": "policy",
+        "observations_flagged": 0,
+        "denominator": 480,
+        "rate": 0,
+        "confirmatory": false
+      },
+      {
+        "condition": "ablation-deterministic-rules",
+        "category": "implementation",
+        "observations_flagged": 0,
+        "denominator": 480,
+        "rate": 0,
+        "confirmatory": false
+      },
+      {
+        "condition": "ablation-deterministic-rules",
+        "category": "external-service",
+        "observations_flagged": 0,
+        "denominator": 480,
+        "rate": 0,
+        "confirmatory": false
+      },
+      {
+        "condition": "ablation-output-validation",
+        "category": "retrieval",
+        "observations_flagged": 180,
+        "denominator": 480,
+        "rate": 0.375,
+        "confirmatory": false
+      },
+      {
+        "condition": "ablation-output-validation",
+        "category": "reasoning",
+        "observations_flagged": 5,
+        "denominator": 480,
+        "rate": 0.010416666666666666,
+        "confirmatory": false
+      },
+      {
+        "condition": "ablation-output-validation",
+        "category": "generation",
+        "observations_flagged": 0,
+        "denominator": 480,
+        "rate": 0,
+        "confirmatory": false
+      },
+      {
+        "condition": "ablation-output-validation",
+        "category": "policy",
+        "observations_flagged": 0,
+        "denominator": 480,
+        "rate": 0,
+        "confirmatory": false
+      },
+      {
+        "condition": "ablation-output-validation",
+        "category": "implementation",
+        "observations_flagged": 0,
+        "denominator": 480,
+        "rate": 0,
+        "confirmatory": false
+      },
+      {
+        "condition": "ablation-output-validation",
+        "category": "external-service",
+        "observations_flagged": 0,
+        "denominator": 480,
+        "rate": 0,
+        "confirmatory": false
+      }
+    ]
+  }
+}

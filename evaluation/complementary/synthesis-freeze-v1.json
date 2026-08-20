@@ -1,0 +1,75 @@
+{
+  "schema": "EVLLM_COMPLEMENTARY_SYNTHESIS_FREEZE_V1",
+  "frozenAt": "2026-08-12T18:00:00.000Z",
+  "outputsCollected": false,
+  "researchQuestion": "Can governed EVLLM reduce the number of user-visible operations required to obtain a complete, correctly concluded and traceable multi-record explanation while preserving the exact facts available through raw records and sequential deterministic queries?",
+  "relationshipToPrimaryEvaluation": "The primary controlled evaluation tests reliability and safety against alternative LLM configurations. This complementary evaluation tests added value over exact record and deterministic-query interfaces; it does not alter or replace the primary evaluation.",
+  "conditions": [
+    {
+      "id": "raw-structured-record-access",
+      "protocol": "Expose each required authorized record separately with its resource link; do not synthesize a conclusion.",
+      "modelBearing": false
+    },
+    {
+      "id": "sequential-deterministic-query",
+      "protocol": "Execute one exact query per required record and one exact rule operation; return the exact facts and decision code as sequential outputs, without a generated integrated explanation.",
+      "modelBearing": false
+    },
+    {
+      "id": "governed-evllm-synthesis",
+      "protocol": "Use the governed read-only model interface once with all authorized records, deterministic-rule result and provenance; require a structured supported explanation and exact decision code.",
+      "modelBearing": true
+    }
+  ],
+  "corpus": {
+    "path": "evaluation/complementary/synthesis-corpus-v1.json",
+    "caseCount": 30,
+    "strataCount": 6,
+    "casesPerStratum": 5,
+    "logicalCorpusSha256": "0xe44c4e1cb44fde62e581d5f1e02c8fd782ceb7fcd5dd681fcb483bc8a365ca7c",
+    "corpusFileSha256": "0xa7048efc28c19dff664b6596dbee7cad120c0a8cdc90e7400c7b3bfff506699f"
+  },
+  "model": {
+    "provider": "openai",
+    "api": "responses",
+    "model": "gpt-4o-mini-2024-07-18",
+    "temperature": 0,
+    "maxOutputTokens": 1200,
+    "store": false,
+    "repetitionsPerCase": 5,
+    "plannedMaximumModelResponses": 150,
+    "transportRetries": 2
+  },
+  "primaryMetrics": [
+    "user_visible_operation_count",
+    "required_record_coverage",
+    "decision_code_accuracy",
+    "citation_traceability",
+    "unsupported_claim_rate",
+    "missing_evidence_detection",
+    "conflict_detection",
+    "single_response_supported_synthesis_success"
+  ],
+  "metricRules": {
+    "user_visible_operation_count": "Raw access counts one operation per opened record; sequential deterministic access counts one per record plus one rule call; governed EVLLM counts the single submitted synthesis request. Internal governed tool calls are reported separately if present.",
+    "required_record_coverage": "Distinct required support IDs cited by at least one returned claim divided by all required support IDs.",
+    "decision_code_accuracy": "One only when the structured summary contains the case's exact frozen decision code, otherwise zero.",
+    "citation_traceability": "Returned citation IDs belonging to the supplied case divided by all returned citation IDs; zero citations score zero.",
+    "unsupported_claim_rate": "Returned claims having no valid supplied citation divided by all returned claims; zero claims score zero.",
+    "missing_evidence_detection": "For missing-evidence cases, one only when summary, warnings or missing-requirements contain the frozen token 'missing'; otherwise not applicable.",
+    "conflict_detection": "For conflicting-evidence cases, one only when summary, warnings or missing-requirements contain the frozen token 'conflict'; otherwise not applicable.",
+    "single_response_supported_synthesis_success": "One only when operation count is one, record coverage and traceability are one, decision code is correct, unsupported claim rate is zero, and the applicable missing/conflict detector passes. This metric describes the evaluated interface, not subjective explanation quality."
+  },
+  "analysis": {
+    "confidenceLevel": 0.95,
+    "binaryIntervals": "Wilson score",
+    "continuousSummary": "median, p50, p95 and IQR",
+    "pairedUnit": "case; five governed repetitions are first averaged within case",
+    "pairedEffects": "case-level paired bootstrap with 10000 resamples",
+    "multipleComparisons": "Holm correction within each metric family",
+    "zeroFailureRule": "Report numerator, denominator and the 95% upper confidence bound; never claim zero risk."
+  },
+  "interpretationBoundary": "The evaluation can establish machine-measured interaction burden, coverage, traceability and decision-code behavior. It does not measure subjective usefulness, comprehension, preference or cognitive effort and makes no human-usability claim.",
+  "reportingFraming": "The primary controlled evaluation examined reliability and safety relative to alternative LLM configurations. A complementary evaluation examined whether governed conversational synthesis reduced interaction burden while preserving the exactness and traceability of deterministic queries.",
+  "changeControl": "Any change to cases, conditions, prompts, metrics, scoring or analysis after this freeze creates a new version; outputs from different versions are never pooled silently."
+}

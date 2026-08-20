@@ -1,0 +1,365 @@
+{
+  "schema": "EVLLM_ARCHITECTURE_SCHEMA_CATALOG_V1",
+  "schemas": [
+    {
+      "name": "CanonicalDecimal",
+      "semanticContent": "Exact closed value forms and bounds from the canonical numeric profile; no binary-float alternative",
+      "placement": "Shared JSON Schema definitions imported by every evidence, assessment, marketplace, API, database, and evaluation schema"
+    },
+    {
+      "name": "DecimalQuantity",
+      "semanticContent": "Exact closed value forms and bounds from the canonical numeric profile; no binary-float alternative",
+      "placement": "Shared JSON Schema definitions imported by every evidence, assessment, marketplace, API, database, and evaluation schema"
+    },
+    {
+      "name": "DecimalRange",
+      "semanticContent": "Exact closed value forms and bounds from the canonical numeric profile; no binary-float alternative",
+      "placement": "Shared JSON Schema definitions imported by every evidence, assessment, marketplace, API, database, and evaluation schema"
+    },
+    {
+      "name": "MoneyValue",
+      "semanticContent": "Exact closed value forms and bounds from the canonical numeric profile; no binary-float alternative",
+      "placement": "Shared JSON Schema definitions imported by every evidence, assessment, marketplace, API, database, and evaluation schema"
+    },
+    {
+      "name": "PercentilePoint",
+      "semanticContent": "Exact closed value forms and bounds from the canonical numeric profile; no binary-float alternative",
+      "placement": "Shared JSON Schema definitions imported by every evidence, assessment, marketplace, API, database, and evaluation schema"
+    },
+    {
+      "name": "WeiAmount",
+      "semanticContent": "Exact closed value forms and bounds from the canonical numeric profile; no binary-float alternative",
+      "placement": "Shared JSON Schema definitions imported by every evidence, assessment, marketplace, API, database, and evaluation schema"
+    },
+    {
+      "name": "UnitDefinition",
+      "semanticContent": "Stable unit ID/version, canonical symbol, dimension vector, decimal scale/optional offset to the profiled base unit, source or external mapping, status and effective time",
+      "placement": "`AuthorityProfileRegistry`-governed metadata plus canonical unit projection; no conversion is inferred from display text"
+    },
+    {
+      "name": "Organization",
+      "semanticContent": "Organization ID, name for the scripted fixture, status, admitted role scopes, effective times, administrator references, repository references, and legal-identity limitation",
+      "placement": "Organization registry commitment/events plus canonical projection"
+    },
+    {
+      "name": "ActorCredential",
+      "semanticContent": "Immutable credential-instance ID with fixed internal version `1`, actor ID, organization ID, wallet address, EVM signing-key status, predecessor/successor reference, role assignments, effective times, and revocation reason",
+      "placement": "Public role/wallet references where needed plus canonical metadata; every wallet rotation creates a new credential URN rather than another version behind the same ID, so the credential ID alone identifies the signed authority instance. No organization-encryption-key lifecycle is attached to an actor, and private keys remain outside all schemas"
+    },
+    {
+      "name": "OrganizationEncryptionKey",
+      "semanticContent": "Organization ID, key ID and RFC 9278 thumbprint URI, RSA public JWK, fixed algorithm/use/key-operation profile, modulus/exponent validation, version, status, effective times, key authority, rotation/predecessor reference, and status reason",
+      "placement": "Canonical protected key registry and repository/key-agent configuration; public encryption material is never interpreted as an EVM identity and private key material is absent"
+    },
+    {
+      "name": "CapabilityGrant",
+      "semanticContent": "Actor, organization, capability, resource and claim/method scope, effective and expiry times, grantor, status, reason, and policy version",
+      "placement": "`AuthorityProfileRegistry` events where public enforcement is required plus canonical policy projection"
+    },
+    {
+      "name": "RoleCapabilityDefinition",
+      "semanticContent": "Canonical `urn:evllm:role:<uuid>` role ID and `urn:evllm:capability:<uuid>` capability ID, immutable codes, permitted bundle/action types, required resource/method/relationship scope, policy version, status and effective times",
+      "placement": "`AuthorityProfileRegistry`; free-form role/capability strings never authorize an action, and a grant always names the exact IDs plus bounded scope"
+    },
+    {
+      "name": "AuthorBindingProfileV1",
+      "semanticContent": "Canonical profile ID/version, exact bundle type and unsigned-domain-payload schema ID/version (the v1 `content_schema_*` fields), payload JSON pointers for resource/version and author-bearing fields, allowed canonical role/capability IDs, an exact closed discriminator-to-capability/relationship dispatch map, a closed relationship-context schema, separation-of-duty rule, and revalidation points `prepare/domain-activation`",
+      "placement": "Active executable `AuthorityProfileRegistry` profile used by repository/application validators and generated schema fixtures. It never implies that the EVM registry can inspect encrypted payload JSON"
+    },
+    {
+      "name": "AuthorBindingDecision",
+      "semanticContent": "Immutable decision ID/version, bundle/type/domain IDs and versions, domain-payload commitment, repository-private preparation-request fingerprint, author-binding-profile ID/version, intended author actor/organization/credential/address, selected role/capability IDs and discriminator variant, exact profile-defined minimized relationship operands and relationship-source record, equality/relationship results fixed to `allow`, evaluation time, and canonical decision digest",
+      "placement": "Controller-repository-private immutable validation record created at `prepared`. It contains no original content, payload bytes, salt, key, envelope, or private locator. Its ID/digest are bound by the staging descriptor and manifest; activation revalidates its extracted operands without decrypting again, while later authorized reconstruction rechecks them against the committed payload"
+    },
+    {
+      "name": "PurposeDefinition",
+      "semanticContent": "Versioned purpose, protected-bundle type, access class, domain-resource scope, permitted roles/organizations/operations, minimization, retention, controller, delegation, and fail-closed rule",
+      "placement": "Canonical policy database with selected public commitment/version"
+    },
+    {
+      "name": "AccessPolicy",
+      "semanticContent": "Versioned purpose, protected-bundle type, access class, domain-resource scope, permitted roles/organizations/operations, minimization, retention, controller, delegation, and fail-closed rule",
+      "placement": "Canonical policy database with selected public commitment/version"
+    },
+    {
+      "name": "ReplicaPolicyProfile",
+      "semanticContent": "Stable executable policy ID using canonical `urn:evllm:profile:<uuid>`, positive integer version, `required_when_decision_critical`, exact replica count, approved replica-custodian organization and repository IDs, retention-profile ID/version, canonical object digest, status and effective times",
+      "placement": "`AuthorityProfileRegistry` maps the active policy ID/version and digest to this exact public enforcement tuple; it contains no endpoint, object locator, credential, key, or content"
+    },
+    {
+      "name": "RepositoryRegistration",
+      "semanticContent": "Repository ID, custody-controller organization, infrastructure-operator organization, protocol and adapter versions, endpoint alias, supported operations, conformance result, status, and approved replica scopes",
+      "placement": "Canonical metadata; no secret endpoint, credential, or object locator on chain"
+    },
+    {
+      "name": "CustodyRelationship",
+      "semanticContent": "Protected-bundle/domain controller, primary repository/operator, replica controller/operator, permitted type/resource scope, effective time, and status",
+      "placement": "Canonical governance metadata and selected public role/status events"
+    },
+    {
+      "name": "BatterySubject",
+      "semanticContent": "Battery ID, `pack`, `module`, or `cell` granularity, registration issuer, schema version, status, and versioned parent/child relation",
+      "placement": "Minimal chain identity plus projection; manufacturer, chemistry, dates, and characteristics are attributable claims rather than uncorrectable constants"
+    },
+    {
+      "name": "IdentifierBinding",
+      "semanticContent": "Battery ID, external identifier, scheme, issuer, source evidence, uncertainty, effective time, and status",
+      "placement": "Signed claim/evidence commitment and projection"
+    },
+    {
+      "name": "OwnershipTransition",
+      "semanticContent": "Battery ID, previous and new organization, reason, agreement or registration reference, event time, and chain locator",
+      "placement": "Contract event and canonical projection"
+    },
+    {
+      "name": "InitialOwnershipBinding",
+      "semanticContent": "Stable ownership-proposal ID and fixed internal version `1`, battery ID, registrar nomination, nominated organization, supporting evidence/commitment, registrar and owner confirmations, separately identified accepted/rejected/expired transitions, nonce/expiry, state, reason, and chain locator",
+      "placement": "Two-party on-chain binding and projection; rejection or expiry requires a new proposal ID rather than mutation/replay; battery remains owner-unassigned and unlistable until the nominated organization accepts, and recorded ownership is not legal title"
+    },
+    {
+      "name": "EvidenceClaimPayload",
+      "semanticContent": "Claim and evidence IDs/versions, claim type, subject and granularity, `issuer_organization_id` and canonical `issuer_role_id`, observation and submission time, source/capture method, typed value/payload, `DecimalQuantity`/unit reference where numeric, typed uncertainty including `DecimalRange` where applicable, schema and method versions, source class, provenance links, and minimal non-circular `ProtectedBundleRef`",
+      "placement": "Exact RFC 8785 unsigned evidence-domain payload stored inside `EVLLM_PROTECTED_PACKAGE_V1` and signed through `DomainManifestAttestation`; raw decimal JSON numbers, implicit units, self-commitment, ciphertext digest, current registry state, and signature are excluded"
+    },
+    {
+      "name": "ClaimVersion",
+      "semanticContent": "Immutable version ID, claim ID, sequence, prior version, correction reason, evidence-domain payload commitment, status, issuer signature reference, and time",
+      "placement": "Chain transition plus projection and issuer repository metadata"
+    },
+    {
+      "name": "VerificationPayload",
+      "semanticContent": "Stable verification-assertion ID and positive immutable version, closed immutable `assertion_type` equal to `corroboration` or `certification`, claim/version scope, `verifier_organization_id`, canonical `verifier_role_id`, `verifier_credential_id`, basis evidence references, method or standard version, reason, verification time, optional source-defined validity, and minimal protected-bundle reference",
+      "placement": "Exact RFC 8785 unsigned verification-domain payload; the referenced package carries the private full basis/report as content and mutable assertion status is excluded. The active author-binding profile maps `corroboration -> verification.corroborate` and `certification -> verification.certify`, authorizes that exact signer/role, and requires a different organization from the referenced claim's original issuer, so projection metadata cannot reclassify a signed payload"
+    },
+    {
+      "name": "VerificationAssertion",
+      "semanticContent": "`VerificationPayload` and `DomainSignatureRecord` references, immutable assertion type, assertion commitment, current `active/withdrawn/superseded` projection, status reason/time, and support links",
+      "placement": "Post-sign verification aggregate/projection; it preserves the signed assertion type and never rewrites the immutable payload or private report"
+    },
+    {
+      "name": "ProtectedBundleStagingDescriptor",
+      "semanticContent": "Profile/version, staging and repository-receipt IDs, reserved bundle/domain-resource IDs and versions, closed bundle type, custody/repository, repository-private staging-object ID and reserved final primary-object ID, content-schema/access, resolved author-binding-profile ID/version and author-binding-decision ID/digest, immutable initial criticality class and criticality-profile ID/version, salted unsigned domain-payload commitment, content commitment, content-envelope digest, content encryption profile, controller-key-authorization ID, controller-envelope ID, controller encryption-key ID, controller-envelope profile ID/version and envelope commitment, exact stored-envelope octet length, replica policy, prepared/expiry times, and preparation-idempotency scope",
+      "placement": "RFC 8785 canonical immutable short-lived repository record; the domain author signs the payload commitment through `DomainManifestAttestation`, and the custody controller separately signs the descriptor digest through `FinalizeProtectedBundle`, thereby binding the staged recoverable DEK path, author-profile/decision resolution, and both object IDs. It cannot be fetched as a bundle, and expiration creates no domain version. Both salts are inside the encrypted package; later signature metadata is stored separately without exposing the domain payload"
+    },
+    {
+      "name": "PrepareProtectedBundleRequest",
+      "semanticContent": "Exact closed v1 request member set, including immutable bundle/type/domain IDs and versions; exact original-content and canonical unsigned-domain-payload bytes; content media/schema; controller and intended-author identities; resolved author-binding-profile ID/version; repository, access, encryption/controller-envelope, criticality and registered replica-policy bindings",
+      "placement": "Transient authenticated controller request. The repository validates it before any randomness or object ID is generated and persists only its repository-private domain-separated fingerprint, not this plaintext request object"
+    },
+    {
+      "name": "ProtectedBundleStagingState",
+      "semanticContent": "Staging ID, internal state `preparing/prepared/finalized/expired/rejected`, monotonic state and materialization revisions, preparation-idempotency hash, repository-private preparation-request fingerprint, reserved/generated IDs, descriptor/digest, preparation/finalization command and retained-result references, `preparing_at`, profile-derived `materialization_expires_at`, prepared/expiry/finalized/closed times, reason and correlation/audit reference",
+      "placement": "Repository-private coordination row. `preparing` is unpublished materialization/recovery state and returns no descriptor; legal transitions are `preparing -> prepared/rejected/expired`, then `prepared -> finalized/expired/rejected`. The exact externally usable staging commit is `prepared`; finalization and expiry/rejection acquire the same bounded database row lock, and `finalizing` is only a transaction-local phase while that lock is held, so cleanup cannot race a manifest commit"
+    },
+    {
+      "name": "DomainAttestationChallenge",
+      "semanticContent": "Challenge ID, bundle/type/version, domain resource/version, exact canonical unsigned domain-payload bytes, domain-payload commitment salt and recomputed commitment, resolved author-binding-profile ID/version, exact `DomainManifestAttestation` fields/domain including issued-at/expiry, intended author actor/organization/credential, prepared/expiry times, and staging-descriptor digest",
+      "placement": "Ephemeral authenticated response only to the intended domain author. It contains no original protected content bytes, DEK, recipient envelope, private object locator, or controller-only storage credential. Raw payload/salt are never logged, placed on chain, or retained as challenge/central plaintext; they persist only inside the encrypted staged package that becomes the finalized package, while their commitments and signature metadata persist separately"
+    },
+    {
+      "name": "DomainAttestationChallengeDeliveryRecord",
+      "semanticContent": "Challenge and staging IDs, staging-descriptor digest and `domainAttestationChallengeDigest`; intended author actor/organization/credential/address; resolved author-binding-profile ID/version; exact EIP-712 profile ID/version and domain name/version/chain ID/`ProtectedBundleRegistry` address; separately scoped attribution nonce in canonical uint256-hex form; issued-at/expiry; state `prepared/delivered/expired`; prepared/delivered times, correlation and audit reference",
+      "placement": "Opaque one-use controller-repository metadata only. Preparation constructs the exact challenge once, computes its domain-separated digest, and persists these non-payload reconstruction fields plus the digest. Delivery combines them with only the payload/salt recovered from the encrypted staged package and rejects a digest mismatch. Legal transitions are `prepared -> delivered` on successful one-use release or `prepared -> expired` when staging expires; both are terminal for delivery. It contains no raw payload, salt, content, DEK, envelope, locator, or signature private material; `delivered` is atomically recorded before the no-store response is released, replay is denied, signature acceptance is recorded separately, and loss after delivery requires staging expiry plus a new preparation"
+    },
+    {
+      "name": "ProtectedBundleManifest",
+      "semanticContent": "Exact `ProtectedBundleRef`; salted domain-payload commitment; domain-attribution record, typed-data/signature/signed-envelope digests and signature reference; author-binding-decision ID/digest; staging-descriptor digest; finalization `CommandIntent` ID, typed-data/signature digests and signature reference; custody controller/repository operator; access class; content-schema ID/URI/SemVer and binding digest; resolved author-binding-profile ID/version; encryption-profile ID/version; controller-key-authorization ID, controller-envelope ID, controller encryption-key ID, controller-envelope profile ID/version and `recipientEnvelopeCommitment`; immutable initial criticality class and criticality-profile ID/version; content commitment, content-envelope digest, controller-private opaque object ID, exact stored-envelope octet length, permanently `finalized` object state, replica-policy object/digest, and provenance links",
+      "placement": "Immutable repository metadata adjacent to and referencing the encrypted package; it is not serialized inside the package it describes. Permitted commitments, signature references, and digests may be projected centrally/on chain where required. Both salts and exact unsigned domain payload remain only inside the encrypted package. Mutable repository availability, access, current criticality, and retention execution are separate projected records. The generic bundle supplies custody/crypto semantics but never replaces the domain manifest or exposes its payload publicly"
+    },
+    {
+      "name": "ProtectedBundleRef",
+      "semanticContent": "Bundle ID/version/type, domain resource ID/version, expected custody-controller organization, content-schema ID/version, immutable initial criticality class, and criticality-profile ID/version",
+      "placement": "Minimal immutable precommit link embedded in the unsigned domain payload. It deliberately omits that payload's commitment, content/envelope digests and length, current criticality, replica/access/availability state, and registry event so it is neither self-referential nor mutable"
+    },
+    {
+      "name": "ResolvedProtectedBundleView",
+      "semanticContent": "Exact `ProtectedBundleRef` plus salted domain-payload commitment, content commitment, content-envelope digest and stored-envelope length, content-schema binding digest, resolved author-binding-profile ID/version, encryption-profile ID/version, registered replica-policy ID/version/digest and immutable resolved replica count/custodian/repository/retention tuple, primary repository ID, access class and request-specific access-policy result, current criticality, replica/availability state, registry status, canonical transaction/log locator, and as-of boundary",
+      "placement": "Query/projection result derived only after registry confirmation. Resolution fails if type/domain/controller/schema/author-binding/initial profile or replica-policy binding differs from canonical registry state; access is recomputed for the current actor/purpose rather than stored as a universal bundle state; this view is never inserted into or used to recompute the signed domain payload"
+    },
+    {
+      "name": "DomainSignatureRecord",
+      "semanticContent": "Protected bundle/type/version, domain resource/version, signed-payload type/profile, resolved author-binding-profile ID/version and repository-private author-binding-decision reference, signer actor/organization/credential/address, EIP-712 domain, nonce/issued-at/expiry, salted domain-payload commitment, canonical signature bytes, `typedDataDigest`, `signatureDigest`, signed-domain-envelope digest, state, and chain/audit references",
+      "placement": "Canonical non-payload metadata and selected domain event; it contains no unsigned payload or private content. An authorized recipient combines it with the decrypted canonical domain payload and retained acceptance-time author profile/decision to reproduce and verify the signed envelope and historical authority decision"
+    },
+    {
+      "name": "EvidenceManifest",
+      "semanticContent": "Evidence ID/version, `EvidenceClaimPayload` and `ProtectedBundleRef` references, related claim/subject, issuer, schema/method version, source/provenance, `DomainSignatureRecord`, signed evidence-domain-envelope digest, signature digest, canonical issuer lifecycle and support links",
+      "placement": "Post-sign domain aggregate/projection created only after the shared-bundle and evidence-domain commitments are canonically confirmed; it is never the unsigned domain payload, an intermediate repository-finalization record, or serialized inside the encrypted package and does not duplicate the protected-bundle cryptographic contract"
+    },
+    {
+      "name": "ProtectedDomainActivationAttempt",
+      "semanticContent": "Attempt ID, bundle type and bundle/domain IDs/versions, repository staging/finalization reference, required proof expiries, states `prepared/finalized-awaiting-bundle/bundle-confirmed-awaiting-domain/active/expired-before-finalization/rejected-before-finalization/abandoned-before-registry-commit/stranded-by-authority-revocation/domain-rejected-after-bundle-confirmation`, command/transaction references, reason, and times",
+      "placement": "Reusable repository plus canonical workflow projection for every protected domain; it is not a domain lifecycle record. Expired staging reaches `expired-before-finalization`; invalid or replaced finalization reaches `rejected-before-finalization`; only a finalized pre-registry attempt can become `abandoned-before-registry-commit` after proof expiry. A confirmed bundle remains pending only while its domain commit is still valid and its required author/controller authority exists. Terminal revocation makes it `stranded-by-authority-revocation`; a canonically observed deterministic domain conflict that cannot be repaired without changing the immutable ID/link makes it `domain-rejected-after-bundle-confirmation`. Both retain the visible bundle commitment, prohibit later activation or ID reuse, and do not block quiescence"
+    },
+    {
+      "name": "ProtectedBundleCriticalityTransition",
+      "semanticContent": "Bundle ID/version/type, domain resource reference, immutable initial class, current projected class, criticality-profile ID/version, transition ID/type, actor, primary and replica repository references, content-envelope and replica-receipt digests, command/transaction references, state, reason, and time",
+      "placement": "Initial class and confirmed promotion event on chain plus canonical projection; exact stored content-JWE envelope bytes and authenticated context never change"
+    },
+    {
+      "name": "RecipientKeyEnvelope",
+      "semanticContent": "Envelope ID, protected bundle/version, recipient organization and organization-encryption-key ID, envelope profile/version, encapsulation and wrapped-DEK ciphertext, immutable `recipientEnvelopeCommitment`, authorization reference typed `controller-custody` or `access-grant`, creation/status times, and revocation status",
+      "placement": "Central protected metadata and recipient/custodian services; never on chain or in LLM context; load and audit paths recompute the commitment over the exact canonical recipient JWE"
+    },
+    {
+      "name": "ControllerKeyAuthorization",
+      "semanticContent": "Authorization ID, staging and reserved bundle/version, controller organization and active encryption-key ID, closed purpose `controller-custody`, crypto/policy profile, lifecycle `staged/active/retired`, creation/finalization/retirement times, and reason",
+      "placement": "Controller repository/key-agent and canonical protected metadata; materialized and verified before the repository commits `prepared` and, while staged, usable only for repository-internal one-use author-challenge reconstruction and finalization verification. It is activated only by exact finalization for later key administration and is never treated as actor access permission"
+    },
+    {
+      "name": "AccessGrant",
+      "semanticContent": "Grant ID, protected-bundle/domain-resource scope, policy owner, recipient, purpose, permitted operations, effective/expiry times, key-envelope references, status, and reason",
+      "placement": "Canonical policy database and audit trail"
+    },
+    {
+      "name": "AuthorizationDecision",
+      "semanticContent": "Immutable preparation- or access-decision ID/version, authenticated actor/organization/credential/session, repository audience, bundle/type/domain scope, requested operation/purpose, policy ID/version, allowed/denied result and reason, issued-at/expiry, correlation and canonical decision digest; an access allow also binds grant, recipient envelope and release mode, while a preparation allow binds the exact repository-private request fingerprint",
+      "placement": "Preparation decisions remain controller-repository-private; minimized access decisions and digests may be canonical audit metadata. Only an unexpired `allow` with current matching source state may support a key-operation capability; a denial never does"
+    },
+    {
+      "name": "KeyOperationAuthorization",
+      "semanticContent": "Authorization ID, exact issuer service actor/organization/credential/address, repository audience, operation, requesting actor/organization/credential, bundle/type/domain scope, purpose, policy ID/version, canonical source-authority set/digest, closed operation context/digest, separately scoped nonce, issued-at/profile-bounded expiry, idempotency hash, EIP-712 signature/digests, state and result reference",
+      "placement": "Short-lived repository-to-key-agent capability. Only an active `key-operation-authorizer` service credential registered for that repository and operation may issue it after validating the underlying actor proof/grant/access decision; mTLS authenticates transport but is not policy authority"
+    },
+    {
+      "name": "RecipientKeyRotationCampaign",
+      "semanticContent": "Campaign ID, recipient organization administrator actor/credential, predecessor and active successor organization-encryption-key IDs, immutable sorted required grant/envelope/bundle set and digest/count, nonce, issued-at/expiry/idempotency, signature, per-item outcomes and state `prepared/in-progress/complete/expired/failed`",
+      "placement": "Recipient-organization key registry and participating controller repositories; each bundle still requires its own policy-controller-signed rotation command. The predecessor may retire normally only after every required item succeeds; compromise/loss instead denies it immediately and records explicit unavailable items"
+    },
+    {
+      "name": "ReplicaRecord",
+      "semanticContent": "Protected bundle/version, primary and replica repository IDs, repository-private primary/replica opaque object IDs, identical stored-envelope digest and octet length, replication state, attempt/time, verification result, typed receipt nonce, observation time and expiry, approved replica-custodian signer, receipt signature/digest, and failure reason",
+      "placement": "Private object IDs remain only in their repository inventories/connector configuration and never enter the receipt, chain, public API, or logs; permitted canonical metadata retains the repository/digest/status, and the signed receipt proves only the custodian's evaluated storage assertion at that time"
+    },
+    {
+      "name": "ReplicaReceipt",
+      "semanticContent": "EIP-712 domain/profile and receipt type/version; protected bundle ID/version/type and domain-resource reference; content-envelope digest and exact stored-envelope octet length; neutral repository and custodian organization; criticality-profile ID/version; signer credential/address; unique nonce; observation and expiry times; signature and receipt digest",
+      "placement": "Neutral-custodian repository and canonical metadata; complete receipt is supplied only to an initial-criticality or promotion contract call, while the chain retains the consumed nonce and receipt digest/event"
+    },
+    {
+      "name": "DerivedArtifactDescriptor",
+      "semanticContent": "Source protected-bundle/version/type and domain-resource reference, artifact type, custodian, purpose/policy, method/model version, status, retention, digest, index namespace, and invalidation reason/time",
+      "placement": "Owning repository's private database only; central state receives an opaque availability/version reference"
+    },
+    {
+      "name": "LicensedSourcePayload",
+      "semanticContent": "Stable source ID and positive immutable internal version, external authority, `source_profile_author_actor_id`, `source_profile_author_organization_id`, canonical `source_profile_author_role_id`, exact external title/version/edition, jurisdiction, URL, publication/in-force/application dates as at the snapshot, licence terms, permitted use, snapshot date, and minimal protected-bundle reference",
+      "placement": "Exact RFC 8785 unsigned authoritative-source payload used only when source content is protected; the referenced package carries the licensed bytes and the internal version is distinct from an external edition"
+    },
+    {
+      "name": "AuthoritativeSource",
+      "semanticContent": "Source ID/immutable internal version and predecessor/successor, public metadata or `LicensedSourcePayload`/signature references, legal or technical status, access/licence state, review/recheck date, closed lifecycle `pending/active/unavailable/superseded/withdrawn/expired`, transition actor/reason/effective/review times, and permitted/dependent rule links",
+      "placement": "Canonical source registry and public corpus where redistribution permits; mutable review/applicability state does not alter a signed licensed-source payload. `pending` may become `active`, `unavailable`, `withdrawn`, or `expired`; `active` may become `unavailable`, `superseded`, `withdrawn`, or `expired`; and `unavailable` may become `active`, `superseded`, `withdrawn`, or `expired` only with a new recorded availability/review basis for the same immutable edition. `superseded`, `withdrawn`, and `expired` are terminal; a revised/restored edition gets a new source version and explicit supersession link. Every non-active state deterministically disables dependent rules and returns `UNKNOWN` or external referral"
+    },
+    {
+      "name": "RuleProfile",
+      "semanticContent": "Rule ID/version, source clauses, jurisdiction, date and subject scope, typed predicates, required evidence, outcomes/reasons, effective status, and review due date",
+      "placement": "Canonical deterministic rule registry; unavailable clauses cannot become active rules"
+    },
+    {
+      "name": "AssessmentInputPayload",
+      "semanticContent": "Stable input-basis ID using the `assessment` URN kind and positive immutable version; battery/component, chemistry/history, jurisdiction/as-of date, shared evidence/version and rule/method references; a closed nonempty `candidate_routes` array sorted by route ID with no duplicates, where each item binds its route/application, location, typed `DecimalQuantity` functional unit, duty/use/service-life context, transport/testing burden, grid/energy context, displaced alternative, recovery process, dimensioned inventories/factors, `MoneyValue` economic assumptions and typed range/percentile uncertainty basis; `issuer_organization_id`, canonical `issuer_role_id`, issue time, and minimal protected-bundle reference",
+      "placement": "Exact RFC 8785 unsigned assessment-input domain payload; its referenced package carries any large/private input report as content and this payload alone occupies that package's `domain_payload_bytes`. Raw decimal JSON numbers and implicit unit/currency conversions are rejected. The formal profile requires exactly `continued-compatible-ev-use`, `stationary-storage-repurposing`, and `recycling`, each once"
+    },
+    {
+      "name": "AssessmentResultPayload",
+      "semanticContent": "Distinct stable result ID using the `assessment` URN kind and positive immutable domain version, explicit input-basis ID/version, an exact route-keyed result for every and only candidate in that input basis containing typed `G`, `C`, `I`, `E`, `A`, `U`, reason codes, missing/conflicting inputs and `DecimalRange`/`PercentilePoint` outputs, plus cross-route dominance/rank stability, arithmetic/rounding/unit/method versions, reproduction hash, `issuer_organization_id`, canonical `issuer_role_id`, supersession, and minimal protected-bundle reference",
+      "placement": "Exact RFC 8785 unsigned assessment-result domain payload; its distinct referenced package carries the full reproduction report as content and this payload alone occupies that package's `domain_payload_bytes`. The result issuer organization must equal the referenced input basis issuer organization. Missing, extra, duplicate or reordered route keys, dimension mismatch, issuer substitution, binary-float values, and comparison over different input contexts are rejected"
+    },
+    {
+      "name": "RouteAssessmentProfile",
+      "semanticContent": "`AssessmentResultPayload`, its `DomainSignatureRecord`, resolved input-basis and evidence versions, current issuer lifecycle/status, resolved protected-bundle state, and permitted summary metadata",
+      "placement": "Post-sign aggregate/projection; every issued correction or changed result receives a new result domain version, even when the input basis is unchanged; no overall compensatory scalar and no `optimal route` output"
+    },
+    {
+      "name": "ListingTermsPayload",
+      "semanticContent": "Stable listing ID and fixed commercial-record version `1`, battery, `owner_organization_id`, immutable terms commitment, evidence-access policy, exact `WeiAmount` test price, seller payout address, `binding_actor_id` and binding time, expiry, and minimal protected-bundle reference",
+      "placement": "Exact RFC 8785 unsigned listing-domain payload; the referenced package carries private terms and no mutable listing state or JSON-number monetary value appears in the payload"
+    },
+    {
+      "name": "Listing",
+      "semanticContent": "`ListingTermsPayload`/signature references, current state, accepted-offer reference, history and chain locators",
+      "placement": "Contract state/events plus projection; state changes do not change the commercial-record version, and any terms change requires withdrawal/expiry followed by a new listing ID; the payout address is fixed for any agreement created from this listing"
+    },
+    {
+      "name": "Offer",
+      "semanticContent": "Stable offer ID and fixed commercial-record version `1`, listing ID/version, buyer, exact `WeiAmount`, buyer refund address and binding actor/time, expiry, terms commitment, and state",
+      "placement": "Contract event/state plus projection; JSON/API converts the exact 32-byte hex form to `uint256` without rounding. State changes do not change the commercial-record version, and a changed offer requires a new offer ID; the refund address cannot be replaced after selection"
+    },
+    {
+      "name": "AgreementTermsPayload",
+      "semanticContent": "Stable agreement ID and fixed commercial-record version `1`, accepted offer ID/version, `buyer_organization_id`, `seller_organization_id`, `seller_binding_actor_id`, exact `WeiAmount`, terms commitment, immutable seller payout and buyer refund addresses, deadlines, and minimal protected-bundle reference",
+      "placement": "Exact RFC 8785 unsigned agreement-domain payload; the referenced package carries full private terms and no mutable agreement/escrow state or JSON-number monetary value appears in the payload; buyer confirmation is a later separate action and never substitutes for seller domain authorship"
+    },
+    {
+      "name": "Agreement",
+      "semanticContent": "`AgreementTermsPayload`/signature references, seller-selection and buyer-confirmation records, exact `WeiAmount` escrow and credits, deadlines, current state and chain locators",
+      "placement": "Contract event/state projection; JSON/API and Solidity round-trip one exact uint256 value. State transitions do not rewrite terms or increment the commercial-record version, and changed terms require a new agreement; credential rotation or suspension cannot redirect either value recipient"
+    },
+    {
+      "name": "LogisticsReportPayload",
+      "semanticContent": "Stable delivery-record ID and positive immutable version, agreement, `issuer_actor_id`, `issuer_organization_id`, canonical `issuer_role_id`, dispatch or delivery assertion, observation time, basis evidence commitment, and minimal protected-bundle reference",
+      "placement": "Exact RFC 8785 unsigned logistics-domain payload; the referenced package carries the private report and each correction/new assertion creates a new version"
+    },
+    {
+      "name": "DeliveryRecord",
+      "semanticContent": "`LogisticsReportPayload`/signature references, recipient response, effective delivery/dispute projection, and chain locators",
+      "placement": "Post-sign logistics aggregate/projection; recipient response and marketplace state never rewrite the issuer's payload"
+    },
+    {
+      "name": "DisputeSubmissionPayload",
+      "semanticContent": "Stable dispute ID and positive immutable submission version, closed `dispute_type` equal to `evidence` or `transaction`, exact claim/version or agreement/version scope selected by that type, `opener_actor_id`, `opener_organization_id`, reason/evidence commitments, submission time, and minimal protected-bundle reference",
+      "placement": "Exact RFC 8785 unsigned dispute-domain payload; `evidence -> dispute.open-evidence` with an eligible `EvidenceRegistry` relationship, while `transaction -> dispute.open-transaction` with an eligible Marketplace relationship. The referenced package carries private support and resolution state is excluded"
+    },
+    {
+      "name": "DisputeRecord",
+      "semanticContent": "One or more `DisputeSubmissionPayload`/signature references, current state, resolver, bounded outcome, times, and chain locators",
+      "placement": "Dispute aggregate/projection; state transitions do not rewrite a signed submission version"
+    },
+    {
+      "name": "CommandIntent",
+      "semanticContent": "Command ID/type/version, `on-chain-transaction` or `off-chain-signed` kind, origin type and caller wallet/process, optional resolved actor/organization, resource/version, purpose, deterministic preconditions and policy result, nonce, issued-at, expiry, `idempotencyKeyHash`, exact EIP-712 domain/type/payload, signer actor/organization/credential/address where required, canonical signature bytes, `typedDataDigest`, `signatureDigest`, confirmation/execution state, correlation, and resulting event references",
+      "placement": "Central command ledger; the raw request-side 32-byte idempotency key is never logged or persisted, while its domain-separated hash is retained and signed. Registered commands require actor/organization/credential and exact signature verification; a permissionless timeout may retain only its unregistered caller address; no private signing key or optimistic projection mutation"
+    },
+    {
+      "name": "SensitiveAuditPayload",
+      "semanticContent": "Distinct stable sensitive-audit ID using the `audit` URN kind and positive immutable version, one source audit-event ID/version, `responsible_actor_id`, `responsible_organization_id`, purpose, sensitive detail commitment, time boundary, and minimal protected-bundle reference",
+      "placement": "Exact RFC 8785 unsigned audit-domain payload created only by the explicit retention command; v1 does not accept a heterogeneous audit batch as its source, and the protected bundle's domain resource is this new sensitive-audit ID/version rather than the immutable source event. The referenced package carries sensitive detail and mutable anchor/availability state is excluded"
+    },
+    {
+      "name": "AuditEvent",
+      "semanticContent": "Correlation ID, stable event ID and fixed internal version `1`, process, origin type and caller wallet/process, optional resolved actor/organization, purpose, operation, resource references, policy/result/status, permitted minimized commitment/digest references, version references, time, previous hash, and privacy class",
+      "placement": "Minimized append-only audit database; an event is never edited, so its domain-resource version is always `1`; permissionless callers are not fabricated as registered actors"
+    },
+    {
+      "name": "AuditBatchAnchor",
+      "semanticContent": "Stable batch ID and immutable positive domain version, ordered boundary, first/last event sequence, event count, final event hash, deterministic batch commitment, immediately preceding closed-batch commitment, profile, closure time, anchor-attempt references, confirmation state, and open-tail disclosure",
+      "placement": "Central audit metadata and public chain anchor; closed batches form one immutable sequence even while an earlier anchor is pending. Anchor submission/acceptance is strictly in sequence. A reorganization or resubmission creates a new `CommandIntent`/anchor-attempt record while preserving the same batch ID, domain version, and commitment; changed batch content requires a new batch ID/version"
+    },
+    {
+      "name": "AssistantSupportPayload",
+      "semanticContent": "Distinct stable assistant-support ID using the `assistant` URN kind and positive immutable version, source assistant-request ID/version, `requesting_actor_id`, `requesting_organization_id`, purpose, immutable question, allowed tool/config versions, retrieved support and deterministic-output references, response, validation results, model/provider/config version, token/latency data, audit reference, and minimal protected-bundle reference",
+      "placement": "Exact RFC 8785 unsigned assistant-support payload created only after explicit retention authorization; the protected bundle's domain resource is this new assistant-support ID/version, not the already immutable minimized request. The referenced package carries the selected sensitive session material"
+    },
+    {
+      "name": "AssistantRequest",
+      "semanticContent": "Request ID/version, immutable `requesting_actor_id` and `requesting_organization_id`, minimized question/result metadata, response state, validation and audit references",
+      "placement": "Minimized/redacted central projection; a request is append-only and any retry is a new request ID. The query itself does not persist a sensitive bundle; explicit retention uses the ordinary two-signature protected-bundle protocol without patching this record"
+    },
+    {
+      "name": "AssistantSupportRetentionLink",
+      "semanticContent": "Immutable link ID/version, assistant-request ID/version, assistant-support payload ID/version and bundle reference, attribution/finalization references, retention purpose and creation time",
+      "placement": "Append-only reverse-link projection created only after the separate retention flow; it never mutates the original assistant request"
+    },
+    {
+      "name": "SensitiveAuditRetentionLink",
+      "semanticContent": "Immutable link ID/version, source audit-event ID/version, sensitive-audit payload ID/version and bundle reference, attribution/finalization references, retention purpose and creation time",
+      "placement": "Append-only reverse-link projection created only after separate retention; it is excluded from the source event's already closed batch commitment unless a later batch audits the link itself"
+    },
+    {
+      "name": "EvaluationCase",
+      "semanticContent": "Case ID/version, source class/licence, actor/task, fixtures, adverse condition, expected deterministic state, adjudication basis, allowed outputs, metrics, and exclusion flags",
+      "placement": "Tracked non-secret evaluation assets"
+    }
+  ]
+}

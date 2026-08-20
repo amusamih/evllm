@@ -1,0 +1,124 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "schema": { "type": "string", "const": "EVLLM_AUTHORIZATION_DECISION_V1" },
+    "decision_id": {
+      "type": "string",
+      "pattern": "^urn:evllm:decision:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "decision_version": { "$ref": "#/$defs/__schema0" },
+    "actor_id": {
+      "type": "string",
+      "pattern": "^urn:evllm:actor:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "organization_id": {
+      "type": "string",
+      "pattern": "^urn:evllm:org:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "credential_id": {
+      "type": "string",
+      "pattern": "^urn:evllm:credential:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "session_id": {
+      "type": "string",
+      "pattern": "^urn:evllm:session:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "repository_id": {
+      "type": "string",
+      "pattern": "^urn:evllm:repository:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "bundle_id": {
+      "type": "string",
+      "pattern": "^urn:evllm:bundle:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "bundle_version": { "$ref": "#/$defs/__schema0" },
+    "bundle_type": {
+      "type": "string",
+      "enum": [
+        "evidence",
+        "verification",
+        "assessment",
+        "assistant-support",
+        "listing",
+        "agreement",
+        "dispute",
+        "logistics",
+        "audit",
+        "authoritative-source"
+      ]
+    },
+    "domain_resource_id": { "type": "string", "pattern": "^urn:evllm:.*" },
+    "domain_resource_version": { "$ref": "#/$defs/__schema0" },
+    "operation": { "$ref": "#/$defs/__schema1" },
+    "purpose_id": {
+      "type": "string",
+      "pattern": "^urn:evllm:policy:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "policy_id": {
+      "type": "string",
+      "pattern": "^urn:evllm:policy:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "policy_version": { "$ref": "#/$defs/__schema0" },
+    "result": { "type": "string", "enum": ["allow", "deny"] },
+    "reason": { "$ref": "#/$defs/__schema1" },
+    "issued_at": { "$ref": "#/$defs/__schema2" },
+    "expires_at": { "$ref": "#/$defs/__schema2" },
+    "correlation_id": {
+      "type": "string",
+      "format": "uuid",
+      "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+    },
+    "decision_digest": { "$ref": "#/$defs/__schema3" },
+    "grant_id": {
+      "type": "string",
+      "pattern": "^urn:evllm:grant:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "envelope_id": {
+      "type": "string",
+      "pattern": "^urn:evllm:envelope:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "release_mode": { "type": "string", "enum": ["full", "excerpt", "ciphertext"] },
+    "preparation_request_fingerprint": { "$ref": "#/$defs/__schema3" }
+  },
+  "required": [
+    "schema",
+    "decision_id",
+    "decision_version",
+    "actor_id",
+    "organization_id",
+    "credential_id",
+    "session_id",
+    "repository_id",
+    "bundle_id",
+    "bundle_version",
+    "bundle_type",
+    "domain_resource_id",
+    "domain_resource_version",
+    "operation",
+    "purpose_id",
+    "policy_id",
+    "policy_version",
+    "result",
+    "reason",
+    "issued_at",
+    "expires_at",
+    "correlation_id",
+    "decision_digest"
+  ],
+  "additionalProperties": false,
+  "$defs": {
+    "__schema0": { "type": "integer", "exclusiveMinimum": 0, "maximum": 9007199254740991 },
+    "__schema1": { "type": "string", "minLength": 1, "maxLength": 256 },
+    "__schema2": { "type": "integer", "minimum": 0, "maximum": 9007199254740991 },
+    "__schema3": {
+      "type": "object",
+      "properties": {
+        "alg": { "type": "string", "const": "SHA-256" },
+        "value": { "type": "string", "pattern": "^[A-Za-z0-9_-]{43}$" }
+      },
+      "required": ["alg", "value"],
+      "additionalProperties": false
+    }
+  }
+}

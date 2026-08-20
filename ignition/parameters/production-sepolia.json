@@ -1,0 +1,6 @@
+{
+  "ProductionDeployment": {
+    "reviewDelaySeconds": 60,
+    "acceptanceWindowSeconds": 86400
+  }
+}

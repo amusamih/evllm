@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "schema": { "type": "string", "const": "EVLLM_ROLE_CAPABILITY_DEFINITION_V1" },
+    "definition_id": {
+      "type": "string",
+      "pattern": "^urn:evllm:policy:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "definition_version": { "$ref": "#/$defs/__schema0" },
+    "role_id": {
+      "type": "string",
+      "pattern": "^urn:evllm:role:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "role_code": { "type": "string", "pattern": "^[a-z][a-z0-9.-]*$" },
+    "capability_id": {
+      "type": "string",
+      "pattern": "^urn:evllm:capability:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "capability_code": { "type": "string", "pattern": "^[a-z][a-z0-9.-]*$" },
+    "permitted_bundle_types": {
+      "maxItems": 10,
+      "type": "array",
+      "items": { "$ref": "#/$defs/__schema1" }
+    },
+    "permitted_actions": {
+      "minItems": 1,
+      "maxItems": 256,
+      "type": "array",
+      "items": { "$ref": "#/$defs/__schema2" }
+    },
+    "required_scope": {
+      "maxItems": 256,
+      "type": "array",
+      "items": { "$ref": "#/$defs/__schema2" }
+    },
+    "policy_version": { "$ref": "#/$defs/__schema0" },
+    "status": { "type": "string", "enum": ["pending", "active", "retired"] },
+    "effective_at": { "$ref": "#/$defs/__schema3" },
+    "recorded_at": { "$ref": "#/$defs/__schema3" }
+  },
+  "required": [
+    "schema",
+    "definition_id",
+    "definition_version",
+    "role_id",
+    "role_code",
+    "capability_id",
+    "capability_code",
+    "permitted_bundle_types",
+    "permitted_actions",
+    "required_scope",
+    "policy_version",
+    "status",
+    "effective_at",
+    "recorded_at"
+  ],
+  "additionalProperties": false,
+  "$defs": {
+    "__schema0": { "type": "integer", "exclusiveMinimum": 0, "maximum": 9007199254740991 },
+    "__schema1": {
+      "type": "string",
+      "enum": [
+        "evidence",
+        "verification",
+        "assessment",
+        "assistant-support",
+        "listing",
+        "agreement",
+        "dispute",
+        "logistics",
+        "audit",
+        "authoritative-source"
+      ]
+    },
+    "__schema2": { "type": "string", "minLength": 1, "maxLength": 256 },
+    "__schema3": { "type": "integer", "minimum": 0, "maximum": 9007199254740991 }
+  }
+}

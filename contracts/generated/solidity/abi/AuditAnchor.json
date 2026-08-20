@@ -1,0 +1,117 @@
+[
+  {
+    "inputs": [
+      { "internalType": "address", "name": "authorityProfileRegistryAddress", "type": "address" }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "constructor"
+  },
+  { "inputs": [], "name": "AlreadyAnchored", "type": "error" },
+  { "inputs": [], "name": "InvalidBoundary", "type": "error" },
+  { "inputs": [], "name": "InvalidPredecessor", "type": "error" },
+  { "inputs": [], "name": "Unauthorized", "type": "error" },
+  {
+    "anonymous": false,
+    "inputs": [
+      { "indexed": true, "internalType": "bytes32", "name": "batchId", "type": "bytes32" },
+      { "indexed": true, "internalType": "uint64", "name": "version", "type": "uint64" },
+      { "indexed": true, "internalType": "bytes32", "name": "commitment", "type": "bytes32" },
+      {
+        "indexed": false,
+        "internalType": "bytes32",
+        "name": "previousCommitment",
+        "type": "bytes32"
+      },
+      { "indexed": false, "internalType": "uint64", "name": "firstSequence", "type": "uint64" },
+      { "indexed": false, "internalType": "uint64", "name": "lastSequence", "type": "uint64" },
+      { "indexed": false, "internalType": "uint64", "name": "eventCount", "type": "uint64" }
+    ],
+    "name": "AuditBatchAnchored",
+    "type": "event"
+  },
+  {
+    "inputs": [],
+    "name": "ANCHOR_CAPABILITY",
+    "outputs": [{ "internalType": "bytes32", "name": "", "type": "bytes32" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "bytes32", "name": "batchId", "type": "bytes32" },
+      { "internalType": "uint64", "name": "version", "type": "uint64" },
+      { "internalType": "uint64", "name": "firstSequence", "type": "uint64" },
+      { "internalType": "uint64", "name": "lastSequence", "type": "uint64" },
+      { "internalType": "uint64", "name": "eventCount", "type": "uint64" },
+      { "internalType": "bytes32", "name": "finalEventHash", "type": "bytes32" },
+      { "internalType": "bytes32", "name": "commitment", "type": "bytes32" },
+      { "internalType": "bytes32", "name": "previousCommitment", "type": "bytes32" },
+      { "internalType": "bytes32", "name": "organizationId", "type": "bytes32" },
+      { "internalType": "bytes32", "name": "credentialId", "type": "bytes32" }
+    ],
+    "name": "anchorBatch",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "anchoredBatchCount",
+    "outputs": [{ "internalType": "uint64", "name": "", "type": "uint64" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "bytes32", "name": "batchId", "type": "bytes32" }],
+    "name": "anchors",
+    "outputs": [
+      { "internalType": "uint64", "name": "version", "type": "uint64" },
+      { "internalType": "uint64", "name": "firstSequence", "type": "uint64" },
+      { "internalType": "uint64", "name": "lastSequence", "type": "uint64" },
+      { "internalType": "uint64", "name": "eventCount", "type": "uint64" },
+      { "internalType": "bytes32", "name": "finalEventHash", "type": "bytes32" },
+      { "internalType": "bytes32", "name": "commitment", "type": "bytes32" },
+      { "internalType": "bytes32", "name": "previousCommitment", "type": "bytes32" },
+      { "internalType": "address", "name": "submitter", "type": "address" }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "authorityProfileRegistry",
+    "outputs": [
+      { "internalType": "contract IAuthorityProfileRegistry", "name": "", "type": "address" }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "compatibilityVersion",
+    "outputs": [{ "internalType": "uint64", "name": "", "type": "uint64" }],
+    "stateMutability": "pure",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "lastBatchId",
+    "outputs": [{ "internalType": "bytes32", "name": "", "type": "bytes32" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "lastCommitment",
+    "outputs": [{ "internalType": "bytes32", "name": "", "type": "bytes32" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "moduleType",
+    "outputs": [{ "internalType": "bytes32", "name": "", "type": "bytes32" }],
+    "stateMutability": "pure",
+    "type": "function"
+  }
+]

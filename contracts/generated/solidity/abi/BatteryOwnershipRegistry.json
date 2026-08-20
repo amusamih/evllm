@@ -1,0 +1,329 @@
+[
+  {
+    "inputs": [{ "internalType": "address", "name": "governance", "type": "address" }],
+    "stateMutability": "nonpayable",
+    "type": "constructor"
+  },
+  { "inputs": [], "name": "AlreadyRegistered", "type": "error" },
+  { "inputs": [], "name": "InvalidHierarchy", "type": "error" },
+  { "inputs": [], "name": "InvalidIdentifier", "type": "error" },
+  { "inputs": [], "name": "InvalidProposalState", "type": "error" },
+  { "inputs": [], "name": "LockedByAnotherMarketplace", "type": "error" },
+  { "inputs": [], "name": "NotAuthorizedMarketplace", "type": "error" },
+  { "inputs": [], "name": "NotRegistrar", "type": "error" },
+  {
+    "inputs": [{ "internalType": "address", "name": "owner", "type": "address" }],
+    "name": "OwnableInvalidOwner",
+    "type": "error"
+  },
+  {
+    "inputs": [{ "internalType": "address", "name": "account", "type": "address" }],
+    "name": "OwnableUnauthorizedAccount",
+    "type": "error"
+  },
+  { "inputs": [], "name": "ProposalExpired", "type": "error" },
+  { "inputs": [], "name": "UnknownBattery", "type": "error" },
+  {
+    "anonymous": false,
+    "inputs": [
+      { "indexed": true, "internalType": "bytes32", "name": "subjectId", "type": "bytes32" },
+      { "indexed": true, "internalType": "bytes32", "name": "parentId", "type": "bytes32" },
+      { "indexed": true, "internalType": "bytes32", "name": "rootBatteryId", "type": "bytes32" },
+      {
+        "indexed": false,
+        "internalType": "enum BatteryOwnershipRegistry.SubjectGranularity",
+        "name": "granularity",
+        "type": "uint8"
+      }
+    ],
+    "name": "BatteryComponentRegistered",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      { "indexed": true, "internalType": "bytes32", "name": "batteryId", "type": "bytes32" },
+      {
+        "indexed": true,
+        "internalType": "bytes32",
+        "name": "ownerOrganizationId",
+        "type": "bytes32"
+      }
+    ],
+    "name": "BatteryRegistered",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      { "indexed": true, "internalType": "bytes32", "name": "proposalId", "type": "bytes32" },
+      {
+        "indexed": false,
+        "internalType": "enum BatteryOwnershipRegistry.ProposalStatus",
+        "name": "status",
+        "type": "uint8"
+      }
+    ],
+    "name": "InitialOwnershipProposalClosed",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      { "indexed": true, "internalType": "bytes32", "name": "proposalId", "type": "bytes32" },
+      { "indexed": true, "internalType": "bytes32", "name": "batteryId", "type": "bytes32" },
+      {
+        "indexed": true,
+        "internalType": "bytes32",
+        "name": "ownerOrganizationId",
+        "type": "bytes32"
+      },
+      { "indexed": false, "internalType": "address", "name": "ownerAccount", "type": "address" },
+      { "indexed": false, "internalType": "uint64", "name": "expiresAt", "type": "uint64" }
+    ],
+    "name": "InitialOwnershipProposed",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      { "indexed": true, "internalType": "bytes32", "name": "batteryId", "type": "bytes32" },
+      { "indexed": true, "internalType": "address", "name": "marketplace", "type": "address" }
+    ],
+    "name": "MarketplaceLockChanged",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      { "indexed": true, "internalType": "address", "name": "previousOwner", "type": "address" },
+      { "indexed": true, "internalType": "address", "name": "newOwner", "type": "address" }
+    ],
+    "name": "OwnershipTransferred",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      { "indexed": true, "internalType": "bytes32", "name": "batteryId", "type": "bytes32" },
+      {
+        "indexed": true,
+        "internalType": "bytes32",
+        "name": "previousOwnerOrganizationId",
+        "type": "bytes32"
+      },
+      {
+        "indexed": true,
+        "internalType": "bytes32",
+        "name": "newOwnerOrganizationId",
+        "type": "bytes32"
+      }
+    ],
+    "name": "RecordedOwnershipTransferred",
+    "type": "event"
+  },
+  {
+    "inputs": [{ "internalType": "bytes32", "name": "proposalId", "type": "bytes32" }],
+    "name": "acceptInitialOwnership",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "bytes32", "name": "batteryId", "type": "bytes32" }],
+    "name": "batteries",
+    "outputs": [
+      { "internalType": "bytes32", "name": "recordedOwnerOrganizationId", "type": "bytes32" },
+      { "internalType": "address", "name": "marketplaceLock", "type": "address" },
+      { "internalType": "bool", "name": "registered", "type": "bool" }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "bytes32", "name": "proposalId", "type": "bytes32" }],
+    "name": "expireInitialOwnership",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "bytes32", "name": "proposalId", "type": "bytes32" }],
+    "name": "initialOwnershipProposals",
+    "outputs": [
+      { "internalType": "bytes32", "name": "batteryId", "type": "bytes32" },
+      { "internalType": "bytes32", "name": "ownerOrganizationId", "type": "bytes32" },
+      { "internalType": "address", "name": "ownerAccount", "type": "address" },
+      { "internalType": "uint64", "name": "expiresAt", "type": "uint64" },
+      {
+        "internalType": "enum BatteryOwnershipRegistry.ProposalStatus",
+        "name": "status",
+        "type": "uint8"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "bytes32", "name": "batteryId", "type": "bytes32" }],
+    "name": "lockForMarketplace",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "address", "name": "marketplace", "type": "address" }],
+    "name": "marketplaces",
+    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "owner",
+    "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "bytes32", "name": "batteryId", "type": "bytes32" }],
+    "name": "ownershipTransitionCount",
+    "outputs": [{ "internalType": "uint64", "name": "", "type": "uint64" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "bytes32", "name": "batteryId", "type": "bytes32" },
+      { "internalType": "uint64", "name": "sequence", "type": "uint64" }
+    ],
+    "name": "ownershipTransitions",
+    "outputs": [
+      { "internalType": "bytes32", "name": "previousOwnerOrganizationId", "type": "bytes32" },
+      { "internalType": "bytes32", "name": "newOwnerOrganizationId", "type": "bytes32" },
+      { "internalType": "address", "name": "authorizedMarketplace", "type": "address" },
+      { "internalType": "uint64", "name": "recordedAt", "type": "uint64" }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "bytes32", "name": "proposalId", "type": "bytes32" },
+      { "internalType": "bytes32", "name": "batteryId", "type": "bytes32" },
+      { "internalType": "bytes32", "name": "ownerOrganizationId", "type": "bytes32" },
+      { "internalType": "address", "name": "ownerAccount", "type": "address" },
+      { "internalType": "uint64", "name": "expiresAt", "type": "uint64" }
+    ],
+    "name": "proposeInitialOwnership",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "bytes32", "name": "batteryId", "type": "bytes32" },
+      { "internalType": "bytes32", "name": "initialOwnerOrganizationId", "type": "bytes32" }
+    ],
+    "name": "registerBattery",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "bytes32", "name": "subjectId", "type": "bytes32" },
+      { "internalType": "bytes32", "name": "parentId", "type": "bytes32" },
+      {
+        "internalType": "enum BatteryOwnershipRegistry.SubjectGranularity",
+        "name": "granularity",
+        "type": "uint8"
+      }
+    ],
+    "name": "registerComponent",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "address", "name": "registrar", "type": "address" }],
+    "name": "registrars",
+    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "bytes32", "name": "proposalId", "type": "bytes32" }],
+    "name": "rejectInitialOwnership",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "renounceOwnership",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "marketplace", "type": "address" },
+      { "internalType": "bool", "name": "allowed", "type": "bool" }
+    ],
+    "name": "setMarketplace",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "registrar", "type": "address" },
+      { "internalType": "bool", "name": "allowed", "type": "bool" }
+    ],
+    "name": "setRegistrar",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "bytes32", "name": "subjectId", "type": "bytes32" }],
+    "name": "subjects",
+    "outputs": [
+      { "internalType": "bytes32", "name": "parentId", "type": "bytes32" },
+      { "internalType": "bytes32", "name": "rootBatteryId", "type": "bytes32" },
+      {
+        "internalType": "enum BatteryOwnershipRegistry.SubjectGranularity",
+        "name": "granularity",
+        "type": "uint8"
+      },
+      { "internalType": "bool", "name": "registered", "type": "bool" }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "address", "name": "newOwner", "type": "address" }],
+    "name": "transferOwnership",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "bytes32", "name": "batteryId", "type": "bytes32" },
+      { "internalType": "bytes32", "name": "newOwnerOrganizationId", "type": "bytes32" }
+    ],
+    "name": "transferRecordedOwnership",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "bytes32", "name": "batteryId", "type": "bytes32" }],
+    "name": "unlockForMarketplace",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  }
+]

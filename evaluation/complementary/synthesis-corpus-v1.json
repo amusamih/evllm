@@ -1,0 +1,1319 @@
+{
+  "schema": "EVLLM_COMPLEMENTARY_SYNTHESIS_CORPUS_V1",
+  "version": 1,
+  "generated_from_seed": "evllm-complementary-synthesis-v1-2026-08-12",
+  "source_class": "fresh-synthetic-generator",
+  "generator": "scripts/generate-complementary-evaluation.ts",
+  "case_count": 30,
+  "strata": [
+    "resale-readiness",
+    "missing-evidence",
+    "conflicting-evidence",
+    "lifecycle-eligibility",
+    "route-comparison",
+    "custody-replica"
+  ],
+  "cases": [
+    {
+      "case_id": "synthesis-001",
+      "stratum": "resale-readiness",
+      "variant": 1,
+      "prompt": "Using all supplied records, explain the decision for synthesis-001. State the exact decision code 'eligible-for-resale' in the summary, cite every material fact, and identify missing or conflicting evidence when present.",
+      "expected_conclusion": "eligible-for-resale",
+      "expected_detection": null,
+      "records": [
+        {
+          "support_id": "synthesis-001-record-1",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000010",
+          "resource_version": 1,
+          "status": "active",
+          "content": "Battery SYN-001 has recorded owner Organization Seller-1."
+        },
+        {
+          "support_id": "synthesis-001-record-2",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000011",
+          "resource_version": 1,
+          "status": "active",
+          "content": "Battery SYN-001 has active verifier status and state of health 81 percent."
+        },
+        {
+          "support_id": "synthesis-001-record-3",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000012",
+          "resource_version": 1,
+          "status": "active",
+          "content": "Battery SYN-001 has a current transport inspection with no blocking defect."
+        },
+        {
+          "support_id": "synthesis-001-record-4",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000013",
+          "resource_version": 1,
+          "status": "active",
+          "content": "The active resale rule permits listing when ownership, verification, state of health, and transport inspection are current."
+        }
+      ],
+      "raw_record_operations": 4,
+      "sequential_deterministic_operations": 5,
+      "evllm_operations": 1
+    },
+    {
+      "case_id": "synthesis-002",
+      "stratum": "resale-readiness",
+      "variant": 2,
+      "prompt": "Using all supplied records, explain the decision for synthesis-002. State the exact decision code 'eligible-for-resale' in the summary, cite every material fact, and identify missing or conflicting evidence when present.",
+      "expected_conclusion": "eligible-for-resale",
+      "expected_detection": null,
+      "records": [
+        {
+          "support_id": "synthesis-002-record-1",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000020",
+          "resource_version": 1,
+          "status": "active",
+          "content": "Battery SYN-002 has recorded owner Organization Seller-2."
+        },
+        {
+          "support_id": "synthesis-002-record-2",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000021",
+          "resource_version": 1,
+          "status": "active",
+          "content": "Battery SYN-002 has active verifier status and state of health 82 percent."
+        },
+        {
+          "support_id": "synthesis-002-record-3",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000022",
+          "resource_version": 1,
+          "status": "active",
+          "content": "Battery SYN-002 has a current transport inspection with no blocking defect."
+        },
+        {
+          "support_id": "synthesis-002-record-4",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000023",
+          "resource_version": 1,
+          "status": "active",
+          "content": "The active resale rule permits listing when ownership, verification, state of health, and transport inspection are current."
+        }
+      ],
+      "raw_record_operations": 4,
+      "sequential_deterministic_operations": 5,
+      "evllm_operations": 1
+    },
+    {
+      "case_id": "synthesis-003",
+      "stratum": "resale-readiness",
+      "variant": 3,
+      "prompt": "Using all supplied records, explain the decision for synthesis-003. State the exact decision code 'eligible-for-resale' in the summary, cite every material fact, and identify missing or conflicting evidence when present.",
+      "expected_conclusion": "eligible-for-resale",
+      "expected_detection": null,
+      "records": [
+        {
+          "support_id": "synthesis-003-record-1",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000030",
+          "resource_version": 1,
+          "status": "active",
+          "content": "Battery SYN-003 has recorded owner Organization Seller-3."
+        },
+        {
+          "support_id": "synthesis-003-record-2",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000031",
+          "resource_version": 1,
+          "status": "active",
+          "content": "Battery SYN-003 has active verifier status and state of health 83 percent."
+        },
+        {
+          "support_id": "synthesis-003-record-3",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000032",
+          "resource_version": 1,
+          "status": "active",
+          "content": "Battery SYN-003 has a current transport inspection with no blocking defect."
+        },
+        {
+          "support_id": "synthesis-003-record-4",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000033",
+          "resource_version": 1,
+          "status": "active",
+          "content": "The active resale rule permits listing when ownership, verification, state of health, and transport inspection are current."
+        }
+      ],
+      "raw_record_operations": 4,
+      "sequential_deterministic_operations": 5,
+      "evllm_operations": 1
+    },
+    {
+      "case_id": "synthesis-004",
+      "stratum": "resale-readiness",
+      "variant": 4,
+      "prompt": "Using all supplied records, explain the decision for synthesis-004. State the exact decision code 'eligible-for-resale' in the summary, cite every material fact, and identify missing or conflicting evidence when present.",
+      "expected_conclusion": "eligible-for-resale",
+      "expected_detection": null,
+      "records": [
+        {
+          "support_id": "synthesis-004-record-1",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000040",
+          "resource_version": 1,
+          "status": "active",
+          "content": "Battery SYN-004 has recorded owner Organization Seller-4."
+        },
+        {
+          "support_id": "synthesis-004-record-2",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000041",
+          "resource_version": 1,
+          "status": "active",
+          "content": "Battery SYN-004 has active verifier status and state of health 84 percent."
+        },
+        {
+          "support_id": "synthesis-004-record-3",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000042",
+          "resource_version": 1,
+          "status": "active",
+          "content": "Battery SYN-004 has a current transport inspection with no blocking defect."
+        },
+        {
+          "support_id": "synthesis-004-record-4",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000043",
+          "resource_version": 1,
+          "status": "active",
+          "content": "The active resale rule permits listing when ownership, verification, state of health, and transport inspection are current."
+        }
+      ],
+      "raw_record_operations": 4,
+      "sequential_deterministic_operations": 5,
+      "evllm_operations": 1
+    },
+    {
+      "case_id": "synthesis-005",
+      "stratum": "resale-readiness",
+      "variant": 5,
+      "prompt": "Using all supplied records, explain the decision for synthesis-005. State the exact decision code 'eligible-for-resale' in the summary, cite every material fact, and identify missing or conflicting evidence when present.",
+      "expected_conclusion": "eligible-for-resale",
+      "expected_detection": null,
+      "records": [
+        {
+          "support_id": "synthesis-005-record-1",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000050",
+          "resource_version": 1,
+          "status": "active",
+          "content": "Battery SYN-005 has recorded owner Organization Seller-5."
+        },
+        {
+          "support_id": "synthesis-005-record-2",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000051",
+          "resource_version": 1,
+          "status": "active",
+          "content": "Battery SYN-005 has active verifier status and state of health 80 percent."
+        },
+        {
+          "support_id": "synthesis-005-record-3",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000052",
+          "resource_version": 1,
+          "status": "active",
+          "content": "Battery SYN-005 has a current transport inspection with no blocking defect."
+        },
+        {
+          "support_id": "synthesis-005-record-4",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000053",
+          "resource_version": 1,
+          "status": "active",
+          "content": "The active resale rule permits listing when ownership, verification, state of health, and transport inspection are current."
+        }
+      ],
+      "raw_record_operations": 4,
+      "sequential_deterministic_operations": 5,
+      "evllm_operations": 1
+    },
+    {
+      "case_id": "synthesis-006",
+      "stratum": "missing-evidence",
+      "variant": 1,
+      "prompt": "Using all supplied records, explain the decision for synthesis-006. State the exact decision code 'insufficient-evidence' in the summary, cite every material fact, and identify missing or conflicting evidence when present.",
+      "expected_conclusion": "insufficient-evidence",
+      "expected_detection": "missing",
+      "records": [
+        {
+          "support_id": "synthesis-006-record-1",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000060",
+          "resource_version": 1,
+          "status": "active",
+          "content": "Battery SYN-006 has recorded owner Organization Seller-6."
+        },
+        {
+          "support_id": "synthesis-006-record-2",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000061",
+          "resource_version": 1,
+          "status": "active",
+          "content": "Battery SYN-006 has active verifier status and state of health 77 percent."
+        },
+        {
+          "support_id": "synthesis-006-record-3",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000062",
+          "resource_version": 1,
+          "status": "active",
+          "content": "Battery SYN-006 has no current transport inspection record."
+        },
+        {
+          "support_id": "synthesis-006-record-4",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000063",
+          "resource_version": 1,
+          "status": "active",
+          "content": "The active resale rule requires a current transport inspection, so absence is blocking evidence."
+        }
+      ],
+      "raw_record_operations": 4,
+      "sequential_deterministic_operations": 5,
+      "evllm_operations": 1
+    },
+    {
+      "case_id": "synthesis-007",
+      "stratum": "missing-evidence",
+      "variant": 2,
+      "prompt": "Using all supplied records, explain the decision for synthesis-007. State the exact decision code 'insufficient-evidence' in the summary, cite every material fact, and identify missing or conflicting evidence when present.",
+      "expected_conclusion": "insufficient-evidence",
+      "expected_detection": "missing",
+      "records": [
+        {
+          "support_id": "synthesis-007-record-1",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000070",
+          "resource_version": 1,
+          "status": "active",
+          "content": "Battery SYN-007 has recorded owner Organization Seller-7."
+        },
+        {
+          "support_id": "synthesis-007-record-2",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000071",
+          "resource_version": 1,
+          "status": "active",
+          "content": "Battery SYN-007 has active verifier status and state of health 78 percent."
+        },
+        {
+          "support_id": "synthesis-007-record-3",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000072",
+          "resource_version": 1,
+          "status": "active",
+          "content": "Battery SYN-007 has no current transport inspection record."
+        },
+        {
+          "support_id": "synthesis-007-record-4",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000073",
+          "resource_version": 1,
+          "status": "active",
+          "content": "The active resale rule requires a current transport inspection, so absence is blocking evidence."
+        }
+      ],
+      "raw_record_operations": 4,
+      "sequential_deterministic_operations": 5,
+      "evllm_operations": 1
+    },
+    {
+      "case_id": "synthesis-008",
+      "stratum": "missing-evidence",
+      "variant": 3,
+      "prompt": "Using all supplied records, explain the decision for synthesis-008. State the exact decision code 'insufficient-evidence' in the summary, cite every material fact, and identify missing or conflicting evidence when present.",
+      "expected_conclusion": "insufficient-evidence",
+      "expected_detection": "missing",
+      "records": [
+        {
+          "support_id": "synthesis-008-record-1",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000080",
+          "resource_version": 1,
+          "status": "active",
+          "content": "Battery SYN-008 has recorded owner Organization Seller-8."
+        },
+        {
+          "support_id": "synthesis-008-record-2",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000081",
+          "resource_version": 1,
+          "status": "active",
+          "content": "Battery SYN-008 has active verifier status and state of health 79 percent."
+        },
+        {
+          "support_id": "synthesis-008-record-3",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000082",
+          "resource_version": 1,
+          "status": "active",
+          "content": "Battery SYN-008 has no current transport inspection record."
+        },
+        {
+          "support_id": "synthesis-008-record-4",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000083",
+          "resource_version": 1,
+          "status": "active",
+          "content": "The active resale rule requires a current transport inspection, so absence is blocking evidence."
+        }
+      ],
+      "raw_record_operations": 4,
+      "sequential_deterministic_operations": 5,
+      "evllm_operations": 1
+    },
+    {
+      "case_id": "synthesis-009",
+      "stratum": "missing-evidence",
+      "variant": 4,
+      "prompt": "Using all supplied records, explain the decision for synthesis-009. State the exact decision code 'insufficient-evidence' in the summary, cite every material fact, and identify missing or conflicting evidence when present.",
+      "expected_conclusion": "insufficient-evidence",
+      "expected_detection": "missing",
+      "records": [
+        {
+          "support_id": "synthesis-009-record-1",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000090",
+          "resource_version": 1,
+          "status": "active",
+          "content": "Battery SYN-009 has recorded owner Organization Seller-9."
+        },
+        {
+          "support_id": "synthesis-009-record-2",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000091",
+          "resource_version": 1,
+          "status": "active",
+          "content": "Battery SYN-009 has active verifier status and state of health 80 percent."
+        },
+        {
+          "support_id": "synthesis-009-record-3",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000092",
+          "resource_version": 1,
+          "status": "active",
+          "content": "Battery SYN-009 has no current transport inspection record."
+        },
+        {
+          "support_id": "synthesis-009-record-4",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000093",
+          "resource_version": 1,
+          "status": "active",
+          "content": "The active resale rule requires a current transport inspection, so absence is blocking evidence."
+        }
+      ],
+      "raw_record_operations": 4,
+      "sequential_deterministic_operations": 5,
+      "evllm_operations": 1
+    },
+    {
+      "case_id": "synthesis-010",
+      "stratum": "missing-evidence",
+      "variant": 5,
+      "prompt": "Using all supplied records, explain the decision for synthesis-010. State the exact decision code 'insufficient-evidence' in the summary, cite every material fact, and identify missing or conflicting evidence when present.",
+      "expected_conclusion": "insufficient-evidence",
+      "expected_detection": "missing",
+      "records": [
+        {
+          "support_id": "synthesis-010-record-1",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000100",
+          "resource_version": 1,
+          "status": "active",
+          "content": "Battery SYN-010 has recorded owner Organization Seller-10."
+        },
+        {
+          "support_id": "synthesis-010-record-2",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000101",
+          "resource_version": 1,
+          "status": "active",
+          "content": "Battery SYN-010 has active verifier status and state of health 76 percent."
+        },
+        {
+          "support_id": "synthesis-010-record-3",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000102",
+          "resource_version": 1,
+          "status": "active",
+          "content": "Battery SYN-010 has no current transport inspection record."
+        },
+        {
+          "support_id": "synthesis-010-record-4",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000103",
+          "resource_version": 1,
+          "status": "active",
+          "content": "The active resale rule requires a current transport inspection, so absence is blocking evidence."
+        }
+      ],
+      "raw_record_operations": 4,
+      "sequential_deterministic_operations": 5,
+      "evllm_operations": 1
+    },
+    {
+      "case_id": "synthesis-011",
+      "stratum": "conflicting-evidence",
+      "variant": 1,
+      "prompt": "Using all supplied records, explain the decision for synthesis-011. State the exact decision code 'external-decision-required' in the summary, cite every material fact, and identify missing or conflicting evidence when present.",
+      "expected_conclusion": "external-decision-required",
+      "expected_detection": "conflict",
+      "records": [
+        {
+          "support_id": "synthesis-011-record-1",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000110",
+          "resource_version": 1,
+          "status": "active",
+          "content": "Battery SYN-011 inspection record A reports state of health 83 percent."
+        },
+        {
+          "support_id": "synthesis-011-record-2",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000111",
+          "resource_version": 1,
+          "status": "active",
+          "content": "Battery SYN-011 inspection record B reports state of health 64 percent for the same effective time."
+        },
+        {
+          "support_id": "synthesis-011-record-3",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000112",
+          "resource_version": 1,
+          "status": "active",
+          "content": "The active conflict rule prohibits automated eligibility when equally current measurements materially disagree."
+        },
+        {
+          "support_id": "synthesis-011-record-4",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000113",
+          "resource_version": 1,
+          "status": "active",
+          "content": "The conflict must be referred to an accountable verifier before a marketplace decision."
+        }
+      ],
+      "raw_record_operations": 4,
+      "sequential_deterministic_operations": 5,
+      "evllm_operations": 1
+    },
+    {
+      "case_id": "synthesis-012",
+      "stratum": "conflicting-evidence",
+      "variant": 2,
+      "prompt": "Using all supplied records, explain the decision for synthesis-012. State the exact decision code 'external-decision-required' in the summary, cite every material fact, and identify missing or conflicting evidence when present.",
+      "expected_conclusion": "external-decision-required",
+      "expected_detection": "conflict",
+      "records": [
+        {
+          "support_id": "synthesis-012-record-1",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000120",
+          "resource_version": 1,
+          "status": "active",
+          "content": "Battery SYN-012 inspection record A reports state of health 81 percent."
+        },
+        {
+          "support_id": "synthesis-012-record-2",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000121",
+          "resource_version": 1,
+          "status": "active",
+          "content": "Battery SYN-012 inspection record B reports state of health 62 percent for the same effective time."
+        },
+        {
+          "support_id": "synthesis-012-record-3",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000122",
+          "resource_version": 1,
+          "status": "active",
+          "content": "The active conflict rule prohibits automated eligibility when equally current measurements materially disagree."
+        },
+        {
+          "support_id": "synthesis-012-record-4",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000123",
+          "resource_version": 1,
+          "status": "active",
+          "content": "The conflict must be referred to an accountable verifier before a marketplace decision."
+        }
+      ],
+      "raw_record_operations": 4,
+      "sequential_deterministic_operations": 5,
+      "evllm_operations": 1
+    },
+    {
+      "case_id": "synthesis-013",
+      "stratum": "conflicting-evidence",
+      "variant": 3,
+      "prompt": "Using all supplied records, explain the decision for synthesis-013. State the exact decision code 'external-decision-required' in the summary, cite every material fact, and identify missing or conflicting evidence when present.",
+      "expected_conclusion": "external-decision-required",
+      "expected_detection": "conflict",
+      "records": [
+        {
+          "support_id": "synthesis-013-record-1",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000130",
+          "resource_version": 1,
+          "status": "active",
+          "content": "Battery SYN-013 inspection record A reports state of health 82 percent."
+        },
+        {
+          "support_id": "synthesis-013-record-2",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000131",
+          "resource_version": 1,
+          "status": "active",
+          "content": "Battery SYN-013 inspection record B reports state of health 63 percent for the same effective time."
+        },
+        {
+          "support_id": "synthesis-013-record-3",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000132",
+          "resource_version": 1,
+          "status": "active",
+          "content": "The active conflict rule prohibits automated eligibility when equally current measurements materially disagree."
+        },
+        {
+          "support_id": "synthesis-013-record-4",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000133",
+          "resource_version": 1,
+          "status": "active",
+          "content": "The conflict must be referred to an accountable verifier before a marketplace decision."
+        }
+      ],
+      "raw_record_operations": 4,
+      "sequential_deterministic_operations": 5,
+      "evllm_operations": 1
+    },
+    {
+      "case_id": "synthesis-014",
+      "stratum": "conflicting-evidence",
+      "variant": 4,
+      "prompt": "Using all supplied records, explain the decision for synthesis-014. State the exact decision code 'external-decision-required' in the summary, cite every material fact, and identify missing or conflicting evidence when present.",
+      "expected_conclusion": "external-decision-required",
+      "expected_detection": "conflict",
+      "records": [
+        {
+          "support_id": "synthesis-014-record-1",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000140",
+          "resource_version": 1,
+          "status": "active",
+          "content": "Battery SYN-014 inspection record A reports state of health 83 percent."
+        },
+        {
+          "support_id": "synthesis-014-record-2",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000141",
+          "resource_version": 1,
+          "status": "active",
+          "content": "Battery SYN-014 inspection record B reports state of health 64 percent for the same effective time."
+        },
+        {
+          "support_id": "synthesis-014-record-3",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000142",
+          "resource_version": 1,
+          "status": "active",
+          "content": "The active conflict rule prohibits automated eligibility when equally current measurements materially disagree."
+        },
+        {
+          "support_id": "synthesis-014-record-4",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000143",
+          "resource_version": 1,
+          "status": "active",
+          "content": "The conflict must be referred to an accountable verifier before a marketplace decision."
+        }
+      ],
+      "raw_record_operations": 4,
+      "sequential_deterministic_operations": 5,
+      "evllm_operations": 1
+    },
+    {
+      "case_id": "synthesis-015",
+      "stratum": "conflicting-evidence",
+      "variant": 5,
+      "prompt": "Using all supplied records, explain the decision for synthesis-015. State the exact decision code 'external-decision-required' in the summary, cite every material fact, and identify missing or conflicting evidence when present.",
+      "expected_conclusion": "external-decision-required",
+      "expected_detection": "conflict",
+      "records": [
+        {
+          "support_id": "synthesis-015-record-1",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000150",
+          "resource_version": 1,
+          "status": "active",
+          "content": "Battery SYN-015 inspection record A reports state of health 81 percent."
+        },
+        {
+          "support_id": "synthesis-015-record-2",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000151",
+          "resource_version": 1,
+          "status": "active",
+          "content": "Battery SYN-015 inspection record B reports state of health 62 percent for the same effective time."
+        },
+        {
+          "support_id": "synthesis-015-record-3",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000152",
+          "resource_version": 1,
+          "status": "active",
+          "content": "The active conflict rule prohibits automated eligibility when equally current measurements materially disagree."
+        },
+        {
+          "support_id": "synthesis-015-record-4",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000153",
+          "resource_version": 1,
+          "status": "active",
+          "content": "The conflict must be referred to an accountable verifier before a marketplace decision."
+        }
+      ],
+      "raw_record_operations": 4,
+      "sequential_deterministic_operations": 5,
+      "evllm_operations": 1
+    },
+    {
+      "case_id": "synthesis-016",
+      "stratum": "lifecycle-eligibility",
+      "variant": 1,
+      "prompt": "Using all supplied records, explain the decision for synthesis-016. State the exact decision code 'lifecycle-action-permitted' in the summary, cite every material fact, and identify missing or conflicting evidence when present.",
+      "expected_conclusion": "lifecycle-action-permitted",
+      "expected_detection": null,
+      "records": [
+        {
+          "support_id": "synthesis-016-record-1",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000160",
+          "resource_version": 1,
+          "status": "active",
+          "content": "Battery SYN-016 is active and is not locked by an agreement or dispute."
+        },
+        {
+          "support_id": "synthesis-016-record-2",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000161",
+          "resource_version": 1,
+          "status": "active",
+          "content": "Battery SYN-016 is controlled by the recorded owner Organization Seller-16."
+        },
+        {
+          "support_id": "synthesis-016-record-3",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000162",
+          "resource_version": 1,
+          "status": "active",
+          "content": "The requested lifecycle action is supported by an active decision-critical evidence version."
+        },
+        {
+          "support_id": "synthesis-016-record-4",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000163",
+          "resource_version": 1,
+          "status": "active",
+          "content": "The lifecycle rule permits the action when ownership, unlocked state, and evidence support all hold."
+        }
+      ],
+      "raw_record_operations": 4,
+      "sequential_deterministic_operations": 5,
+      "evllm_operations": 1
+    },
+    {
+      "case_id": "synthesis-017",
+      "stratum": "lifecycle-eligibility",
+      "variant": 2,
+      "prompt": "Using all supplied records, explain the decision for synthesis-017. State the exact decision code 'lifecycle-action-permitted' in the summary, cite every material fact, and identify missing or conflicting evidence when present.",
+      "expected_conclusion": "lifecycle-action-permitted",
+      "expected_detection": null,
+      "records": [
+        {
+          "support_id": "synthesis-017-record-1",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000170",
+          "resource_version": 1,
+          "status": "active",
+          "content": "Battery SYN-017 is active and is not locked by an agreement or dispute."
+        },
+        {
+          "support_id": "synthesis-017-record-2",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000171",
+          "resource_version": 1,
+          "status": "active",
+          "content": "Battery SYN-017 is controlled by the recorded owner Organization Seller-17."
+        },
+        {
+          "support_id": "synthesis-017-record-3",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000172",
+          "resource_version": 1,
+          "status": "active",
+          "content": "The requested lifecycle action is supported by an active decision-critical evidence version."
+        },
+        {
+          "support_id": "synthesis-017-record-4",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000173",
+          "resource_version": 1,
+          "status": "active",
+          "content": "The lifecycle rule permits the action when ownership, unlocked state, and evidence support all hold."
+        }
+      ],
+      "raw_record_operations": 4,
+      "sequential_deterministic_operations": 5,
+      "evllm_operations": 1
+    },
+    {
+      "case_id": "synthesis-018",
+      "stratum": "lifecycle-eligibility",
+      "variant": 3,
+      "prompt": "Using all supplied records, explain the decision for synthesis-018. State the exact decision code 'lifecycle-action-permitted' in the summary, cite every material fact, and identify missing or conflicting evidence when present.",
+      "expected_conclusion": "lifecycle-action-permitted",
+      "expected_detection": null,
+      "records": [
+        {
+          "support_id": "synthesis-018-record-1",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000180",
+          "resource_version": 1,
+          "status": "active",
+          "content": "Battery SYN-018 is active and is not locked by an agreement or dispute."
+        },
+        {
+          "support_id": "synthesis-018-record-2",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000181",
+          "resource_version": 1,
+          "status": "active",
+          "content": "Battery SYN-018 is controlled by the recorded owner Organization Seller-18."
+        },
+        {
+          "support_id": "synthesis-018-record-3",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000182",
+          "resource_version": 1,
+          "status": "active",
+          "content": "The requested lifecycle action is supported by an active decision-critical evidence version."
+        },
+        {
+          "support_id": "synthesis-018-record-4",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000183",
+          "resource_version": 1,
+          "status": "active",
+          "content": "The lifecycle rule permits the action when ownership, unlocked state, and evidence support all hold."
+        }
+      ],
+      "raw_record_operations": 4,
+      "sequential_deterministic_operations": 5,
+      "evllm_operations": 1
+    },
+    {
+      "case_id": "synthesis-019",
+      "stratum": "lifecycle-eligibility",
+      "variant": 4,
+      "prompt": "Using all supplied records, explain the decision for synthesis-019. State the exact decision code 'lifecycle-action-permitted' in the summary, cite every material fact, and identify missing or conflicting evidence when present.",
+      "expected_conclusion": "lifecycle-action-permitted",
+      "expected_detection": null,
+      "records": [
+        {
+          "support_id": "synthesis-019-record-1",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000190",
+          "resource_version": 1,
+          "status": "active",
+          "content": "Battery SYN-019 is active and is not locked by an agreement or dispute."
+        },
+        {
+          "support_id": "synthesis-019-record-2",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000191",
+          "resource_version": 1,
+          "status": "active",
+          "content": "Battery SYN-019 is controlled by the recorded owner Organization Seller-19."
+        },
+        {
+          "support_id": "synthesis-019-record-3",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000192",
+          "resource_version": 1,
+          "status": "active",
+          "content": "The requested lifecycle action is supported by an active decision-critical evidence version."
+        },
+        {
+          "support_id": "synthesis-019-record-4",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000193",
+          "resource_version": 1,
+          "status": "active",
+          "content": "The lifecycle rule permits the action when ownership, unlocked state, and evidence support all hold."
+        }
+      ],
+      "raw_record_operations": 4,
+      "sequential_deterministic_operations": 5,
+      "evllm_operations": 1
+    },
+    {
+      "case_id": "synthesis-020",
+      "stratum": "lifecycle-eligibility",
+      "variant": 5,
+      "prompt": "Using all supplied records, explain the decision for synthesis-020. State the exact decision code 'lifecycle-action-permitted' in the summary, cite every material fact, and identify missing or conflicting evidence when present.",
+      "expected_conclusion": "lifecycle-action-permitted",
+      "expected_detection": null,
+      "records": [
+        {
+          "support_id": "synthesis-020-record-1",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000200",
+          "resource_version": 1,
+          "status": "active",
+          "content": "Battery SYN-020 is active and is not locked by an agreement or dispute."
+        },
+        {
+          "support_id": "synthesis-020-record-2",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000201",
+          "resource_version": 1,
+          "status": "active",
+          "content": "Battery SYN-020 is controlled by the recorded owner Organization Seller-20."
+        },
+        {
+          "support_id": "synthesis-020-record-3",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000202",
+          "resource_version": 1,
+          "status": "active",
+          "content": "The requested lifecycle action is supported by an active decision-critical evidence version."
+        },
+        {
+          "support_id": "synthesis-020-record-4",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000203",
+          "resource_version": 1,
+          "status": "active",
+          "content": "The lifecycle rule permits the action when ownership, unlocked state, and evidence support all hold."
+        }
+      ],
+      "raw_record_operations": 4,
+      "sequential_deterministic_operations": 5,
+      "evllm_operations": 1
+    },
+    {
+      "case_id": "synthesis-021",
+      "stratum": "route-comparison",
+      "variant": 1,
+      "prompt": "Using all supplied records, explain the decision for synthesis-021. State the exact decision code 'route-reuse-preferred' in the summary, cite every material fact, and identify missing or conflicting evidence when present.",
+      "expected_conclusion": "route-reuse-preferred",
+      "expected_detection": null,
+      "records": [
+        {
+          "support_id": "synthesis-021-record-1",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000210",
+          "resource_version": 1,
+          "status": "active",
+          "content": "Battery SYN-021 reuse route score is 83 points under the frozen assessment profile."
+        },
+        {
+          "support_id": "synthesis-021-record-2",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000211",
+          "resource_version": 1,
+          "status": "active",
+          "content": "Battery SYN-021 recycling route score is 65 points under the same profile."
+        },
+        {
+          "support_id": "synthesis-021-record-3",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000212",
+          "resource_version": 1,
+          "status": "active",
+          "content": "Battery SYN-021 remanufacturing route score is 74 points under the same profile."
+        },
+        {
+          "support_id": "synthesis-021-record-4",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000213",
+          "resource_version": 1,
+          "status": "active",
+          "content": "The deterministic comparison rule selects the highest admissible score when uncertainty does not reverse ranking."
+        },
+        {
+          "support_id": "synthesis-021-record-5",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000214",
+          "resource_version": 1,
+          "status": "active",
+          "content": "The uncertainty analysis for Battery SYN-021 does not reverse the route ranking."
+        }
+      ],
+      "raw_record_operations": 5,
+      "sequential_deterministic_operations": 6,
+      "evllm_operations": 1
+    },
+    {
+      "case_id": "synthesis-022",
+      "stratum": "route-comparison",
+      "variant": 2,
+      "prompt": "Using all supplied records, explain the decision for synthesis-022. State the exact decision code 'route-reuse-preferred' in the summary, cite every material fact, and identify missing or conflicting evidence when present.",
+      "expected_conclusion": "route-reuse-preferred",
+      "expected_detection": null,
+      "records": [
+        {
+          "support_id": "synthesis-022-record-1",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000220",
+          "resource_version": 1,
+          "status": "active",
+          "content": "Battery SYN-022 reuse route score is 84 points under the frozen assessment profile."
+        },
+        {
+          "support_id": "synthesis-022-record-2",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000221",
+          "resource_version": 1,
+          "status": "active",
+          "content": "Battery SYN-022 recycling route score is 66 points under the same profile."
+        },
+        {
+          "support_id": "synthesis-022-record-3",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000222",
+          "resource_version": 1,
+          "status": "active",
+          "content": "Battery SYN-022 remanufacturing route score is 75 points under the same profile."
+        },
+        {
+          "support_id": "synthesis-022-record-4",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000223",
+          "resource_version": 1,
+          "status": "active",
+          "content": "The deterministic comparison rule selects the highest admissible score when uncertainty does not reverse ranking."
+        },
+        {
+          "support_id": "synthesis-022-record-5",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000224",
+          "resource_version": 1,
+          "status": "active",
+          "content": "The uncertainty analysis for Battery SYN-022 does not reverse the route ranking."
+        }
+      ],
+      "raw_record_operations": 5,
+      "sequential_deterministic_operations": 6,
+      "evllm_operations": 1
+    },
+    {
+      "case_id": "synthesis-023",
+      "stratum": "route-comparison",
+      "variant": 3,
+      "prompt": "Using all supplied records, explain the decision for synthesis-023. State the exact decision code 'route-reuse-preferred' in the summary, cite every material fact, and identify missing or conflicting evidence when present.",
+      "expected_conclusion": "route-reuse-preferred",
+      "expected_detection": null,
+      "records": [
+        {
+          "support_id": "synthesis-023-record-1",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000230",
+          "resource_version": 1,
+          "status": "active",
+          "content": "Battery SYN-023 reuse route score is 85 points under the frozen assessment profile."
+        },
+        {
+          "support_id": "synthesis-023-record-2",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000231",
+          "resource_version": 1,
+          "status": "active",
+          "content": "Battery SYN-023 recycling route score is 67 points under the same profile."
+        },
+        {
+          "support_id": "synthesis-023-record-3",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000232",
+          "resource_version": 1,
+          "status": "active",
+          "content": "Battery SYN-023 remanufacturing route score is 76 points under the same profile."
+        },
+        {
+          "support_id": "synthesis-023-record-4",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000233",
+          "resource_version": 1,
+          "status": "active",
+          "content": "The deterministic comparison rule selects the highest admissible score when uncertainty does not reverse ranking."
+        },
+        {
+          "support_id": "synthesis-023-record-5",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000234",
+          "resource_version": 1,
+          "status": "active",
+          "content": "The uncertainty analysis for Battery SYN-023 does not reverse the route ranking."
+        }
+      ],
+      "raw_record_operations": 5,
+      "sequential_deterministic_operations": 6,
+      "evllm_operations": 1
+    },
+    {
+      "case_id": "synthesis-024",
+      "stratum": "route-comparison",
+      "variant": 4,
+      "prompt": "Using all supplied records, explain the decision for synthesis-024. State the exact decision code 'route-reuse-preferred' in the summary, cite every material fact, and identify missing or conflicting evidence when present.",
+      "expected_conclusion": "route-reuse-preferred",
+      "expected_detection": null,
+      "records": [
+        {
+          "support_id": "synthesis-024-record-1",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000240",
+          "resource_version": 1,
+          "status": "active",
+          "content": "Battery SYN-024 reuse route score is 82 points under the frozen assessment profile."
+        },
+        {
+          "support_id": "synthesis-024-record-2",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000241",
+          "resource_version": 1,
+          "status": "active",
+          "content": "Battery SYN-024 recycling route score is 64 points under the same profile."
+        },
+        {
+          "support_id": "synthesis-024-record-3",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000242",
+          "resource_version": 1,
+          "status": "active",
+          "content": "Battery SYN-024 remanufacturing route score is 73 points under the same profile."
+        },
+        {
+          "support_id": "synthesis-024-record-4",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000243",
+          "resource_version": 1,
+          "status": "active",
+          "content": "The deterministic comparison rule selects the highest admissible score when uncertainty does not reverse ranking."
+        },
+        {
+          "support_id": "synthesis-024-record-5",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000244",
+          "resource_version": 1,
+          "status": "active",
+          "content": "The uncertainty analysis for Battery SYN-024 does not reverse the route ranking."
+        }
+      ],
+      "raw_record_operations": 5,
+      "sequential_deterministic_operations": 6,
+      "evllm_operations": 1
+    },
+    {
+      "case_id": "synthesis-025",
+      "stratum": "route-comparison",
+      "variant": 5,
+      "prompt": "Using all supplied records, explain the decision for synthesis-025. State the exact decision code 'route-reuse-preferred' in the summary, cite every material fact, and identify missing or conflicting evidence when present.",
+      "expected_conclusion": "route-reuse-preferred",
+      "expected_detection": null,
+      "records": [
+        {
+          "support_id": "synthesis-025-record-1",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000250",
+          "resource_version": 1,
+          "status": "active",
+          "content": "Battery SYN-025 reuse route score is 83 points under the frozen assessment profile."
+        },
+        {
+          "support_id": "synthesis-025-record-2",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000251",
+          "resource_version": 1,
+          "status": "active",
+          "content": "Battery SYN-025 recycling route score is 65 points under the same profile."
+        },
+        {
+          "support_id": "synthesis-025-record-3",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000252",
+          "resource_version": 1,
+          "status": "active",
+          "content": "Battery SYN-025 remanufacturing route score is 74 points under the same profile."
+        },
+        {
+          "support_id": "synthesis-025-record-4",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000253",
+          "resource_version": 1,
+          "status": "active",
+          "content": "The deterministic comparison rule selects the highest admissible score when uncertainty does not reverse ranking."
+        },
+        {
+          "support_id": "synthesis-025-record-5",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000254",
+          "resource_version": 1,
+          "status": "active",
+          "content": "The uncertainty analysis for Battery SYN-025 does not reverse the route ranking."
+        }
+      ],
+      "raw_record_operations": 5,
+      "sequential_deterministic_operations": 6,
+      "evllm_operations": 1
+    },
+    {
+      "case_id": "synthesis-026",
+      "stratum": "custody-replica",
+      "variant": 1,
+      "prompt": "Using all supplied records, explain the decision for synthesis-026. State the exact decision code 'replica-recovery-permitted' in the summary, cite every material fact, and identify missing or conflicting evidence when present.",
+      "expected_conclusion": "replica-recovery-permitted",
+      "expected_detection": null,
+      "records": [
+        {
+          "support_id": "synthesis-026-record-1",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000260",
+          "resource_version": 1,
+          "status": "active",
+          "content": "Battery SYN-026 primary repository is temporarily unavailable."
+        },
+        {
+          "support_id": "synthesis-026-record-2",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000261",
+          "resource_version": 1,
+          "status": "active",
+          "content": "Battery SYN-026 has a canonically confirmed decision-critical bundle commitment."
+        },
+        {
+          "support_id": "synthesis-026-record-3",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000262",
+          "resource_version": 1,
+          "status": "active",
+          "content": "Battery SYN-026 neutral replica envelope digest and stored length match the confirmed commitment."
+        },
+        {
+          "support_id": "synthesis-026-record-4",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000263",
+          "resource_version": 1,
+          "status": "active",
+          "content": "The requesting organization has an active scoped grant and recipient envelope."
+        },
+        {
+          "support_id": "synthesis-026-record-5",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000264",
+          "resource_version": 1,
+          "status": "active",
+          "content": "The recovery rule permits byte-identical replica retrieval only when commitment, grant, and envelope checks all pass."
+        }
+      ],
+      "raw_record_operations": 5,
+      "sequential_deterministic_operations": 6,
+      "evllm_operations": 1
+    },
+    {
+      "case_id": "synthesis-027",
+      "stratum": "custody-replica",
+      "variant": 2,
+      "prompt": "Using all supplied records, explain the decision for synthesis-027. State the exact decision code 'replica-recovery-permitted' in the summary, cite every material fact, and identify missing or conflicting evidence when present.",
+      "expected_conclusion": "replica-recovery-permitted",
+      "expected_detection": null,
+      "records": [
+        {
+          "support_id": "synthesis-027-record-1",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000270",
+          "resource_version": 1,
+          "status": "active",
+          "content": "Battery SYN-027 primary repository is temporarily unavailable."
+        },
+        {
+          "support_id": "synthesis-027-record-2",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000271",
+          "resource_version": 1,
+          "status": "active",
+          "content": "Battery SYN-027 has a canonically confirmed decision-critical bundle commitment."
+        },
+        {
+          "support_id": "synthesis-027-record-3",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000272",
+          "resource_version": 1,
+          "status": "active",
+          "content": "Battery SYN-027 neutral replica envelope digest and stored length match the confirmed commitment."
+        },
+        {
+          "support_id": "synthesis-027-record-4",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000273",
+          "resource_version": 1,
+          "status": "active",
+          "content": "The requesting organization has an active scoped grant and recipient envelope."
+        },
+        {
+          "support_id": "synthesis-027-record-5",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000274",
+          "resource_version": 1,
+          "status": "active",
+          "content": "The recovery rule permits byte-identical replica retrieval only when commitment, grant, and envelope checks all pass."
+        }
+      ],
+      "raw_record_operations": 5,
+      "sequential_deterministic_operations": 6,
+      "evllm_operations": 1
+    },
+    {
+      "case_id": "synthesis-028",
+      "stratum": "custody-replica",
+      "variant": 3,
+      "prompt": "Using all supplied records, explain the decision for synthesis-028. State the exact decision code 'replica-recovery-permitted' in the summary, cite every material fact, and identify missing or conflicting evidence when present.",
+      "expected_conclusion": "replica-recovery-permitted",
+      "expected_detection": null,
+      "records": [
+        {
+          "support_id": "synthesis-028-record-1",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000280",
+          "resource_version": 1,
+          "status": "active",
+          "content": "Battery SYN-028 primary repository is temporarily unavailable."
+        },
+        {
+          "support_id": "synthesis-028-record-2",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000281",
+          "resource_version": 1,
+          "status": "active",
+          "content": "Battery SYN-028 has a canonically confirmed decision-critical bundle commitment."
+        },
+        {
+          "support_id": "synthesis-028-record-3",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000282",
+          "resource_version": 1,
+          "status": "active",
+          "content": "Battery SYN-028 neutral replica envelope digest and stored length match the confirmed commitment."
+        },
+        {
+          "support_id": "synthesis-028-record-4",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000283",
+          "resource_version": 1,
+          "status": "active",
+          "content": "The requesting organization has an active scoped grant and recipient envelope."
+        },
+        {
+          "support_id": "synthesis-028-record-5",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000284",
+          "resource_version": 1,
+          "status": "active",
+          "content": "The recovery rule permits byte-identical replica retrieval only when commitment, grant, and envelope checks all pass."
+        }
+      ],
+      "raw_record_operations": 5,
+      "sequential_deterministic_operations": 6,
+      "evllm_operations": 1
+    },
+    {
+      "case_id": "synthesis-029",
+      "stratum": "custody-replica",
+      "variant": 4,
+      "prompt": "Using all supplied records, explain the decision for synthesis-029. State the exact decision code 'replica-recovery-permitted' in the summary, cite every material fact, and identify missing or conflicting evidence when present.",
+      "expected_conclusion": "replica-recovery-permitted",
+      "expected_detection": null,
+      "records": [
+        {
+          "support_id": "synthesis-029-record-1",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000290",
+          "resource_version": 1,
+          "status": "active",
+          "content": "Battery SYN-029 primary repository is temporarily unavailable."
+        },
+        {
+          "support_id": "synthesis-029-record-2",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000291",
+          "resource_version": 1,
+          "status": "active",
+          "content": "Battery SYN-029 has a canonically confirmed decision-critical bundle commitment."
+        },
+        {
+          "support_id": "synthesis-029-record-3",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000292",
+          "resource_version": 1,
+          "status": "active",
+          "content": "Battery SYN-029 neutral replica envelope digest and stored length match the confirmed commitment."
+        },
+        {
+          "support_id": "synthesis-029-record-4",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000293",
+          "resource_version": 1,
+          "status": "active",
+          "content": "The requesting organization has an active scoped grant and recipient envelope."
+        },
+        {
+          "support_id": "synthesis-029-record-5",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000294",
+          "resource_version": 1,
+          "status": "active",
+          "content": "The recovery rule permits byte-identical replica retrieval only when commitment, grant, and envelope checks all pass."
+        }
+      ],
+      "raw_record_operations": 5,
+      "sequential_deterministic_operations": 6,
+      "evllm_operations": 1
+    },
+    {
+      "case_id": "synthesis-030",
+      "stratum": "custody-replica",
+      "variant": 5,
+      "prompt": "Using all supplied records, explain the decision for synthesis-030. State the exact decision code 'replica-recovery-permitted' in the summary, cite every material fact, and identify missing or conflicting evidence when present.",
+      "expected_conclusion": "replica-recovery-permitted",
+      "expected_detection": null,
+      "records": [
+        {
+          "support_id": "synthesis-030-record-1",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000300",
+          "resource_version": 1,
+          "status": "active",
+          "content": "Battery SYN-030 primary repository is temporarily unavailable."
+        },
+        {
+          "support_id": "synthesis-030-record-2",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000301",
+          "resource_version": 1,
+          "status": "active",
+          "content": "Battery SYN-030 has a canonically confirmed decision-critical bundle commitment."
+        },
+        {
+          "support_id": "synthesis-030-record-3",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000302",
+          "resource_version": 1,
+          "status": "active",
+          "content": "Battery SYN-030 neutral replica envelope digest and stored length match the confirmed commitment."
+        },
+        {
+          "support_id": "synthesis-030-record-4",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000303",
+          "resource_version": 1,
+          "status": "active",
+          "content": "The requesting organization has an active scoped grant and recipient envelope."
+        },
+        {
+          "support_id": "synthesis-030-record-5",
+          "resource_id": "urn:evllm:evidence:00000000-0000-4000-8004-000000000304",
+          "resource_version": 1,
+          "status": "active",
+          "content": "The recovery rule permits byte-identical replica retrieval only when commitment, grant, and envelope checks all pass."
+        }
+      ],
+      "raw_record_operations": 5,
+      "sequential_deterministic_operations": 6,
+      "evllm_operations": 1
+    }
+  ],
+  "corpus_sha256": "0xe44c4e1cb44fde62e581d5f1e02c8fd782ceb7fcd5dd681fcb483bc8a365ca7c"
+}

@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "schema": { "type": "string", "const": "EVLLM_UNIT_DEFINITION_V1" },
+    "unit_id": {
+      "type": "string",
+      "pattern": "^urn:evllm:unit:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "unit_version": { "type": "integer", "exclusiveMinimum": 0, "maximum": 9007199254740991 },
+    "symbol": { "$ref": "#/$defs/__schema0" },
+    "dimension_vector": {
+      "type": "object",
+      "propertyNames": { "type": "string", "pattern": "^[A-Z][A-Za-z0-9_-]*$" },
+      "additionalProperties": {
+        "type": "integer",
+        "minimum": -9007199254740991,
+        "maximum": 9007199254740991
+      }
+    },
+    "decimal_scale": { "$ref": "#/$defs/__schema1" },
+    "decimal_offset": { "$ref": "#/$defs/__schema1" },
+    "source": { "$ref": "#/$defs/__schema0" },
+    "external_mapping": { "$ref": "#/$defs/__schema0" },
+    "status": { "type": "string", "enum": ["pending", "active", "retired"] },
+    "effective_at": { "$ref": "#/$defs/__schema2" },
+    "recorded_at": { "$ref": "#/$defs/__schema2" }
+  },
+  "required": [
+    "schema",
+    "unit_id",
+    "unit_version",
+    "symbol",
+    "dimension_vector",
+    "decimal_scale",
+    "source",
+    "status",
+    "effective_at",
+    "recorded_at"
+  ],
+  "additionalProperties": false,
+  "$defs": {
+    "__schema0": { "type": "string", "minLength": 1, "maxLength": 256 },
+    "__schema1": {
+      "type": "string",
+      "pattern": "^(?:0|-?(?:[1-9][0-9]*)(?:\\.[0-9]*[1-9])?|-?0\\.[0-9]*[1-9])$"
+    },
+    "__schema2": { "type": "integer", "minimum": 0, "maximum": 9007199254740991 }
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "schema": { "type": "string", "const": "EVLLM_OWNERSHIP_TRANSITION_V1" },
+    "transition_id": {
+      "type": "string",
+      "pattern": "^urn:evllm:transition:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "transition_version": { "$ref": "#/$defs/__schema0" },
+    "battery_id": {
+      "type": "string",
+      "pattern": "^urn:evllm:battery:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "previous_organization_id": {
+      "type": "string",
+      "pattern": "^urn:evllm:org:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "new_organization_id": {
+      "type": "string",
+      "pattern": "^urn:evllm:org:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "reason": { "type": "string", "minLength": 1, "maxLength": 256 },
+    "agreement_id": {
+      "type": "string",
+      "pattern": "^urn:evllm:agreement:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "registration_id": {
+      "type": "string",
+      "pattern": "^urn:evllm:ownership:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "event_time": { "type": "integer", "minimum": 0, "maximum": 9007199254740991 },
+    "chain_id": { "$ref": "#/$defs/__schema0" },
+    "transaction_hash": { "type": "string", "pattern": "^0x[0-9a-f]{64}$" },
+    "log_index": { "type": "integer", "minimum": 0, "maximum": 9007199254740991 }
+  },
+  "required": [
+    "schema",
+    "transition_id",
+    "transition_version",
+    "battery_id",
+    "new_organization_id",
+    "reason",
+    "event_time",
+    "chain_id",
+    "transaction_hash",
+    "log_index"
+  ],
+  "additionalProperties": false,
+  "$defs": {
+    "__schema0": { "type": "integer", "exclusiveMinimum": 0, "maximum": 9007199254740991 }
+  }
+}

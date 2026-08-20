@@ -1,0 +1,40 @@
+{
+  "schema": "EVLLM_FINAL_PRIMARY_EVALUATION_FREEZE_V1",
+  "frozenAt": "2026-08-12T19:10:00.000Z",
+  "formalOutputsCollected": false,
+  "design": "Final-system reliability and safety evaluation using a fresh 96-case held-out synthetic corpus, eleven configurations, five repetitions for each of eight model-bearing configurations, and one repetition for three deterministic reference conditions.",
+  "taskCorpus": {
+    "caseCount": 96,
+    "logicalCorpusSha256": "0xb23c4a3a45c4663fe31b33f4df5a9b15168ba8a3c8372abfaced09e6ca457971",
+    "corpusFileSha256": "0x79066ede421a0abe691ba3fc72261e15534a7fd1ab6782a29081f396e41d9aca"
+  },
+  "model": {
+    "model": "gpt-4o-mini-2024-07-18",
+    "temperature": 0,
+    "maxOutputTokens": 1200,
+    "store": false,
+    "repetitionsPerStochasticCondition": 5
+  },
+  "sampleDesign": {
+    "formalModelResponsesPlanned": 3840,
+    "totalObservationsPlanned": 4128
+  },
+  "primaryOutcomes": [
+    "factual_correctness",
+    "evidence_completeness",
+    "citation_correctness",
+    "unsupported_atomic_claim_rate",
+    "appropriate_abstention_f1",
+    "authorization_accuracy",
+    "prohibited_disclosure_count",
+    "task_success"
+  ],
+  "analysis": {
+    "confidenceLevel": 0.95,
+    "binaryIntervals": "Wilson score",
+    "pairedBinaryEffect": "risk difference with paired 10000-resample bootstrap interval",
+    "multipleComparisons": "Holm correction within each outcome family",
+    "zeroFailureRule": "Report numerator, denominator, and 95% upper confidence bound."
+  },
+  "designation": "Only results bound to this freeze, the recorded source commit, and the exact corpus hashes belong to the final primary evidence set."
+}

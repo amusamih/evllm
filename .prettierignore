@@ -1,0 +1,9 @@
+artifacts/
+cache/
+coverage/
+dist/
+node_modules/
+legacy/iteration-0/
+Manuscript/
+docs/design/
+REVIEW_REVISION_PLAN.md

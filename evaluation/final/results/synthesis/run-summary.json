@@ -1,0 +1,9 @@
+{
+  "schema": "EVLLM_FINAL_SYNTHESIS_RUN_SUMMARY_V1",
+  "source_commit": "b31f5cae831cb4a062dfd342126bd4ed941c098d",
+  "completed_observations": 150,
+  "planned_observations": 150,
+  "input_tokens": 109905,
+  "output_tokens": 46898,
+  "complete": true
+}

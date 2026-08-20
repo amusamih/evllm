@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "schema": { "type": "string", "const": "EVLLM_REPLICA_POLICY_V1" },
+    "replica_policy_id": {
+      "type": "string",
+      "pattern": "^urn:evllm:profile:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "replica_policy_version": { "$ref": "#/$defs/__schema0" },
+    "required_when_decision_critical": { "type": "boolean", "const": true },
+    "replica_count": { "type": "number", "const": 1 },
+    "replica_custodian_org_id": {
+      "type": "string",
+      "pattern": "^urn:evllm:org:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "replica_repository_id": {
+      "type": "string",
+      "pattern": "^urn:evllm:repository:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "retention_profile_id": {
+      "type": "string",
+      "pattern": "^urn:evllm:profile:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "retention_profile_version": { "$ref": "#/$defs/__schema0" }
+  },
+  "required": [
+    "schema",
+    "replica_policy_id",
+    "replica_policy_version",
+    "required_when_decision_critical",
+    "replica_count",
+    "replica_custodian_org_id",
+    "replica_repository_id",
+    "retention_profile_id",
+    "retention_profile_version"
+  ],
+  "additionalProperties": false,
+  "$defs": {
+    "__schema0": { "type": "integer", "exclusiveMinimum": 0, "maximum": 9007199254740991 }
+  }
+}

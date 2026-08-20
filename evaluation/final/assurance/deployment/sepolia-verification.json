@@ -1,0 +1,88 @@
+{
+  "schema": "EVLLM_SEPOLIA_DEPLOYMENT_VERIFICATION_V1",
+  "verified_at": "2026-08-12T17:01:39.761Z",
+  "chain_id": "11155111",
+  "latest_block": 11474520,
+  "governance": "0x3Bac063FE6dc0881fC6A9A0BB20238f656334196",
+  "artifact_manifest_sha256": "0xe8ea4761570e051b5d3b1280cecfa685b7a026d4c792863a12d2cd1787f143e4",
+  "compiler": "solc-0.8.36",
+  "review_delay_seconds": 60,
+  "addresses": {
+    "AuthorityProfileRegistry": "0x71aD47F98f7a8185f5bE155cC04C345d8dCD9E13",
+    "ProtectedBundleRegistry": "0xDE6D5Fb286C217AA48AEc6C3Da320251A63E9D49",
+    "BatteryOwnershipRegistry": "0x04a37F6f0E5E48f525f2933FB543e7A7f4053D55",
+    "DeploymentRegistry": "0xA71F4D631AA783Db7FAB8Ec6055e7A7623348F29",
+    "EvidenceRegistry": "0xC54D56bAA283987691fa1eaDE4C794c312Afb568",
+    "Marketplace": "0x531AeC3731118c6E3830f6d921aCe90322CC8519",
+    "AuditAnchor": "0x2F73f9004517eAA82Db510Da4b30e6F7986949b8"
+  },
+  "deployment_transactions": [
+    {
+      "contract": "AuthorityProfileRegistry",
+      "block_number": 11473623,
+      "transaction_hash": "0x449afd683210e593362ab6eac70814eb2d02f84a99186941ceb4814c85912356",
+      "gas_used": "944139"
+    },
+    {
+      "contract": "ProtectedBundleRegistry",
+      "block_number": 11473628,
+      "transaction_hash": "0x52d6993821f589585f30fc3fcfd15d119dcffd5d9b9d202089eaaec28e0750d9",
+      "gas_used": "1555070"
+    },
+    {
+      "contract": "BatteryOwnershipRegistry",
+      "block_number": 11473623,
+      "transaction_hash": "0x207ca39cbac3d188d5e1f344daf95b9bf8f755f2740c00b222f23b8ac966b406",
+      "gas_used": "1302772"
+    },
+    {
+      "contract": "DeploymentRegistry",
+      "block_number": 11473633,
+      "transaction_hash": "0xdf0f76a68afc1edb61244c962d0c524b8439633c12a7d91b1564e753f8013041",
+      "gas_used": "610009"
+    },
+    {
+      "contract": "EvidenceRegistry",
+      "block_number": 11473633,
+      "transaction_hash": "0x98b1953006eb70e43f2a1f578f37eb0070870348d932e259356e2802ebaa59b6",
+      "gas_used": "1661975"
+    },
+    {
+      "contract": "Marketplace",
+      "block_number": 11473639,
+      "transaction_hash": "0x2fdbc70f94c8d161817b2c7f6416bbc410028bc976796200c14a2d17301e1a7c",
+      "gas_used": "3409991"
+    },
+    {
+      "contract": "AuditAnchor",
+      "block_number": 11473628,
+      "transaction_hash": "0x838c573c570ac38d5c958c05ea608916d8f3d17a9505120c6accb9377a878891",
+      "gas_used": "514732"
+    }
+  ],
+  "active_modules": {
+    "evidence": "0xC54D56bAA283987691fa1eaDE4C794c312Afb568",
+    "marketplace": "0x531AeC3731118c6E3830f6d921aCe90322CC8519",
+    "audit": "0x2F73f9004517eAA82Db510Da4b30e6F7986949b8"
+  },
+  "protected_bundle_bootstrap_closed": true,
+  "marketplace_authorized_for_battery_locking": true,
+  "activation_events": [
+    {
+      "module": "evidence",
+      "block_number": 11473652,
+      "transaction_hash": "0x75150804a145a518249eecc3640269c2ab7e3d51e59f494a5a43acc2934ef334"
+    },
+    {
+      "module": "marketplace",
+      "block_number": 11473653,
+      "transaction_hash": "0xb229e37963605e9eff60e030c0588f9a772564c4895d810ddfcf7439617abc2b"
+    },
+    {
+      "module": "audit",
+      "block_number": 11473654,
+      "transaction_hash": "0x835097059ca13f99439857989bc2b6a4adc29dfaf67586105eb3e14612c88357"
+    }
+  ],
+  "explorer": "https://sepolia.etherscan.io"
+}

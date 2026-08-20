@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "schema": { "type": "string", "const": "EVLLM_PROTECTED_BUNDLE_CRITICALITY_TRANSITION_V1" },
+    "transition_id": {
+      "type": "string",
+      "pattern": "^urn:evllm:transition:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "transition_version": { "$ref": "#/$defs/__schema0" },
+    "bundle_id": {
+      "type": "string",
+      "pattern": "^urn:evllm:bundle:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "bundle_version": { "$ref": "#/$defs/__schema0" },
+    "prior_class": { "type": "string", "const": "supplementary" },
+    "new_class": { "type": "string", "const": "decision-critical" },
+    "reason": { "type": "string", "minLength": 1, "maxLength": 16384 },
+    "policy_id": {
+      "type": "string",
+      "pattern": "^urn:evllm:policy:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "policy_version": { "$ref": "#/$defs/__schema0" },
+    "controller_command_id": {
+      "type": "string",
+      "pattern": "^urn:evllm:command:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "replica_receipt_id": {
+      "type": "string",
+      "pattern": "^urn:evllm:receipt:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "status": { "type": "string", "enum": ["pending-replica", "confirmed", "reorganized"] },
+    "chain_locator": {
+      "type": "object",
+      "properties": {
+        "chain_id": { "$ref": "#/$defs/__schema0" },
+        "transaction_hash": { "type": "string", "pattern": "^0x[0-9a-f]{64}$" },
+        "block_number": { "type": "integer", "minimum": 0, "maximum": 9007199254740991 },
+        "log_index": { "type": "integer", "minimum": 0, "maximum": 9007199254740991 }
+      },
+      "required": ["chain_id", "transaction_hash", "block_number", "log_index"],
+      "additionalProperties": false
+    },
+    "recorded_at": { "type": "integer", "minimum": 0, "maximum": 9007199254740991 }
+  },
+  "required": [
+    "schema",
+    "transition_id",
+    "transition_version",
+    "bundle_id",
+    "bundle_version",
+    "prior_class",
+    "new_class",
+    "reason",
+    "policy_id",
+    "policy_version",
+    "controller_command_id",
+    "replica_receipt_id",
+    "status",
+    "recorded_at"
+  ],
+  "additionalProperties": false,
+  "$defs": {
+    "__schema0": { "type": "integer", "exclusiveMinimum": 0, "maximum": 9007199254740991 }
+  }
+}

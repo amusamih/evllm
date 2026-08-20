@@ -1,0 +1,33 @@
+# Local secrets. Commit only the documented template.
+/.env/*
+!/.env/.env.example
+!/.env/.env.test.example
+!/.env/.env.sepolia-demo.example
+
+# Node.js
+/node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Runtime data and generated artifacts
+/data/*
+!/data/.gitkeep
+/coverage/
+/dist/
+/artifacts/
+/cache/
+/typechain-types/
+/.local-results/
+/evaluation/formal/results/
+/evaluation/complementary/results/
+/evaluation/final/results/**/progress.json
+/playwright-report/
+
+# Editor and operating-system files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp

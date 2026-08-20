@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "schema": { "type": "string", "const": "EVLLM_ROUTE_ASSESSMENT_PROFILE_V1" },
+    "assessment_result_id": {
+      "type": "string",
+      "pattern": "^urn:evllm:assessment:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "assessment_result_version": { "$ref": "#/$defs/__schema0" },
+    "result_payload_ref": { "$ref": "#/$defs/__schema1" },
+    "domain_signature_record_id": {
+      "type": "string",
+      "pattern": "^urn:evllm:assertion:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "input_basis_id": {
+      "type": "string",
+      "pattern": "^urn:evllm:assessment:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "input_basis_version": { "$ref": "#/$defs/__schema0" },
+    "resolved_evidence": {
+      "minItems": 1,
+      "maxItems": 512,
+      "type": "array",
+      "items": { "$ref": "#/$defs/__schema1" }
+    },
+    "issuer_status": { "type": "string", "enum": ["active", "superseded", "revoked"] },
+    "protected_bundle_state": {
+      "type": "string",
+      "enum": ["confirmed", "reorganized", "unavailable"]
+    },
+    "summary_reason_codes": {
+      "maxItems": 128,
+      "type": "array",
+      "items": { "$ref": "#/$defs/__schema2" }
+    }
+  },
+  "required": [
+    "schema",
+    "assessment_result_id",
+    "assessment_result_version",
+    "result_payload_ref",
+    "domain_signature_record_id",
+    "input_basis_id",
+    "input_basis_version",
+    "resolved_evidence",
+    "issuer_status",
+    "protected_bundle_state",
+    "summary_reason_codes"
+  ],
+  "additionalProperties": false,
+  "$defs": {
+    "__schema0": { "type": "integer", "exclusiveMinimum": 0, "maximum": 9007199254740991 },
+    "__schema1": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "version": { "$ref": "#/$defs/__schema0" }
+      },
+      "required": ["id", "version"],
+      "additionalProperties": false
+    },
+    "__schema2": { "type": "string", "minLength": 1, "maxLength": 256 }
+  }
+}

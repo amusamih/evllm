@@ -1,0 +1,122 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "schema": { "type": "string", "const": "EVLLM_AUTHOR_BINDING_PROFILE_V1" },
+    "profile_id": {
+      "type": "string",
+      "pattern": "^urn:evllm:profile:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "profile_version": { "type": "integer", "exclusiveMinimum": 0, "maximum": 9007199254740991 },
+    "bundle_type": {
+      "type": "string",
+      "enum": [
+        "evidence",
+        "verification",
+        "assessment",
+        "assistant-support",
+        "listing",
+        "agreement",
+        "dispute",
+        "logistics",
+        "audit",
+        "authoritative-source"
+      ]
+    },
+    "payload_schema_id": {
+      "type": "string",
+      "pattern": "^urn:evllm:schema:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "payload_schema_version": {
+      "type": "string",
+      "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)$"
+    },
+    "resource_id_pointer": { "type": "string", "pattern": "^\\/.*" },
+    "resource_version_pointer": { "type": "string", "pattern": "^\\/.*" },
+    "author_field_pointers": {
+      "minItems": 1,
+      "maxItems": 16,
+      "type": "array",
+      "items": { "$ref": "#/$defs/__schema0" }
+    },
+    "allowed_role_ids": {
+      "minItems": 1,
+      "maxItems": 32,
+      "type": "array",
+      "items": { "$ref": "#/$defs/__schema1" }
+    },
+    "allowed_capability_ids": {
+      "minItems": 1,
+      "maxItems": 32,
+      "type": "array",
+      "items": { "$ref": "#/$defs/__schema2" }
+    },
+    "dispatch": {
+      "minItems": 1,
+      "maxItems": 32,
+      "type": "array",
+      "items": { "$ref": "#/$defs/__schema3" }
+    },
+    "relationship_context_fields": {
+      "maxItems": 64,
+      "type": "array",
+      "items": { "$ref": "#/$defs/__schema4" }
+    },
+    "separation_of_duty": {
+      "type": "string",
+      "enum": ["none", "different-actor", "different-organization"]
+    },
+    "revalidate_at": {
+      "type": "array",
+      "prefixItems": [
+        { "type": "string", "const": "prepare" },
+        { "type": "string", "const": "domain-activation" }
+      ]
+    },
+    "status": { "type": "string", "enum": ["pending", "active", "retired"] }
+  },
+  "required": [
+    "schema",
+    "profile_id",
+    "profile_version",
+    "bundle_type",
+    "payload_schema_id",
+    "payload_schema_version",
+    "resource_id_pointer",
+    "resource_version_pointer",
+    "author_field_pointers",
+    "allowed_role_ids",
+    "allowed_capability_ids",
+    "dispatch",
+    "relationship_context_fields",
+    "separation_of_duty",
+    "revalidate_at",
+    "status"
+  ],
+  "additionalProperties": false,
+  "$defs": {
+    "__schema0": { "type": "string", "pattern": "^\\/.*" },
+    "__schema1": {
+      "type": "string",
+      "pattern": "^urn:evllm:role:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "__schema2": {
+      "type": "string",
+      "pattern": "^urn:evllm:capability:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "__schema3": {
+      "type": "object",
+      "properties": {
+        "discriminator": { "$ref": "#/$defs/__schema4" },
+        "capability_id": {
+          "type": "string",
+          "pattern": "^urn:evllm:capability:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+        },
+        "relationship_predicate": { "$ref": "#/$defs/__schema4" }
+      },
+      "required": ["discriminator", "capability_id", "relationship_predicate"],
+      "additionalProperties": false
+    },
+    "__schema4": { "type": "string", "minLength": 1, "maxLength": 256 }
+  }
+}

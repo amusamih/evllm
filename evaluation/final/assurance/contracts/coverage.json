@@ -1,0 +1,49 @@
+{
+  "schema": "EVLLM_CONTRACT_COVERAGE_V1",
+  "thresholdPercent": 80,
+  "totalLinePercent": 88.19444444444444,
+  "files": [
+    {
+      "file": "AuditAnchor.sol",
+      "found": 39,
+      "hit": 35,
+      "linePercent": 89.74358974358975
+    },
+    {
+      "file": "AuthorityProfileRegistry.sol",
+      "found": 40,
+      "hit": 40,
+      "linePercent": 100
+    },
+    {
+      "file": "BatteryOwnershipRegistry.sol",
+      "found": 79,
+      "hit": 70,
+      "linePercent": 88.60759493670885
+    },
+    {
+      "file": "DeploymentRegistry.sol",
+      "found": 29,
+      "hit": 29,
+      "linePercent": 100
+    },
+    {
+      "file": "EvidenceRegistry.sol",
+      "found": 124,
+      "hit": 105,
+      "linePercent": 84.67741935483872
+    },
+    {
+      "file": "Marketplace.sol",
+      "found": 296,
+      "hit": 248,
+      "linePercent": 83.78378378378379
+    },
+    {
+      "file": "ProtectedBundleRegistry.sol",
+      "found": 113,
+      "hit": 108,
+      "linePercent": 95.57522123893806
+    }
+  ]
+}

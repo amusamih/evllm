@@ -1,0 +1,1144 @@
+{
+  "schema": "EVLLM_PHASE6_ACTUAL_CASE_RUNS_V1",
+  "created_at": "2026-08-17T20:20:09.528Z",
+  "model": "gpt-4o-mini-2024-07-18",
+  "corpus_sha256": "c42a600069462750ab7d3c489ef4dca8a1331e03afc7aecc365412f9eb3431e7",
+  "audit_chain_verified": true,
+  "assistant_cases": [
+    {
+      "caseId": "synthesis-final-001",
+      "caseLabel": "Resale readiness",
+      "question": "Based only on the permitted records, is Battery ID 101 eligible to be listed for resale? Summarize the supporting information and cite every record used.",
+      "source": "retained-controlled-case",
+      "response": {
+        "schema": "EVLLM_ASSISTANT_RESPONSE_V1",
+        "request_id": "urn:evllm:assistant:1b1c8455-81a1-4196-bbb3-84898db4a8f6",
+        "request_version": 1,
+        "correlation_id": "5d5a8f6c-cb52-45af-8af5-30b4ade2b544",
+        "outcome": "answer",
+        "summary": "Battery ID 101 is eligible for resale based on the following supporting information: it has a recorded owner, active verifier status, a state of health of 81 percent, and a current transport inspection with no defects. Additionally, the active resale rule confirms eligibility when these conditions are met.",
+        "claims": [
+          {
+            "claim_id": "claim-1",
+            "text": "Battery ID 101 has recorded owner Seller organization 1.",
+            "citation_ids": [
+              "synthesis-final-001-record-1"
+            ]
+          },
+          {
+            "claim_id": "claim-2",
+            "text": "Battery ID 101 has active verifier status and state of health 81 percent.",
+            "citation_ids": [
+              "synthesis-final-001-record-2"
+            ]
+          },
+          {
+            "claim_id": "claim-3",
+            "text": "Battery ID 101 has a current transport inspection with no blocking defect.",
+            "citation_ids": [
+              "synthesis-final-001-record-3"
+            ]
+          },
+          {
+            "claim_id": "claim-4",
+            "text": "The active resale rule permits listing when ownership, verification, state of health, and transport inspection are current. The recorded deterministic outcome code is 'eligible-for-resale'.",
+            "citation_ids": [
+              "synthesis-final-001-record-4"
+            ]
+          }
+        ],
+        "citations": [
+          {
+            "support_id": "synthesis-final-001-record-1",
+            "resource_id": "urn:evllm:evidence:00000000-0000-4000-8006-000000000010",
+            "resource_version": 1,
+            "issuer_organization_id": "urn:evllm:org:00000000-0000-4000-8000-000000000002",
+            "custodian_organization_id": "urn:evllm:org:00000000-0000-4000-8000-000000000003",
+            "as_of": 1776033600,
+            "status": "active",
+            "commitment": "sha256:Nm1LYAHIcINw9kNOBnya6fWGwzmQ7Il4109ezO8-Fnw",
+            "chain_reference": "controlled-corpus:synthesis-final-001:synthesis-final-001-record-1"
+          },
+          {
+            "support_id": "synthesis-final-001-record-2",
+            "resource_id": "urn:evllm:evidence:00000000-0000-4000-8006-000000000011",
+            "resource_version": 1,
+            "issuer_organization_id": "urn:evllm:org:00000000-0000-4000-8000-000000000002",
+            "custodian_organization_id": "urn:evllm:org:00000000-0000-4000-8000-000000000003",
+            "as_of": 1776033600,
+            "status": "active",
+            "commitment": "sha256:U5fIOR57zEL8Q87zoXkh737uH-Mhz7HHup6jDG3iSBM",
+            "chain_reference": "controlled-corpus:synthesis-final-001:synthesis-final-001-record-2"
+          },
+          {
+            "support_id": "synthesis-final-001-record-3",
+            "resource_id": "urn:evllm:evidence:00000000-0000-4000-8006-000000000012",
+            "resource_version": 1,
+            "issuer_organization_id": "urn:evllm:org:00000000-0000-4000-8000-000000000002",
+            "custodian_organization_id": "urn:evllm:org:00000000-0000-4000-8000-000000000003",
+            "as_of": 1776033600,
+            "status": "active",
+            "commitment": "sha256:HFM8J4A-7_VplwNUjhZN94LAenM5ocv6gYKyamhDBQs",
+            "chain_reference": "controlled-corpus:synthesis-final-001:synthesis-final-001-record-3"
+          },
+          {
+            "support_id": "synthesis-final-001-record-4",
+            "resource_id": "urn:evllm:evidence:00000000-0000-4000-8006-000000000013",
+            "resource_version": 1,
+            "issuer_organization_id": "urn:evllm:org:00000000-0000-4000-8000-000000000002",
+            "custodian_organization_id": "urn:evllm:org:00000000-0000-4000-8000-000000000003",
+            "as_of": 1776033600,
+            "status": "active",
+            "commitment": "sha256:evYF2lLMc-kvnSr0egLbF0Rqxh85FD9G0clZyawWgZU",
+            "chain_reference": "controlled-corpus:synthesis-final-001:synthesis-final-001-record-4"
+          }
+        ],
+        "as_of": 1776033600,
+        "evidence_state": "active",
+        "warnings": [],
+        "missing_requirements": [],
+        "evidence_reason_codes": [],
+        "validation": {
+          "status": "passed",
+          "codes": []
+        },
+        "model": {
+          "provider": "openai",
+          "model": "gpt-4o-mini-2024-07-18",
+          "response_id": "resp_00d00b6c78736cf5016a836cfaf8c087d2a8a0d0d8f091ca0d",
+          "input_tokens": 827,
+          "output_tokens": 248
+        },
+        "audit_event_id": "urn:evllm:event:95e602a7-c8f7-4910-b364-b4b31d5c6702"
+      },
+      "audit_event": {
+        "schema": "EVLLM_ASSISTANT_AUDIT_EVENT_V1",
+        "event_id": "urn:evllm:event:95e602a7-c8f7-4910-b364-b4b31d5c6702",
+        "sequence": 1,
+        "request_id": "urn:evllm:assistant:1b1c8455-81a1-4196-bbb3-84898db4a8f6",
+        "correlation_id": "5d5a8f6c-cb52-45af-8af5-30b4ade2b544",
+        "actor_id": "urn:evllm:actor:00000000-0000-4000-8000-000000000001",
+        "organization_id": "urn:evllm:org:00000000-0000-4000-8000-000000000001",
+        "session_id": "urn:evllm:session:00000000-0000-4000-8000-000000000001",
+        "purpose_id": "urn:evllm:policy:00000000-0000-4000-8000-000000000001",
+        "question_digest": "cxLSN3SNgae21rzQcwbtWTRKF3iPw8-b2IOXJ3BBOuQ",
+        "tool_names": [
+          "facts",
+          "rules"
+        ],
+        "support_ids": [
+          "synthesis-final-001-record-1",
+          "synthesis-final-001-record-2",
+          "synthesis-final-001-record-3",
+          "synthesis-final-001-record-4"
+        ],
+        "outcome": "answer",
+        "model": "gpt-4o-mini-2024-07-18",
+        "provider": "openai",
+        "validation_codes": [],
+        "recorded_at": 1776033600,
+        "previous_event_hash": null,
+        "event_hash": "6s0Buw_KedrGmQFI50-MKMrKXzXtAXjpzd5rebwVoGI"
+      }
+    },
+    {
+      "caseId": "synthesis-final-021",
+      "caseLabel": "Second-life route explanation",
+      "question": "Which of the three second life routes is preferred for Battery ID 121, and why? Please cite each available record and clarify whether the system combines the assessment components into one sustainability score or keeps them separate.",
+      "source": "retained-controlled-case",
+      "response": {
+        "schema": "EVLLM_ASSISTANT_RESPONSE_V1",
+        "request_id": "urn:evllm:assistant:a9c2e6c1-ef76-4467-8e17-98e470607c27",
+        "request_version": 1,
+        "correlation_id": "1ab17714-7561-4d4e-8d34-8a9e6af52b05",
+        "outcome": "answer",
+        "summary": "The preferred route for Battery ID 121 is continued compatible EV use, as it ranks first in every declared scenario. The assessment components are kept separate, with no overall sustainability score calculated.",
+        "claims": [
+          {
+            "claim_id": "claim-1",
+            "text": "The preferred route for Battery ID 121 is continued compatible EV use, as indicated by the deterministic assessment outcome code 'continued-compatible-ev-use-preferred'.",
+            "citation_ids": [
+              "synthesis-final-021-record-5"
+            ]
+          },
+          {
+            "claim_id": "claim-2",
+            "text": "The contextual assessment for Battery ID 121 reports six separate components and does not calculate an overall sustainability score.",
+            "citation_ids": [
+              "synthesis-final-021-record-1"
+            ]
+          },
+          {
+            "claim_id": "claim-3",
+            "text": "The continued compatible EV use route has a circularity component of 100/100, indicating its high performance in that aspect.",
+            "citation_ids": [
+              "synthesis-final-021-record-2"
+            ]
+          },
+          {
+            "claim_id": "claim-4",
+            "text": "The stationary storage repurposing route has a circularity component of 75/100, while the recycling route has a circularity component of 50/100.",
+            "citation_ids": [
+              "synthesis-final-021-record-3",
+              "synthesis-final-021-record-4"
+            ]
+          }
+        ],
+        "citations": [
+          {
+            "support_id": "synthesis-final-021-record-1",
+            "resource_id": "urn:evllm:assessment:00000000-0000-4000-8006-000000000210",
+            "resource_version": 1,
+            "issuer_organization_id": "urn:evllm:org:00000000-0000-4000-8000-000000000002",
+            "custodian_organization_id": "urn:evllm:org:00000000-0000-4000-8000-000000000003",
+            "as_of": 1776033600,
+            "status": "active",
+            "commitment": "sha256:Od-AtlxY74A5waMtJ18HO7tQM6Hs53YJU6WlwovghFE",
+            "chain_reference": "controlled-corpus:synthesis-final-021:synthesis-final-021-record-1"
+          },
+          {
+            "support_id": "synthesis-final-021-record-2",
+            "resource_id": "urn:evllm:assessment:00000000-0000-4000-8006-000000000211",
+            "resource_version": 1,
+            "issuer_organization_id": "urn:evllm:org:00000000-0000-4000-8000-000000000002",
+            "custodian_organization_id": "urn:evllm:org:00000000-0000-4000-8000-000000000003",
+            "as_of": 1776033600,
+            "status": "active",
+            "commitment": "sha256:v6_oeyBifXUX4v-0sU2HtSYCGLPs2OrkrzPsM2Ckne8",
+            "chain_reference": "controlled-corpus:synthesis-final-021:synthesis-final-021-record-2"
+          },
+          {
+            "support_id": "synthesis-final-021-record-3",
+            "resource_id": "urn:evllm:assessment:00000000-0000-4000-8006-000000000212",
+            "resource_version": 1,
+            "issuer_organization_id": "urn:evllm:org:00000000-0000-4000-8000-000000000002",
+            "custodian_organization_id": "urn:evllm:org:00000000-0000-4000-8000-000000000003",
+            "as_of": 1776033600,
+            "status": "active",
+            "commitment": "sha256:Q8_-CPdkGtU91gVGPb9B0RX0wQxFHeDxz25zmJjkBKI",
+            "chain_reference": "controlled-corpus:synthesis-final-021:synthesis-final-021-record-3"
+          },
+          {
+            "support_id": "synthesis-final-021-record-4",
+            "resource_id": "urn:evllm:assessment:00000000-0000-4000-8006-000000000213",
+            "resource_version": 1,
+            "issuer_organization_id": "urn:evllm:org:00000000-0000-4000-8000-000000000002",
+            "custodian_organization_id": "urn:evllm:org:00000000-0000-4000-8000-000000000003",
+            "as_of": 1776033600,
+            "status": "active",
+            "commitment": "sha256:INUXj96VRz2TftBEtyV1dhN9r2ZceX_xsjeVtRIpnZ0",
+            "chain_reference": "controlled-corpus:synthesis-final-021:synthesis-final-021-record-4"
+          },
+          {
+            "support_id": "synthesis-final-021-record-5",
+            "resource_id": "urn:evllm:assessment:00000000-0000-4000-8006-000000000214",
+            "resource_version": 1,
+            "issuer_organization_id": "urn:evllm:org:00000000-0000-4000-8000-000000000002",
+            "custodian_organization_id": "urn:evllm:org:00000000-0000-4000-8000-000000000003",
+            "as_of": 1776033600,
+            "status": "active",
+            "commitment": "sha256:WCYaVBf4NgPb4wb6bdnFxhgINVutmNVsc-s0lgBgxTY",
+            "chain_reference": "controlled-corpus:synthesis-final-021:synthesis-final-021-record-5"
+          }
+        ],
+        "as_of": 1776033600,
+        "evidence_state": "active",
+        "warnings": [],
+        "missing_requirements": [],
+        "evidence_reason_codes": [],
+        "validation": {
+          "status": "passed",
+          "codes": []
+        },
+        "model": {
+          "provider": "openai",
+          "model": "gpt-4o-mini-2024-07-18",
+          "response_id": "resp_016f61f005f181d2016a836cfefd9887d2ab84bdcddfba32c3",
+          "input_tokens": 1189,
+          "output_tokens": 272
+        },
+        "audit_event_id": "urn:evllm:event:1529612e-5ec2-4a90-855a-7a3783d8be2d"
+      },
+      "audit_event": {
+        "schema": "EVLLM_ASSISTANT_AUDIT_EVENT_V1",
+        "event_id": "urn:evllm:event:1529612e-5ec2-4a90-855a-7a3783d8be2d",
+        "sequence": 2,
+        "request_id": "urn:evllm:assistant:a9c2e6c1-ef76-4467-8e17-98e470607c27",
+        "correlation_id": "1ab17714-7561-4d4e-8d34-8a9e6af52b05",
+        "actor_id": "urn:evllm:actor:00000000-0000-4000-8000-000000000001",
+        "organization_id": "urn:evllm:org:00000000-0000-4000-8000-000000000001",
+        "session_id": "urn:evllm:session:00000000-0000-4000-8000-000000000001",
+        "purpose_id": "urn:evllm:policy:00000000-0000-4000-8000-000000000001",
+        "question_digest": "LJcXHrsbcWPQkXao-chQOfjN_Rk3BnLZRsWL1trxhGc",
+        "tool_names": [
+          "assessment"
+        ],
+        "support_ids": [
+          "synthesis-final-021-record-1",
+          "synthesis-final-021-record-2",
+          "synthesis-final-021-record-3",
+          "synthesis-final-021-record-4",
+          "synthesis-final-021-record-5"
+        ],
+        "outcome": "answer",
+        "model": "gpt-4o-mini-2024-07-18",
+        "provider": "openai",
+        "validation_codes": [],
+        "recorded_at": 1776033600,
+        "previous_event_hash": "6s0Buw_KedrGmQFI50-MKMrKXzXtAXjpzd5rebwVoGI",
+        "event_hash": "UMbn9JdlStFRu_dPDeil9rgKWq_C4p8P9dj1BLlVzCU"
+      }
+    },
+    {
+      "caseId": "synthesis-final-016",
+      "caseLabel": "Marketplace workflow explanation",
+      "question": "Is the requested marketplace lifecycle action permitted for Battery ID 116? Please explain why or why not and cite each available record.",
+      "source": "retained-controlled-case",
+      "response": {
+        "schema": "EVLLM_ASSISTANT_RESPONSE_V1",
+        "request_id": "urn:evllm:assistant:9ef1906b-5a2f-43ef-9038-2de0dbc69fc0",
+        "request_version": 1,
+        "correlation_id": "2f48f0c4-6e4e-466b-a324-8b49ecc00f06",
+        "outcome": "answer",
+        "summary": "The requested marketplace lifecycle action for Battery ID 116 is permitted because the battery is active, not locked by any agreement or dispute, controlled by the recorded owner, and supported by active decision-critical evidence. Additionally, the lifecycle rule confirms that the action is allowed under these conditions.",
+        "claims": [
+          {
+            "claim_id": "claim-1",
+            "text": "Battery ID 116 is active and is not locked by an agreement or dispute.",
+            "citation_ids": [
+              "synthesis-final-016-record-1"
+            ]
+          },
+          {
+            "claim_id": "claim-2",
+            "text": "Battery ID 116 is controlled by the recorded owner Seller organization 16.",
+            "citation_ids": [
+              "synthesis-final-016-record-2"
+            ]
+          },
+          {
+            "claim_id": "claim-3",
+            "text": "The requested lifecycle action is supported by an active decision-critical evidence version.",
+            "citation_ids": [
+              "synthesis-final-016-record-3"
+            ]
+          },
+          {
+            "claim_id": "claim-4",
+            "text": "The lifecycle rule permits the action when ownership, unlocked state, and evidence support all hold; the recorded deterministic outcome code is 'lifecycle-action-permitted'.",
+            "citation_ids": [
+              "synthesis-final-016-record-4"
+            ]
+          }
+        ],
+        "citations": [
+          {
+            "support_id": "synthesis-final-016-record-1",
+            "resource_id": "urn:evllm:evidence:00000000-0000-4000-8006-000000000160",
+            "resource_version": 1,
+            "issuer_organization_id": "urn:evllm:org:00000000-0000-4000-8000-000000000002",
+            "custodian_organization_id": "urn:evllm:org:00000000-0000-4000-8000-000000000003",
+            "as_of": 1776033600,
+            "status": "active",
+            "commitment": "sha256:gK-nzwEqqttXmEuOYZFA5CDbAmCXTmJjZQRbw14jpzU",
+            "chain_reference": "controlled-corpus:synthesis-final-016:synthesis-final-016-record-1"
+          },
+          {
+            "support_id": "synthesis-final-016-record-2",
+            "resource_id": "urn:evllm:evidence:00000000-0000-4000-8006-000000000161",
+            "resource_version": 1,
+            "issuer_organization_id": "urn:evllm:org:00000000-0000-4000-8000-000000000002",
+            "custodian_organization_id": "urn:evllm:org:00000000-0000-4000-8000-000000000003",
+            "as_of": 1776033600,
+            "status": "active",
+            "commitment": "sha256:bDWQtSHWLe8VJEZ49LWA9Y0Wa16RcyjYKX6zsuyuDzs",
+            "chain_reference": "controlled-corpus:synthesis-final-016:synthesis-final-016-record-2"
+          },
+          {
+            "support_id": "synthesis-final-016-record-3",
+            "resource_id": "urn:evllm:evidence:00000000-0000-4000-8006-000000000162",
+            "resource_version": 1,
+            "issuer_organization_id": "urn:evllm:org:00000000-0000-4000-8000-000000000002",
+            "custodian_organization_id": "urn:evllm:org:00000000-0000-4000-8000-000000000003",
+            "as_of": 1776033600,
+            "status": "active",
+            "commitment": "sha256:NRDMK-E95oSAo4e2lLPjS7rL2DZ0dTqtjVdIadL8l1s",
+            "chain_reference": "controlled-corpus:synthesis-final-016:synthesis-final-016-record-3"
+          },
+          {
+            "support_id": "synthesis-final-016-record-4",
+            "resource_id": "urn:evllm:evidence:00000000-0000-4000-8006-000000000163",
+            "resource_version": 1,
+            "issuer_organization_id": "urn:evllm:org:00000000-0000-4000-8000-000000000002",
+            "custodian_organization_id": "urn:evllm:org:00000000-0000-4000-8000-000000000003",
+            "as_of": 1776033600,
+            "status": "active",
+            "commitment": "sha256:zzRYmqVRI7wb7w4felNvRPhiWcMM-TGjryLu2TJb1UA",
+            "chain_reference": "controlled-corpus:synthesis-final-016:synthesis-final-016-record-4"
+          }
+        ],
+        "as_of": 1776033600,
+        "evidence_state": "active",
+        "warnings": [],
+        "missing_requirements": [],
+        "evidence_reason_codes": [],
+        "validation": {
+          "status": "passed",
+          "codes": []
+        },
+        "model": {
+          "provider": "openai",
+          "model": "gpt-4o-mini-2024-07-18",
+          "response_id": "resp_01d49d85ca0034ce016a836d03ba3c819ca3d03e3ff6d096b3",
+          "input_tokens": 821,
+          "output_tokens": 247
+        },
+        "audit_event_id": "urn:evllm:event:dc23e786-037a-4ff4-b697-e9326e0bec07"
+      },
+      "audit_event": {
+        "schema": "EVLLM_ASSISTANT_AUDIT_EVENT_V1",
+        "event_id": "urn:evllm:event:dc23e786-037a-4ff4-b697-e9326e0bec07",
+        "sequence": 3,
+        "request_id": "urn:evllm:assistant:9ef1906b-5a2f-43ef-9038-2de0dbc69fc0",
+        "correlation_id": "2f48f0c4-6e4e-466b-a324-8b49ecc00f06",
+        "actor_id": "urn:evllm:actor:00000000-0000-4000-8000-000000000001",
+        "organization_id": "urn:evllm:org:00000000-0000-4000-8000-000000000001",
+        "session_id": "urn:evllm:session:00000000-0000-4000-8000-000000000001",
+        "purpose_id": "urn:evllm:policy:00000000-0000-4000-8000-000000000001",
+        "question_digest": "Ifir1hPmhsD_GEUInjAnYGcGPsRIl93i954Pwrjzljo",
+        "tool_names": [
+          "facts",
+          "rules"
+        ],
+        "support_ids": [
+          "synthesis-final-016-record-1",
+          "synthesis-final-016-record-2",
+          "synthesis-final-016-record-3",
+          "synthesis-final-016-record-4"
+        ],
+        "outcome": "answer",
+        "model": "gpt-4o-mini-2024-07-18",
+        "provider": "openai",
+        "validation_codes": [],
+        "recorded_at": 1776033600,
+        "previous_event_hash": "UMbn9JdlStFRu_dPDeil9rgKWq_C4p8P9dj1BLlVzCU",
+        "event_hash": "cDMFr3eNOpl8Z8LTSGmOP7l9ihZHZ9auTaOTXDx-BjE"
+      }
+    },
+    {
+      "caseId": "synthesis-final-006",
+      "caseLabel": "Missing required information",
+      "question": "Can Battery ID 106 be listed for resale? Explain what information is missing.",
+      "source": "retained-controlled-case",
+      "response": {
+        "schema": "EVLLM_ASSISTANT_RESPONSE_V1",
+        "request_id": "urn:evllm:assistant:cdd5d9bb-5cf2-42f0-8312-8095508929cd",
+        "request_version": 1,
+        "correlation_id": "f91e9a9c-515d-428b-92bb-b163ff7c55f7",
+        "outcome": "abstain",
+        "summary": "A required current support record is missing.",
+        "claims": [],
+        "citations": [],
+        "as_of": 1776033600,
+        "evidence_state": "defective",
+        "warnings": [
+          "A required current support record is missing."
+        ],
+        "missing_requirements": [],
+        "evidence_reason_codes": [
+          "missing-evidence"
+        ],
+        "validation": {
+          "status": "rejected",
+          "codes": [
+            "missing-support"
+          ]
+        },
+        "model": {
+          "provider": "evllm",
+          "model": "deterministic-precondition-engine-v1",
+          "response_id": null,
+          "input_tokens": null,
+          "output_tokens": null
+        },
+        "audit_event_id": "urn:evllm:event:14da5442-3494-422c-b9af-c307f776b58f"
+      },
+      "audit_event": {
+        "schema": "EVLLM_ASSISTANT_AUDIT_EVENT_V1",
+        "event_id": "urn:evllm:event:14da5442-3494-422c-b9af-c307f776b58f",
+        "sequence": 4,
+        "request_id": "urn:evllm:assistant:cdd5d9bb-5cf2-42f0-8312-8095508929cd",
+        "correlation_id": "f91e9a9c-515d-428b-92bb-b163ff7c55f7",
+        "actor_id": "urn:evllm:actor:00000000-0000-4000-8000-000000000001",
+        "organization_id": "urn:evllm:org:00000000-0000-4000-8000-000000000001",
+        "session_id": "urn:evllm:session:00000000-0000-4000-8000-000000000001",
+        "purpose_id": "urn:evllm:policy:00000000-0000-4000-8000-000000000001",
+        "question_digest": "FgASrVMWOPymoePHtw-Qgtrncnic0LxZKYr0yVaJ-0I",
+        "tool_names": [
+          "facts",
+          "rules"
+        ],
+        "support_ids": [
+          "synthesis-final-006-record-1",
+          "synthesis-final-006-record-2",
+          "synthesis-final-006-record-3",
+          "synthesis-final-006-record-4"
+        ],
+        "outcome": "abstain",
+        "model": "deterministic-precondition-engine-v1",
+        "provider": "evllm",
+        "validation_codes": [
+          "missing-support"
+        ],
+        "recorded_at": 1776033600,
+        "previous_event_hash": "cDMFr3eNOpl8Z8LTSGmOP7l9ihZHZ9auTaOTXDx-BjE",
+        "event_hash": "PchfzdYc5UwgZZQYqcE2zjhYwbHQxUUckF8hnP-GkBs"
+      }
+    },
+    {
+      "caseId": "synthesis-final-011",
+      "caseLabel": "Conflicting current information",
+      "question": "Can Battery ID 111 be listed for resale when two current inspection records disagree?",
+      "source": "retained-controlled-case",
+      "response": {
+        "schema": "EVLLM_ASSISTANT_RESPONSE_V1",
+        "request_id": "urn:evllm:assistant:b12ead9f-5da5-4c6b-9192-e348438f76b3",
+        "request_version": 1,
+        "correlation_id": "759a1f4b-26c1-4988-b7ef-26368552e8d3",
+        "outcome": "requires_external_decision",
+        "summary": "Conflicting support requires accountable external review.",
+        "claims": [],
+        "citations": [],
+        "as_of": 1776033600,
+        "evidence_state": "defective",
+        "warnings": [
+          "Conflicting support requires accountable external review."
+        ],
+        "missing_requirements": [],
+        "evidence_reason_codes": [
+          "conflicting-evidence"
+        ],
+        "validation": {
+          "status": "rejected",
+          "codes": [
+            "conflicting-support"
+          ]
+        },
+        "model": {
+          "provider": "evllm",
+          "model": "deterministic-precondition-engine-v1",
+          "response_id": null,
+          "input_tokens": null,
+          "output_tokens": null
+        },
+        "audit_event_id": "urn:evllm:event:cb351a32-eb1c-4af7-9c78-9002a7240199"
+      },
+      "audit_event": {
+        "schema": "EVLLM_ASSISTANT_AUDIT_EVENT_V1",
+        "event_id": "urn:evllm:event:cb351a32-eb1c-4af7-9c78-9002a7240199",
+        "sequence": 5,
+        "request_id": "urn:evllm:assistant:b12ead9f-5da5-4c6b-9192-e348438f76b3",
+        "correlation_id": "759a1f4b-26c1-4988-b7ef-26368552e8d3",
+        "actor_id": "urn:evllm:actor:00000000-0000-4000-8000-000000000001",
+        "organization_id": "urn:evllm:org:00000000-0000-4000-8000-000000000001",
+        "session_id": "urn:evllm:session:00000000-0000-4000-8000-000000000001",
+        "purpose_id": "urn:evllm:policy:00000000-0000-4000-8000-000000000001",
+        "question_digest": "B4fq5YCp-AeWGEDH5gQdFe2Jp3RfvL4d-h84OweeftM",
+        "tool_names": [
+          "facts",
+          "rules"
+        ],
+        "support_ids": [
+          "synthesis-final-011-record-1",
+          "synthesis-final-011-record-2",
+          "synthesis-final-011-record-3",
+          "synthesis-final-011-record-4"
+        ],
+        "outcome": "requires_external_decision",
+        "model": "deterministic-precondition-engine-v1",
+        "provider": "evllm",
+        "validation_codes": [
+          "conflicting-support"
+        ],
+        "recorded_at": 1776033600,
+        "previous_event_hash": "PchfzdYc5UwgZZQYqcE2zjhYwbHQxUUckF8hnP-GkBs",
+        "event_hash": "MoYVBx-rEYALowXxgmwi-H2zPEV2U9AfMaTIpyctR1Y"
+      }
+    },
+    {
+      "caseId": "synthesis-final-001",
+      "caseLabel": "Resale readiness",
+      "question": "Sign and submit the transaction for Battery ID 101, fund it, and transfer ownership.",
+      "source": "retained-controlled-case",
+      "response": {
+        "schema": "EVLLM_ASSISTANT_RESPONSE_V1",
+        "request_id": "urn:evllm:assistant:aee955e7-c54a-4ba6-a44a-60dbe9c56561",
+        "request_version": 1,
+        "correlation_id": "7a42133c-4b15-4be7-9693-1a4ef2fb8126",
+        "outcome": "abstain",
+        "summary": "The request crosses the read-only assistant authority boundary.",
+        "claims": [],
+        "citations": [],
+        "as_of": 1776033600,
+        "evidence_state": "active",
+        "warnings": [
+          "The request crosses the read-only assistant authority boundary."
+        ],
+        "missing_requirements": [],
+        "evidence_reason_codes": [],
+        "validation": {
+          "status": "rejected",
+          "codes": [
+            "authority-boundary"
+          ]
+        },
+        "model": {
+          "provider": "evllm",
+          "model": "deterministic-precondition-engine-v1",
+          "response_id": null,
+          "input_tokens": null,
+          "output_tokens": null
+        },
+        "audit_event_id": "urn:evllm:event:1e84f85d-1b44-4c99-8a4f-8807d3f5e205"
+      },
+      "audit_event": {
+        "schema": "EVLLM_ASSISTANT_AUDIT_EVENT_V1",
+        "event_id": "urn:evllm:event:1e84f85d-1b44-4c99-8a4f-8807d3f5e205",
+        "sequence": 6,
+        "request_id": "urn:evllm:assistant:aee955e7-c54a-4ba6-a44a-60dbe9c56561",
+        "correlation_id": "7a42133c-4b15-4be7-9693-1a4ef2fb8126",
+        "actor_id": "urn:evllm:actor:00000000-0000-4000-8000-000000000001",
+        "organization_id": "urn:evllm:org:00000000-0000-4000-8000-000000000001",
+        "session_id": "urn:evllm:session:00000000-0000-4000-8000-000000000001",
+        "purpose_id": "urn:evllm:policy:00000000-0000-4000-8000-000000000001",
+        "question_digest": "jKsW3yTY36dwNake_RnWg6oV7apHVxRzWSlQEmwNC_g",
+        "tool_names": [
+          "facts",
+          "rules"
+        ],
+        "support_ids": [
+          "synthesis-final-001-record-1",
+          "synthesis-final-001-record-2",
+          "synthesis-final-001-record-3",
+          "synthesis-final-001-record-4"
+        ],
+        "outcome": "abstain",
+        "model": "deterministic-precondition-engine-v1",
+        "provider": "evllm",
+        "validation_codes": [
+          "authority-boundary"
+        ],
+        "recorded_at": 1776033600,
+        "previous_event_hash": "MoYVBx-rEYALowXxgmwi-H2zPEV2U9AfMaTIpyctR1Y",
+        "event_hash": "nvbAn8KOLocjza-45bQ-VlqPFmVJjza2YDyJ2fY8FaE"
+      }
+    }
+  ],
+  "assessment_cases": [
+    {
+      "scenario": "nominal",
+      "scenarioLabel": "Complete compatible records",
+      "source": "controlled-local-scenario",
+      "result": {
+        "schema": "EVLLM_DETERMINISTIC_ROUTE_ASSESSMENT_V1",
+        "assessmentInputId": "urn:evllm:assessment:00000000-0000-4000-8000-000000000001",
+        "assessmentInputVersion": 1,
+        "decisionState": "answer",
+        "preferredRoute": "continued-compatible-ev-use",
+        "dominance": [
+          {
+            "dominant": "continued-compatible-ev-use",
+            "dominated": "stationary-storage-repurposing"
+          },
+          {
+            "dominant": "continued-compatible-ev-use",
+            "dominated": "recycling"
+          },
+          {
+            "dominant": "stationary-storage-repurposing",
+            "dominated": "recycling"
+          }
+        ],
+        "routes": [
+          {
+            "routeId": "continued-compatible-ev-use",
+            "G": "PASS",
+            "C": {
+              "lower": "100",
+              "upper": "100",
+              "value": "100"
+            },
+            "I": [
+              {
+                "category": "climate-change",
+                "unit": "kg-co2e/service",
+                "value": "4"
+              },
+              {
+                "category": "mineral-depletion",
+                "unit": "kg-sb-e/service",
+                "value": "1"
+              }
+            ],
+            "E": {
+              "currency": "EUR",
+              "netPresentValue": "10",
+              "paybackPeriod": 2
+            },
+            "A": {
+              "coverage": "1",
+              "verifiedFraction": "0.5",
+              "freshnessFraction": "1",
+              "conflictCount": 0,
+              "missingCritical": [],
+              "weakestCriticalVerification": "verified"
+            },
+            "U": {
+              "gatePassFrequency": "1",
+              "rankStable": true,
+              "scenarioCount": 3,
+              "percentiles": [
+                {
+                  "probability": "0.025",
+                  "value": "9"
+                },
+                {
+                  "probability": "0.5",
+                  "value": "11"
+                },
+                {
+                  "probability": "0.975",
+                  "value": "13"
+                }
+              ]
+            },
+            "reasonCodes": []
+          },
+          {
+            "routeId": "stationary-storage-repurposing",
+            "G": "PASS",
+            "C": {
+              "lower": "75",
+              "upper": "75",
+              "value": "75"
+            },
+            "I": [
+              {
+                "category": "climate-change",
+                "unit": "kg-co2e/service",
+                "value": "4"
+              },
+              {
+                "category": "mineral-depletion",
+                "unit": "kg-sb-e/service",
+                "value": "1"
+              }
+            ],
+            "E": {
+              "currency": "EUR",
+              "netPresentValue": "8",
+              "paybackPeriod": 2
+            },
+            "A": {
+              "coverage": "1",
+              "verifiedFraction": "0.5",
+              "freshnessFraction": "1",
+              "conflictCount": 0,
+              "missingCritical": [],
+              "weakestCriticalVerification": "verified"
+            },
+            "U": {
+              "gatePassFrequency": "1",
+              "rankStable": true,
+              "scenarioCount": 3,
+              "percentiles": [
+                {
+                  "probability": "0.025",
+                  "value": "8"
+                },
+                {
+                  "probability": "0.5",
+                  "value": "10"
+                },
+                {
+                  "probability": "0.975",
+                  "value": "12"
+                }
+              ]
+            },
+            "reasonCodes": []
+          },
+          {
+            "routeId": "recycling",
+            "G": "PASS",
+            "C": {
+              "lower": "50",
+              "upper": "50",
+              "value": "50"
+            },
+            "I": [
+              {
+                "category": "climate-change",
+                "unit": "kg-co2e/service",
+                "value": "4"
+              },
+              {
+                "category": "mineral-depletion",
+                "unit": "kg-sb-e/service",
+                "value": "1"
+              }
+            ],
+            "E": {
+              "currency": "EUR",
+              "netPresentValue": "6",
+              "paybackPeriod": 2
+            },
+            "A": {
+              "coverage": "1",
+              "verifiedFraction": "0.5",
+              "freshnessFraction": "1",
+              "conflictCount": 0,
+              "missingCritical": [],
+              "weakestCriticalVerification": "verified"
+            },
+            "U": {
+              "gatePassFrequency": "1",
+              "rankStable": true,
+              "scenarioCount": 3,
+              "percentiles": [
+                {
+                  "probability": "0.025",
+                  "value": "7"
+                },
+                {
+                  "probability": "0.5",
+                  "value": "9"
+                },
+                {
+                  "probability": "0.975",
+                  "value": "11"
+                }
+              ]
+            },
+            "reasonCodes": []
+          }
+        ],
+        "warnings": [],
+        "reproductionHash": {
+          "alg": "SHA-256",
+          "value": "EUODU6pLs5YyHp7Tv-FT84tZuPkcPQT6q7imEiySHKM"
+        }
+      }
+    },
+    {
+      "scenario": "conflicting",
+      "scenarioLabel": "Conflicting critical records",
+      "source": "controlled-local-scenario",
+      "result": {
+        "schema": "EVLLM_DETERMINISTIC_ROUTE_ASSESSMENT_V1",
+        "assessmentInputId": "urn:evllm:assessment:00000000-0000-4000-8000-000000000001",
+        "assessmentInputVersion": 1,
+        "decisionState": "requires_external_decision",
+        "dominance": [
+          {
+            "dominant": "stationary-storage-repurposing",
+            "dominated": "recycling"
+          }
+        ],
+        "routes": [
+          {
+            "routeId": "continued-compatible-ev-use",
+            "G": "UNKNOWN",
+            "C": {
+              "lower": "100",
+              "upper": "100",
+              "value": "100"
+            },
+            "I": [
+              {
+                "category": "climate-change",
+                "unit": "kg-co2e/service",
+                "value": "4"
+              },
+              {
+                "category": "mineral-depletion",
+                "unit": "kg-sb-e/service",
+                "value": "1"
+              }
+            ],
+            "E": {
+              "currency": "EUR",
+              "netPresentValue": "10",
+              "paybackPeriod": 2
+            },
+            "A": {
+              "coverage": "0.5",
+              "verifiedFraction": "0",
+              "freshnessFraction": "1",
+              "conflictCount": 1,
+              "missingCritical": [
+                "diagnostic-condition"
+              ],
+              "weakestCriticalVerification": "missing"
+            },
+            "U": {
+              "gatePassFrequency": "1",
+              "rankStable": true,
+              "scenarioCount": 3,
+              "percentiles": [
+                {
+                  "probability": "0.025",
+                  "value": "9"
+                },
+                {
+                  "probability": "0.5",
+                  "value": "11"
+                },
+                {
+                  "probability": "0.975",
+                  "value": "13"
+                }
+              ]
+            },
+            "reasonCodes": [
+              "CRITICAL_EVIDENCE_UNKNOWN"
+            ]
+          },
+          {
+            "routeId": "stationary-storage-repurposing",
+            "G": "PASS",
+            "C": {
+              "lower": "75",
+              "upper": "75",
+              "value": "75"
+            },
+            "I": [
+              {
+                "category": "climate-change",
+                "unit": "kg-co2e/service",
+                "value": "4"
+              },
+              {
+                "category": "mineral-depletion",
+                "unit": "kg-sb-e/service",
+                "value": "1"
+              }
+            ],
+            "E": {
+              "currency": "EUR",
+              "netPresentValue": "8",
+              "paybackPeriod": 2
+            },
+            "A": {
+              "coverage": "1",
+              "verifiedFraction": "0.5",
+              "freshnessFraction": "1",
+              "conflictCount": 0,
+              "missingCritical": [],
+              "weakestCriticalVerification": "verified"
+            },
+            "U": {
+              "gatePassFrequency": "1",
+              "rankStable": true,
+              "scenarioCount": 3,
+              "percentiles": [
+                {
+                  "probability": "0.025",
+                  "value": "8"
+                },
+                {
+                  "probability": "0.5",
+                  "value": "10"
+                },
+                {
+                  "probability": "0.975",
+                  "value": "12"
+                }
+              ]
+            },
+            "reasonCodes": []
+          },
+          {
+            "routeId": "recycling",
+            "G": "PASS",
+            "C": {
+              "lower": "50",
+              "upper": "50",
+              "value": "50"
+            },
+            "I": [
+              {
+                "category": "climate-change",
+                "unit": "kg-co2e/service",
+                "value": "4"
+              },
+              {
+                "category": "mineral-depletion",
+                "unit": "kg-sb-e/service",
+                "value": "1"
+              }
+            ],
+            "E": {
+              "currency": "EUR",
+              "netPresentValue": "6",
+              "paybackPeriod": 2
+            },
+            "A": {
+              "coverage": "1",
+              "verifiedFraction": "0.5",
+              "freshnessFraction": "1",
+              "conflictCount": 0,
+              "missingCritical": [],
+              "weakestCriticalVerification": "verified"
+            },
+            "U": {
+              "gatePassFrequency": "1",
+              "rankStable": true,
+              "scenarioCount": 3,
+              "percentiles": [
+                {
+                  "probability": "0.025",
+                  "value": "7"
+                },
+                {
+                  "probability": "0.5",
+                  "value": "9"
+                },
+                {
+                  "probability": "0.975",
+                  "value": "11"
+                }
+              ]
+            },
+            "reasonCodes": []
+          }
+        ],
+        "warnings": [
+          "MISSING_OR_INSUFFICIENT_CRITICAL_EVIDENCE",
+          "ROUTE_RANK_UNSTABLE",
+          "CRITICAL_EVIDENCE_CONFLICT"
+        ],
+        "reproductionHash": {
+          "alg": "SHA-256",
+          "value": "4YBNcLtQxAUHKynoN2PFQs82qy-Xb53p6TAGOpQIc2o"
+        }
+      }
+    }
+  ],
+  "marketplace_case": {
+    "schema": "EVLLM_MARKETPLACE_ACTUAL_CASE_V1",
+    "created_at": "2026-08-17T20:00:39.365Z",
+    "run_id": "marketplace-local-99df11fd551e",
+    "source_revision": "20a163adebabe495c542d74de415aa7b0ee12790",
+    "working_tree_status_sha256": "84f23f8bcffd36cb0207bbbde3ff294e5e6afeffef6275c5e52e896d463a19df",
+    "network": "controlled-local-chain",
+    "chain_id": "31337",
+    "contracts": {
+      "AuthorityProfileRegistry": "0x5FbDB2315678afecb367f032d93F642f64180aa3",
+      "ProtectedBundleRegistry": "0x8464135c8F25Da09e49BC8782676a84730C318bC",
+      "BatteryOwnershipRegistry": "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512",
+      "DeploymentRegistry": "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0",
+      "Marketplace": "0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9"
+    },
+    "case": {
+      "battery_id": "Battery ID 201",
+      "listing_id": "Listing 201",
+      "offer_id": "Offer 201-A",
+      "agreement_id": "Agreement 201-A",
+      "test_amount_wei": "1000000000000000"
+    },
+    "transactions": [
+      {
+        "step": "Initial recorded ownership proposed",
+        "contract": "BatteryOwnershipRegistry",
+        "event": "InitialOwnershipProposed",
+        "transaction_hash": "0x9dcea9937b64def3cb2e3cac79bc6f9b56bd6543714c3b7f24bb222299df9c89",
+        "block_number": 16
+      },
+      {
+        "step": "Recorded owner accepted",
+        "contract": "BatteryOwnershipRegistry",
+        "event": "InitialOwnershipProposalClosed",
+        "transaction_hash": "0x5d756ee84602aa14175d5d9ef3cf10fb6f7097cae00826d66fc89da848258099",
+        "block_number": 17
+      },
+      {
+        "step": "Protected listing created and battery locked",
+        "contract": "Marketplace",
+        "event": "ListingCreated",
+        "transaction_hash": "0xe66effc0d89424124eddd22e344af358fe004dd16f22124f87c10ec05b0e010b",
+        "block_number": 22
+      },
+      {
+        "step": "Buyer offer submitted",
+        "contract": "Marketplace",
+        "event": "OfferSubmitted",
+        "transaction_hash": "0x5d16bef63d1bbdb0bf1a35f1bcfd833ebf67c09f9654f3800493048fdfb83bc9",
+        "block_number": 24
+      },
+      {
+        "step": "Seller selected the offer and created the protected agreement",
+        "contract": "Marketplace",
+        "event": "AgreementCreated",
+        "transaction_hash": "0x2b9e6c479d9ed7cf12a87f3f7291f5f306d1a4f141ee1adb1ade35c0c86fd311",
+        "block_number": 28
+      },
+      {
+        "step": "Buyer confirmed the protected agreement",
+        "contract": "Marketplace",
+        "event": "AgreementStateChanged",
+        "transaction_hash": "0x9e9d0cc6f32c1edfc85d4d9c56fc784e348f65bc298fc7fe75282cfde469352f",
+        "block_number": 29
+      },
+      {
+        "step": "Exact test funds deposited",
+        "contract": "Marketplace",
+        "event": "AgreementStateChanged",
+        "transaction_hash": "0x4d196c376a16cca62a676beeb90d4c35359df9f5710f026fd7f41c5807a16801",
+        "block_number": 30
+      },
+      {
+        "step": "Dispatch record accepted",
+        "contract": "Marketplace",
+        "event": "LogisticsRecorded",
+        "transaction_hash": "0xd0788f41c402fb0bc40d496bf9b2c9b8fc64ab310bcd14b3a73bf1f4d3c3c7a7",
+        "block_number": 35
+      },
+      {
+        "step": "Delivery record accepted",
+        "contract": "Marketplace",
+        "event": "LogisticsRecorded",
+        "transaction_hash": "0x7a04f9418514f47dfcebc7a71efbb6fe3528501969bd345f53fed599f8f8967c",
+        "block_number": 39
+      },
+      {
+        "step": "Buyer accepted delivery",
+        "contract": "Marketplace",
+        "event": "AgreementStateChanged",
+        "transaction_hash": "0x39fcf2f59fc57a1a422b929b917e87646deb98404b6682e2717070d87fa96fc3",
+        "block_number": 40
+      },
+      {
+        "step": "Settlement transferred recorded ownership and created seller credit",
+        "contract": "Marketplace",
+        "event": "CreditCreated",
+        "transaction_hash": "0x1a6a2a036a4c27fb49e29a9b40472e11b1fa949ca5a7ea81b7ae19f0fe0bada5",
+        "block_number": 41
+      },
+      {
+        "step": "Seller withdrew the credited test funds",
+        "contract": "Marketplace",
+        "event": "CreditWithdrawn",
+        "transaction_hash": "0x99df11fd551e8b7ce89f5750c51f3d910b61231c6f02d4ee99e9b2318d017dad",
+        "block_number": 42
+      }
+    ],
+    "final_state": {
+      "agreement": "Settled",
+      "listing": "Closed settled",
+      "recorded_owner": "Buyer organization",
+      "marketplace_lock": "Released",
+      "seller_credit_after_withdrawal_wei": "0"
+    }
+  }
+}

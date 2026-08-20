@@ -1,0 +1,49 @@
+{
+  "schema": "EVLLM_APPLICATION_ASSURANCE_SUMMARY_V1",
+  "executed_at": "2026-08-20T17:01:39.500Z",
+  "runner": "Vitest",
+  "status": "passed",
+  "test_files": {
+    "total": 39,
+    "passed": 39,
+    "failed": 0
+  },
+  "tests": {
+    "total": 205,
+    "passed": 205,
+    "failed": 0,
+    "groups": [
+      {
+        "name": "protected-records-and-storage",
+        "tests": 78,
+        "passed": 78
+      },
+      {
+        "name": "decision-support-and-route-assessment",
+        "tests": 67,
+        "passed": 67
+      },
+      {
+        "name": "application-and-marketplace-services",
+        "tests": 24,
+        "passed": 24
+      },
+      {
+        "name": "data-structures-and-integration",
+        "tests": 21,
+        "passed": 21
+      },
+      {
+        "name": "evaluation-reproducibility",
+        "tests": 15,
+        "passed": 15
+      }
+    ]
+  },
+  "type_check": {
+    "command": "npm run typecheck",
+    "status": "passed",
+    "errors": 0
+  },
+  "reproduce": ["npm run test:unit", "npm run typecheck"]
+}

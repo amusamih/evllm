@@ -1,0 +1,960 @@
+{
+  "contracts": {
+    "contracts/AuditAnchor.sol:AuditAnchor": {
+      "sourceName": "contracts/AuditAnchor.sol",
+      "contractName": "AuditAnchor",
+      "proxyChain": [],
+      "deployment": {
+        "min": 670039,
+        "max": 670039,
+        "avg": 670039,
+        "median": 670039,
+        "count": 1,
+        "runtimeSize": 2817
+      },
+      "functions": {
+        "anchorBatch": {
+          "min": 178356,
+          "max": 209372,
+          "avg": 193864,
+          "median": 193864,
+          "count": 2
+        },
+        "anchoredBatchCount": {
+          "min": 2402,
+          "max": 2402,
+          "avg": 2402,
+          "median": 2402,
+          "count": 2
+        },
+        "lastBatchId": {
+          "min": 2305,
+          "max": 2305,
+          "avg": 2305,
+          "median": 2305,
+          "count": 1
+        },
+        "lastCommitment": {
+          "min": 2284,
+          "max": 2284,
+          "avg": 2284,
+          "median": 2284,
+          "count": 1
+        }
+      }
+    },
+    "contracts/AuthorityProfileRegistry.sol:AuthorityProfileRegistry": {
+      "sourceName": "contracts/AuthorityProfileRegistry.sol",
+      "contractName": "AuthorityProfileRegistry",
+      "proxyChain": [],
+      "deployment": {
+        "min": 1327958,
+        "max": 1327958,
+        "avg": 1327958,
+        "median": 1327958,
+        "count": 5,
+        "runtimeSize": 5766
+      },
+      "functions": {
+        "approvedRepositories": {
+          "min": 2525,
+          "max": 2525,
+          "avg": 2525,
+          "median": 2525,
+          "count": 2
+        },
+        "hasCapability": {
+          "min": 6026,
+          "max": 8606,
+          "avg": 6152,
+          "median": 6050,
+          "count": 125
+        },
+        "isCredentialActive": {
+          "min": 5501,
+          "max": 10209,
+          "avg": 7646,
+          "median": 7709,
+          "count": 129
+        },
+        "isOrganizationActive": {
+          "min": 778,
+          "max": 5278,
+          "avg": 2787,
+          "median": 2778,
+          "count": 55
+        },
+        "isProfileActive": {
+          "min": 7849,
+          "max": 7861,
+          "avg": 7857,
+          "median": 7861,
+          "count": 3
+        },
+        "isReplicaAttestationCredential": {
+          "min": 5375,
+          "max": 8155,
+          "avg": 8087,
+          "median": 8155,
+          "count": 41
+        },
+        "owner": {
+          "min": 2321,
+          "max": 2321,
+          "avg": 2321,
+          "median": 2321,
+          "count": 1
+        },
+        "setCapabilityGrant": {
+          "min": 39213,
+          "max": 79147,
+          "avg": 50136,
+          "median": 39225,
+          "count": 93
+        },
+        "setCredential": {
+          "min": 76236,
+          "max": 76464,
+          "avg": 76390,
+          "median": 76452,
+          "count": 12
+        },
+        "setOrganizationStatus": {
+          "min": 34454,
+          "max": 51566,
+          "avg": 46218,
+          "median": 51560,
+          "count": 16
+        },
+        "setProfile": {
+          "min": 75621,
+          "max": 75621,
+          "avg": 75621,
+          "median": 75621,
+          "count": 2
+        },
+        "setRepositoryApproval": {
+          "min": 28718,
+          "max": 50990,
+          "avg": 40377,
+          "median": 31078,
+          "count": 1001
+        },
+        "transferOwnership": {
+          "min": 28671,
+          "max": 28671,
+          "avg": 28671,
+          "median": 28671,
+          "count": 1
+        }
+      }
+    },
+    "contracts/BatteryOwnershipRegistry.sol:BatteryOwnershipRegistry": {
+      "sourceName": "contracts/BatteryOwnershipRegistry.sol",
+      "contractName": "BatteryOwnershipRegistry",
+      "proxyChain": [],
+      "deployment": {
+        "min": 2090880,
+        "max": 2090880,
+        "avg": 2090880,
+        "median": 2090880,
+        "count": 3,
+        "runtimeSize": 9295
+      },
+      "functions": {
+        "acceptInitialOwnership": {
+          "min": 201576,
+          "max": 201576,
+          "avg": 201576,
+          "median": 201576,
+          "count": 1
+        },
+        "batteries": {
+          "min": 4705,
+          "max": 4705,
+          "avg": 4705,
+          "median": 4705,
+          "count": 21
+        },
+        "expireInitialOwnership": {
+          "min": 32353,
+          "max": 32353,
+          "avg": 32353,
+          "median": 32353,
+          "count": 1
+        },
+        "lockForMarketplace": {
+          "min": 34664,
+          "max": 34676,
+          "avg": 34672,
+          "median": 34676,
+          "count": 3
+        },
+        "ownershipTransitionCount": {
+          "min": 2542,
+          "max": 2542,
+          "avg": 2542,
+          "median": 2542,
+          "count": 1
+        },
+        "ownershipTransitions": {
+          "min": 7123,
+          "max": 7123,
+          "avg": 7123,
+          "median": 7123,
+          "count": 1
+        },
+        "proposeInitialOwnership": {
+          "min": 101585,
+          "max": 101621,
+          "avg": 101601,
+          "median": 101597,
+          "count": 3
+        },
+        "registerBattery": {
+          "min": 191749,
+          "max": 191773,
+          "avg": 191764,
+          "median": 191767,
+          "count": 4
+        },
+        "registerComponent": {
+          "min": 105100,
+          "max": 105100,
+          "avg": 105100,
+          "median": 105100,
+          "count": 2
+        },
+        "rejectInitialOwnership": {
+          "min": 32178,
+          "max": 32178,
+          "avg": 32178,
+          "median": 32178,
+          "count": 1
+        },
+        "setMarketplace": {
+          "min": 48883,
+          "max": 49099,
+          "avg": 49056,
+          "median": 49099,
+          "count": 5
+        },
+        "setRegistrar": {
+          "min": 49076,
+          "max": 49076,
+          "avg": 49076,
+          "median": 49076,
+          "count": 4
+        },
+        "subjects": {
+          "min": 6945,
+          "max": 6945,
+          "avg": 6945,
+          "median": 6945,
+          "count": 1
+        },
+        "transferRecordedOwnership": {
+          "min": 115754,
+          "max": 115766,
+          "avg": 115760,
+          "median": 115760,
+          "count": 2
+        }
+      }
+    },
+    "contracts/DeploymentRegistry.sol:DeploymentRegistry": {
+      "sourceName": "contracts/DeploymentRegistry.sol",
+      "contractName": "DeploymentRegistry",
+      "proxyChain": [],
+      "deployment": {
+        "min": 894537,
+        "max": 894573,
+        "avg": 894555,
+        "median": 894555,
+        "count": 2,
+        "runtimeSize": 3702
+      },
+      "functions": {
+        "activateModule": {
+          "min": 35864,
+          "max": 52330,
+          "avg": 46829,
+          "median": 52294,
+          "count": 3
+        },
+        "activeModules": {
+          "min": 2497,
+          "max": 2497,
+          "avg": 2497,
+          "median": 2497,
+          "count": 112
+        },
+        "authorityProfileRegistry": {
+          "min": 281,
+          "max": 281,
+          "avg": 281,
+          "median": 281,
+          "count": 1
+        },
+        "batteryOwnershipRegistry": {
+          "min": 303,
+          "max": 303,
+          "avg": 303,
+          "median": 303,
+          "count": 1
+        },
+        "originModule": {
+          "min": 2519,
+          "max": 2519,
+          "avg": 2519,
+          "median": 2519,
+          "count": 1
+        },
+        "proposeModule": {
+          "min": 78610,
+          "max": 78811,
+          "avg": 78675,
+          "median": 78640,
+          "count": 4
+        },
+        "protectedBundleRegistry": {
+          "min": 260,
+          "max": 260,
+          "avg": 260,
+          "median": 260,
+          "count": 1
+        },
+        "reviewDelay": {
+          "min": 270,
+          "max": 270,
+          "avg": 270,
+          "median": 270,
+          "count": 1
+        }
+      }
+    },
+    "contracts/EvidenceRegistry.sol:EvidenceRegistry": {
+      "sourceName": "contracts/EvidenceRegistry.sol",
+      "contractName": "EvidenceRegistry",
+      "proxyChain": [],
+      "deployment": {
+        "min": 2437289,
+        "max": 2437289,
+        "avg": 2437289,
+        "median": 2437289,
+        "count": 1,
+        "runtimeSize": 10982
+      },
+      "functions": {
+        "activateEvidence": {
+          "min": 220360,
+          "max": 229116,
+          "avg": 226926,
+          "median": 229116,
+          "count": 8
+        },
+        "assertions": {
+          "min": 13493,
+          "max": 13493,
+          "avg": 13493,
+          "median": 13493,
+          "count": 1
+        },
+        "CERTIFY_CAPABILITY": {
+          "min": 217,
+          "max": 217,
+          "avg": 217,
+          "median": 217,
+          "count": 2
+        },
+        "changeEvidenceDisputeState": {
+          "min": 32856,
+          "max": 32856,
+          "avg": 32856,
+          "median": 32856,
+          "count": 1
+        },
+        "closeEvidenceDisputeForLifecycle": {
+          "min": 50371,
+          "max": 50635,
+          "avg": 50503,
+          "median": 50503,
+          "count": 2
+        },
+        "CORROBORATE_CAPABILITY": {
+          "min": 326,
+          "max": 326,
+          "avg": 326,
+          "median": 326,
+          "count": 1
+        },
+        "createVerificationAssertion": {
+          "min": 220179,
+          "max": 220213,
+          "avg": 220196,
+          "median": 220196,
+          "count": 2
+        },
+        "currentVersion": {
+          "min": 2544,
+          "max": 2544,
+          "avg": 2544,
+          "median": 2544,
+          "count": 1
+        },
+        "DISPUTE_BUNDLE_TYPE": {
+          "min": 306,
+          "max": 306,
+          "avg": 306,
+          "median": 306,
+          "count": 4
+        },
+        "DISPUTE_CAPABILITY": {
+          "min": 217,
+          "max": 217,
+          "avg": 217,
+          "median": 217,
+          "count": 1
+        },
+        "disputes": {
+          "min": 13400,
+          "max": 13400,
+          "avg": 13400,
+          "median": 13400,
+          "count": 3
+        },
+        "EVIDENCE_BUNDLE_TYPE": {
+          "min": 261,
+          "max": 261,
+          "avg": 261,
+          "median": 261,
+          "count": 11
+        },
+        "evidenceVersions": {
+          "min": 13551,
+          "max": 13551,
+          "avg": 13551,
+          "median": 13551,
+          "count": 3
+        },
+        "ISSUE_CAPABILITY": {
+          "min": 260,
+          "max": 260,
+          "avg": 260,
+          "median": 260,
+          "count": 2
+        },
+        "openEvidenceDispute": {
+          "min": 207828,
+          "max": 207840,
+          "avg": 207837,
+          "median": 207840,
+          "count": 4
+        },
+        "revokeEvidence": {
+          "min": 34906,
+          "max": 34906,
+          "avg": 34906,
+          "median": 34906,
+          "count": 2
+        },
+        "VERIFICATION_BUNDLE_TYPE": {
+          "min": 283,
+          "max": 283,
+          "avg": 283,
+          "median": 283,
+          "count": 3
+        },
+        "withdrawVerificationAssertion": {
+          "min": 31991,
+          "max": 31991,
+          "avg": 31991,
+          "median": 31991,
+          "count": 1
+        }
+      }
+    },
+    "contracts/Marketplace.sol:Marketplace": {
+      "sourceName": "contracts/Marketplace.sol",
+      "contractName": "Marketplace",
+      "proxyChain": [],
+      "deployment": {
+        "min": 5381953,
+        "max": 5381953,
+        "avg": 5381953,
+        "median": 5381953,
+        "count": 1,
+        "runtimeSize": 24477
+      },
+      "functions": {
+        "acceptDelivery": {
+          "min": 37246,
+          "max": 37246,
+          "avg": 37246,
+          "median": 37246,
+          "count": 2
+        },
+        "AGREEMENT_BUNDLE_TYPE": {
+          "min": 239,
+          "max": 239,
+          "avg": 239,
+          "median": 239,
+          "count": 11
+        },
+        "agreementState": {
+          "min": 5273,
+          "max": 5273,
+          "avg": 5273,
+          "median": 5273,
+          "count": 3
+        },
+        "agreementTerms": {
+          "min": 20521,
+          "max": 20521,
+          "avg": 20521,
+          "median": 20521,
+          "count": 3
+        },
+        "applyDeliveryOrAcceptanceTimeout": {
+          "min": 35414,
+          "max": 35414,
+          "avg": 35414,
+          "median": 35414,
+          "count": 1
+        },
+        "applyDispatchTimeout": {
+          "min": 86973,
+          "max": 86973,
+          "avg": 86973,
+          "median": 86973,
+          "count": 1
+        },
+        "compatibilityVersion": {
+          "min": 500,
+          "max": 500,
+          "avg": 500,
+          "median": 500,
+          "count": 1
+        },
+        "confirmAgreement": {
+          "min": 39763,
+          "max": 39763,
+          "avg": 39763,
+          "median": 39763,
+          "count": 8
+        },
+        "createListing": {
+          "min": 338442,
+          "max": 338706,
+          "avg": 338503,
+          "median": 338490,
+          "count": 12
+        },
+        "DISPUTE_BUNDLE_TYPE": {
+          "min": 262,
+          "max": 262,
+          "avg": 262,
+          "median": 262,
+          "count": 1
+        },
+        "DISPUTE_CAPABILITY": {
+          "min": 328,
+          "max": 328,
+          "avg": 328,
+          "median": 328,
+          "count": 1
+        },
+        "effectiveOfferState": {
+          "min": 5979,
+          "max": 12788,
+          "avg": 9384,
+          "median": 9384,
+          "count": 2
+        },
+        "expireListing": {
+          "min": 50371,
+          "max": 50371,
+          "avg": 50371,
+          "median": 50371,
+          "count": 1
+        },
+        "expireOffer": {
+          "min": 34766,
+          "max": 34766,
+          "avg": 34766,
+          "median": 34766,
+          "count": 1
+        },
+        "fundAgreement": {
+          "min": 39387,
+          "max": 39387,
+          "avg": 39387,
+          "median": 39387,
+          "count": 8
+        },
+        "LISTING_BUNDLE_TYPE": {
+          "min": 326,
+          "max": 326,
+          "avg": 326,
+          "median": 326,
+          "count": 12
+        },
+        "LISTING_CAPABILITY": {
+          "min": 305,
+          "max": 305,
+          "avg": 305,
+          "median": 305,
+          "count": 1
+        },
+        "listingExpiry": {
+          "min": 5333,
+          "max": 5333,
+          "avg": 5333,
+          "median": 5333,
+          "count": 1
+        },
+        "listingState": {
+          "min": 5311,
+          "max": 5311,
+          "avg": 5311,
+          "median": 5311,
+          "count": 2
+        },
+        "LOGISTICS_BUNDLE_TYPE": {
+          "min": 306,
+          "max": 306,
+          "avg": 306,
+          "median": 306,
+          "count": 6
+        },
+        "LOGISTICS_CAPABILITY": {
+          "min": 283,
+          "max": 283,
+          "avg": 283,
+          "median": 283,
+          "count": 3
+        },
+        "moduleType": {
+          "min": 507,
+          "max": 507,
+          "avg": 507,
+          "median": 507,
+          "count": 1
+        },
+        "OFFER_CAPABILITY": {
+          "min": 283,
+          "max": 283,
+          "avg": 283,
+          "median": 283,
+          "count": 78
+        },
+        "offerExpiry": {
+          "min": 5309,
+          "max": 5309,
+          "avg": 5309,
+          "median": 5309,
+          "count": 1
+        },
+        "offerState": {
+          "min": 5351,
+          "max": 5351,
+          "avg": 5351,
+          "median": 5351,
+          "count": 1
+        },
+        "openTransactionDispute": {
+          "min": 134640,
+          "max": 134640,
+          "avg": 134640,
+          "median": 134640,
+          "count": 1
+        },
+        "recordDelivery": {
+          "min": 105387,
+          "max": 105387,
+          "avg": 105387,
+          "median": 105387,
+          "count": 3
+        },
+        "recordDispatch": {
+          "min": 105351,
+          "max": 105351,
+          "avg": 105351,
+          "median": 105351,
+          "count": 3
+        },
+        "rejectOffer": {
+          "min": 58585,
+          "max": 58585,
+          "avg": 58585,
+          "median": 58585,
+          "count": 1
+        },
+        "RESOLVE_CAPABILITY": {
+          "min": 240,
+          "max": 240,
+          "avg": 240,
+          "median": 240,
+          "count": 2
+        },
+        "resolveAgreement": {
+          "min": 110728,
+          "max": 193488,
+          "avg": 152108,
+          "median": 152108,
+          "count": 2
+        },
+        "selectOfferAndCreateAgreement": {
+          "min": 467247,
+          "max": 467259,
+          "avg": 467258,
+          "median": 467259,
+          "count": 9
+        },
+        "settleAccepted": {
+          "min": 169495,
+          "max": 169495,
+          "avg": 169495,
+          "median": 169495,
+          "count": 2
+        },
+        "submitOffer": {
+          "min": 257116,
+          "max": 257164,
+          "avg": 257160,
+          "median": 257164,
+          "count": 77
+        },
+        "withdrawableCredits": {
+          "min": 2666,
+          "max": 2666,
+          "avg": 2666,
+          "median": 2666,
+          "count": 9
+        },
+        "withdrawCredits": {
+          "min": 36192,
+          "max": 36192,
+          "avg": 36192,
+          "median": 36192,
+          "count": 1
+        },
+        "withdrawListing": {
+          "min": 52345,
+          "max": 52345,
+          "avg": 52345,
+          "median": 52345,
+          "count": 2
+        },
+        "withdrawOffer": {
+          "min": 36719,
+          "max": 36719,
+          "avg": 36719,
+          "median": 36719,
+          "count": 1
+        }
+      }
+    },
+    "contracts/ProtectedBundleRegistry.sol:ProtectedBundleRegistry": {
+      "sourceName": "contracts/ProtectedBundleRegistry.sol",
+      "contractName": "ProtectedBundleRegistry",
+      "proxyChain": [],
+      "deployment": {
+        "min": 2075245,
+        "max": 2075245,
+        "avg": 2075245,
+        "median": 2075245,
+        "count": 3,
+        "runtimeSize": 9257
+      },
+      "functions": {
+        "closeBootstrap": {
+          "min": 46457,
+          "max": 46457,
+          "avg": 46457,
+          "median": 46457,
+          "count": 1
+        },
+        "commitAttestedProtectedBundle": {
+          "min": 311455,
+          "max": 311455,
+          "avg": 311455,
+          "median": 311455,
+          "count": 1
+        },
+        "commitments": {
+          "min": 19803,
+          "max": 19803,
+          "avg": 19803,
+          "median": 19803,
+          "count": 31
+        },
+        "commitProtectedBundle": {
+          "min": 262684,
+          "max": 262984,
+          "avg": 262964,
+          "median": 262972,
+          "count": 49
+        },
+        "controllerOf": {
+          "min": 763,
+          "max": 763,
+          "avg": 763,
+          "median": 763,
+          "count": 28
+        },
+        "DOMAIN_ATTESTATION_TYPEHASH": {
+          "min": 261,
+          "max": 261,
+          "avg": 261,
+          "median": 261,
+          "count": 1
+        },
+        "isConfirmedLink": {
+          "min": 20495,
+          "max": 23039,
+          "avg": 20623,
+          "median": 20585,
+          "count": 48
+        },
+        "promoteToDecisionCritical": {
+          "min": 36670,
+          "max": 36682,
+          "avg": 36682,
+          "median": 36682,
+          "count": 38
+        },
+        "submitReplicaReceipt": {
+          "min": 107080,
+          "max": 107128,
+          "avg": 107102,
+          "median": 107104,
+          "count": 39
+        }
+      }
+    },
+    "contracts/test/TestDomainModule.sol:TestDomainModule": {
+      "sourceName": "contracts/test/TestDomainModule.sol",
+      "contractName": "TestDomainModule",
+      "proxyChain": [],
+      "deployment": {
+        "min": 195842,
+        "max": 195878,
+        "avg": 195856,
+        "median": 195854,
+        "count": 5,
+        "runtimeSize": 626
+      },
+      "functions": {
+        "bindOrigin": {
+          "min": 64837,
+          "max": 64837,
+          "avg": 64837,
+          "median": 64837,
+          "count": 1
+        },
+        "compatibilityVersion": {
+          "min": 409,
+          "max": 409,
+          "avg": 409,
+          "median": 409,
+          "count": 4
+        },
+        "moduleType": {
+          "min": 433,
+          "max": 433,
+          "avg": 433,
+          "median": 433,
+          "count": 5
+        }
+      }
+    },
+    "test/contract/Marketplace.t.sol:ReentrantCreditRecipient": {
+      "sourceName": "test/contract/Marketplace.t.sol",
+      "contractName": "ReentrantCreditRecipient",
+      "proxyChain": [],
+      "deployment": {
+        "min": 168559,
+        "max": 168559,
+        "avg": 168559,
+        "median": 168559,
+        "count": 1,
+        "runtimeSize": 533
+      },
+      "functions": {
+        "receiveCount": {
+          "min": 2282,
+          "max": 2282,
+          "avg": 2282,
+          "median": 2282,
+          "count": 1
+        },
+        "withdraw": {
+          "min": 85103,
+          "max": 85103,
+          "avg": 85103,
+          "median": 85103,
+          "count": 1
+        }
+      }
+    },
+    "test/contract/OpenZeppelinToolchain.t.sol:OwnableHarness": {
+      "sourceName": "test/contract/OpenZeppelinToolchain.t.sol",
+      "contractName": "OwnableHarness",
+      "proxyChain": [],
+      "deployment": {
+        "min": 172641,
+        "max": 172641,
+        "avg": 172641,
+        "median": 172641,
+        "count": 1,
+        "runtimeSize": 433
+      },
+      "functions": {
+        "owner": {
+          "min": 2290,
+          "max": 2290,
+          "avg": 2290,
+          "median": 2290,
+          "count": 1
+        }
+      }
+    },
+    "test/contract/Registries.t.sol:AuthorityRegistryHandler": {
+      "sourceName": "test/contract/Registries.t.sol",
+      "contractName": "AuthorityRegistryHandler",
+      "proxyChain": [],
+      "deployment": {
+        "min": 143087,
+        "max": 143087,
+        "avg": 143087,
+        "median": 143087,
+        "count": 1,
+        "runtimeSize": 407
+      },
+      "functions": {
+        "lastApproved": {
+          "min": 2298,
+          "max": 2298,
+          "avg": 2298,
+          "median": 2298,
+          "count": 1
+        },
+        "lastRepositoryId": {
+          "min": 2315,
+          "max": 2315,
+          "avg": 2315,
+          "median": 2315,
+          "count": 1
+        },
+        "setRepositoryApproval": {
+          "min": 39141,
+          "max": 98413,
+          "avg": 56380,
+          "median": 44301,
+          "count": 1000
+        }
+      }
+    }
+  }
+}

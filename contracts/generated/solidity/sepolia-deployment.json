@@ -1,0 +1,47 @@
+{
+  "schema": "EVLLM_PUBLIC_SEPOLIA_DEPLOYMENT_V1",
+  "chainId": "11155111",
+  "network": "sepolia",
+  "deployer": "0x5c7eE36822A95734bdC6868CFd882610bC7a5098",
+  "governance": "0x3Bac063FE6dc0881fC6A9A0BB20238f656334196",
+  "artifactManifestSha256": "0xe8ea4761570e051b5d3b1280cecfa685b7a026d4c792863a12d2cd1787f143e4",
+  "compiler": "solc-0.8.36",
+  "evmVersion": "cancun",
+  "optimizerRuns": 200,
+  "reviewDelaySeconds": 60,
+  "deploymentBlockRange": {
+    "first": 11473623,
+    "last": 11473645
+  },
+  "addresses": {
+    "AuthorityProfileRegistry": "0x71aD47F98f7a8185f5bE155cC04C345d8dCD9E13",
+    "ProtectedBundleRegistry": "0xDE6D5Fb286C217AA48AEc6C3Da320251A63E9D49",
+    "BatteryOwnershipRegistry": "0x04a37F6f0E5E48f525f2933FB543e7A7f4053D55",
+    "DeploymentRegistry": "0xA71F4D631AA783Db7FAB8Ec6055e7A7623348F29",
+    "EvidenceRegistry": "0xC54D56bAA283987691fa1eaDE4C794c312Afb568",
+    "Marketplace": "0x531AeC3731118c6E3830f6d921aCe90322CC8519",
+    "AuditAnchor": "0x2F73f9004517eAA82Db510Da4b30e6F7986949b8"
+  },
+  "activations": [
+    {
+      "module": "evidence",
+      "blockNumber": 11473652,
+      "transactionHash": "0x75150804a145a518249eecc3640269c2ab7e3d51e59f494a5a43acc2934ef334"
+    },
+    {
+      "module": "marketplace",
+      "blockNumber": 11473653,
+      "transactionHash": "0xb229e37963605e9eff60e030c0588f9a772564c4895d810ddfcf7439617abc2b"
+    },
+    {
+      "module": "audit",
+      "blockNumber": 11473654,
+      "transactionHash": "0x835097059ca13f99439857989bc2b6a4adc29dfaf67586105eb3e14612c88357"
+    }
+  ],
+  "sourceVerification": {
+    "etherscan": "verified",
+    "blockscout": "verified",
+    "sourcify": "verified"
+  }
+}

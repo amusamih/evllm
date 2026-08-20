@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "schema": { "type": "string", "const": "EVLLM_VERIFICATION_ASSERTION_V1" },
+    "verification_id": {
+      "type": "string",
+      "pattern": "^urn:evllm:verification:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "verification_version": { "$ref": "#/$defs/__schema0" },
+    "verification_payload_ref": { "$ref": "#/$defs/__schema1" },
+    "domain_signature_record_id": {
+      "type": "string",
+      "pattern": "^urn:evllm:assertion:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "assertion_type": { "type": "string", "enum": ["corroboration", "certification"] },
+    "assertion_commitment": {
+      "type": "object",
+      "properties": {
+        "alg": { "type": "string", "const": "SHA-256" },
+        "value": { "type": "string", "pattern": "^[A-Za-z0-9_-]{43}$" }
+      },
+      "required": ["alg", "value"],
+      "additionalProperties": false
+    },
+    "status": { "type": "string", "enum": ["active", "withdrawn", "superseded"] },
+    "status_reason": { "type": "string", "minLength": 1, "maxLength": 256 },
+    "status_time": { "type": "integer", "minimum": 0, "maximum": 9007199254740991 },
+    "support_links": { "maxItems": 256, "type": "array", "items": { "$ref": "#/$defs/__schema1" } }
+  },
+  "required": [
+    "schema",
+    "verification_id",
+    "verification_version",
+    "verification_payload_ref",
+    "domain_signature_record_id",
+    "assertion_type",
+    "assertion_commitment",
+    "status",
+    "status_time",
+    "support_links"
+  ],
+  "additionalProperties": false,
+  "$defs": {
+    "__schema0": { "type": "integer", "exclusiveMinimum": 0, "maximum": 9007199254740991 },
+    "__schema1": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "version": { "$ref": "#/$defs/__schema0" }
+      },
+      "required": ["id", "version"],
+      "additionalProperties": false
+    }
+  }
+}

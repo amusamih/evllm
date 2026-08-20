@@ -1,0 +1,162 @@
+[
+  {
+    "inputs": [
+      { "internalType": "address", "name": "governance", "type": "address" },
+      { "internalType": "address", "name": "authorityProfileRegistryAddress", "type": "address" },
+      { "internalType": "address", "name": "protectedBundleRegistryAddress", "type": "address" },
+      { "internalType": "address", "name": "batteryOwnershipRegistryAddress", "type": "address" },
+      { "internalType": "uint64", "name": "reviewDelaySeconds", "type": "uint64" }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "constructor"
+  },
+  { "inputs": [], "name": "InvalidModule", "type": "error" },
+  { "inputs": [], "name": "NotAggregateOrigin", "type": "error" },
+  { "inputs": [], "name": "OriginAlreadyBound", "type": "error" },
+  {
+    "inputs": [{ "internalType": "address", "name": "owner", "type": "address" }],
+    "name": "OwnableInvalidOwner",
+    "type": "error"
+  },
+  {
+    "inputs": [{ "internalType": "address", "name": "account", "type": "address" }],
+    "name": "OwnableUnauthorizedAccount",
+    "type": "error"
+  },
+  { "inputs": [], "name": "ReviewDelayNotElapsed", "type": "error" },
+  {
+    "anonymous": false,
+    "inputs": [
+      { "indexed": true, "internalType": "bytes32", "name": "aggregateId", "type": "bytes32" },
+      { "indexed": true, "internalType": "address", "name": "module", "type": "address" }
+    ],
+    "name": "AggregateOriginBound",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      { "indexed": true, "internalType": "bytes32", "name": "moduleType", "type": "bytes32" },
+      { "indexed": true, "internalType": "address", "name": "module", "type": "address" }
+    ],
+    "name": "ModuleActivated",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      { "indexed": true, "internalType": "bytes32", "name": "moduleType", "type": "bytes32" },
+      { "indexed": true, "internalType": "address", "name": "module", "type": "address" },
+      { "indexed": false, "internalType": "uint64", "name": "activateAfter", "type": "uint64" }
+    ],
+    "name": "ModuleProposed",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      { "indexed": true, "internalType": "address", "name": "previousOwner", "type": "address" },
+      { "indexed": true, "internalType": "address", "name": "newOwner", "type": "address" }
+    ],
+    "name": "OwnershipTransferred",
+    "type": "event"
+  },
+  {
+    "inputs": [{ "internalType": "bytes32", "name": "moduleType_", "type": "bytes32" }],
+    "name": "activateModule",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "bytes32", "name": "moduleType", "type": "bytes32" }],
+    "name": "activeModules",
+    "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "authorityProfileRegistry",
+    "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "batteryOwnershipRegistry",
+    "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "bytes32", "name": "aggregateId", "type": "bytes32" }],
+    "name": "bindAggregateOrigin",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "bytes32", "name": "aggregateId", "type": "bytes32" }],
+    "name": "originModule",
+    "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "owner",
+    "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "bytes32", "name": "moduleType", "type": "bytes32" }],
+    "name": "proposals",
+    "outputs": [
+      { "internalType": "address", "name": "module", "type": "address" },
+      { "internalType": "uint64", "name": "compatibilityVersion", "type": "uint64" },
+      { "internalType": "uint64", "name": "activateAfter", "type": "uint64" }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "bytes32", "name": "expectedType", "type": "bytes32" },
+      { "internalType": "address", "name": "module", "type": "address" }
+    ],
+    "name": "proposeModule",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "protectedBundleRegistry",
+    "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "renounceOwnership",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "reviewDelay",
+    "outputs": [{ "internalType": "uint64", "name": "", "type": "uint64" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "address", "name": "newOwner", "type": "address" }],
+    "name": "transferOwnership",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  }
+]

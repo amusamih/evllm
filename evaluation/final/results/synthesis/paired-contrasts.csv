@@ -1,0 +1,13 @@
+comparison,metric,paired_cases,evllm_minus_comparison,ci_lower,ci_upper,p_value,holm_p_value
+raw-structured-record-access,operation_count,30,-3.3333333333333335,-3.5,-3.1666666666666665,0.00019998000199980003,0.00039996000399960006
+raw-structured-record-access,required_record_coverage,30,0,0,0,1,1
+raw-structured-record-access,decision_code_accuracy,30,1,1,1,0.00019998000199980003,0.00039996000399960006
+raw-structured-record-access,citation_traceability,30,0,0,0,1,1
+raw-structured-record-access,unsupported_claim_rate,30,0,0,0,1,1
+raw-structured-record-access,single_response_supported_synthesis_success,30,1,1,1,0.00019998000199980003,0.00039996000399960006
+sequential-deterministic-query,operation_count,30,-4.333333333333333,-4.5,-4.166666666666667,0.00019998000199980003,0.00039996000399960006
+sequential-deterministic-query,required_record_coverage,30,0,0,0,1,1
+sequential-deterministic-query,decision_code_accuracy,30,0,0,0,1,1
+sequential-deterministic-query,citation_traceability,30,0,0,0,1,1
+sequential-deterministic-query,unsupported_claim_rate,30,0,0,0,1,1
+sequential-deterministic-query,single_response_supported_synthesis_success,30,1,1,1,0.00019998000199980003,0.00039996000399960006

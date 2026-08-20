@@ -1,0 +1,50 @@
+{
+  "schema": "EVLLM_RESOURCE_CHARACTERIZATION_V1",
+  "measured_at": "2026-08-18T14:09:13.969Z",
+  "source_scope": "controlled local deterministic assessment microbenchmark and exact artifact sizes",
+  "environment": {
+    "node": "v24.18.1",
+    "platform": "win32",
+    "release": "10.0.26200",
+    "logical_cpu_count": 12,
+    "cpu_model": "Intel(R) Core(TM) 5 120U"
+  },
+  "deterministic_assessment": {
+    "first_call_ms": 21.378800000000012,
+    "warm_runs": 1000,
+    "warm_p50_ms": 0.5251999999999839,
+    "warm_p95_ms": 1.6230099999999594,
+    "warm_min_ms": 0.3898999999998978,
+    "warm_max_ms": 3.792500000000018,
+    "first_reproduction_hash": {
+      "alg": "SHA-256",
+      "value": "JRBfLGWlX-VoN6uQ5HLymK36v05tbCwxwHdneI0k5K0"
+    }
+  },
+  "artifact_storage": {
+    "files": [
+      {
+        "path": "evaluation/final/results/primary/observations.jsonl",
+        "bytes": 4714703
+      },
+      {
+        "path": "evaluation/final/results/synthesis/observations.jsonl",
+        "bytes": 269215
+      },
+      {
+        "path": "evaluation/final/primary-corpus.json",
+        "bytes": 115453
+      },
+      {
+        "path": "evaluation/final/synthesis-corpus.json",
+        "bytes": 66093
+      },
+      {
+        "path": "evaluation/final/sustainability-validation.json",
+        "bytes": 31592
+      }
+    ],
+    "total_bytes": 5197056
+  },
+  "interpretation_boundary": "This is a local implementation characterization, not a production throughput or end-to-end network benchmark."
+}

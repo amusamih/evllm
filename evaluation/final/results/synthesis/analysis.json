@@ -1,0 +1,316 @@
+{
+  "schema": "EVLLM_COMPLEMENTARY_SYNTHESIS_ANALYSIS_V1",
+  "generated_at": "2026-08-20T18:29:56.687Z",
+  "interpretation_boundary": "Machine-measured interface behavior only; no subjective usefulness, comprehension, preference or cognitive-effort claim.",
+  "integrity": {
+    "observations": 150,
+    "unique_observation_ids": 150,
+    "source_commit": "b31f5cae831cb4a062dfd342126bd4ed941c098d",
+    "observations_sha256": "0x51b1ea7174f0f558760fcf8d847e9657b6036d9e2e70b6c390e6acc0ecebf882",
+    "retries": 0,
+    "input_tokens": 109905,
+    "output_tokens": 46898,
+    "latency_ms": {
+      "median": 3535,
+      "p50": 3535,
+      "p95": 8427.949999999999,
+      "q1": 3012.25,
+      "q3": 5040.75,
+      "iqr": 2028.5
+    }
+  },
+  "condition_summaries": [
+    {
+      "condition": "raw-structured-record-access",
+      "observations": 30,
+      "operation_count_median": 4,
+      "required_record_coverage_mean": 1,
+      "decision_code_accuracy": {
+        "numerator": 0,
+        "denominator": 30,
+        "estimate": 0,
+        "ci_lower": 0,
+        "ci_upper": 0.11351339317396876
+      },
+      "citation_traceability_mean": 1,
+      "unsupported_claim_rate_mean": 0,
+      "unsupported_claims": {
+        "numerator": 0,
+        "denominator": 130,
+        "estimate": 0,
+        "ci_lower": 0,
+        "ci_upper": 0.028701561194431423
+      },
+      "detection_accuracy": {
+        "numerator": 0,
+        "denominator": 10,
+        "estimate": 0,
+        "ci_lower": 0,
+        "ci_upper": 0.2775327998628892
+      },
+      "synthesis_success": {
+        "numerator": 0,
+        "denominator": 30,
+        "estimate": 0,
+        "ci_lower": 0,
+        "ci_upper": 0.11351339317396876
+      }
+    },
+    {
+      "condition": "sequential-deterministic-query",
+      "observations": 30,
+      "operation_count_median": 5,
+      "required_record_coverage_mean": 1,
+      "decision_code_accuracy": {
+        "numerator": 30,
+        "denominator": 30,
+        "estimate": 1,
+        "ci_lower": 0.8864866068260312,
+        "ci_upper": 1
+      },
+      "citation_traceability_mean": 1,
+      "unsupported_claim_rate_mean": 0,
+      "unsupported_claims": {
+        "numerator": 0,
+        "denominator": 130,
+        "estimate": 0,
+        "ci_lower": 0,
+        "ci_upper": 0.028701561194431423
+      },
+      "detection_accuracy": {
+        "numerator": 10,
+        "denominator": 10,
+        "estimate": 1,
+        "ci_lower": 0.7224672001371107,
+        "ci_upper": 1
+      },
+      "synthesis_success": {
+        "numerator": 0,
+        "denominator": 30,
+        "estimate": 0,
+        "ci_lower": 0,
+        "ci_upper": 0.11351339317396876
+      }
+    },
+    {
+      "condition": "governed-evllm-synthesis",
+      "observations": 150,
+      "operation_count_median": 1,
+      "required_record_coverage_mean": 1,
+      "decision_code_accuracy": {
+        "numerator": 150,
+        "denominator": 150,
+        "estimate": 1,
+        "ci_lower": 0.9750297556319235,
+        "ci_upper": 1
+      },
+      "citation_traceability_mean": 1,
+      "unsupported_claim_rate_mean": 0,
+      "unsupported_claims": {
+        "numerator": 0,
+        "denominator": 650,
+        "estimate": 0,
+        "ci_lower": 0,
+        "ci_upper": 0.005875214501727682
+      },
+      "detection_accuracy": {
+        "numerator": 50,
+        "denominator": 50,
+        "estimate": 1,
+        "ci_lower": 0.9286524008666414,
+        "ci_upper": 1
+      },
+      "synthesis_success": {
+        "numerator": 150,
+        "denominator": 150,
+        "estimate": 1,
+        "ci_lower": 0.9750297556319235,
+        "ci_upper": 1
+      }
+    }
+  ],
+  "paired_case_level_contrasts": [
+    {
+      "comparison": "raw-structured-record-access",
+      "metric": "operation_count",
+      "paired_cases": 30,
+      "evllm_minus_comparison": -3.3333333333333335,
+      "ci_lower": -3.5,
+      "ci_upper": -3.1666666666666665,
+      "p_value": 0.00019998000199980003,
+      "holm_p_value": 0.00039996000399960006
+    },
+    {
+      "comparison": "raw-structured-record-access",
+      "metric": "required_record_coverage",
+      "paired_cases": 30,
+      "evllm_minus_comparison": 0,
+      "ci_lower": 0,
+      "ci_upper": 0,
+      "p_value": 1,
+      "holm_p_value": 1
+    },
+    {
+      "comparison": "raw-structured-record-access",
+      "metric": "decision_code_accuracy",
+      "paired_cases": 30,
+      "evllm_minus_comparison": 1,
+      "ci_lower": 1,
+      "ci_upper": 1,
+      "p_value": 0.00019998000199980003,
+      "holm_p_value": 0.00039996000399960006
+    },
+    {
+      "comparison": "raw-structured-record-access",
+      "metric": "citation_traceability",
+      "paired_cases": 30,
+      "evllm_minus_comparison": 0,
+      "ci_lower": 0,
+      "ci_upper": 0,
+      "p_value": 1,
+      "holm_p_value": 1
+    },
+    {
+      "comparison": "raw-structured-record-access",
+      "metric": "unsupported_claim_rate",
+      "paired_cases": 30,
+      "evllm_minus_comparison": 0,
+      "ci_lower": 0,
+      "ci_upper": 0,
+      "p_value": 1,
+      "holm_p_value": 1
+    },
+    {
+      "comparison": "raw-structured-record-access",
+      "metric": "single_response_supported_synthesis_success",
+      "paired_cases": 30,
+      "evllm_minus_comparison": 1,
+      "ci_lower": 1,
+      "ci_upper": 1,
+      "p_value": 0.00019998000199980003,
+      "holm_p_value": 0.00039996000399960006
+    },
+    {
+      "comparison": "sequential-deterministic-query",
+      "metric": "operation_count",
+      "paired_cases": 30,
+      "evllm_minus_comparison": -4.333333333333333,
+      "ci_lower": -4.5,
+      "ci_upper": -4.166666666666667,
+      "p_value": 0.00019998000199980003,
+      "holm_p_value": 0.00039996000399960006
+    },
+    {
+      "comparison": "sequential-deterministic-query",
+      "metric": "required_record_coverage",
+      "paired_cases": 30,
+      "evllm_minus_comparison": 0,
+      "ci_lower": 0,
+      "ci_upper": 0,
+      "p_value": 1,
+      "holm_p_value": 1
+    },
+    {
+      "comparison": "sequential-deterministic-query",
+      "metric": "decision_code_accuracy",
+      "paired_cases": 30,
+      "evllm_minus_comparison": 0,
+      "ci_lower": 0,
+      "ci_upper": 0,
+      "p_value": 1,
+      "holm_p_value": 1
+    },
+    {
+      "comparison": "sequential-deterministic-query",
+      "metric": "citation_traceability",
+      "paired_cases": 30,
+      "evllm_minus_comparison": 0,
+      "ci_lower": 0,
+      "ci_upper": 0,
+      "p_value": 1,
+      "holm_p_value": 1
+    },
+    {
+      "comparison": "sequential-deterministic-query",
+      "metric": "unsupported_claim_rate",
+      "paired_cases": 30,
+      "evllm_minus_comparison": 0,
+      "ci_lower": 0,
+      "ci_upper": 0,
+      "p_value": 1,
+      "holm_p_value": 1
+    },
+    {
+      "comparison": "sequential-deterministic-query",
+      "metric": "single_response_supported_synthesis_success",
+      "paired_cases": 30,
+      "evllm_minus_comparison": 1,
+      "ci_lower": 1,
+      "ci_upper": 1,
+      "p_value": 0.00019998000199980003,
+      "holm_p_value": 0.00039996000399960006
+    }
+  ],
+  "evllm_strata": [
+    {
+      "stratum": "resale-readiness",
+      "observations": 25,
+      "record_coverage": 1,
+      "decision_accuracy": 1,
+      "traceability": 1,
+      "unsupported_claim_rate": 0,
+      "detection_accuracy": null,
+      "synthesis_success": 1
+    },
+    {
+      "stratum": "missing-evidence",
+      "observations": 25,
+      "record_coverage": 1,
+      "decision_accuracy": 1,
+      "traceability": 1,
+      "unsupported_claim_rate": 0,
+      "detection_accuracy": 1,
+      "synthesis_success": 1
+    },
+    {
+      "stratum": "conflicting-evidence",
+      "observations": 25,
+      "record_coverage": 1,
+      "decision_accuracy": 1,
+      "traceability": 1,
+      "unsupported_claim_rate": 0,
+      "detection_accuracy": 1,
+      "synthesis_success": 1
+    },
+    {
+      "stratum": "lifecycle-eligibility",
+      "observations": 25,
+      "record_coverage": 1,
+      "decision_accuracy": 1,
+      "traceability": 1,
+      "unsupported_claim_rate": 0,
+      "detection_accuracy": null,
+      "synthesis_success": 1
+    },
+    {
+      "stratum": "route-comparison",
+      "observations": 25,
+      "record_coverage": 1,
+      "decision_accuracy": 1,
+      "traceability": 1,
+      "unsupported_claim_rate": 0,
+      "detection_accuracy": null,
+      "synthesis_success": 1
+    },
+    {
+      "stratum": "custody-replica",
+      "observations": 25,
+      "record_coverage": 1,
+      "decision_accuracy": 1,
+      "traceability": 1,
+      "unsupported_claim_rate": 0,
+      "detection_accuracy": null,
+      "synthesis_success": 1
+    }
+  ]
+}

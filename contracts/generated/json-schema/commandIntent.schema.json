@@ -1,0 +1,139 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "schema": { "type": "string", "const": "EVLLM_COMMAND_INTENT_V1" },
+    "command_id": {
+      "type": "string",
+      "pattern": "^urn:evllm:command:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "command_type": { "$ref": "#/$defs/__schema0" },
+    "command_version": { "$ref": "#/$defs/__schema1" },
+    "kind": { "type": "string", "enum": ["on-chain-transaction", "off-chain-signed"] },
+    "origin_type": {
+      "type": "string",
+      "enum": ["registered-actor", "permissionless-wallet", "service-process"]
+    },
+    "caller_address": { "$ref": "#/$defs/__schema2" },
+    "caller_process": { "$ref": "#/$defs/__schema0" },
+    "actor_id": {
+      "type": "string",
+      "pattern": "^urn:evllm:actor:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "organization_id": {
+      "type": "string",
+      "pattern": "^urn:evllm:org:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "resource_id": { "type": "string", "pattern": "^urn:evllm:.*" },
+    "resource_version": { "$ref": "#/$defs/__schema1" },
+    "purpose_id": {
+      "type": "string",
+      "pattern": "^urn:evllm:policy:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "preconditions": { "maxItems": 256, "type": "array", "items": { "$ref": "#/$defs/__schema0" } },
+    "policy_result": { "type": "string", "enum": ["allow", "deny"] },
+    "nonce": { "$ref": "#/$defs/__schema3" },
+    "issued_at": { "$ref": "#/$defs/__schema4" },
+    "expires_at": { "$ref": "#/$defs/__schema4" },
+    "idempotency_key_hash": { "$ref": "#/$defs/__schema3" },
+    "eip712_domain": {
+      "type": "object",
+      "properties": {
+        "name": { "$ref": "#/$defs/__schema0" },
+        "version": { "$ref": "#/$defs/__schema0" },
+        "chain_id": { "$ref": "#/$defs/__schema1" },
+        "verifying_contract": { "$ref": "#/$defs/__schema2" }
+      },
+      "required": ["name", "version", "chain_id", "verifying_contract"],
+      "additionalProperties": false
+    },
+    "eip712_type": { "$ref": "#/$defs/__schema0" },
+    "eip712_payload_digest": { "$ref": "#/$defs/__schema3" },
+    "signer_actor_id": {
+      "type": "string",
+      "pattern": "^urn:evllm:actor:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "signer_organization_id": {
+      "type": "string",
+      "pattern": "^urn:evllm:org:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "signer_credential_id": {
+      "type": "string",
+      "pattern": "^urn:evllm:credential:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "signer_address": { "$ref": "#/$defs/__schema2" },
+    "signature": {
+      "type": "string",
+      "pattern": "^(?:[A-Za-z0-9_-]{4})*(?:[A-Za-z0-9_-]{2}|[A-Za-z0-9_-]{3})?$"
+    },
+    "typed_data_digest": { "$ref": "#/$defs/__schema3" },
+    "signature_digest": {
+      "type": "object",
+      "properties": {
+        "alg": { "type": "string", "const": "SHA-256" },
+        "value": { "type": "string", "pattern": "^[A-Za-z0-9_-]{43}$" }
+      },
+      "required": ["alg", "value"],
+      "additionalProperties": false
+    },
+    "state": {
+      "type": "string",
+      "enum": [
+        "prepared",
+        "signature-accepted",
+        "executing",
+        "executed",
+        "failed-retryable",
+        "failed-terminal",
+        "expired",
+        "transaction-submitted",
+        "transaction-confirmed",
+        "transaction-orphaned",
+        "transaction-replaced",
+        "rejected"
+      ]
+    },
+    "correlation_id": {
+      "type": "string",
+      "format": "uuid",
+      "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+    },
+    "resulting_event_ids": {
+      "maxItems": 256,
+      "type": "array",
+      "items": { "$ref": "#/$defs/__schema5" }
+    }
+  },
+  "required": [
+    "schema",
+    "command_id",
+    "command_type",
+    "command_version",
+    "kind",
+    "origin_type",
+    "resource_id",
+    "resource_version",
+    "purpose_id",
+    "preconditions",
+    "policy_result",
+    "nonce",
+    "issued_at",
+    "expires_at",
+    "idempotency_key_hash",
+    "state",
+    "correlation_id",
+    "resulting_event_ids"
+  ],
+  "additionalProperties": false,
+  "$defs": {
+    "__schema0": { "type": "string", "minLength": 1, "maxLength": 256 },
+    "__schema1": { "type": "integer", "exclusiveMinimum": 0, "maximum": 9007199254740991 },
+    "__schema2": { "type": "string", "pattern": "^0x[0-9a-f]{40}$" },
+    "__schema3": { "type": "string", "pattern": "^0x[0-9a-f]{64}$" },
+    "__schema4": { "type": "integer", "minimum": 0, "maximum": 9007199254740991 },
+    "__schema5": {
+      "type": "string",
+      "pattern": "^urn:evllm:event:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    }
+  }
+}

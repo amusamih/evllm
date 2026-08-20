@@ -1,0 +1,94 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "schema": { "type": "string", "const": "EVLLM_PROTECTED_DOMAIN_ACTIVATION_ATTEMPT_V1" },
+    "attempt_id": {
+      "type": "string",
+      "pattern": "^urn:evllm:attempt:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "attempt_version": { "$ref": "#/$defs/__schema0" },
+    "bundle_type": {
+      "type": "string",
+      "enum": [
+        "evidence",
+        "verification",
+        "assessment",
+        "assistant-support",
+        "listing",
+        "agreement",
+        "dispute",
+        "logistics",
+        "audit",
+        "authoritative-source"
+      ]
+    },
+    "bundle_id": {
+      "type": "string",
+      "pattern": "^urn:evllm:bundle:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "bundle_version": { "$ref": "#/$defs/__schema0" },
+    "domain_resource_id": { "type": "string", "pattern": "^urn:evllm:.*" },
+    "domain_resource_version": { "$ref": "#/$defs/__schema0" },
+    "staging_id": {
+      "type": "string",
+      "pattern": "^urn:evllm:staging:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "finalization_command_id": {
+      "type": "string",
+      "pattern": "^urn:evllm:command:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "proof_expires_at": { "$ref": "#/$defs/__schema1" },
+    "state": {
+      "type": "string",
+      "enum": [
+        "prepared",
+        "finalized-awaiting-bundle",
+        "bundle-confirmed-awaiting-domain",
+        "active",
+        "expired-before-finalization",
+        "rejected-before-finalization",
+        "abandoned-before-registry-commit",
+        "stranded-by-authority-revocation",
+        "domain-rejected-after-bundle-confirmation"
+      ]
+    },
+    "command_ids": { "maxItems": 16, "type": "array", "items": { "$ref": "#/$defs/__schema2" } },
+    "transaction_hashes": {
+      "maxItems": 16,
+      "type": "array",
+      "items": { "$ref": "#/$defs/__schema3" }
+    },
+    "reason": { "type": "string", "minLength": 1, "maxLength": 256 },
+    "created_at": { "$ref": "#/$defs/__schema1" },
+    "updated_at": { "$ref": "#/$defs/__schema1" }
+  },
+  "required": [
+    "schema",
+    "attempt_id",
+    "attempt_version",
+    "bundle_type",
+    "bundle_id",
+    "bundle_version",
+    "domain_resource_id",
+    "domain_resource_version",
+    "staging_id",
+    "finalization_command_id",
+    "proof_expires_at",
+    "state",
+    "command_ids",
+    "transaction_hashes",
+    "created_at",
+    "updated_at"
+  ],
+  "additionalProperties": false,
+  "$defs": {
+    "__schema0": { "type": "integer", "exclusiveMinimum": 0, "maximum": 9007199254740991 },
+    "__schema1": { "type": "integer", "minimum": 0, "maximum": 9007199254740991 },
+    "__schema2": {
+      "type": "string",
+      "pattern": "^urn:evllm:command:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "__schema3": { "type": "string", "pattern": "^0x[0-9a-f]{64}$" }
+  }
+}

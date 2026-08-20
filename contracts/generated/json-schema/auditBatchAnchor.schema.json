@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "schema": { "$ref": "#/$defs/__schema0" },
+    "batch_id": { "$ref": "#/$defs/__schema1" },
+    "batch_version": { "$ref": "#/$defs/__schema2" },
+    "first_event_sequence": { "$ref": "#/$defs/__schema2" },
+    "last_event_sequence": { "$ref": "#/$defs/__schema2" },
+    "event_count": { "$ref": "#/$defs/__schema2" },
+    "final_event_hash": { "$ref": "#/$defs/__schema3" },
+    "batch_commitment": { "$ref": "#/$defs/__schema3" },
+    "preceding_closed_batch_commitment": { "$ref": "#/$defs/__schema4" },
+    "profile_id": { "$ref": "#/$defs/__schema5" },
+    "profile_version": { "$ref": "#/$defs/__schema2" },
+    "closed_at": { "$ref": "#/$defs/__schema6" },
+    "anchor_attempt_ids": { "$ref": "#/$defs/__schema7" },
+    "confirmation_state": { "$ref": "#/$defs/__schema9" },
+    "open_tail_first_sequence": { "$ref": "#/$defs/__schema10" }
+  },
+  "required": [
+    "schema",
+    "batch_id",
+    "batch_version",
+    "first_event_sequence",
+    "last_event_sequence",
+    "event_count",
+    "final_event_hash",
+    "batch_commitment",
+    "profile_id",
+    "profile_version",
+    "closed_at",
+    "anchor_attempt_ids",
+    "confirmation_state"
+  ],
+  "additionalProperties": false,
+  "$defs": {
+    "__schema0": { "type": "string", "const": "EVLLM_AUDIT_BATCH_ANCHOR_V1" },
+    "__schema1": {
+      "type": "string",
+      "pattern": "^urn:evllm:batch:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "__schema2": { "type": "integer", "exclusiveMinimum": 0, "maximum": 9007199254740991 },
+    "__schema3": {
+      "type": "object",
+      "properties": {
+        "alg": { "type": "string", "const": "SHA-256" },
+        "value": { "type": "string", "pattern": "^[A-Za-z0-9_-]{43}$" }
+      },
+      "required": ["alg", "value"],
+      "additionalProperties": false
+    },
+    "__schema4": { "$ref": "#/$defs/__schema3" },
+    "__schema5": {
+      "type": "string",
+      "pattern": "^urn:evllm:profile:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "__schema6": { "type": "integer", "minimum": 0, "maximum": 9007199254740991 },
+    "__schema7": { "maxItems": 256, "type": "array", "items": { "$ref": "#/$defs/__schema8" } },
+    "__schema8": {
+      "type": "string",
+      "pattern": "^urn:evllm:attempt:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "__schema9": { "type": "string", "enum": ["closed", "submitted", "confirmed", "orphaned"] },
+    "__schema10": { "$ref": "#/$defs/__schema2" }
+  }
+}

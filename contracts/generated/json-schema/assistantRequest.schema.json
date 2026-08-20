@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "schema": { "type": "string", "const": "EVLLM_ASSISTANT_REQUEST_V1" },
+    "request_id": {
+      "type": "string",
+      "pattern": "^urn:evllm:assistant:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "request_version": { "type": "integer", "exclusiveMinimum": 0, "maximum": 9007199254740991 },
+    "requesting_actor_id": {
+      "type": "string",
+      "pattern": "^urn:evllm:actor:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "requesting_organization_id": {
+      "type": "string",
+      "pattern": "^urn:evllm:org:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "minimized_question_metadata": {
+      "maxItems": 64,
+      "type": "array",
+      "items": { "$ref": "#/$defs/__schema0" }
+    },
+    "minimized_result_metadata": {
+      "maxItems": 64,
+      "type": "array",
+      "items": { "$ref": "#/$defs/__schema0" }
+    },
+    "response_state": { "type": "string", "enum": ["completed", "refused", "failed"] },
+    "validation_event_ids": {
+      "maxItems": 256,
+      "type": "array",
+      "items": { "$ref": "#/$defs/__schema1" }
+    },
+    "audit_event_id": {
+      "type": "string",
+      "pattern": "^urn:evllm:event:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "created_at": { "type": "integer", "minimum": 0, "maximum": 9007199254740991 }
+  },
+  "required": [
+    "schema",
+    "request_id",
+    "request_version",
+    "requesting_actor_id",
+    "requesting_organization_id",
+    "minimized_question_metadata",
+    "minimized_result_metadata",
+    "response_state",
+    "validation_event_ids",
+    "audit_event_id",
+    "created_at"
+  ],
+  "additionalProperties": false,
+  "$defs": {
+    "__schema0": { "type": "string", "minLength": 1, "maxLength": 256 },
+    "__schema1": {
+      "type": "string",
+      "pattern": "^urn:evllm:event:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    }
+  }
+}

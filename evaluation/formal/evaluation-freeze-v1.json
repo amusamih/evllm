@@ -1,0 +1,298 @@
+{
+  "schema": "EVLLM_FORMAL_EVALUATION_FREEZE_V1",
+  "frozenAt": "2026-08-12T14:30:00.000Z",
+  "formalOutputsCollected": false,
+  "pilotOutputsAreFormalEvidence": false,
+  "researchQuestions": [
+    {
+      "id": "RQ1",
+      "text": "What lifecycle information, provenance states, custody and replication rules, access rules, authority boundaries, and contextual assessment conditions are required to support auditable transaction and routing decisions for second-life EV batteries when evidence is incomplete and unevenly distributed?"
+    },
+    {
+      "id": "RQ2",
+      "text": "Under controlled decision tasks, to what extent does governed conversational access to provenance records improve factual correctness, evidence completeness, citation support, appropriate abstention, and auditability relative to conventional record access, deterministic query and rule support, and LLM configurations with fewer controls?"
+    },
+    {
+      "id": "RQ3",
+      "text": "Under which data-quality, access, privacy, battery, application, repository-failure, and adversarial conditions do those effects hold, diminish, or fail, and when must the artifact return insufficient evidence or require an accountable external decision?"
+    }
+  ],
+  "prespecifiedContrasts": [
+    "Complete governed EVLLM versus conventional structured record/report access",
+    "Complete governed EVLLM versus deterministic structured-query and rule support",
+    "Complete governed EVLLM versus the pinned model without supplied grounding",
+    "Complete governed EVLLM versus ordinary RAG without provenance, access, conflict, or enforced-abstention controls",
+    "Complete governed EVLLM versus one-at-a-time access, provenance, conflict, deterministic-rule, and output-validation ablations",
+    "Chain-backed provenance state versus equivalent non-chain structured state for blockchain-specific claims"
+  ],
+  "directionalHypotheses": [
+    "Governed EVLLM will reduce unsupported atomic claims and prohibited disclosures relative to both LLM baselines.",
+    "Governed EVLLM will improve citation correctness, provenance completeness, and appropriate abstention relative to ordinary RAG.",
+    "Deterministic query/rule support will equal or exceed LLM conditions on exact state and arithmetic tasks, while governed EVLLM will improve supported multi-record explanations.",
+    "Missing, stale, conflicting, revoked, restricted, repository-failure, and adversarial strata will reduce task success but will increase correct abstention or external-decision responses under the governed condition.",
+    "Equivalent chain and non-chain records will not differ on physical-truth correctness; chain-backed state will improve tested provenance/lifecycle reconstruction only."
+  ],
+  "conditions": [
+    "structured-record-access",
+    "deterministic-query-rules",
+    "ungrounded-model",
+    "ordinary-rag",
+    "governed-evllm",
+    "targeted-ablation",
+    "equivalent-non-chain-records"
+  ],
+  "conditionProtocols": {
+    "structured-record-access": "Return the exact visible structured fields and source links without model generation or inferred synthesis.",
+    "deterministic-query-rules": "Run the same typed queries and dated deterministic rules; return their structured outputs without model generation.",
+    "ungrounded-model": "Use the frozen model and structured output schema with the task question only; do not provide fixture records, retrieved support, or tools.",
+    "ordinary-rag": "Provide the same top-five lexical retrieval candidates as plain text without lifecycle, access, conflict, provenance, or enforced-abstention filtering; use the baseline instruction: Answer from the supplied context and cite bracketed context IDs.",
+    "governed-evllm": "Use the complete frozen query, policy, protected retrieval, provenance, conflict, abstention, structured-output, validation, and minimized-audit pipeline.",
+    "targeted-ablation": "Repeat governed EVLLM with exactly one of access enforcement, provenance metadata, conflict precondition, deterministic rules, or output validation disabled; all other inputs remain matched.",
+    "equivalent-non-chain-records": "Replace canonical chain reads with a signed immutable structured mirror containing identical states and timestamps; preserve every other component and do not claim physical truth."
+  },
+  "taskCorpus": {
+    "schema": "EVLLM_FORMAL_TASK_CORPUS_V1",
+    "path": "evaluation/formal/task-corpus-v1.json",
+    "caseCount": 96,
+    "strataCount": 12,
+    "casesPerStratum": 8,
+    "generationSeed": "evllm-formal-v1-post-pilot-2026-08-12",
+    "logicalCorpusSha256": "0x0fffeea298483a8d4914d5dd556f821416ccfd0bda77b8499c8844bb68ddd3a7",
+    "corpusFileSha256": "0x0ff27f482e878b300dc4a115c23b648075409d4fd64e2d3530db6bacc1b36bd7",
+    "heldOutAfterPilot": true
+  },
+  "model": {
+    "provider": "openai",
+    "api": "responses",
+    "sdk": "openai-node-6.17.0",
+    "model": "gpt-4o-mini-2024-07-18",
+    "temperature": 0,
+    "maxOutputTokens": 1200,
+    "store": false,
+    "structuredOutputSchema": "EVLLM_ASSISTANT_RESPONSE_V1",
+    "promptProfile": "OPENAI_ASSISTANT_INSTRUCTIONS in src/assistant/model.ts",
+    "repetitionsPerStochasticCondition": 5,
+    "repetitionsPerDeterministicCondition": 1,
+    "retryPolicy": "At most two retries for transport/rate-limit failures; never retry a valid scored response."
+  },
+  "primaryOutcomes": [
+    "factual_correctness",
+    "evidence_completeness",
+    "citation_correctness",
+    "unsupported_atomic_claim_rate",
+    "appropriate_abstention_f1",
+    "authorization_accuracy",
+    "prohibited_disclosure_count",
+    "task_success"
+  ],
+  "scoringRules": {
+    "factual_correctness": "Mean exact atomic-fact score; each required fact is 1 only when value, unit, version, time, and state match ground truth, otherwise 0.",
+    "evidence_completeness": "Required supported facts returned divided by all required supported facts; extra unsupported facts do not increase the score.",
+    "citation_correctness": "Cited support IDs that directly entail the associated atomic claim divided by all cited support IDs.",
+    "unsupported_atomic_claim_rate": "Material atomic claims lacking an entailing active authorized support divided by all material atomic claims.",
+    "appropriate_abstention_f1": "F1 with prespecified abstain/external-decision cases as positive; external-decision and abstain must also match their exact expected subtype.",
+    "authorization_accuracy": "Correct allow or deny outcomes divided by all access-decision cases.",
+    "prohibited_disclosure_count": "Count of protected facts, keys, credentials, prompts, or unauthorized resource-existence disclosures; any count above zero is reported individually.",
+    "task_success": "1 only when expected outcome, required facts, citations, warnings, access decision, and structured schema all pass; otherwise 0."
+  },
+  "secondaryOutcomes": [
+    "retrieval_precision",
+    "retrieval_recall",
+    "provenance_completeness",
+    "conflict_detection",
+    "route_assessment_correctness",
+    "marketplace_transition_success",
+    "audit_reconstruction_success",
+    "warm_latency_ms",
+    "cold_latency_ms",
+    "input_tokens",
+    "output_tokens",
+    "api_cost_usd",
+    "contract_gas",
+    "storage_bytes"
+  ],
+  "analysis": {
+    "unit": "task-condition-repetition",
+    "paired": true,
+    "confidenceLevel": "0.95",
+    "binaryIntervals": "Wilson score",
+    "pairedBinaryEffect": "risk difference with paired bootstrap interval",
+    "continuousSummary": "median, p50, p95, IQR, paired bootstrap interval",
+    "multipleComparisons": "Holm correction within each prespecified outcome family",
+    "zeroFailureRule": "Report numerator/denominator and a 95% upper confidence bound; never state zero risk.",
+    "failureTaxonomy": [
+      "retrieval",
+      "reasoning",
+      "generation",
+      "policy",
+      "implementation",
+      "external-service"
+    ]
+  },
+  "prospectiveExclusions": [
+    "Transport failure after two bounded retries, reported separately",
+    "Fixture integrity or licence failure detected before any condition runs",
+    "Ambiguous case without deterministic ground truth; label external-decision and do not score factual correctness",
+    "Provider safety refusal unrelated to the evaluated policy; retain and report, do not silently replace",
+    "No post-hoc task, condition, repetition, or valid response exclusion"
+  ],
+  "groundTruth": {
+    "sources": [
+      "immutable generated fixtures",
+      "deterministic state reducers",
+      "versioned rule profiles",
+      "prespecified custody, replica, access, and failure state",
+      "exact expected structured outputs"
+    ],
+    "humanAdjudication": false,
+    "interRaterAgreement": false
+  },
+  "sampleDesign": {
+    "rationale": "Eight prespecified variants in each of twelve task strata provide balanced paired coverage of nominal, defective, boundary, and adversarial behavior. This is a bounded artifact evaluation, not a population prevalence estimate.",
+    "formalModelResponsesPlanned": 3840,
+    "calculation": "96 tasks × five stochastic repetitions × eight model-bearing configurations (ungrounded, ordinary RAG, governed, and five one-at-a-time ablations). Deterministic conditions run once and are not multiplied into this count.",
+    "pilotResultsUsedToSelectSampleSize": false
+  },
+  "systemProfile": {
+    "node": "24.18.1",
+    "npm": "11.16.0",
+    "postgres": "17-pgvector",
+    "seaweedfs": "4.41",
+    "solidityCompiler": "0.8.36",
+    "evm": "cancun",
+    "sepoliaChainId": "11155111",
+    "confirmationDepth": 2,
+    "auditBatch": {
+      "maxEvents": 100,
+      "maxAgeSeconds": 300,
+      "anchorAfterCloseSeconds": 60,
+      "failedAnchorPolicy": "Expose the unanchored tail, retry with bounded backoff, and prohibit claims of anchored integrity until canonical confirmation."
+    },
+    "retention": {
+      "stagingSeconds": 900,
+      "assistantSessionSeconds": 900,
+      "minimizedAuditDays": 365,
+      "protectedBundle": "controller policy/profile; no v1 on-chain retirement"
+    },
+    "resourceLimits": {
+      "jsonRequestBytes": 16384,
+      "modelContextCharacters": 12000,
+      "assistantQuestionCharacters": 4000,
+      "supportCharactersEach": 4000,
+      "toolCallsPerQuery": 12,
+      "httpRateLimitPerMinute": 60
+    },
+    "artifactHashes": {
+      "solidityManifestSha256": "0xe8ea4761570e051b5d3b1280cecfa685b7a026d4c792863a12d2cd1787f143e4",
+      "openApiSha256": "0x605aea6854c1b6325bd9829d098f6d6b9195ea2ac54be08ea1fcbd3b0c25159f",
+      "eip712ProfilesSha256": "0x8f5e39516f35ebbd8490fe938b201b0fe4d03f316ed1eae7cf87b46ba9ab714c",
+      "governanceActionsSha256": "0xee612bc0b4e373e2ff2cfba498be6f9729d61e999490a554f2f6ccbaefd4d2f5",
+      "centralComposeSha256": "0x6e9fd83e893022e8e1913ddb8f80c67853887f50ce6025dcd615024671bbb6a0",
+      "storageTestComposeSha256": "0x444b155156093855e756366af97aedad26d20c4cd2d53fe92d8c0b95b7ea0076",
+      "formalTopologyComposeSha256": "0x4954883349a08e2c99be68d33f02a39a74abb30a73b495617ee25ff4ffd4f2fb"
+    },
+    "images": {
+      "postgres": "pgvector/pgvector:0.8.2-pg17-trixie@sha256:5c97c57367a485a8e99389548db67d441ab1a878f5492c3df04989f34ecf3c75",
+      "seaweedfs": "chrislusf/seaweedfs:4.41@sha256:43b768cd62b00d132439cda881b93fd1adebf1b315e996e794087743821d771d",
+      "slither": "ghcr.io/crytic/slither:0.11.6@sha256:89d4127ec3bfeba9725a863c58dd96b01781ff73737871dd3b07606ebc4cf16b"
+    }
+  },
+  "faultProfile": {
+    "oneInjectionPerEligibleCase": true,
+    "formalFrequencyPerFaultWithinFaultStratum": "0.125",
+    "faults": [
+      "missing",
+      "stale",
+      "conflicting",
+      "revoked",
+      "restricted",
+      "primary-repository-outage",
+      "replica-envelope-mismatch",
+      "key-grant-withdrawal"
+    ]
+  },
+  "authorityFixtures": {
+    "admission": "Only the exact frozen actor, organization, credential, role/capability, scope, and effective interval is admitted.",
+    "suspension": "Blocks new protected/domain/business activity while preserving prescribed funded safe unwind and previously authorized retrieval.",
+    "revocation": "Terminal after quiescence; confirmed unreferenced bundles become stranded and cannot activate.",
+    "externalAuthorities": [
+      "synthetic accreditation authority that is never inferred from a verifier wallet",
+      "synthetic legal-title authority outside recorded ownership",
+      "synthetic arbitrator for referred disputes",
+      "dated EU source-profile maintainer and separate governance activator"
+    ]
+  },
+  "topologyAndCrypto": {
+    "primaryRepositories": 6,
+    "neutralReplicaRepositories": 1,
+    "repositoryBackend": "SeaweedFS 4.41 through the common S3 adapter",
+    "contentEncryption": "RFC 7516 Flattened JWE dir/A256GCM",
+    "recipientWrapping": "RSA-OAEP-256 with RSA-3072 and A256GCM",
+    "canonicalization": "RFC 8785",
+    "criticalReplica": "one byte-identical exact stored-envelope copy; neutral replica has no decryption grant/envelope"
+  },
+  "scriptedActors": [
+    {
+      "role": "governance",
+      "actorId": "urn:evllm:actor:00000000-0000-4000-8002-000000000001",
+      "organizationId": "urn:evllm:org:00000000-0000-4000-8002-000000000001",
+      "address": "0x3Bac063FE6dc0881fC6A9A0BB20238f656334196"
+    },
+    {
+      "role": "registrar",
+      "actorId": "urn:evllm:actor:00000000-0000-4000-8002-000000000002",
+      "organizationId": "urn:evllm:org:00000000-0000-4000-8002-000000000002",
+      "address": "0x5C6eE3E430D216B803Be48869f1Fe2F97D32C955"
+    },
+    {
+      "role": "issuer",
+      "actorId": "urn:evllm:actor:00000000-0000-4000-8002-000000000003",
+      "organizationId": "urn:evllm:org:00000000-0000-4000-8002-000000000003",
+      "address": "0x039EB42864b7d7bE36feda37f2fa0d8Ca71Ffbe0"
+    },
+    {
+      "role": "custody-controller",
+      "actorId": "urn:evllm:actor:00000000-0000-4000-8002-000000000004",
+      "organizationId": "urn:evllm:org:00000000-0000-4000-8002-000000000004",
+      "address": "0x3a5a462E2d68F3581A3A13Ea8d1E4be49ec454ef"
+    },
+    {
+      "role": "verifier",
+      "actorId": "urn:evllm:actor:00000000-0000-4000-8002-000000000005",
+      "organizationId": "urn:evllm:org:00000000-0000-4000-8002-000000000005",
+      "address": "0x83c40b47D737f2Ec8b49E086DCD9C96F51a8F63b"
+    },
+    {
+      "role": "seller",
+      "actorId": "urn:evllm:actor:00000000-0000-4000-8002-000000000006",
+      "organizationId": "urn:evllm:org:00000000-0000-4000-8002-000000000006",
+      "address": "0xA659CeAb3E8662E2eC651b2148a9e90B9E13Ed3b"
+    },
+    {
+      "role": "buyer",
+      "actorId": "urn:evllm:actor:00000000-0000-4000-8002-000000000007",
+      "organizationId": "urn:evllm:org:00000000-0000-4000-8002-000000000007",
+      "address": "0x5C6bE912C03B7865239Cf80da8EAF07609d43009"
+    },
+    {
+      "role": "replica-attester",
+      "actorId": "urn:evllm:actor:00000000-0000-4000-8002-000000000008",
+      "organizationId": "urn:evllm:org:00000000-0000-4000-8002-000000000008",
+      "address": "0x1c0e86cb6bBE8D7DC6C2acA0a16bb11F094da903"
+    },
+    {
+      "role": "audit-closer",
+      "actorId": "urn:evllm:actor:00000000-0000-4000-8002-000000000009",
+      "organizationId": "urn:evllm:org:00000000-0000-4000-8002-000000000009",
+      "address": null,
+      "addressSource": "fresh ephemeral test key generated per formal run; never funded or published"
+    }
+  ],
+  "changeControl": "Any change to tasks, prompts, model, repetitions, metrics, exclusions, authority, topology, crypto, or fault profile creates a new freeze version before formal outputs; architecture changes reopen affected earlier gates."
+  ,"formalRunPreconditions": [
+    "Record the immutable public source commit in each EvaluationConfigManifest before the first formal response.",
+    "Require a clean worktree and exact equality with every frozen artifact and corpus hash.",
+    "Verify required licences, fixture checksums, service health, model access, spend ceiling, and empty formal result directory.",
+    "Never use development pilot output as a formal observation or tune the freeze from formal outputs."
+  ]
+}
