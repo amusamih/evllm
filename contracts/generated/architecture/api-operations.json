@@ -1,0 +1,140 @@
+{
+  "schema": "EVLLM_DESIGN_API_OPERATION_CATALOG_V1",
+  "artifact_kind": "multi-organization-design-contract",
+  "runtime_boundary": "This catalog describes the complete composable service design. README.md identifies the smaller set assembled by the local demonstration server.",
+  "operations": [
+    {
+      "method": "post",
+      "path": "/api/v1/auth",
+      "operationId": "postAuth",
+      "description": "Challenge, wallet verification, current session, logout",
+      "query": false
+    },
+    {
+      "method": "get",
+      "path": "/api/v1/query/organizations",
+      "operationId": "getQueryOrganizations",
+      "description": "Organization, actor, role, key, repository, and status queries",
+      "query": true
+    },
+    {
+      "method": "get",
+      "path": "/api/v1/query/batteries",
+      "operationId": "getQueryBatteries",
+      "description": "Identity/hierarchy, identifier bindings, recorded owner/current state, and full history",
+      "query": true
+    },
+    {
+      "method": "get",
+      "path": "/api/v1/query/claims",
+      "operationId": "getQueryClaims",
+      "description": "Claim/version, orthogonal verification/dispute/admissibility, and support/history queries",
+      "query": true
+    },
+    {
+      "method": "post",
+      "path": "/api/v1/protected-bundles/staging",
+      "operationId": "prepareProtectedBundle",
+      "description": "Authenticated domain controller prepares an expiring immutable protected-bundle staging object and receives only its controller-scoped canonical descriptor/receipt; this does not create or activate a domain version, cannot be used for retrieval, and abandoned staging expires through the protocol cleanup rule",
+      "query": false
+    },
+    {
+      "method": "post",
+      "path": "/api/v1/protected-bundles/staging/{stagingId}/domain-attestation-challenge",
+      "operationId": "consumeDomainAttestationChallenge",
+      "description": "The exact intended domain-author credential named at preparation invokes `consumeDomainAttestationChallenge` once. The controller repository/key agent reconstructs the response transiently from the decrypted and verified staged package, atomically marks the repository-private delivery record `delivered`, and returns the exact canonical unsigned payload, salt, recomputed commitment and EIP-712 attestation fields with `Cache-Control: no-store`; it never persists those raw response fields or returns original content, a DEK, controller envelope, object locator, or controller credential. A different custody-only credential cannot call merely by holding controller authority; if the same credential independently holds both registered scopes, it may call only in its exact intended-author capacity. Wrong-author, replay, expired, finalized, replaced, or already-delivered requests return the same generic unavailable result and a minimized audit event. Loss after delivery requires staging expiry and a new preparation",
+      "query": false
+    },
+    {
+      "method": "get",
+      "path": "/api/v1/query/protected-bundles",
+      "operationId": "getQueryProtectedBundles",
+      "description": "Controller/type/domain linkage, access/criticality/replica/availability metadata, authorized ciphertext/content retrieval and repository-local search; no domain-state mutation occurs. The route may append only its immutable access decision, one-use/idempotent key-capability issue/consume/result state, and minimized access audit required to enforce the read",
+      "query": true
+    },
+    {
+      "method": "get",
+      "path": "/api/v1/query/evidence",
+      "operationId": "getQueryEvidence",
+      "description": "Metadata, existing-grant status, request-specific access outcome, repository availability, authorized fetch/search, replica state, and protocol support; no domain-state mutation occurs. The route may append only the same fail-closed access-security/idempotency records and minimized audit required for the read",
+      "query": true
+    },
+    {
+      "method": "get",
+      "path": "/api/v1/query/sources",
+      "operationId": "getQuerySources",
+      "description": "Dated source and applicable-rule queries",
+      "query": true
+    },
+    {
+      "method": "get",
+      "path": "/api/v1/query/rules",
+      "operationId": "getQueryRules",
+      "description": "Dated source and applicable-rule queries",
+      "query": true
+    },
+    {
+      "method": "get",
+      "path": "/api/v1/query/assessments",
+      "operationId": "getQueryAssessments",
+      "description": "Input requirements, deterministic preview/run, route profiles, reproduction, and support",
+      "query": true
+    },
+    {
+      "method": "get",
+      "path": "/api/v1/query/marketplace",
+      "operationId": "getQueryMarketplace",
+      "description": "Listings, offers, agreements, escrow, delivery, dispute, settlement, and history queries",
+      "query": true
+    },
+    {
+      "method": "post",
+      "path": "/api/v1/query/assistant",
+      "operationId": "postQueryAssistant",
+      "description": "Read-only question endpoint, ephemeral response/support view, validation state, immutable minimized `AssistantRequest` with its requester principal, and replayable minimized audit reference; no sensitive protected bundle or domain/business state is persisted by this query",
+      "query": true
+    },
+    {
+      "method": "get",
+      "path": "/api/v1/query/audit",
+      "operationId": "getQueryAudit",
+      "description": "Actor-permitted lifecycle or answer reconstruction, batch/anchor verification, and bounded export",
+      "query": true
+    },
+    {
+      "method": "post",
+      "path": "/api/v1/commands",
+      "operationId": "postCommands",
+      "description": "Prepare a typed `on-chain-transaction` or `off-chain-signed` intent and return its policy/precondition decision plus EIP-712 payload or unsigned transaction; finalizing any protected domain submission must bind an unexpired staging descriptor/receipt and exact salted domain-payload commitment",
+      "query": false
+    },
+    {
+      "method": "post",
+      "path": "/api/v1/commands/{id}/confirmations",
+      "operationId": "postCommandsIdConfirmations",
+      "description": "Accept the actor signature for verified idempotent off-chain execution, including exact staged protected-bundle/domain finalization, or an externally submitted transaction hash for chain observation; never sign for the actor",
+      "query": false
+    },
+    {
+      "method": "get",
+      "path": "/api/v1/query/commands/{id}",
+      "operationId": "getQueryCommandsId",
+      "description": "Observe command kind and its exact kind-specific prepared, signature/submission, execution/confirmation, failure/expiry/replacement, or reorganization state",
+      "query": true
+    },
+    {
+      "method": "post",
+      "path": "/api/v1/evaluation",
+      "operationId": "postEvaluation",
+      "description": "Development-only case execution and status; disabled in the public runtime profile",
+      "query": false
+    },
+    {
+      "method": "get",
+      "path": "/health",
+      "operationId": "getHealth",
+      "description": "Bounded liveness and readiness without secrets or stack traces",
+      "query": false
+    }
+  ]
+}

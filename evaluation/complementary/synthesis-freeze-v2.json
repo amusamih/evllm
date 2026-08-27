@@ -1,0 +1,65 @@
+{
+  "schema": "EVLLM_COMPLEMENTARY_SYNTHESIS_FREEZE_V2",
+  "outputsCollected": false,
+  "corpus": {
+    "path": "evaluation/complementary/synthesis-corpus-v2.json",
+    "caseCount": 30,
+    "strataCount": 6,
+    "casesPerStratum": 5,
+    "logicalCorpusSha256": "0xfda72cb7f547b5653bc8907041e1faec5e889adf035c1e14e4f78de99cad216f",
+    "corpusFileSha256": "0xa6898b2bc44a3a295aac619d4ab2a50bf83dac11be83f569b8cc3505d05b0377"
+  },
+  "model": {
+    "provider": "openai",
+    "api": "responses",
+    "model": "gpt-4o-mini-2024-07-18",
+    "temperature": 0,
+    "maxOutputTokens": 1200,
+    "store": false,
+    "providerMaxRetries": 0,
+    "repetitionsPerCase": 5,
+    "plannedMaximumModelResponses": 150,
+    "transportRetries": 2
+  },
+  "conditions": [
+    "raw-structured-record-access",
+    "sequential-deterministic-query",
+    "governed-evllm-synthesis"
+  ],
+  "primaryMetrics": [
+    "user_visible_operation_count",
+    "required_record_coverage",
+    "recorded_decision_and_outcome_accuracy",
+    "citation_validity",
+    "unsupported_claim_rate",
+    "missing_information_detection",
+    "conflicting_information_detection",
+    "single_response_supported_synthesis_success"
+  ],
+  "rawGenerationDiagnostics": [
+    "raw_required_record_coverage",
+    "raw_all_required_records_covered",
+    "raw_decision_metadata_fidelity",
+    "raw_decision_code_fidelity",
+    "raw_outcome_fidelity",
+    "raw_reason_code_fidelity",
+    "raw_explanation_validation",
+    "raw_complete_explanatory_synthesis"
+  ],
+  "rawGenerationDiagnosticFieldMap": {
+    "raw_required_record_coverage": "required_record_coverage",
+    "raw_all_required_records_covered": "all_required_records_covered",
+    "raw_decision_metadata_fidelity": "deterministic_record_binding",
+    "raw_decision_code_fidelity": "decision_code_accuracy",
+    "raw_outcome_fidelity": "structured_outcome_accuracy",
+    "raw_reason_code_fidelity": "required_reason_accuracy",
+    "raw_explanation_validation": "raw_candidate_validation_accuracy",
+    "raw_complete_explanatory_synthesis": "generation_success"
+  },
+  "analysis": {
+    "confidenceLevel": 0.95,
+    "resamplingUnit": "case_id",
+    "binaryIntervals": "Case-cluster percentile bootstrap; boundary intervals use Wilson score bounds over eligible cases.",
+    "analyticReferenceComparison": "Prescribed operation counts are reported descriptively; response-quality metrics are not applicable to reference interfaces that generate no response."
+  }
+}

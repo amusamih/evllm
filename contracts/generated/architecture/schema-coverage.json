@@ -1,0 +1,367 @@
+{
+  "schema": "EVLLM_ARCHITECTURE_SCHEMA_COVERAGE_V1",
+  "requiredCount": 72,
+  "coveredCount": 72,
+  "schemas": [
+    {
+      "architectureName": "CanonicalDecimal",
+      "generatorKey": "canonicalDecimal",
+      "output": "json-schema/canonicalDecimal.schema.json"
+    },
+    {
+      "architectureName": "DecimalQuantity",
+      "generatorKey": "decimalQuantity",
+      "output": "json-schema/decimalQuantity.schema.json"
+    },
+    {
+      "architectureName": "DecimalRange",
+      "generatorKey": "decimalRange",
+      "output": "json-schema/decimalRange.schema.json"
+    },
+    {
+      "architectureName": "MoneyValue",
+      "generatorKey": "moneyValue",
+      "output": "json-schema/moneyValue.schema.json"
+    },
+    {
+      "architectureName": "PercentilePoint",
+      "generatorKey": "percentilePoint",
+      "output": "json-schema/percentilePoint.schema.json"
+    },
+    {
+      "architectureName": "WeiAmount",
+      "generatorKey": "weiAmount",
+      "output": "json-schema/weiAmount.schema.json"
+    },
+    {
+      "architectureName": "UnitDefinition",
+      "generatorKey": "unitDefinition",
+      "output": "json-schema/unitDefinition.schema.json"
+    },
+    {
+      "architectureName": "Organization",
+      "generatorKey": "organization",
+      "output": "json-schema/organization.schema.json"
+    },
+    {
+      "architectureName": "ActorCredential",
+      "generatorKey": "actorCredential",
+      "output": "json-schema/actorCredential.schema.json"
+    },
+    {
+      "architectureName": "OrganizationEncryptionKey",
+      "generatorKey": "organizationEncryptionKey",
+      "output": "json-schema/organizationEncryptionKey.schema.json"
+    },
+    {
+      "architectureName": "CapabilityGrant",
+      "generatorKey": "capabilityGrant",
+      "output": "json-schema/capabilityGrant.schema.json"
+    },
+    {
+      "architectureName": "RoleCapabilityDefinition",
+      "generatorKey": "roleCapabilityDefinition",
+      "output": "json-schema/roleCapabilityDefinition.schema.json"
+    },
+    {
+      "architectureName": "AuthorBindingProfileV1",
+      "generatorKey": "authorBindingProfileV1",
+      "output": "json-schema/authorBindingProfileV1.schema.json"
+    },
+    {
+      "architectureName": "AuthorBindingDecision",
+      "generatorKey": "authorBindingDecision",
+      "output": "json-schema/authorBindingDecision.schema.json"
+    },
+    {
+      "architectureName": "PurposeDefinition",
+      "generatorKey": "purposeDefinition",
+      "output": "json-schema/purposeDefinition.schema.json"
+    },
+    {
+      "architectureName": "AccessPolicy",
+      "generatorKey": "accessPolicy",
+      "output": "json-schema/accessPolicy.schema.json"
+    },
+    {
+      "architectureName": "ReplicaPolicyProfile",
+      "generatorKey": "replicaPolicyProfile",
+      "output": "json-schema/replicaPolicyProfile.schema.json"
+    },
+    {
+      "architectureName": "RepositoryRegistration",
+      "generatorKey": "repositoryRegistration",
+      "output": "json-schema/repositoryRegistration.schema.json"
+    },
+    {
+      "architectureName": "CustodyRelationship",
+      "generatorKey": "custodyRelationship",
+      "output": "json-schema/custodyRelationship.schema.json"
+    },
+    {
+      "architectureName": "BatterySubject",
+      "generatorKey": "batterySubject",
+      "output": "json-schema/batterySubject.schema.json"
+    },
+    {
+      "architectureName": "IdentifierBinding",
+      "generatorKey": "identifierBinding",
+      "output": "json-schema/identifierBinding.schema.json"
+    },
+    {
+      "architectureName": "OwnershipTransition",
+      "generatorKey": "ownershipTransition",
+      "output": "json-schema/ownershipTransition.schema.json"
+    },
+    {
+      "architectureName": "InitialOwnershipBinding",
+      "generatorKey": "initialOwnershipBinding",
+      "output": "json-schema/initialOwnershipBinding.schema.json"
+    },
+    {
+      "architectureName": "EvidenceClaimPayload",
+      "generatorKey": "evidenceClaimPayload",
+      "output": "json-schema/evidenceClaimPayload.schema.json"
+    },
+    {
+      "architectureName": "ClaimVersion",
+      "generatorKey": "claimVersion",
+      "output": "json-schema/claimVersion.schema.json"
+    },
+    {
+      "architectureName": "VerificationPayload",
+      "generatorKey": "verificationPayload",
+      "output": "json-schema/verificationPayload.schema.json"
+    },
+    {
+      "architectureName": "VerificationAssertion",
+      "generatorKey": "verificationAssertion",
+      "output": "json-schema/verificationAssertion.schema.json"
+    },
+    {
+      "architectureName": "ProtectedBundleStagingDescriptor",
+      "generatorKey": "protectedBundleStagingDescriptor",
+      "output": "json-schema/protectedBundleStagingDescriptor.schema.json"
+    },
+    {
+      "architectureName": "PrepareProtectedBundleRequest",
+      "generatorKey": "prepareProtectedBundleRequest",
+      "output": "json-schema/prepareProtectedBundleRequest.schema.json"
+    },
+    {
+      "architectureName": "ProtectedBundleStagingState",
+      "generatorKey": "protectedBundleStagingState",
+      "output": "json-schema/protectedBundleStagingState.schema.json"
+    },
+    {
+      "architectureName": "DomainAttestationChallenge",
+      "generatorKey": "domainAttestationChallenge",
+      "output": "json-schema/domainAttestationChallenge.schema.json"
+    },
+    {
+      "architectureName": "DomainAttestationChallengeDeliveryRecord",
+      "generatorKey": "domainAttestationChallengeDeliveryRecord",
+      "output": "json-schema/domainAttestationChallengeDeliveryRecord.schema.json"
+    },
+    {
+      "architectureName": "ProtectedBundleManifest",
+      "generatorKey": "protectedBundleManifest",
+      "output": "json-schema/protectedBundleManifest.schema.json"
+    },
+    {
+      "architectureName": "ProtectedBundleRef",
+      "generatorKey": "protectedBundleRef",
+      "output": "json-schema/protectedBundleRef.schema.json"
+    },
+    {
+      "architectureName": "ResolvedProtectedBundleView",
+      "generatorKey": "resolvedProtectedBundleView",
+      "output": "json-schema/resolvedProtectedBundleView.schema.json"
+    },
+    {
+      "architectureName": "DomainSignatureRecord",
+      "generatorKey": "domainSignatureRecord",
+      "output": "json-schema/domainSignatureRecord.schema.json"
+    },
+    {
+      "architectureName": "EvidenceManifest",
+      "generatorKey": "evidenceManifest",
+      "output": "json-schema/evidenceManifest.schema.json"
+    },
+    {
+      "architectureName": "ProtectedDomainActivationAttempt",
+      "generatorKey": "protectedDomainActivationAttempt",
+      "output": "json-schema/protectedDomainActivationAttempt.schema.json"
+    },
+    {
+      "architectureName": "ProtectedBundleCriticalityTransition",
+      "generatorKey": "protectedBundleCriticalityTransition",
+      "output": "json-schema/protectedBundleCriticalityTransition.schema.json"
+    },
+    {
+      "architectureName": "RecipientKeyEnvelope",
+      "generatorKey": "recipientKeyEnvelope",
+      "output": "json-schema/recipientKeyEnvelope.schema.json"
+    },
+    {
+      "architectureName": "ControllerKeyAuthorization",
+      "generatorKey": "controllerKeyAuthorization",
+      "output": "json-schema/controllerKeyAuthorization.schema.json"
+    },
+    {
+      "architectureName": "AccessGrant",
+      "generatorKey": "accessGrant",
+      "output": "json-schema/accessGrant.schema.json"
+    },
+    {
+      "architectureName": "AuthorizationDecision",
+      "generatorKey": "authorizationDecision",
+      "output": "json-schema/authorizationDecision.schema.json"
+    },
+    {
+      "architectureName": "KeyOperationAuthorization",
+      "generatorKey": "keyOperationAuthorization",
+      "output": "json-schema/keyOperationAuthorization.schema.json"
+    },
+    {
+      "architectureName": "RecipientKeyRotationCampaign",
+      "generatorKey": "recipientKeyRotationCampaign",
+      "output": "json-schema/recipientKeyRotationCampaign.schema.json"
+    },
+    {
+      "architectureName": "ReplicaRecord",
+      "generatorKey": "replicaRecord",
+      "output": "json-schema/replicaRecord.schema.json"
+    },
+    {
+      "architectureName": "ReplicaReceipt",
+      "generatorKey": "replicaReceipt",
+      "output": "json-schema/replicaReceipt.schema.json"
+    },
+    {
+      "architectureName": "DerivedArtifactDescriptor",
+      "generatorKey": "derivedArtifactDescriptor",
+      "output": "json-schema/derivedArtifactDescriptor.schema.json"
+    },
+    {
+      "architectureName": "LicensedSourcePayload",
+      "generatorKey": "licensedSourcePayload",
+      "output": "json-schema/licensedSourcePayload.schema.json"
+    },
+    {
+      "architectureName": "AuthoritativeSource",
+      "generatorKey": "authoritativeSource",
+      "output": "json-schema/authoritativeSource.schema.json"
+    },
+    {
+      "architectureName": "RuleProfile",
+      "generatorKey": "ruleProfile",
+      "output": "json-schema/ruleProfile.schema.json"
+    },
+    {
+      "architectureName": "AssessmentInputPayload",
+      "generatorKey": "assessmentInputPayload",
+      "output": "json-schema/assessmentInputPayload.schema.json"
+    },
+    {
+      "architectureName": "AssessmentResultPayload",
+      "generatorKey": "assessmentResultPayload",
+      "output": "json-schema/assessmentResultPayload.schema.json"
+    },
+    {
+      "architectureName": "RouteAssessmentProfile",
+      "generatorKey": "routeAssessmentProfile",
+      "output": "json-schema/routeAssessmentProfile.schema.json"
+    },
+    {
+      "architectureName": "ListingTermsPayload",
+      "generatorKey": "listingTermsPayload",
+      "output": "json-schema/listingTermsPayload.schema.json"
+    },
+    {
+      "architectureName": "Listing",
+      "generatorKey": "listing",
+      "output": "json-schema/listing.schema.json"
+    },
+    {
+      "architectureName": "Offer",
+      "generatorKey": "offer",
+      "output": "json-schema/offer.schema.json"
+    },
+    {
+      "architectureName": "AgreementTermsPayload",
+      "generatorKey": "agreementTermsPayload",
+      "output": "json-schema/agreementTermsPayload.schema.json"
+    },
+    {
+      "architectureName": "Agreement",
+      "generatorKey": "agreement",
+      "output": "json-schema/agreement.schema.json"
+    },
+    {
+      "architectureName": "LogisticsReportPayload",
+      "generatorKey": "logisticsReportPayload",
+      "output": "json-schema/logisticsReportPayload.schema.json"
+    },
+    {
+      "architectureName": "DeliveryRecord",
+      "generatorKey": "deliveryRecord",
+      "output": "json-schema/deliveryRecord.schema.json"
+    },
+    {
+      "architectureName": "DisputeSubmissionPayload",
+      "generatorKey": "disputeSubmissionPayload",
+      "output": "json-schema/disputeSubmissionPayload.schema.json"
+    },
+    {
+      "architectureName": "DisputeRecord",
+      "generatorKey": "disputeRecord",
+      "output": "json-schema/disputeRecord.schema.json"
+    },
+    {
+      "architectureName": "CommandIntent",
+      "generatorKey": "commandIntent",
+      "output": "json-schema/commandIntent.schema.json"
+    },
+    {
+      "architectureName": "SensitiveAuditPayload",
+      "generatorKey": "sensitiveAuditPayload",
+      "output": "json-schema/sensitiveAuditPayload.schema.json"
+    },
+    {
+      "architectureName": "AuditEvent",
+      "generatorKey": "auditEvent",
+      "output": "json-schema/auditEvent.schema.json"
+    },
+    {
+      "architectureName": "AuditBatchAnchor",
+      "generatorKey": "auditBatchAnchor",
+      "output": "json-schema/auditBatchAnchor.schema.json"
+    },
+    {
+      "architectureName": "AssistantSupportPayload",
+      "generatorKey": "assistantSupportPayload",
+      "output": "json-schema/assistantSupportPayload.schema.json"
+    },
+    {
+      "architectureName": "AssistantRequest",
+      "generatorKey": "assistantRequest",
+      "output": "json-schema/assistantRequest.schema.json"
+    },
+    {
+      "architectureName": "AssistantSupportRetentionLink",
+      "generatorKey": "assistantSupportRetentionLink",
+      "output": "json-schema/assistantSupportRetentionLink.schema.json"
+    },
+    {
+      "architectureName": "SensitiveAuditRetentionLink",
+      "generatorKey": "sensitiveAuditRetentionLink",
+      "output": "json-schema/sensitiveAuditRetentionLink.schema.json"
+    },
+    {
+      "architectureName": "EvaluationCase",
+      "generatorKey": "evaluationCase",
+      "output": "json-schema/evaluationCase.schema.json"
+    }
+  ]
+}

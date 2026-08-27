@@ -1,0 +1,1656 @@
+{
+  "schema": "EVLLM_GOVERNANCE_ACTION_CATALOG_V1",
+  "source": "embedded-final-governance-policy",
+  "actions": [
+    {
+      "actionId": "suspend-or-restore-an-organization",
+      "action": "Suspend or restore an organization",
+      "permittedInitiator": "Governance authority",
+      "requiredConditionOrIndependentControl": "Recorded reason/effective time; restoration requires resolved basis and still-valid admitted scopes",
+      "systemEnforcement": "Blocks/restores only ordinary new activity; fixed unwind calls and retained history remain available",
+      "externalResponsibility": "Real organizational authority, notice, and legal consequences",
+      "negativeCases": [
+        {
+          "id": "unauthorized-initiator",
+          "expectedOutcome": "reject",
+          "specification": "Reject an initiator that does not satisfy: Governance authority"
+        },
+        {
+          "id": "unmet-required-condition",
+          "expectedOutcome": "reject",
+          "specification": "Reject when any required condition or independent control is absent, stale, invalid, or mismatched: Recorded reason/effective time; restoration requires resolved basis and still-valid admitted scopes"
+        },
+        {
+          "id": "enforcement-bypass",
+          "expectedOutcome": "reject",
+          "specification": "Reject any direct or indirect execution path that bypasses: Blocks/restores only ordinary new activity; fixed unwind calls and retained history remain available"
+        }
+      ]
+    },
+    {
+      "actionId": "terminally-revoke-an-organization",
+      "action": "Terminally revoke an organization",
+      "permittedInitiator": "Governance authority",
+      "requiredConditionOrIndependentControl": "Exact quiescence predicate passes; emergency cases use suspension instead",
+      "systemEnforcement": "No new issue/grant/business command after revocation; history and prior signatures remain, while repository/key operations are limited to required retention, already-authorized retrieval, audit, and governed custody/key migration or expiry",
+      "externalResponsibility": "Real dissolution, liability, lawful retention, migration authority, and counterparty notice",
+      "negativeCases": [
+        {
+          "id": "unauthorized-initiator",
+          "expectedOutcome": "reject",
+          "specification": "Reject an initiator that does not satisfy: Governance authority"
+        },
+        {
+          "id": "unmet-required-condition",
+          "expectedOutcome": "reject",
+          "specification": "Reject when any required condition or independent control is absent, stale, invalid, or mismatched: Exact quiescence predicate passes; emergency cases use suspension instead"
+        },
+        {
+          "id": "enforcement-bypass",
+          "expectedOutcome": "reject",
+          "specification": "Reject any direct or indirect execution path that bypasses: No new issue/grant/business command after revocation; history and prior signatures remain, while repository/key operations are limited to required retention, already-authorized retrieval, audit, and governed custody/key migration or expiry"
+        }
+      ]
+    },
+    {
+      "actionId": "bind-suspend-restore-or-revoke-an-actor-evm-credential",
+      "action": "Bind, suspend, restore, or revoke an actor EVM credential",
+      "permittedInitiator": "Organization administrator within its existing organization scope, or governance for containment",
+      "requiredConditionOrIndependentControl": "Organization and role scope active; wallet/key version, reason and effective time required",
+      "systemEnforcement": "Credential-version state and per-command current-status checks; no mutation of prior signatures",
+      "externalResponsibility": "Identity assurance and employment/agency relationship",
+      "negativeCases": [
+        {
+          "id": "unauthorized-initiator",
+          "expectedOutcome": "reject",
+          "specification": "Reject an initiator that does not satisfy: Organization administrator within its existing organization scope, or governance for containment"
+        },
+        {
+          "id": "unmet-required-condition",
+          "expectedOutcome": "reject",
+          "specification": "Reject when any required condition or independent control is absent, stale, invalid, or mismatched: Organization and role scope active; wallet/key version, reason and effective time required"
+        },
+        {
+          "id": "enforcement-bypass",
+          "expectedOutcome": "reject",
+          "specification": "Reject any direct or indirect execution path that bypasses: Credential-version state and per-command current-status checks; no mutation of prior signatures"
+        }
+      ]
+    },
+    {
+      "actionId": "register-battery-subject",
+      "action": "Register battery subject",
+      "permittedInitiator": "OEM or authorized registrar",
+      "requiredConditionOrIndependentControl": "Active organization and registrar scope; unique ID and valid hierarchy",
+      "systemEnforcement": "Contract role, schema validation, duplicate and hierarchy checks",
+      "externalResponsibility": "Physical label binding and source accuracy",
+      "negativeCases": [
+        {
+          "id": "unauthorized-initiator",
+          "expectedOutcome": "reject",
+          "specification": "Reject an initiator that does not satisfy: OEM or authorized registrar"
+        },
+        {
+          "id": "unmet-required-condition",
+          "expectedOutcome": "reject",
+          "specification": "Reject when any required condition or independent control is absent, stale, invalid, or mismatched: Active organization and registrar scope; unique ID and valid hierarchy"
+        },
+        {
+          "id": "enforcement-bypass",
+          "expectedOutcome": "reject",
+          "specification": "Reject any direct or indirect execution path that bypasses: Contract role, schema validation, duplicate and hierarchy checks"
+        }
+      ]
+    },
+    {
+      "actionId": "propose-initial-recorded-owner",
+      "action": "Propose initial recorded owner",
+      "permittedInitiator": "OEM or authorized registrar",
+      "requiredConditionOrIndependentControl": "Battery is registered and owner-unassigned; nominated admitted organization, supporting evidence commitment, proposal nonce/expiry and reason required",
+      "systemEnforcement": "One active proposal per battery; registrar-signed exact binding; battery remains unlistable",
+      "externalResponsibility": "Legal title, physical custody, and legitimacy of nomination",
+      "negativeCases": [
+        {
+          "id": "unauthorized-initiator",
+          "expectedOutcome": "reject",
+          "specification": "Reject an initiator that does not satisfy: OEM or authorized registrar"
+        },
+        {
+          "id": "unmet-required-condition",
+          "expectedOutcome": "reject",
+          "specification": "Reject when any required condition or independent control is absent, stale, invalid, or mismatched: Battery is registered and owner-unassigned; nominated admitted organization, supporting evidence commitment, proposal nonce/expiry and reason required"
+        },
+        {
+          "id": "enforcement-bypass",
+          "expectedOutcome": "reject",
+          "specification": "Reject any direct or indirect execution path that bypasses: One active proposal per battery; registrar-signed exact binding; battery remains unlistable"
+        }
+      ]
+    },
+    {
+      "actionId": "accept-or-reject-initial-recorded-ownership",
+      "action": "Accept or reject initial recorded ownership",
+      "permittedInitiator": "Authorized wallet of the nominated organization",
+      "requiredConditionOrIndependentControl": "Exact unexpired proposal/battery/evidence/version; organization is active",
+      "systemEnforcement": "Nominated-organization signature; acceptance records first owner once, rejection returns owner-unassigned; registrar cannot accept for nominee",
+      "externalResponsibility": "Legal title, possession, commercial acceptance, and liability",
+      "negativeCases": [
+        {
+          "id": "unauthorized-initiator",
+          "expectedOutcome": "reject",
+          "specification": "Reject an initiator that does not satisfy: Authorized wallet of the nominated organization"
+        },
+        {
+          "id": "unmet-required-condition",
+          "expectedOutcome": "reject",
+          "specification": "Reject when any required condition or independent control is absent, stale, invalid, or mismatched: Exact unexpired proposal/battery/evidence/version; organization is active"
+        },
+        {
+          "id": "enforcement-bypass",
+          "expectedOutcome": "reject",
+          "specification": "Reject any direct or indirect execution path that bypasses: Nominated-organization signature; acceptance records first owner once, rejection returns owner-unassigned; registrar cannot accept for nominee"
+        }
+      ]
+    },
+    {
+      "actionId": "expire-initial-owner-proposal",
+      "action": "Expire initial-owner proposal",
+      "permittedInitiator": "Any EVM wallet after expiry",
+      "requiredConditionOrIndependentControl": "Exact proposal remains pending and deadline passed",
+      "systemEnforcement": "Permissionless deterministic return to owner-unassigned; caller is not treated as owner or disputer",
+      "externalResponsibility": "External notice and legal effect",
+      "negativeCases": [
+        {
+          "id": "unauthorized-initiator",
+          "expectedOutcome": "reject",
+          "specification": "Reject an initiator that does not satisfy: Any EVM wallet after expiry"
+        },
+        {
+          "id": "unmet-required-condition",
+          "expectedOutcome": "reject",
+          "specification": "Reject when any required condition or independent control is absent, stale, invalid, or mismatched: Exact proposal remains pending and deadline passed"
+        },
+        {
+          "id": "enforcement-bypass",
+          "expectedOutcome": "reject",
+          "specification": "Reject any direct or indirect execution path that bypasses: Permissionless deterministic return to owner-unassigned; caller is not treated as owner or disputer"
+        }
+      ]
+    },
+    {
+      "actionId": "link-a-physical-or-external-identifier",
+      "action": "Link a physical or external identifier",
+      "permittedInitiator": "OEM, authorized registrar, or scoped evidence issuer",
+      "requiredConditionOrIndependentControl": "Identifier scheme, issuer, binding basis, uncertainty, subject, and evidence commitment required",
+      "systemEnforcement": "Append-only identifier-binding claim and scope checks",
+      "externalResponsibility": "Physical label attachment, tamper resistance, and authenticity",
+      "negativeCases": [
+        {
+          "id": "unauthorized-initiator",
+          "expectedOutcome": "reject",
+          "specification": "Reject an initiator that does not satisfy: OEM, authorized registrar, or scoped evidence issuer"
+        },
+        {
+          "id": "unmet-required-condition",
+          "expectedOutcome": "reject",
+          "specification": "Reject when any required condition or independent control is absent, stale, invalid, or mismatched: Identifier scheme, issuer, binding basis, uncertainty, subject, and evidence commitment required"
+        },
+        {
+          "id": "enforcement-bypass",
+          "expectedOutcome": "reject",
+          "specification": "Reject any direct or indirect execution path that bypasses: Append-only identifier-binding claim and scope checks"
+        }
+      ]
+    },
+    {
+      "actionId": "transfer-recorded-ownership",
+      "action": "Transfer recorded ownership",
+      "permittedInitiator": "Marketplace state machine",
+      "requiredConditionOrIndependentControl": "Recorded delivery acceptance or bounded dispute resolution, funded test escrow where applicable, and recorded-current-owner match",
+      "systemEnforcement": "Actor-signed transaction and exact state transition",
+      "externalResponsibility": "Legal title, physical possession, taxation, and enforceability",
+      "negativeCases": [
+        {
+          "id": "unauthorized-initiator",
+          "expectedOutcome": "reject",
+          "specification": "Reject an initiator that does not satisfy: Marketplace state machine"
+        },
+        {
+          "id": "unmet-required-condition",
+          "expectedOutcome": "reject",
+          "specification": "Reject when any required condition or independent control is absent, stale, invalid, or mismatched: Recorded delivery acceptance or bounded dispute resolution, funded test escrow where applicable, and recorded-current-owner match"
+        },
+        {
+          "id": "enforcement-bypass",
+          "expectedOutcome": "reject",
+          "specification": "Reject any direct or indirect execution path that bypasses: Actor-signed transaction and exact state transition"
+        }
+      ]
+    },
+    {
+      "actionId": "issue-evidence",
+      "action": "Issue evidence",
+      "permittedInitiator": "Approved evidence issuer",
+      "requiredConditionOrIndependentControl": "Claim type, subject, method, organization scope, repository-validated canonical `EvidenceClaimPayload`/`DomainSignatureRecord`, and canonically confirmed protected-bundle reference of type `evidence`",
+      "systemEnforcement": "Repository prepare/finalize and authorized reconstruction validate the confidential JSON payload; `EvidenceRegistry` can enforce only current issuer scope/status, the registered schema-binding metadata, and the exact confirmed bundle/type/domain/controller/payload-commitment link. Generic attribution, replay, profile, and initial replica-receipt verification already occurred in `ProtectedBundleRegistry`; a direct contract call cannot prove hidden plaintext semantics",
+      "externalResponsibility": "Issuer competence, measurement quality, truth, and continuing replica availability",
+      "negativeCases": [
+        {
+          "id": "unauthorized-initiator",
+          "expectedOutcome": "reject",
+          "specification": "Reject an initiator that does not satisfy: Approved evidence issuer"
+        },
+        {
+          "id": "unmet-required-condition",
+          "expectedOutcome": "reject",
+          "specification": "Reject when any required condition or independent control is absent, stale, invalid, or mismatched: Claim type, subject, method, organization scope, repository-validated canonical `EvidenceClaimPayload`/`DomainSignatureRecord`, and canonically confirmed protected-bundle reference of type `evidence`"
+        },
+        {
+          "id": "enforcement-bypass",
+          "expectedOutcome": "reject",
+          "specification": "Reject any direct or indirect execution path that bypasses: Repository prepare/finalize and authorized reconstruction validate the confidential JSON payload; `EvidenceRegistry` can enforce only current issuer scope/status, the registered schema-binding metadata, and the exact confirmed bundle/type/domain/controller/payload-commitment link. Generic attribution, replay, profile, and initial replica-receipt verification already occurred in `ProtectedBundleRegistry`; a direct contract call cannot prove hidden plaintext semantics"
+        }
+      ]
+    },
+    {
+      "actionId": "supersede-evidence",
+      "action": "Supersede evidence",
+      "permittedInitiator": "Original issuer organization",
+      "requiredConditionOrIndependentControl": "New immutable version, reason, and link to the current version",
+      "systemEnforcement": "Append-only version transition; overwrite prohibited",
+      "externalResponsibility": "Adequacy and truth of the correction",
+      "negativeCases": [
+        {
+          "id": "unauthorized-initiator",
+          "expectedOutcome": "reject",
+          "specification": "Reject an initiator that does not satisfy: Original issuer organization"
+        },
+        {
+          "id": "unmet-required-condition",
+          "expectedOutcome": "reject",
+          "specification": "Reject when any required condition or independent control is absent, stale, invalid, or mismatched: New immutable version, reason, and link to the current version"
+        },
+        {
+          "id": "enforcement-bypass",
+          "expectedOutcome": "reject",
+          "specification": "Reject any direct or indirect execution path that bypasses: Append-only version transition; overwrite prohibited"
+        }
+      ]
+    },
+    {
+      "actionId": "revoke-evidence",
+      "action": "Revoke evidence",
+      "permittedInitiator": "Original issuer organization only",
+      "requiredConditionOrIndependentControl": "Actor remains in scope; reason and time required",
+      "systemEnforcement": "Issuer-scoped lifecycle transition and retained history",
+      "externalResponsibility": "Legal effect and downstream notification outside the prototype",
+      "negativeCases": [
+        {
+          "id": "unauthorized-initiator",
+          "expectedOutcome": "reject",
+          "specification": "Reject an initiator that does not satisfy: Original issuer organization only"
+        },
+        {
+          "id": "unmet-required-condition",
+          "expectedOutcome": "reject",
+          "specification": "Reject when any required condition or independent control is absent, stale, invalid, or mismatched: Actor remains in scope; reason and time required"
+        },
+        {
+          "id": "enforcement-bypass",
+          "expectedOutcome": "reject",
+          "specification": "Reject any direct or indirect execution path that bypasses: Issuer-scoped lifecycle transition and retained history"
+        }
+      ]
+    },
+    {
+      "actionId": "quarantine-evidence-from-platform-use",
+      "action": "Quarantine evidence from platform use",
+      "permittedInitiator": "Governance authority",
+      "requiredConditionOrIndependentControl": "Recorded admissibility-policy basis, affected scope, review date, and reason required",
+      "systemEnforcement": "Separate platform-admissibility state; issuer content and lifecycle state are unchanged",
+      "externalResponsibility": "Legal authority, truth, and any action outside the platform",
+      "negativeCases": [
+        {
+          "id": "unauthorized-initiator",
+          "expectedOutcome": "reject",
+          "specification": "Reject an initiator that does not satisfy: Governance authority"
+        },
+        {
+          "id": "unmet-required-condition",
+          "expectedOutcome": "reject",
+          "specification": "Reject when any required condition or independent control is absent, stale, invalid, or mismatched: Recorded admissibility-policy basis, affected scope, review date, and reason required"
+        },
+        {
+          "id": "enforcement-bypass",
+          "expectedOutcome": "reject",
+          "specification": "Reject any direct or indirect execution path that bypasses: Separate platform-admissibility state; issuer content and lifecycle state are unchanged"
+        }
+      ]
+    },
+    {
+      "actionId": "restore-quarantined-evidence-to-platform-use",
+      "action": "Restore quarantined evidence to platform use",
+      "permittedInitiator": "Governance authority",
+      "requiredConditionOrIndependentControl": "Prior quarantine exists; new recorded basis and review time; current lifecycle, dispute, verification, repository-integrity, access and policy checks all pass",
+      "systemEnforcement": "Changes only `quarantined` to projected `admissible`; issuer evidence remains unchanged. `inadmissible-by-policy` clears only under a newly activated policy version and deterministic recomputation, never an ad hoc override",
+      "externalResponsibility": "Legal authority, truth, and sufficiency outside the evaluated policy",
+      "negativeCases": [
+        {
+          "id": "unauthorized-initiator",
+          "expectedOutcome": "reject",
+          "specification": "Reject an initiator that does not satisfy: Governance authority"
+        },
+        {
+          "id": "unmet-required-condition",
+          "expectedOutcome": "reject",
+          "specification": "Reject when any required condition or independent control is absent, stale, invalid, or mismatched: Prior quarantine exists; new recorded basis and review time; current lifecycle, dispute, verification, repository-integrity, access and policy checks all pass"
+        },
+        {
+          "id": "enforcement-bypass",
+          "expectedOutcome": "reject",
+          "specification": "Reject any direct or indirect execution path that bypasses: Changes only `quarantined` to projected `admissible`; issuer evidence remains unchanged. `inadmissible-by-policy` clears only under a newly activated policy version and deterministic recomputation, never an ad hoc override"
+        }
+      ]
+    },
+    {
+      "actionId": "corroborate-evidence",
+      "action": "Corroborate evidence",
+      "permittedInitiator": "Independent approved issuer or verifier",
+      "requiredConditionOrIndependentControl": "Different organization from the original issuer in the evaluated profile; exact signed `VerificationPayload.assertion_type=corroboration`; complete basis and canonically confirmed decision-critical `verification` bundle matching type/resource/version/controller/commitment",
+      "systemEnforcement": "Separation-of-duties, authority-profile, exact confirmed PBR link/class and immutable type/scope checks",
+      "externalResponsibility": "Competence and substantive strength of corroboration",
+      "negativeCases": [
+        {
+          "id": "unauthorized-initiator",
+          "expectedOutcome": "reject",
+          "specification": "Reject an initiator that does not satisfy: Independent approved issuer or verifier"
+        },
+        {
+          "id": "unmet-required-condition",
+          "expectedOutcome": "reject",
+          "specification": "Reject when any required condition or independent control is absent, stale, invalid, or mismatched: Different organization from the original issuer in the evaluated profile; exact signed `VerificationPayload.assertion_type=corroboration`; complete basis and canonically confirmed decision-critical `verification` bundle matching type/resource/version/controller/commitment"
+        },
+        {
+          "id": "enforcement-bypass",
+          "expectedOutcome": "reject",
+          "specification": "Reject any direct or indirect execution path that bypasses: Separation-of-duties, authority-profile, exact confirmed PBR link/class and immutable type/scope checks"
+        }
+      ]
+    },
+    {
+      "actionId": "certify-a-claim",
+      "action": "Certify a claim",
+      "permittedInitiator": "Approved verification or certification organization",
+      "requiredConditionOrIndependentControl": "Different organization from issuer; exact signed `VerificationPayload.assertion_type=certification`; complete basis, method/version, scope/time and canonically confirmed decision-critical `verification` bundle",
+      "systemEnforcement": "Authority-profile, exact confirmed PBR type/resource/version/controller/commitment/class and immutable assertion-type/state checks",
+      "externalResponsibility": "Accreditation and real conformity assessment",
+      "negativeCases": [
+        {
+          "id": "unauthorized-initiator",
+          "expectedOutcome": "reject",
+          "specification": "Reject an initiator that does not satisfy: Approved verification or certification organization"
+        },
+        {
+          "id": "unmet-required-condition",
+          "expectedOutcome": "reject",
+          "specification": "Reject when any required condition or independent control is absent, stale, invalid, or mismatched: Different organization from issuer; exact signed `VerificationPayload.assertion_type=certification`; complete basis, method/version, scope/time and canonically confirmed decision-critical `verification` bundle"
+        },
+        {
+          "id": "enforcement-bypass",
+          "expectedOutcome": "reject",
+          "specification": "Reject any direct or indirect execution path that bypasses: Authority-profile, exact confirmed PBR type/resource/version/controller/commitment/class and immutable assertion-type/state checks"
+        }
+      ]
+    },
+    {
+      "actionId": "withdraw-or-supersede-a-verification-assertion",
+      "action": "Withdraw or supersede a verification assertion",
+      "permittedInitiator": "Organization that issued that assertion",
+      "requiredConditionOrIndependentControl": "Basis and reason retained; a superseding assertion has a new immutable ID/version",
+      "systemEnforcement": "Assertion-specific transition; underlying claim is not erased",
+      "externalResponsibility": "Consequences for real certification or compliance",
+      "negativeCases": [
+        {
+          "id": "unauthorized-initiator",
+          "expectedOutcome": "reject",
+          "specification": "Reject an initiator that does not satisfy: Organization that issued that assertion"
+        },
+        {
+          "id": "unmet-required-condition",
+          "expectedOutcome": "reject",
+          "specification": "Reject when any required condition or independent control is absent, stale, invalid, or mismatched: Basis and reason retained; a superseding assertion has a new immutable ID/version"
+        },
+        {
+          "id": "enforcement-bypass",
+          "expectedOutcome": "reject",
+          "specification": "Reject any direct or indirect execution path that bypasses: Assertion-specific transition; underlying claim is not erased"
+        }
+      ]
+    },
+    {
+      "actionId": "open-an-evidence-dispute",
+      "action": "Open an evidence dispute",
+      "permittedInitiator": "Recorded current owner, transaction counterparty, original issuer, verifier, or regulatory auditor with resource scope",
+      "requiredConditionOrIndependentControl": "Signed `dispute_type=evidence` selects only `dispute.open-evidence`; reason, contested version, and exact canonically confirmed decision-critical `dispute` bundle match the payload/resource/version/controller/commitment",
+      "systemEnforcement": "Origin EvidenceRegistry eligibility, relationship and confirmed shared-bundle-link checks; no public no-bundle dispute-submission path",
+      "externalResponsibility": "Legal standing and truth of allegation",
+      "negativeCases": [
+        {
+          "id": "unauthorized-initiator",
+          "expectedOutcome": "reject",
+          "specification": "Reject an initiator that does not satisfy: Recorded current owner, transaction counterparty, original issuer, verifier, or regulatory auditor with resource scope"
+        },
+        {
+          "id": "unmet-required-condition",
+          "expectedOutcome": "reject",
+          "specification": "Reject when any required condition or independent control is absent, stale, invalid, or mismatched: Signed `dispute_type=evidence` selects only `dispute.open-evidence`; reason, contested version, and exact canonically confirmed decision-critical `dispute` bundle match the payload/resource/version/controller/commitment"
+        },
+        {
+          "id": "enforcement-bypass",
+          "expectedOutcome": "reject",
+          "specification": "Reject any direct or indirect execution path that bypasses: Origin EvidenceRegistry eligibility, relationship and confirmed shared-bundle-link checks; no public no-bundle dispute-submission path"
+        }
+      ]
+    },
+    {
+      "actionId": "close-or-refer-an-evidence-dispute",
+      "action": "Close or refer an evidence dispute",
+      "permittedInitiator": "Disputer, original issuer, assertion issuer, or governance authority within its own scope",
+      "requiredConditionOrIndependentControl": "Permitted outcomes are disputer withdrawal, issuer correction/supersession, assertion withdrawal, external referral, or continued unresolved state",
+      "systemEnforcement": "Orthogonal dispute transition; no actor rewrites another issuer's content or declares physical truth",
+      "externalResponsibility": "Binding institutional determination remains external",
+      "negativeCases": [
+        {
+          "id": "unauthorized-initiator",
+          "expectedOutcome": "reject",
+          "specification": "Reject an initiator that does not satisfy: Disputer, original issuer, assertion issuer, or governance authority within its own scope"
+        },
+        {
+          "id": "unmet-required-condition",
+          "expectedOutcome": "reject",
+          "specification": "Reject when any required condition or independent control is absent, stale, invalid, or mismatched: Permitted outcomes are disputer withdrawal, issuer correction/supersession, assertion withdrawal, external referral, or continued unresolved state"
+        },
+        {
+          "id": "enforcement-bypass",
+          "expectedOutcome": "reject",
+          "specification": "Reject any direct or indirect execution path that bypasses: Orthogonal dispute transition; no actor rewrites another issuer's content or declares physical truth"
+        }
+      ]
+    },
+    {
+      "actionId": "grant-protected-bundle-access",
+      "action": "Grant protected-bundle access",
+      "permittedInitiator": "Recorded bundle policy controller; for evidence this is the issuer unless an explicit delegation exists",
+      "requiredConditionOrIndependentControl": "Recipient, purpose, bundle/domain scope, expiry, current policy, and active organization encryption key required; ownership transfer alone does not transfer bundle control",
+      "systemEnforcement": "Signed policy decision creates a non-authorizing `prepared` grant; the controller key agent creates/verifies the recipient-specific DEK envelope and atomically activates grant plus envelope",
+      "externalResponsibility": "Lawful basis, trade-secret judgment, and recipient conduct",
+      "negativeCases": [
+        {
+          "id": "unauthorized-initiator",
+          "expectedOutcome": "reject",
+          "specification": "Reject an initiator that does not satisfy: Recorded bundle policy controller; for evidence this is the issuer unless an explicit delegation exists"
+        },
+        {
+          "id": "unmet-required-condition",
+          "expectedOutcome": "reject",
+          "specification": "Reject when any required condition or independent control is absent, stale, invalid, or mismatched: Recipient, purpose, bundle/domain scope, expiry, current policy, and active organization encryption key required; ownership transfer alone does not transfer bundle control"
+        },
+        {
+          "id": "enforcement-bypass",
+          "expectedOutcome": "reject",
+          "specification": "Reject any direct or indirect execution path that bypasses: Signed policy decision creates a non-authorizing `prepared` grant; the controller key agent creates/verifies the recipient-specific DEK envelope and atomically activates grant plus envelope"
+        }
+      ]
+    },
+    {
+      "actionId": "revoke-protected-bundle-access",
+      "action": "Revoke protected-bundle access",
+      "permittedInitiator": "Current bundle policy controller",
+      "requiredConditionOrIndependentControl": "Grant ID and reason required",
+      "systemEnforcement": "Blocks future retrieval and key release; preserves audit",
+      "externalResponsibility": "Cannot erase copied plaintext or keys",
+      "negativeCases": [
+        {
+          "id": "unauthorized-initiator",
+          "expectedOutcome": "reject",
+          "specification": "Reject an initiator that does not satisfy: Current bundle policy controller"
+        },
+        {
+          "id": "unmet-required-condition",
+          "expectedOutcome": "reject",
+          "specification": "Reject when any required condition or independent control is absent, stale, invalid, or mismatched: Grant ID and reason required"
+        },
+        {
+          "id": "enforcement-bypass",
+          "expectedOutcome": "reject",
+          "specification": "Reject any direct or indirect execution path that bypasses: Blocks future retrieval and key release; preserves audit"
+        }
+      ]
+    },
+    {
+      "actionId": "issue-a-key-operation-capability",
+      "action": "Issue a key-operation capability",
+      "permittedInitiator": "Repository's registered `key-operation-authorizer` service credential",
+      "requiredConditionOrIndependentControl": "Exact repository audience, operation, requester, bundle/domain/purpose/policy, canonical source-authority set and operation-context digests, current source state, nonce, issued time, profile-bounded expiry and idempotency",
+      "systemEnforcement": "EIP-712 signature under the frozen profile; key agent independently revalidates issuer scope, audience, source/current state and one-use nonce. Exact replay returns the retained result; any broadened/mismatched field fails. mTLS is transport only",
+      "externalResponsibility": "Production service-key custody and host compromise resistance",
+      "negativeCases": [
+        {
+          "id": "unauthorized-initiator",
+          "expectedOutcome": "reject",
+          "specification": "Reject an initiator that does not satisfy: Repository's registered `key-operation-authorizer` service credential"
+        },
+        {
+          "id": "unmet-required-condition",
+          "expectedOutcome": "reject",
+          "specification": "Reject when any required condition or independent control is absent, stale, invalid, or mismatched: Exact repository audience, operation, requester, bundle/domain/purpose/policy, canonical source-authority set and operation-context digests, current source state, nonce, issued time, profile-bounded expiry and idempotency"
+        },
+        {
+          "id": "enforcement-bypass",
+          "expectedOutcome": "reject",
+          "specification": "Reject any direct or indirect execution path that bypasses: EIP-712 signature under the frozen profile; key agent independently revalidates issuer scope, audience, source/current state and one-use nonce. Exact replay returns the retained result; any broadened/mismatched field fails. mTLS is transport only"
+        }
+      ]
+    },
+    {
+      "actionId": "attest-a-protected-domain-payload",
+      "action": "Attest a protected domain payload",
+      "permittedInitiator": "Actor with the canonical role/capability grant admitted by the active `AuthorBindingProfileV1` for that exact domain resource; for evidence this is its evidence issuer",
+      "requiredConditionOrIndependentControl": "Authenticated one-use `DomainAttestationChallenge`; exact canonical domain payload and salt independently recompute the commitment; bundle/type/domain IDs and versions, intended active scoped credential, resolved author-binding-profile ID/version, separate domain-attribution nonce, issued time and active-profile-bounded expiry all match; intended actor/organization/credential also equal the profile-selected issuer/verifier/owner/seller/opener/requester/responsible/source-author fields and its current authoritative relationship predicate",
+      "systemEnforcement": "After intended-author authentication, the controller repository/key agent reconstructs the no-store response transiently from the verified encrypted staging package, atomically consumes delivery, and releases it once. The actor verifies it and signs `DomainManifestAttestation`. Only raw payload bytes, salt, and the assembled response are zeroed/not retained; the repository-private non-payload reconstruction fields, digest and terminal delivery state, plus later signature metadata, remain. A different custody-only credential, wrong payload author/role/relationship, or replay receives no challenge content",
+      "externalResponsibility": "Competence, accuracy, truth, legal effect, and substantive authority of the domain statement",
+      "negativeCases": [
+        {
+          "id": "unauthorized-initiator",
+          "expectedOutcome": "reject",
+          "specification": "Reject an initiator that does not satisfy: Actor with the canonical role/capability grant admitted by the active `AuthorBindingProfileV1` for that exact domain resource; for evidence this is its evidence issuer"
+        },
+        {
+          "id": "unmet-required-condition",
+          "expectedOutcome": "reject",
+          "specification": "Reject when any required condition or independent control is absent, stale, invalid, or mismatched: Authenticated one-use `DomainAttestationChallenge`; exact canonical domain payload and salt independently recompute the commitment; bundle/type/domain IDs and versions, intended active scoped credential, resolved author-binding-profile ID/version, separate domain-attribution nonce, issued time and active-profile-bounded expiry all match; intended actor/organization/credential also equal the profile-selected issuer/verifier/owner/seller/opener/requester/responsible/source-author fields and its current authoritative relationship predicate"
+        },
+        {
+          "id": "enforcement-bypass",
+          "expectedOutcome": "reject",
+          "specification": "Reject any direct or indirect execution path that bypasses: After intended-author authentication, the controller repository/key agent reconstructs the no-store response transiently from the verified encrypted staging package, atomically consumes delivery, and releases it once. The actor verifies it and signs `DomainManifestAttestation`. Only raw payload bytes, salt, and the assembled response are zeroed/not retained; the repository-private non-payload reconstruction fields, digest and terminal delivery state, plus later signature metadata, remain. A different custody-only credential, wrong payload author/role/relationship, or replay receives no challenge content"
+        }
+      ]
+    },
+    {
+      "actionId": "prepare-and-finalize-a-primary-protected-bundle",
+      "action": "Prepare and finalize a primary protected bundle",
+      "permittedInitiator": "Recorded domain custody controller through its approved repository operator; evidence controller is its issuer in the evaluated profile",
+      "requiredConditionOrIndependentControl": "Controller matches the domain custody map; repository/operator relationship and protocol/profile are active and conformant; request fields exactly equal the embedded `ProtectedBundleRef`, payload resource ID/version, and active `AuthorBindingProfileV1` payload-author fields/role/capability/conditional relationship; bundle/domain version and preparation idempotency are unused on first execution, or an authenticated retry has the same repository-private fingerprint; domain-author and controller scopes are independently resolved and may belong to the same credential only when it holds both exact scopes",
+      "systemEnforcement": "Repository first commits only an unpublished `preparing` reservation, then materializes/verifies the encrypted staging object and wrapped controller envelope. The separate `prepared` database commit stores the immutable author-binding decision and is the visibility/idempotency point; no cross-system atomicity is claimed. Request-free recovery may finish only a complete verifiable materialization or clean and close it; only an authenticated same-key/same-fingerprint retry carrying the full request may rematerialize before the fixed deadline. Same-key/fingerprint retry after `prepared` returns retained resources/outcome without new randomness/IDs/expiry; changed reuse conflicts. The intended author then consumes the one-use challenge and signs `DomainManifestAttestation`; the controller signs `FinalizeProtectedBundle`. Finalization acquires the shared staging lock before authoritative verification, holds it through the full signature/controller-envelope/DEK/package round trip, conditionally publishes byte-identical bytes at the reserved final ID, and commits repository metadata. Conflicting final bytes fail; expiry cannot race finalization and never covers the final ID",
+      "externalResponsibility": "Operational custody, retention, backup, lawful processing, and legitimacy of any controller/issuer separation",
+      "negativeCases": [
+        {
+          "id": "unauthorized-initiator",
+          "expectedOutcome": "reject",
+          "specification": "Reject an initiator that does not satisfy: Recorded domain custody controller through its approved repository operator; evidence controller is its issuer in the evaluated profile"
+        },
+        {
+          "id": "unmet-required-condition",
+          "expectedOutcome": "reject",
+          "specification": "Reject when any required condition or independent control is absent, stale, invalid, or mismatched: Controller matches the domain custody map; repository/operator relationship and protocol/profile are active and conformant; request fields exactly equal the embedded `ProtectedBundleRef`, payload resource ID/version, and active `AuthorBindingProfileV1` payload-author fields/role/capability/conditional relationship; bundle/domain version and preparation idempotency are unused on first execution, or an authenticated retry has the same repository-private fingerprint; domain-author and controller scopes are independently resolved and may belong to the same credential only when it holds both exact scopes"
+        },
+        {
+          "id": "enforcement-bypass",
+          "expectedOutcome": "reject",
+          "specification": "Reject any direct or indirect execution path that bypasses: Repository first commits only an unpublished `preparing` reservation, then materializes/verifies the encrypted staging object and wrapped controller envelope. The separate `prepared` database commit stores the immutable author-binding decision and is the visibility/idempotency point; no cross-system atomicity is claimed. Request-free recovery may finish only a complete verifiable materialization or clean and close it; only an authenticated same-key/same-fingerprint retry carrying the full request may rematerialize before the fixed deadline. Same-key/fingerprint retry after `prepared` returns retained resources/outcome without new randomness/IDs/expiry; changed reuse conflicts. The intended author then consumes the one-use challenge and signs `DomainManifestAttestation`; the controller signs `FinalizeProtectedBundle`. Finalization acquires the shared staging lock before authoritative verification, holds it through the full signature/controller-envelope/DEK/package round trip, conditionally publishes byte-identical bytes at the reserved final ID, and commits repository metadata. Conflicting final bytes fail; expiry cannot race finalization and never covers the final ID"
+        }
+      ]
+    },
+    {
+      "actionId": "commit-an-initial-protected-bundle",
+      "action": "Commit an initial protected bundle",
+      "permittedInitiator": "Recorded bundle custody controller through its active scoped EVM wallet",
+      "requiredConditionOrIndependentControl": "Exact finalized bundle/type/domain/controller; salted domain-payload and content commitments; content-envelope digest and stored-envelope octet length; content-schema binding digest and uniquely schema-mapped author-binding-profile ID/version; encryption-profile ID/version; criticality-profile ID/version and immutable initial class; registered replica-policy ID/version/digest whose active profile resolves the exact replica count, custodian organization, repository and retention tuple; finalization command typed-data/signature digests and reference; complete canonical `DomainManifestAttestation` fields/signature cryptographically binding that author-profile identity; an initially decision-critical bundle also supplies a complete unexpired approved neutral-custodian receipt, while a supplementary bundle records the same policy binding but omits the receipt",
+      "systemEnforcement": "`ProtectedBundleRegistry` resolves and retains that author profile, verifies the current public type-level domain-author credential/profile and attribution signature, issued time/profile-bounded expiry, consumes its nonce, verifies the controller transaction and all active/compatible bindings, recomputes the replica-policy digest from the registry tuple and stores that immutable tuple, and stores attribution/finalization digests without publishing the private signed-domain-envelope digest. It does not claim to inspect hidden author fields. For an initial critical bundle it also verifies custodian credential/repository, exact envelope digest/length/profile, nonce, observation time/profile-bounded expiry and consumes the receipt nonce; only canonical confirmation makes the bundle eligible to be referenced by its domain module, while availability remains a separate projection",
+      "externalResponsibility": "Domain accuracy, controller legitimacy, hidden-field equality, and continuing replica availability remain external to the contract",
+      "negativeCases": [
+        {
+          "id": "unauthorized-initiator",
+          "expectedOutcome": "reject",
+          "specification": "Reject an initiator that does not satisfy: Recorded bundle custody controller through its active scoped EVM wallet"
+        },
+        {
+          "id": "unmet-required-condition",
+          "expectedOutcome": "reject",
+          "specification": "Reject when any required condition or independent control is absent, stale, invalid, or mismatched: Exact finalized bundle/type/domain/controller; salted domain-payload and content commitments; content-envelope digest and stored-envelope octet length; content-schema binding digest and uniquely schema-mapped author-binding-profile ID/version; encryption-profile ID/version; criticality-profile ID/version and immutable initial class; registered replica-policy ID/version/digest whose active profile resolves the exact replica count, custodian organization, repository and retention tuple; finalization command typed-data/signature digests and reference; complete canonical `DomainManifestAttestation` fields/signature cryptographically binding that author-profile identity; an initially decision-critical bundle also supplies a complete unexpired approved neutral-custodian receipt, while a supplementary bundle records the same policy binding but omits the receipt"
+        },
+        {
+          "id": "enforcement-bypass",
+          "expectedOutcome": "reject",
+          "specification": "Reject any direct or indirect execution path that bypasses: `ProtectedBundleRegistry` resolves and retains that author profile, verifies the current public type-level domain-author credential/profile and attribution signature, issued time/profile-bounded expiry, consumes its nonce, verifies the controller transaction and all active/compatible bindings, recomputes the replica-policy digest from the registry tuple and stores that immutable tuple, and stores attribution/finalization digests without publishing the private signed-domain-envelope digest. It does not claim to inspect hidden author fields. For an initial critical bundle it also verifies custodian credential/repository, exact envelope digest/length/profile, nonce, observation time/profile-bounded expiry and consumes the receipt nonce; only canonical confirmation makes the bundle eligible to be referenced by its domain module, while availability remains a separate projection"
+        }
+      ]
+    },
+    {
+      "actionId": "create-or-invalidate-protected-derived-artifacts",
+      "action": "Create or invalidate protected derived artifacts",
+      "permittedInitiator": "Bundle policy controller signs the exact actor-requested operation; the source custody controller's repository process executes it, directly or through an explicitly named repository-process delegate",
+      "requiredConditionOrIndependentControl": "Source policy permits the operation; bundle/domain version/status, purpose, retention and artifact type are bound; process delegation does not transfer policy authority. Canonical source-status or policy propagation is a separate deterministic unsigned invalidation path",
+      "systemEnforcement": "Repository-local execution/index; the signed path verifies controller scope/nonce/expiry/idempotency, while deterministic invalidation accepts only the prescribed canonical event and never fabricates an actor signature",
+      "externalResponsibility": "Fitness of extraction/embedding method and downstream organizational use",
+      "negativeCases": [
+        {
+          "id": "unauthorized-initiator",
+          "expectedOutcome": "reject",
+          "specification": "Reject an initiator that does not satisfy: Bundle policy controller signs the exact actor-requested operation; the source custody controller's repository process executes it, directly or through an explicitly named repository-process delegate"
+        },
+        {
+          "id": "unmet-required-condition",
+          "expectedOutcome": "reject",
+          "specification": "Reject when any required condition or independent control is absent, stale, invalid, or mismatched: Source policy permits the operation; bundle/domain version/status, purpose, retention and artifact type are bound; process delegation does not transfer policy authority. Canonical source-status or policy propagation is a separate deterministic unsigned invalidation path"
+        },
+        {
+          "id": "enforcement-bypass",
+          "expectedOutcome": "reject",
+          "specification": "Reject any direct or indirect execution path that bypasses: Repository-local execution/index; the signed path verifies controller scope/nonce/expiry/idempotency, while deterministic invalidation accepts only the prescribed canonical event and never fabricates an actor signature"
+        }
+      ]
+    },
+    {
+      "actionId": "replicate-the-stored-envelope-for-initial-criticality-or-promotion",
+      "action": "Replicate the stored envelope for initial criticality or promotion",
+      "permittedInitiator": "Protected-bundle custody controller through its repository operator",
+      "requiredConditionOrIndependentControl": "Initial replication is authorized by the exact signed `FinalizeProtectedBundle`; promotion's exact signed `ReplicateProtectedBundle` binds controller actor/organization/credential, bundle/type/domain, digest/length, active criticality profile, committed `replicaPolicyDigest`, fixed replica repository, separately scoped nonce/issued time/expiry/idempotency; the verifier resolves and enforces the stored registered policy ID/version and exact count/custodian/repository/retention tuple rather than pretending those are extra signed fields",
+      "systemEnforcement": "Exact canonical stored-envelope bytes/digest/octet-length equality; approved neutral custodian signs a profile-lifetime-bounded EIP-712 replica receipt without receiving a recipient key envelope",
+      "externalResponsibility": "Independent operational availability is not proven by same-host emulation or a point-in-time receipt",
+      "negativeCases": [
+        {
+          "id": "unauthorized-initiator",
+          "expectedOutcome": "reject",
+          "specification": "Reject an initiator that does not satisfy: Protected-bundle custody controller through its repository operator"
+        },
+        {
+          "id": "unmet-required-condition",
+          "expectedOutcome": "reject",
+          "specification": "Reject when any required condition or independent control is absent, stale, invalid, or mismatched: Initial replication is authorized by the exact signed `FinalizeProtectedBundle`; promotion's exact signed `ReplicateProtectedBundle` binds controller actor/organization/credential, bundle/type/domain, digest/length, active criticality profile, committed `replicaPolicyDigest`, fixed replica repository, separately scoped nonce/issued time/expiry/idempotency; the verifier resolves and enforces the stored registered policy ID/version and exact count/custodian/repository/retention tuple rather than pretending those are extra signed fields"
+        },
+        {
+          "id": "enforcement-bypass",
+          "expectedOutcome": "reject",
+          "specification": "Reject any direct or indirect execution path that bypasses: Exact canonical stored-envelope bytes/digest/octet-length equality; approved neutral custodian signs a profile-lifetime-bounded EIP-712 replica receipt without receiving a recipient key envelope"
+        }
+      ]
+    },
+    {
+      "actionId": "promote-supplementary-protected-bundle-to-decision-critical",
+      "action": "Promote supplementary protected bundle to decision-critical",
+      "permittedInitiator": "Registry-recorded bundle custody controller; for evidence this is the original issuer in the evaluated profile",
+      "requiredConditionOrIndependentControl": "Same immutable bundle version; current class supplementary; active/compatible profile; unexpired exact replica receipt signed by active approved neutral custodian; bundle/type/domain/digest/length/repository/profile/nonce/observation/expiry bound under the active maximum receipt lifetime; any separate policy-controller approval is an off-chain precondition and cannot replace the custody-controller transaction",
+      "systemEnforcement": "Custody controller submits registry transaction; contract verifies controller, committed context, custodian role/signature, nonce, observation time/profile-bounded expiry and consumes nonce; canonical confirmation alone updates class; irreversible and package/AAD/commitments unchanged",
+      "externalResponsibility": "Classification and receipt are scripted governance assertions, not proof of truth, necessity, sufficiency or continuing availability",
+      "negativeCases": [
+        {
+          "id": "unauthorized-initiator",
+          "expectedOutcome": "reject",
+          "specification": "Reject an initiator that does not satisfy: Registry-recorded bundle custody controller; for evidence this is the original issuer in the evaluated profile"
+        },
+        {
+          "id": "unmet-required-condition",
+          "expectedOutcome": "reject",
+          "specification": "Reject when any required condition or independent control is absent, stale, invalid, or mismatched: Same immutable bundle version; current class supplementary; active/compatible profile; unexpired exact replica receipt signed by active approved neutral custodian; bundle/type/domain/digest/length/repository/profile/nonce/observation/expiry bound under the active maximum receipt lifetime; any separate policy-controller approval is an off-chain precondition and cannot replace the custody-controller transaction"
+        },
+        {
+          "id": "enforcement-bypass",
+          "expectedOutcome": "reject",
+          "specification": "Reject any direct or indirect execution path that bypasses: Custody controller submits registry transaction; contract verifies controller, committed context, custodian role/signature, nonce, observation time/profile-bounded expiry and consumes nonce; canonical confirmation alone updates class; irreversible and package/AAD/commitments unchanged"
+        }
+      ]
+    },
+    {
+      "actionId": "retrieve-or-search-protected-content",
+      "action": "Retrieve or search protected content",
+      "permittedInitiator": "Authenticated actor or registered read-only LLM tool acting for that actor",
+      "requiredConditionOrIndependentControl": "Current role, purpose, bundle/domain grant, status and minimum disclosure",
+      "systemEnforcement": "Authorization before lookup/search; repository-local protected index; immutable access decision, one-use/idempotent key-capability issue/consume/result bookkeeping, and minimized audited release are the only query-side writes",
+      "externalResponsibility": "Recipient's downstream use and organizational policy",
+      "negativeCases": [
+        {
+          "id": "unauthorized-initiator",
+          "expectedOutcome": "reject",
+          "specification": "Reject an initiator that does not satisfy: Authenticated actor or registered read-only LLM tool acting for that actor"
+        },
+        {
+          "id": "unmet-required-condition",
+          "expectedOutcome": "reject",
+          "specification": "Reject when any required condition or independent control is absent, stale, invalid, or mismatched: Current role, purpose, bundle/domain grant, status and minimum disclosure"
+        },
+        {
+          "id": "enforcement-bypass",
+          "expectedOutcome": "reject",
+          "specification": "Reject any direct or indirect execution path that bypasses: Authorization before lookup/search; repository-local protected index; immutable access decision, one-use/idempotent key-capability issue/consume/result bookkeeping, and minimized audited release are the only query-side writes"
+        }
+      ]
+    },
+    {
+      "actionId": "retain-a-sensitive-assistant-support-bundle",
+      "action": "Retain a sensitive assistant-support bundle",
+      "permittedInitiator": "Requesting actor as domain author; requesting organization's custody controller finalizes",
+      "requiredConditionOrIndependentControl": "A completed read-only query exists; the immutable source `AssistantRequest` principal exactly matches the payload/request intended actor and organization; explicit retention purpose/policy, exact request ID/version, no implicit protected-bundle persistence, and ordinary staging/attribution/finalization controls",
+      "systemEnforcement": "`retain-assistant-support` is an orchestration name, not a third signature: the payload-bound `DomainManifestAttestation` supplies actor consent and `FinalizeProtectedBundle` supplies controller authority. The repository/application author-binding relationship is rechecked before domain activation. Only after canonical shared-bundle and assistant-support domain completion is an append-only `AssistantSupportRetentionLink` created; the query writes the minimized immutable request/security/audit records but never patches the request or persists sensitive session content",
+      "externalResponsibility": "Lawful retention purpose, organizational record policy, and consequences of retained model material",
+      "negativeCases": [
+        {
+          "id": "unauthorized-initiator",
+          "expectedOutcome": "reject",
+          "specification": "Reject an initiator that does not satisfy: Requesting actor as domain author; requesting organization's custody controller finalizes"
+        },
+        {
+          "id": "unmet-required-condition",
+          "expectedOutcome": "reject",
+          "specification": "Reject when any required condition or independent control is absent, stale, invalid, or mismatched: A completed read-only query exists; the immutable source `AssistantRequest` principal exactly matches the payload/request intended actor and organization; explicit retention purpose/policy, exact request ID/version, no implicit protected-bundle persistence, and ordinary staging/attribution/finalization controls"
+        },
+        {
+          "id": "enforcement-bypass",
+          "expectedOutcome": "reject",
+          "specification": "Reject any direct or indirect execution path that bypasses: `retain-assistant-support` is an orchestration name, not a third signature: the payload-bound `DomainManifestAttestation` supplies actor consent and `FinalizeProtectedBundle` supplies controller authority. The repository/application author-binding relationship is rechecked before domain activation. Only after canonical shared-bundle and assistant-support domain completion is an append-only `AssistantSupportRetentionLink` created; the query writes the minimized immutable request/security/audit records but never patches the request or persists sensitive session content"
+        }
+      ]
+    },
+    {
+      "actionId": "retain-an-actor-sensitive-audit-bundle",
+      "action": "Retain an actor-sensitive audit bundle",
+      "permittedInitiator": "Domain-responsible actor/organization as author; its custody controller finalizes",
+      "requiredConditionOrIndependentControl": "Exact single audit-event ID/version with the same non-null responsible actor/organization, explicit retention/purpose, minimization boundary, and ordinary protected-bundle controls; a heterogeneous batch is not a v1 source, and platform/closer/anchor/replica service status alone grants no authorship or custody",
+      "systemEnforcement": "`retain-sensitive-audit` is likewise an orchestration name using only the ordinary domain-attestation and controller-finalization signatures. The repository/application source responsibility relation is rechecked before activation. After canonical shared-bundle and audit-domain completion it creates an append-only `SensitiveAuditRetentionLink`; the original event and its closed batch are never patched",
+      "externalResponsibility": "Lawful retention, investigation authority, and organizational responsibility for sensitive audit content",
+      "negativeCases": [
+        {
+          "id": "unauthorized-initiator",
+          "expectedOutcome": "reject",
+          "specification": "Reject an initiator that does not satisfy: Domain-responsible actor/organization as author; its custody controller finalizes"
+        },
+        {
+          "id": "unmet-required-condition",
+          "expectedOutcome": "reject",
+          "specification": "Reject when any required condition or independent control is absent, stale, invalid, or mismatched: Exact single audit-event ID/version with the same non-null responsible actor/organization, explicit retention/purpose, minimization boundary, and ordinary protected-bundle controls; a heterogeneous batch is not a v1 source, and platform/closer/anchor/replica service status alone grants no authorship or custody"
+        },
+        {
+          "id": "enforcement-bypass",
+          "expectedOutcome": "reject",
+          "specification": "Reject any direct or indirect execution path that bypasses: `retain-sensitive-audit` is likewise an orchestration name using only the ordinary domain-attestation and controller-finalization signatures. The repository/application source responsibility relation is rechecked before activation. After canonical shared-bundle and audit-domain completion it creates an append-only `SensitiveAuditRetentionLink`; the original event and its closed batch are never patched"
+        }
+      ]
+    },
+    {
+      "actionId": "propose-repository-and-key-authority-references",
+      "action": "Propose repository and key-authority references",
+      "permittedInitiator": "Organization administrator",
+      "requiredConditionOrIndependentControl": "Repository operator, custody-controller relationship, protocol/adapter versions, endpoints, public encryption keys, and scopes complete",
+      "systemEnforcement": "Proposal only; it is unusable before conformance and governance activation",
+      "externalResponsibility": "Truth of organizational appointment and real infrastructure control",
+      "negativeCases": [
+        {
+          "id": "unauthorized-initiator",
+          "expectedOutcome": "reject",
+          "specification": "Reject an initiator that does not satisfy: Organization administrator"
+        },
+        {
+          "id": "unmet-required-condition",
+          "expectedOutcome": "reject",
+          "specification": "Reject when any required condition or independent control is absent, stale, invalid, or mismatched: Repository operator, custody-controller relationship, protocol/adapter versions, endpoints, public encryption keys, and scopes complete"
+        },
+        {
+          "id": "enforcement-bypass",
+          "expectedOutcome": "reject",
+          "specification": "Reject any direct or indirect execution path that bypasses: Proposal only; it is unusable before conformance and governance activation"
+        }
+      ]
+    },
+    {
+      "actionId": "start-a-recipient-key-rotation-campaign",
+      "action": "Start a recipient-key rotation campaign",
+      "permittedInitiator": "Recipient organization administrator",
+      "requiredConditionOrIndependentControl": "Exact predecessor/active successor keys and finite sorted required grant/envelope/bundle set; exact campaign signature, set digest/count, nonce, issued time, expiry and idempotency",
+      "systemEnforcement": "Campaign records recipient-side intent only; it cannot rewrap any bundle or replace the bundle controller's authority",
+      "externalResponsibility": "Secure key generation/custody, completeness of the declared set, and organizational change control",
+      "negativeCases": [
+        {
+          "id": "unauthorized-initiator",
+          "expectedOutcome": "reject",
+          "specification": "Reject an initiator that does not satisfy: Recipient organization administrator"
+        },
+        {
+          "id": "unmet-required-condition",
+          "expectedOutcome": "reject",
+          "specification": "Reject when any required condition or independent control is absent, stale, invalid, or mismatched: Exact predecessor/active successor keys and finite sorted required grant/envelope/bundle set; exact campaign signature, set digest/count, nonce, issued time, expiry and idempotency"
+        },
+        {
+          "id": "enforcement-bypass",
+          "expectedOutcome": "reject",
+          "specification": "Reject any direct or indirect execution path that bypasses: Campaign records recipient-side intent only; it cannot rewrap any bundle or replace the bundle controller's authority"
+        }
+      ]
+    },
+    {
+      "actionId": "authorize-and-execute-one-recipient-envelope-rotation",
+      "action": "Authorize and execute one recipient-envelope rotation",
+      "permittedInitiator": "Bundle policy controller authorizes; controller repository/key authority executes",
+      "requiredConditionOrIndependentControl": "Exact signed campaign item, controller-signed `RotateRecipientEnvelope`, unchanged active grant, active successor key, usable controller path and derived key-operation capability",
+      "systemEnforcement": "Verify both authorities/item membership, then create/verify/activate successor envelope atomically. Partial failure keeps an uncompromised predecessor usable; normal old-key retirement requires campaign completion; loss/compromise denies immediately and affected access is explicitly unavailable",
+      "externalResponsibility": "Recipient/controller coordination, compromise response, and production KMS assurance",
+      "negativeCases": [
+        {
+          "id": "unauthorized-initiator",
+          "expectedOutcome": "reject",
+          "specification": "Reject an initiator that does not satisfy: Bundle policy controller authorizes; controller repository/key authority executes"
+        },
+        {
+          "id": "unmet-required-condition",
+          "expectedOutcome": "reject",
+          "specification": "Reject when any required condition or independent control is absent, stale, invalid, or mismatched: Exact signed campaign item, controller-signed `RotateRecipientEnvelope`, unchanged active grant, active successor key, usable controller path and derived key-operation capability"
+        },
+        {
+          "id": "enforcement-bypass",
+          "expectedOutcome": "reject",
+          "specification": "Reject any direct or indirect execution path that bypasses: Verify both authorities/item membership, then create/verify/activate successor envelope atomically. Partial failure keeps an uncompromised predecessor usable; normal old-key retirement requires campaign completion; loss/compromise denies immediately and affected access is explicitly unavailable"
+        }
+      ]
+    },
+    {
+      "actionId": "rotate-a-controller-organization-key-and-controller-envelopes",
+      "action": "Rotate a controller organization key and controller envelopes",
+      "permittedInitiator": "Controller organization administrator authorizes; its repository/key authority executes",
+      "requiredConditionOrIndependentControl": "Exact signed `RotateControllerAuthorization`, active successor key, usable predecessor controller path, policy/bundle/domain scope and derived key-operation capability; no last-usable-controller retirement",
+      "systemEnforcement": "For each bundle create/verify and activate the successor controller authorization/envelope before retiring the predecessor; partial failure retains predecessor, while loss/compromise without another usable path fails explicitly; package/replica bytes do not change",
+      "externalResponsibility": "Secure key generation/custody, compromise response, recovery authority, and production KMS assurance",
+      "negativeCases": [
+        {
+          "id": "unauthorized-initiator",
+          "expectedOutcome": "reject",
+          "specification": "Reject an initiator that does not satisfy: Controller organization administrator authorizes; its repository/key authority executes"
+        },
+        {
+          "id": "unmet-required-condition",
+          "expectedOutcome": "reject",
+          "specification": "Reject when any required condition or independent control is absent, stale, invalid, or mismatched: Exact signed `RotateControllerAuthorization`, active successor key, usable predecessor controller path, policy/bundle/domain scope and derived key-operation capability; no last-usable-controller retirement"
+        },
+        {
+          "id": "enforcement-bypass",
+          "expectedOutcome": "reject",
+          "specification": "Reject any direct or indirect execution path that bypasses: For each bundle create/verify and activate the successor controller authorization/envelope before retiring the predecessor; partial failure retains predecessor, while loss/compromise without another usable path fails explicitly; package/replica bytes do not change"
+        }
+      ]
+    },
+    {
+      "actionId": "record-repository-conformance-result",
+      "action": "Record repository conformance result",
+      "permittedInitiator": "Data-platform operator",
+      "requiredConditionOrIndependentControl": "Pinned suite, backend/version, topology, test evidence, and failures recorded",
+      "systemEnforcement": "Cannot activate the repository; result is immutable and reviewable",
+      "externalResponsibility": "Independent assurance beyond the study",
+      "negativeCases": [
+        {
+          "id": "unauthorized-initiator",
+          "expectedOutcome": "reject",
+          "specification": "Reject an initiator that does not satisfy: Data-platform operator"
+        },
+        {
+          "id": "unmet-required-condition",
+          "expectedOutcome": "reject",
+          "specification": "Reject when any required condition or independent control is absent, stale, invalid, or mismatched: Pinned suite, backend/version, topology, test evidence, and failures recorded"
+        },
+        {
+          "id": "enforcement-bypass",
+          "expectedOutcome": "reject",
+          "specification": "Reject any direct or indirect execution path that bypasses: Cannot activate the repository; result is immutable and reviewable"
+        }
+      ]
+    },
+    {
+      "actionId": "approve-primary-or-replica-custodian",
+      "action": "Approve primary or replica custodian",
+      "permittedInitiator": "Governance authority",
+      "requiredConditionOrIndependentControl": "Conformance result, organization identity, role, and scope recorded",
+      "systemEnforcement": "Registry state and effective date",
+      "externalResponsibility": "Commercial appointment and legal custody arrangement",
+      "negativeCases": [
+        {
+          "id": "unauthorized-initiator",
+          "expectedOutcome": "reject",
+          "specification": "Reject an initiator that does not satisfy: Governance authority"
+        },
+        {
+          "id": "unmet-required-condition",
+          "expectedOutcome": "reject",
+          "specification": "Reject when any required condition or independent control is absent, stale, invalid, or mismatched: Conformance result, organization identity, role, and scope recorded"
+        },
+        {
+          "id": "enforcement-bypass",
+          "expectedOutcome": "reject",
+          "specification": "Reject any direct or indirect execution path that bypasses: Registry state and effective date"
+        }
+      ]
+    },
+    {
+      "actionId": "propose-schema-source-rule-access-policy-repository-protocol-cryptographic-assessment-method-reducer-or-audit-profile",
+      "action": "Propose schema, source, rule, access-policy, repository-protocol, cryptographic, assessment-method, reducer, or audit profile",
+      "permittedInitiator": "Authorized maintainer for that profile",
+      "requiredConditionOrIndependentControl": "Scope, compatibility, migration, tests, rollback, effective date, and supporting source/security evidence complete",
+      "systemEnforcement": "Proposal validation; no activation authority",
+      "externalResponsibility": "Legal, technical, cryptographic, or policy correctness outside tested behavior",
+      "negativeCases": [
+        {
+          "id": "unauthorized-initiator",
+          "expectedOutcome": "reject",
+          "specification": "Reject an initiator that does not satisfy: Authorized maintainer for that profile"
+        },
+        {
+          "id": "unmet-required-condition",
+          "expectedOutcome": "reject",
+          "specification": "Reject when any required condition or independent control is absent, stale, invalid, or mismatched: Scope, compatibility, migration, tests, rollback, effective date, and supporting source/security evidence complete"
+        },
+        {
+          "id": "enforcement-bypass",
+          "expectedOutcome": "reject",
+          "specification": "Reject any direct or indirect execution path that bypasses: Proposal validation; no activation authority"
+        }
+      ]
+    },
+    {
+      "actionId": "activate-a-versioned-profile",
+      "action": "Activate a versioned profile",
+      "permittedInitiator": "Governance authority",
+      "requiredConditionOrIndependentControl": "Required automated tests pass; dependencies and source status are active; effective date reached",
+      "systemEnforcement": "Independent version registries and fail-closed selection",
+      "externalResponsibility": "Continuing source, policy, security, and institutional maintenance",
+      "negativeCases": [
+        {
+          "id": "unauthorized-initiator",
+          "expectedOutcome": "reject",
+          "specification": "Reject an initiator that does not satisfy: Governance authority"
+        },
+        {
+          "id": "unmet-required-condition",
+          "expectedOutcome": "reject",
+          "specification": "Reject when any required condition or independent control is absent, stale, invalid, or mismatched: Required automated tests pass; dependencies and source status are active; effective date reached"
+        },
+        {
+          "id": "enforcement-bypass",
+          "expectedOutcome": "reject",
+          "specification": "Reject any direct or indirect execution path that bypasses: Independent version registries and fail-closed selection"
+        }
+      ]
+    },
+    {
+      "actionId": "create-or-withdraw-listing",
+      "action": "Create or withdraw listing",
+      "permittedInitiator": "Recorded current owner",
+      "requiredConditionOrIndependentControl": "Creation reserves a new listing ID/version and first completes the exact signed `ListingTermsPayload`; its canonically confirmed `listing` bundle must match resource/version, seller controller, payload commitment, exact `WeiAmount`, payout address/terms and current `decision-critical` class. Owner may withdraw its unmatched listing during suspension",
+      "systemEnforcement": "Recorded-ownership, listing-state, battery-lock, exact PBR link, uint256/payout-address binding and deadline checks; missing/unconfirmed/supplementary/wrong-type or substituted link fails",
+      "externalResponsibility": "Commercial description, valuation, address control, and legal offer terms",
+      "negativeCases": [
+        {
+          "id": "unauthorized-initiator",
+          "expectedOutcome": "reject",
+          "specification": "Reject an initiator that does not satisfy: Recorded current owner"
+        },
+        {
+          "id": "unmet-required-condition",
+          "expectedOutcome": "reject",
+          "specification": "Reject when any required condition or independent control is absent, stale, invalid, or mismatched: Creation reserves a new listing ID/version and first completes the exact signed `ListingTermsPayload`; its canonically confirmed `listing` bundle must match resource/version, seller controller, payload commitment, exact `WeiAmount`, payout address/terms and current `decision-critical` class. Owner may withdraw its unmatched listing during suspension"
+        },
+        {
+          "id": "enforcement-bypass",
+          "expectedOutcome": "reject",
+          "specification": "Reject any direct or indirect execution path that bypasses: Recorded-ownership, listing-state, battery-lock, exact PBR link, uint256/payout-address binding and deadline checks; missing/unconfirmed/supplementary/wrong-type or substituted link fails"
+        }
+      ]
+    },
+    {
+      "actionId": "submit-or-withdraw-offer",
+      "action": "Submit or withdraw offer",
+      "permittedInitiator": "Commercial buyer",
+      "requiredConditionOrIndependentControl": "Submission requires active unexpired listing, exact 32-byte-hex `WeiAmount`, and a buyer refund address signed with the offer; buyer may withdraw only its own still-submitted offer, including during suspension",
+      "systemEnforcement": "Buyer signature, lossless JSON/API-to-uint256 conversion, fixed refund-address binding, offer/listing effective-state and deadline checks",
+      "externalResponsibility": "Commercial capacity, address control, and real funds",
+      "negativeCases": [
+        {
+          "id": "unauthorized-initiator",
+          "expectedOutcome": "reject",
+          "specification": "Reject an initiator that does not satisfy: Commercial buyer"
+        },
+        {
+          "id": "unmet-required-condition",
+          "expectedOutcome": "reject",
+          "specification": "Reject when any required condition or independent control is absent, stale, invalid, or mismatched: Submission requires active unexpired listing, exact 32-byte-hex `WeiAmount`, and a buyer refund address signed with the offer; buyer may withdraw only its own still-submitted offer, including during suspension"
+        },
+        {
+          "id": "enforcement-bypass",
+          "expectedOutcome": "reject",
+          "specification": "Reject any direct or indirect execution path that bypasses: Buyer signature, lossless JSON/API-to-uint256 conversion, fixed refund-address binding, offer/listing effective-state and deadline checks"
+        }
+      ]
+    },
+    {
+      "actionId": "reject-an-offer",
+      "action": "Reject an offer",
+      "permittedInitiator": "Recorded seller for the listing",
+      "requiredConditionOrIndependentControl": "Listing and offer are active/unmatched and unexpired; exact offer ID/version required",
+      "systemEnforcement": "Seller scope and constant-size offer transition; no iteration",
+      "externalResponsibility": "Commercial reason or duty to negotiate",
+      "negativeCases": [
+        {
+          "id": "unauthorized-initiator",
+          "expectedOutcome": "reject",
+          "specification": "Reject an initiator that does not satisfy: Recorded seller for the listing"
+        },
+        {
+          "id": "unmet-required-condition",
+          "expectedOutcome": "reject",
+          "specification": "Reject when any required condition or independent control is absent, stale, invalid, or mismatched: Listing and offer are active/unmatched and unexpired; exact offer ID/version required"
+        },
+        {
+          "id": "enforcement-bypass",
+          "expectedOutcome": "reject",
+          "specification": "Reject any direct or indirect execution path that bypasses: Seller scope and constant-size offer transition; no iteration"
+        }
+      ]
+    },
+    {
+      "actionId": "materialize-listing-or-offer-expiry",
+      "action": "Materialize listing or offer expiry",
+      "permittedInitiator": "Any EVM wallet after the recorded deadline",
+      "requiredConditionOrIndependentControl": "Exact record remains unexpired in stored state; every other operation independently checks the same deadline",
+      "systemEnforcement": "Permissionless constant-size transition; caller address recorded with nullable actor/organization",
+      "externalResponsibility": "Commercial notice and external consequences",
+      "negativeCases": [
+        {
+          "id": "unauthorized-initiator",
+          "expectedOutcome": "reject",
+          "specification": "Reject an initiator that does not satisfy: Any EVM wallet after the recorded deadline"
+        },
+        {
+          "id": "unmet-required-condition",
+          "expectedOutcome": "reject",
+          "specification": "Reject when any required condition or independent control is absent, stale, invalid, or mismatched: Exact record remains unexpired in stored state; every other operation independently checks the same deadline"
+        },
+        {
+          "id": "enforcement-bypass",
+          "expectedOutcome": "reject",
+          "specification": "Reject any direct or indirect execution path that bypasses: Permissionless constant-size transition; caller address recorded with nullable actor/organization"
+        }
+      ]
+    },
+    {
+      "actionId": "suspend-or-resume-marketplace-availability",
+      "action": "Suspend or resume marketplace availability",
+      "permittedInitiator": "Governance authority, or organization suspension for that organization's listings",
+      "requiredConditionOrIndependentControl": "Recorded basis; resumption cannot revive matched, withdrawn, expired, closed, or otherwise terminal records",
+      "systemEnforcement": "Effective `suspended` projection blocks new submissions/acceptance while preserving owner withdrawal, expiry and existing agreement unwind",
+      "externalResponsibility": "Commercial notice, platform legitimacy, and availability outside the study",
+      "negativeCases": [
+        {
+          "id": "unauthorized-initiator",
+          "expectedOutcome": "reject",
+          "specification": "Reject an initiator that does not satisfy: Governance authority, or organization suspension for that organization's listings"
+        },
+        {
+          "id": "unmet-required-condition",
+          "expectedOutcome": "reject",
+          "specification": "Reject when any required condition or independent control is absent, stale, invalid, or mismatched: Recorded basis; resumption cannot revive matched, withdrawn, expired, closed, or otherwise terminal records"
+        },
+        {
+          "id": "enforcement-bypass",
+          "expectedOutcome": "reject",
+          "specification": "Reject any direct or indirect execution path that bypasses: Effective `suspended` projection blocks new submissions/acceptance while preserving owner withdrawal, expiry and existing agreement unwind"
+        }
+      ]
+    },
+    {
+      "actionId": "select-offer-and-create-seller-confirmed-agreement",
+      "action": "Select offer and create seller-confirmed agreement",
+      "permittedInitiator": "Recorded current owner/seller",
+      "requiredConditionOrIndependentControl": "Exact active offer and listing; a new agreement ID/version has a distinct signed `AgreementTermsPayload` and canonically confirmed decision-critical `agreement` bundle matching resource/version, controller, payload/terms commitment, deadlines, and immutable payout/refund addresses copied from the listing/offer",
+      "systemEnforcement": "Exact PBR type/resource/controller/class checks precede the atomic accepted-offer, listing/battery reservation and `awaiting-buyer-confirmation` creation; the bundle policy controller must next create an effective buyer-scoped grant/envelope, while other offers remain derived without iteration",
+      "externalResponsibility": "Contract formation, address control, completeness and legal enforceability of terms",
+      "negativeCases": [
+        {
+          "id": "unauthorized-initiator",
+          "expectedOutcome": "reject",
+          "specification": "Reject an initiator that does not satisfy: Recorded current owner/seller"
+        },
+        {
+          "id": "unmet-required-condition",
+          "expectedOutcome": "reject",
+          "specification": "Reject when any required condition or independent control is absent, stale, invalid, or mismatched: Exact active offer and listing; a new agreement ID/version has a distinct signed `AgreementTermsPayload` and canonically confirmed decision-critical `agreement` bundle matching resource/version, controller, payload/terms commitment, deadlines, and immutable payout/refund addresses copied from the listing/offer"
+        },
+        {
+          "id": "enforcement-bypass",
+          "expectedOutcome": "reject",
+          "specification": "Reject any direct or indirect execution path that bypasses: Exact PBR type/resource/controller/class checks precede the atomic accepted-offer, listing/battery reservation and `awaiting-buyer-confirmation` creation; the bundle policy controller must next create an effective buyer-scoped grant/envelope, while other offers remain derived without iteration"
+        }
+      ]
+    },
+    {
+      "actionId": "confirm-exact-agreement",
+      "action": "Confirm exact agreement",
+      "permittedInitiator": "Buyer that submitted the selected offer",
+      "requiredConditionOrIndependentControl": "Exact unexpired agreement/version and the same immutable confirmed `agreement` bundle/terms/address link selected by the seller; a current buyer-scoped grant/envelope and integrity-verified authorized retrieval are required; buyer confirmation is separate from the offer signature",
+      "systemEnforcement": "Buyer signature plus access, replay, version, address and unchanged-link checks move only to `awaiting-funding`. Grant/envelope failure, expiry, revocation, or key unavailability blocks confirmation/funding; deadline timeout cancels without funds",
+      "externalResponsibility": "Contract formation, capacity, actual reading, address control and legal enforceability",
+      "negativeCases": [
+        {
+          "id": "unauthorized-initiator",
+          "expectedOutcome": "reject",
+          "specification": "Reject an initiator that does not satisfy: Buyer that submitted the selected offer"
+        },
+        {
+          "id": "unmet-required-condition",
+          "expectedOutcome": "reject",
+          "specification": "Reject when any required condition or independent control is absent, stale, invalid, or mismatched: Exact unexpired agreement/version and the same immutable confirmed `agreement` bundle/terms/address link selected by the seller; a current buyer-scoped grant/envelope and integrity-verified authorized retrieval are required; buyer confirmation is separate from the offer signature"
+        },
+        {
+          "id": "enforcement-bypass",
+          "expectedOutcome": "reject",
+          "specification": "Reject any direct or indirect execution path that bypasses: Buyer signature plus access, replay, version, address and unchanged-link checks move only to `awaiting-funding`. Grant/envelope failure, expiry, revocation, or key unavailability blocks confirmation/funding; deadline timeout cancels without funds"
+        }
+      ]
+    },
+    {
+      "actionId": "fund-test-escrow",
+      "action": "Fund test escrow",
+      "permittedInitiator": "Buyer",
+      "requiredConditionOrIndependentControl": "Active co-signed agreement and exact `WeiAmount` matching the immutable agreement",
+      "systemEnforcement": "Lossless 32-byte-hex/uint256 conversion plus Sepolia/local-test value and state checks",
+      "externalResponsibility": "No real payment, banking, or financial-service claim",
+      "negativeCases": [
+        {
+          "id": "unauthorized-initiator",
+          "expectedOutcome": "reject",
+          "specification": "Reject an initiator that does not satisfy: Buyer"
+        },
+        {
+          "id": "unmet-required-condition",
+          "expectedOutcome": "reject",
+          "specification": "Reject when any required condition or independent control is absent, stale, invalid, or mismatched: Active co-signed agreement and exact `WeiAmount` matching the immutable agreement"
+        },
+        {
+          "id": "enforcement-bypass",
+          "expectedOutcome": "reject",
+          "specification": "Reject any direct or indirect execution path that bypasses: Lossless 32-byte-hex/uint256 conversion plus Sepolia/local-test value and state checks"
+        }
+      ]
+    },
+    {
+      "actionId": "apply-buyer-confirmation-or-funding-timeout",
+      "action": "Apply buyer-confirmation or funding timeout",
+      "permittedInitiator": "Any account after the recorded deadline",
+      "requiredConditionOrIndependentControl": "Agreement awaits buyer confirmation or funding only",
+      "systemEnforcement": "Permissionless deterministic cancellation with no funds transferred",
+      "externalResponsibility": "Commercial notice and enforceability",
+      "negativeCases": [
+        {
+          "id": "unauthorized-initiator",
+          "expectedOutcome": "reject",
+          "specification": "Reject an initiator that does not satisfy: Any account after the recorded deadline"
+        },
+        {
+          "id": "unmet-required-condition",
+          "expectedOutcome": "reject",
+          "specification": "Reject when any required condition or independent control is absent, stale, invalid, or mismatched: Agreement awaits buyer confirmation or funding only"
+        },
+        {
+          "id": "enforcement-bypass",
+          "expectedOutcome": "reject",
+          "specification": "Reject any direct or indirect execution path that bypasses: Permissionless deterministic cancellation with no funds transferred"
+        }
+      ]
+    },
+    {
+      "actionId": "apply-dispatch-timeout",
+      "action": "Apply dispatch timeout",
+      "permittedInitiator": "Buyer or any permissionless keeper after the recorded dispatch deadline",
+      "requiredConditionOrIndependentControl": "Agreement is funded and no dispatch is recorded",
+      "systemEnforcement": "Deterministic buyer refund credit and cancellation; no platform discretion",
+      "externalResponsibility": "Whether non-dispatch occurred in the physical world",
+      "negativeCases": [
+        {
+          "id": "unauthorized-initiator",
+          "expectedOutcome": "reject",
+          "specification": "Reject an initiator that does not satisfy: Buyer or any permissionless keeper after the recorded dispatch deadline"
+        },
+        {
+          "id": "unmet-required-condition",
+          "expectedOutcome": "reject",
+          "specification": "Reject when any required condition or independent control is absent, stale, invalid, or mismatched: Agreement is funded and no dispatch is recorded"
+        },
+        {
+          "id": "enforcement-bypass",
+          "expectedOutcome": "reject",
+          "specification": "Reject any direct or indirect execution path that bypasses: Deterministic buyer refund credit and cancellation; no platform discretion"
+        }
+      ]
+    },
+    {
+      "actionId": "apply-delivery-or-acceptance-timeout",
+      "action": "Apply delivery or acceptance timeout",
+      "permittedInitiator": "Either party or any permissionless keeper after the relevant deadline",
+      "requiredConditionOrIndependentControl": "Agreement is in delivery or has a recorded delivery assertion without buyer acceptance",
+      "systemEnforcement": "Creates system-originated `timed-out-referred`; trigger caller is recorded but is not the disputer; never releases funds or records acceptance",
+      "externalResponsibility": "Physical delivery, inspection, notice, and legal effect",
+      "negativeCases": [
+        {
+          "id": "unauthorized-initiator",
+          "expectedOutcome": "reject",
+          "specification": "Reject an initiator that does not satisfy: Either party or any permissionless keeper after the relevant deadline"
+        },
+        {
+          "id": "unmet-required-condition",
+          "expectedOutcome": "reject",
+          "specification": "Reject when any required condition or independent control is absent, stale, invalid, or mismatched: Agreement is in delivery or has a recorded delivery assertion without buyer acceptance"
+        },
+        {
+          "id": "enforcement-bypass",
+          "expectedOutcome": "reject",
+          "specification": "Reject any direct or indirect execution path that bypasses: Creates system-originated `timed-out-referred`; trigger caller is recorded but is not the disputer; never releases funds or records acceptance"
+        }
+      ]
+    },
+    {
+      "actionId": "record-dispatch-or-delivery",
+      "action": "Record dispatch or delivery",
+      "permittedInitiator": "Approved logistics provider",
+      "requiredConditionOrIndependentControl": "Active funded agreement, shipment reference, signed `LogisticsReportPayload`, and exact canonically confirmed decision-critical `logistics` bundle matching delivery ID/version/controller/commitment",
+      "systemEnforcement": "Scoped signature plus exact PBR type/resource/controller/class/link checks",
+      "externalResponsibility": "Physical movement and condition on delivery",
+      "negativeCases": [
+        {
+          "id": "unauthorized-initiator",
+          "expectedOutcome": "reject",
+          "specification": "Reject an initiator that does not satisfy: Approved logistics provider"
+        },
+        {
+          "id": "unmet-required-condition",
+          "expectedOutcome": "reject",
+          "specification": "Reject when any required condition or independent control is absent, stale, invalid, or mismatched: Active funded agreement, shipment reference, signed `LogisticsReportPayload`, and exact canonically confirmed decision-critical `logistics` bundle matching delivery ID/version/controller/commitment"
+        },
+        {
+          "id": "enforcement-bypass",
+          "expectedOutcome": "reject",
+          "specification": "Reject any direct or indirect execution path that bypasses: Scoped signature plus exact PBR type/resource/controller/class/link checks"
+        }
+      ]
+    },
+    {
+      "actionId": "accept-delivery",
+      "action": "Accept delivery",
+      "permittedInitiator": "Buyer",
+      "requiredConditionOrIndependentControl": "Delivery state and time window valid",
+      "systemEnforcement": "Buyer-signed transition",
+      "externalResponsibility": "Physical inspection and commercial acceptance",
+      "negativeCases": [
+        {
+          "id": "unauthorized-initiator",
+          "expectedOutcome": "reject",
+          "specification": "Reject an initiator that does not satisfy: Buyer"
+        },
+        {
+          "id": "unmet-required-condition",
+          "expectedOutcome": "reject",
+          "specification": "Reject when any required condition or independent control is absent, stale, invalid, or mismatched: Delivery state and time window valid"
+        },
+        {
+          "id": "enforcement-bypass",
+          "expectedOutcome": "reject",
+          "specification": "Reject any direct or indirect execution path that bypasses: Buyer-signed transition"
+        }
+      ]
+    },
+    {
+      "actionId": "open-transaction-dispute",
+      "action": "Open transaction dispute",
+      "permittedInitiator": "Buyer or seller",
+      "requiredConditionOrIndependentControl": "Active agreement, allowed dispute window, signed `dispute_type=transaction` selecting only `dispute.open-transaction`, and exact canonically confirmed decision-critical `dispute` bundle matching resource/version/controller/commitment",
+      "systemEnforcement": "Origin Marketplace relationship, state, replay and exact PBR link checks; settlement pauses",
+      "externalResponsibility": "Legal merits and evidence sufficiency",
+      "negativeCases": [
+        {
+          "id": "unauthorized-initiator",
+          "expectedOutcome": "reject",
+          "specification": "Reject an initiator that does not satisfy: Buyer or seller"
+        },
+        {
+          "id": "unmet-required-condition",
+          "expectedOutcome": "reject",
+          "specification": "Reject when any required condition or independent control is absent, stale, invalid, or mismatched: Active agreement, allowed dispute window, signed `dispute_type=transaction` selecting only `dispute.open-transaction`, and exact canonically confirmed decision-critical `dispute` bundle matching resource/version/controller/commitment"
+        },
+        {
+          "id": "enforcement-bypass",
+          "expectedOutcome": "reject",
+          "specification": "Reject any direct or indirect execution path that bypasses: Origin Marketplace relationship, state, replay and exact PBR link checks; settlement pauses"
+        }
+      ]
+    },
+    {
+      "actionId": "resolve-transaction-dispute",
+      "action": "Resolve transaction dispute",
+      "permittedInitiator": "Approved dispute resolver",
+      "requiredConditionOrIndependentControl": "Complete scripted resolution record; resolver is not a party",
+      "systemEnforcement": "Bounded `release-and-transfer` or `refund-and-cancel` outcome",
+      "externalResponsibility": "Legal arbitration, liability, and enforceability",
+      "negativeCases": [
+        {
+          "id": "unauthorized-initiator",
+          "expectedOutcome": "reject",
+          "specification": "Reject an initiator that does not satisfy: Approved dispute resolver"
+        },
+        {
+          "id": "unmet-required-condition",
+          "expectedOutcome": "reject",
+          "specification": "Reject when any required condition or independent control is absent, stale, invalid, or mismatched: Complete scripted resolution record; resolver is not a party"
+        },
+        {
+          "id": "enforcement-bypass",
+          "expectedOutcome": "reject",
+          "specification": "Reject any direct or indirect execution path that bypasses: Bounded `release-and-transfer` or `refund-and-cancel` outcome"
+        }
+      ]
+    },
+    {
+      "actionId": "execute-settlement",
+      "action": "Execute settlement",
+      "permittedInitiator": "Contract state machine",
+      "requiredConditionOrIndependentControl": "Acceptance or valid dispute outcome",
+      "systemEnforcement": "Deterministic release/refund and ownership transition; no LLM tool",
+      "externalResponsibility": "Real-world settlement finality and accounting",
+      "negativeCases": [
+        {
+          "id": "unauthorized-initiator",
+          "expectedOutcome": "reject",
+          "specification": "Reject an initiator that does not satisfy: Contract state machine"
+        },
+        {
+          "id": "unmet-required-condition",
+          "expectedOutcome": "reject",
+          "specification": "Reject when any required condition or independent control is absent, stale, invalid, or mismatched: Acceptance or valid dispute outcome"
+        },
+        {
+          "id": "enforcement-bypass",
+          "expectedOutcome": "reject",
+          "specification": "Reject any direct or indirect execution path that bypasses: Deterministic release/refund and ownership transition; no LLM tool"
+        }
+      ]
+    },
+    {
+      "actionId": "issue-route-assessment",
+      "action": "Issue route assessment",
+      "permittedInitiator": "Approved route assessment issuer",
+      "requiredConditionOrIndependentControl": "Immutable versioned input bundle with the closed candidate set and route-specific contexts; formal profile has exactly the three frozen routes; valid rule/method profile; distinct confirmed decision-critical input/result bundles; deterministic result has exactly one keyed profile per input candidate plus comparison/stability over that same basis; result issuer organization equals the referenced input-basis issuer",
+      "systemEnforcement": "Assessment service, cardinality/context/issuer-equality checks, separate domain signatures and signed commitments",
+      "externalResponsibility": "Real safety approval, optimality, or realized sustainability outcome",
+      "negativeCases": [
+        {
+          "id": "unauthorized-initiator",
+          "expectedOutcome": "reject",
+          "specification": "Reject an initiator that does not satisfy: Approved route assessment issuer"
+        },
+        {
+          "id": "unmet-required-condition",
+          "expectedOutcome": "reject",
+          "specification": "Reject when any required condition or independent control is absent, stale, invalid, or mismatched: Immutable versioned input bundle with the closed candidate set and route-specific contexts; formal profile has exactly the three frozen routes; valid rule/method profile; distinct confirmed decision-critical input/result bundles; deterministic result has exactly one keyed profile per input candidate plus comparison/stability over that same basis; result issuer organization equals the referenced input-basis issuer"
+        },
+        {
+          "id": "enforcement-bypass",
+          "expectedOutcome": "reject",
+          "specification": "Reject any direct or indirect execution path that bypasses: Assessment service, cardinality/context/issuer-equality checks, separate domain signatures and signed commitments"
+        }
+      ]
+    },
+    {
+      "actionId": "register-fixture-or-dataset-provenance",
+      "action": "Register fixture or dataset provenance",
+      "permittedInitiator": "Research data and fixture steward",
+      "requiredConditionOrIndependentControl": "Source class, licence or generator, version, derivation, checksum, and scope complete",
+      "systemEnforcement": "Frozen manifest; unlabeled inputs rejected",
+      "externalResponsibility": "Accuracy of external source data and representativeness",
+      "negativeCases": [
+        {
+          "id": "unauthorized-initiator",
+          "expectedOutcome": "reject",
+          "specification": "Reject an initiator that does not satisfy: Research data and fixture steward"
+        },
+        {
+          "id": "unmet-required-condition",
+          "expectedOutcome": "reject",
+          "specification": "Reject when any required condition or independent control is absent, stale, invalid, or mismatched: Source class, licence or generator, version, derivation, checksum, and scope complete"
+        },
+        {
+          "id": "enforcement-bypass",
+          "expectedOutcome": "reject",
+          "specification": "Reject any direct or indirect execution path that bypasses: Frozen manifest; unlabeled inputs rejected"
+        }
+      ]
+    },
+    {
+      "actionId": "explain-evidence-or-assessment",
+      "action": "Explain evidence or assessment",
+      "permittedInitiator": "Read-only LLM adapter",
+      "requiredConditionOrIndependentControl": "Authenticated actor, allowed purpose, deterministic tool output, support objects, and response validation",
+      "systemEnforcement": "Tool allowlist, structured response, citation and disclosure checks",
+      "externalResponsibility": "Accountable decision remains with the relevant organization",
+      "negativeCases": [
+        {
+          "id": "unauthorized-initiator",
+          "expectedOutcome": "reject",
+          "specification": "Reject an initiator that does not satisfy: Read-only LLM adapter"
+        },
+        {
+          "id": "unmet-required-condition",
+          "expectedOutcome": "reject",
+          "specification": "Reject when any required condition or independent control is absent, stale, invalid, or mismatched: Authenticated actor, allowed purpose, deterministic tool output, support objects, and response validation"
+        },
+        {
+          "id": "enforcement-bypass",
+          "expectedOutcome": "reject",
+          "specification": "Reject any direct or indirect execution path that bypasses: Tool allowlist, structured response, citation and disclosure checks"
+        }
+      ]
+    },
+    {
+      "actionId": "propose-contract-replacement",
+      "action": "Propose contract replacement",
+      "permittedInitiator": "Deployment manager",
+      "requiredConditionOrIndependentControl": "Passing build, contract/security tests, static analysis, deployment manifest, and state-migration plan; ordinary proposals may replace only the versioned evidence, assessment, marketplace, or audit-anchor modules and must retain the four frozen shared-registry addresses, aggregate-origin routing, and audit predecessor/handoff fields",
+      "systemEnforcement": "New immutable domain/marketplace/audit module; no proxy mutation and no ordinary proposal to replace/fork a shared registry, move an existing aggregate, or reset the audit chain",
+      "externalResponsibility": "Independent audit and real governance legitimacy",
+      "negativeCases": [
+        {
+          "id": "unauthorized-initiator",
+          "expectedOutcome": "reject",
+          "specification": "Reject an initiator that does not satisfy: Deployment manager"
+        },
+        {
+          "id": "unmet-required-condition",
+          "expectedOutcome": "reject",
+          "specification": "Reject when any required condition or independent control is absent, stale, invalid, or mismatched: Passing build, contract/security tests, static analysis, deployment manifest, and state-migration plan; ordinary proposals may replace only the versioned evidence, assessment, marketplace, or audit-anchor modules and must retain the four frozen shared-registry addresses, aggregate-origin routing, and audit predecessor/handoff fields"
+        },
+        {
+          "id": "enforcement-bypass",
+          "expectedOutcome": "reject",
+          "specification": "Reject any direct or indirect execution path that bypasses: New immutable domain/marketplace/audit module; no proxy mutation and no ordinary proposal to replace/fork a shared registry, move an existing aggregate, or reset the audit chain"
+        }
+      ]
+    },
+    {
+      "actionId": "activate-contract-replacement",
+      "action": "Activate contract replacement",
+      "permittedInitiator": "Governance authority",
+      "requiredConditionOrIndependentControl": "Recorded review delay, compatible projector/migration, explicit module-version activation in the stable `DeploymentRegistry`, unchanged four shared-registry addresses, and root/dependent-origin continuity. Audit-anchor activation additionally requires no pending/failed/orphaned predecessor batch and binds its exact last confirmed batch; existing active agreements remain governed by their original deployment until terminal state",
+      "systemEnforcement": "`DeploymentRegistry` routes only new evidence roots and assessment inputs to the active modules. Verification/evidence-dispute children stay with the referenced evidence origin; assessment results stay with the input origin; funded-agreement logistics/disputes stay with the agreement Marketplace. Other lifecycle operations remain with their origin; audit successor verifies the exact predecessor handoff",
+      "externalResponsibility": "Legal continuity and acceptance by real counterparties",
+      "negativeCases": [
+        {
+          "id": "unauthorized-initiator",
+          "expectedOutcome": "reject",
+          "specification": "Reject an initiator that does not satisfy: Governance authority"
+        },
+        {
+          "id": "unmet-required-condition",
+          "expectedOutcome": "reject",
+          "specification": "Reject when any required condition or independent control is absent, stale, invalid, or mismatched: Recorded review delay, compatible projector/migration, explicit module-version activation in the stable `DeploymentRegistry`, unchanged four shared-registry addresses, and root/dependent-origin continuity. Audit-anchor activation additionally requires no pending/failed/orphaned predecessor batch and binds its exact last confirmed batch; existing active agreements remain governed by their original deployment until terminal state"
+        },
+        {
+          "id": "enforcement-bypass",
+          "expectedOutcome": "reject",
+          "specification": "Reject any direct or indirect execution path that bypasses: `DeploymentRegistry` routes only new evidence roots and assessment inputs to the active modules. Verification/evidence-dispute children stay with the referenced evidence origin; assessment results stay with the input origin; funded-agreement logistics/disputes stay with the agreement Marketplace. Other lifecycle operations remain with their origin; audit successor verifies the exact predecessor handoff"
+        }
+      ]
+    },
+    {
+      "actionId": "activate-reducer-and-recover-from-reorganization",
+      "action": "Activate reducer and recover from reorganization",
+      "permittedInitiator": "Governance authority activates a tested reducer; indexer service performs deterministic recovery",
+      "requiredConditionOrIndependentControl": "Reducer/deployment compatibility, checkpoint, confirmation profile, rollback range, and replay evidence required",
+      "systemEnforcement": "Versioned projector; recovery cannot issue domain events or mutate chain history",
+      "externalResponsibility": "Chain-provider availability and consensus semantics",
+      "negativeCases": [
+        {
+          "id": "unauthorized-initiator",
+          "expectedOutcome": "reject",
+          "specification": "Reject an initiator that does not satisfy: Governance authority activates a tested reducer; indexer service performs deterministic recovery"
+        },
+        {
+          "id": "unmet-required-condition",
+          "expectedOutcome": "reject",
+          "specification": "Reject when any required condition or independent control is absent, stale, invalid, or mismatched: Reducer/deployment compatibility, checkpoint, confirmation profile, rollback range, and replay evidence required"
+        },
+        {
+          "id": "enforcement-bypass",
+          "expectedOutcome": "reject",
+          "specification": "Reject any direct or indirect execution path that bypasses: Versioned projector; recovery cannot issue domain events or mutate chain history"
+        }
+      ]
+    },
+    {
+      "actionId": "read-or-export-an-audit-bundle",
+      "action": "Read or export an audit bundle",
+      "permittedInitiator": "Actor with resource relationship, governance authority, or regulatory auditor under an allowed purpose",
+      "requiredConditionOrIndependentControl": "Access class, purpose, minimization, anchored/open-tail status, and sensitive-bundle grant checked",
+      "systemEnforcement": "Authorized reconstruction; no unrestricted log export",
+      "externalResponsibility": "Lawful access and interpretation outside the study",
+      "negativeCases": [
+        {
+          "id": "unauthorized-initiator",
+          "expectedOutcome": "reject",
+          "specification": "Reject an initiator that does not satisfy: Actor with resource relationship, governance authority, or regulatory auditor under an allowed purpose"
+        },
+        {
+          "id": "unmet-required-condition",
+          "expectedOutcome": "reject",
+          "specification": "Reject when any required condition or independent control is absent, stale, invalid, or mismatched: Access class, purpose, minimization, anchored/open-tail status, and sensitive-bundle grant checked"
+        },
+        {
+          "id": "enforcement-bypass",
+          "expectedOutcome": "reject",
+          "specification": "Reject any direct or indirect execution path that bypasses: Authorized reconstruction; no unrestricted log export"
+        }
+      ]
+    },
+    {
+      "actionId": "author-a-protected-licensed-source-payload",
+      "action": "Author a protected licensed-source payload",
+      "permittedInitiator": "Actor/organization with the active source-profile-controller relationship and exact `authoritative-source.author-licensed` capability",
+      "requiredConditionOrIndependentControl": "External authority and edition are recorded but do not impersonate the signer; exact licence, permitted purpose, source ID/version, author fields and confirmed protected-bundle link are required",
+      "systemEnforcement": "`AuthorBindingProfileV1` checks the source-controller assignment before preparation and activation; ordinary domain attribution/finalization applies, while governance activation remains a separate action",
+      "externalResponsibility": "Licence validity, attribution, continuing acquisition rights, and external authority",
+      "negativeCases": [
+        {
+          "id": "unauthorized-initiator",
+          "expectedOutcome": "reject",
+          "specification": "Reject an initiator that does not satisfy: Actor/organization with the active source-profile-controller relationship and exact `authoritative-source.author-licensed` capability"
+        },
+        {
+          "id": "unmet-required-condition",
+          "expectedOutcome": "reject",
+          "specification": "Reject when any required condition or independent control is absent, stale, invalid, or mismatched: External authority and edition are recorded but do not impersonate the signer; exact licence, permitted purpose, source ID/version, author fields and confirmed protected-bundle link are required"
+        },
+        {
+          "id": "enforcement-bypass",
+          "expectedOutcome": "reject",
+          "specification": "Reject any direct or indirect execution path that bypasses: `AuthorBindingProfileV1` checks the source-controller assignment before preparation and activation; ordinary domain attribution/finalization applies, while governance activation remains a separate action"
+        }
+      ]
+    },
+    {
+      "actionId": "review-activate-supersede-mark-unavailable-withdraw-or-expire-an-authoritative-source-profile",
+      "action": "Review, activate, supersede, mark unavailable, withdraw, or expire an authoritative source profile",
+      "permittedInitiator": "Schema and rule maintainer proposes; governance authority activates the exact transition",
+      "requiredConditionOrIndependentControl": "Exact immutable source version, predecessor/successor where revised, current/target lifecycle, actor, reason, applicability/effective/review dates, and licensed-text availability required",
+      "systemEnforcement": "Enforces the closed source lifecycle; every non-active state disables dependent rules and returns `UNKNOWN` or referral. Unavailable restoration requires a new recorded review basis for the same edition; superseded/withdrawn/expired sources are terminal and any revised edition uses a new version rather than in-place reactivation",
+      "externalResponsibility": "Legal/technical interpretation and continued source acquisition",
+      "negativeCases": [
+        {
+          "id": "unauthorized-initiator",
+          "expectedOutcome": "reject",
+          "specification": "Reject an initiator that does not satisfy: Schema and rule maintainer proposes; governance authority activates the exact transition"
+        },
+        {
+          "id": "unmet-required-condition",
+          "expectedOutcome": "reject",
+          "specification": "Reject when any required condition or independent control is absent, stale, invalid, or mismatched: Exact immutable source version, predecessor/successor where revised, current/target lifecycle, actor, reason, applicability/effective/review dates, and licensed-text availability required"
+        },
+        {
+          "id": "enforcement-bypass",
+          "expectedOutcome": "reject",
+          "specification": "Reject any direct or indirect execution path that bypasses: Enforces the closed source lifecycle; every non-active state disables dependent rules and returns `UNKNOWN` or referral. Unavailable restoration requires a new recorded review basis for the same edition; superseded/withdrawn/expired sources are terminal and any revised edition uses a new version rather than in-place reactivation"
+        }
+      ]
+    },
+    {
+      "actionId": "close-an-audit-batch",
+      "action": "Close an audit batch",
+      "permittedInitiator": "Audit batch closer service account",
+      "requiredConditionOrIndependentControl": "Active audit profile, contiguous unbatched sequence, complete canonical events, exclusive close transaction, and exact immediately preceding closed-batch commitment required",
+      "systemEnforcement": "Deterministic hash-chain commitment; closure may continue while a predecessor anchor is pending, and failures leave events unclosed and visible",
+      "externalResponsibility": "Retention and completeness of external records",
+      "negativeCases": [
+        {
+          "id": "unauthorized-initiator",
+          "expectedOutcome": "reject",
+          "specification": "Reject an initiator that does not satisfy: Audit batch closer service account"
+        },
+        {
+          "id": "unmet-required-condition",
+          "expectedOutcome": "reject",
+          "specification": "Reject when any required condition or independent control is absent, stale, invalid, or mismatched: Active audit profile, contiguous unbatched sequence, complete canonical events, exclusive close transaction, and exact immediately preceding closed-batch commitment required"
+        },
+        {
+          "id": "enforcement-bypass",
+          "expectedOutcome": "reject",
+          "specification": "Reject any direct or indirect execution path that bypasses: Deterministic hash-chain commitment; closure may continue while a predecessor anchor is pending, and failures leave events unclosed and visible"
+        }
+      ]
+    },
+    {
+      "actionId": "anchor-closed-audit-batch",
+      "action": "Anchor closed audit batch",
+      "permittedInitiator": "Audit anchor service account",
+      "requiredConditionOrIndependentControl": "Complete batch, deterministic hash-chain commitment, configured boundary, active scoped service key, chain availability, and canonically confirmed immediately preceding batch anchor (except genesis)",
+      "systemEnforcement": "Only the anchor method is authorized; the contract accepts batches strictly in closed-batch order; confirmation/reorganization is tracked and re-anchored in order; failure leaves this and later anchors pending with visible open-tail exposure",
+      "externalResponsibility": "Retention outside the prototype and interpretation of audit evidence",
+      "negativeCases": [
+        {
+          "id": "unauthorized-initiator",
+          "expectedOutcome": "reject",
+          "specification": "Reject an initiator that does not satisfy: Audit anchor service account"
+        },
+        {
+          "id": "unmet-required-condition",
+          "expectedOutcome": "reject",
+          "specification": "Reject when any required condition or independent control is absent, stale, invalid, or mismatched: Complete batch, deterministic hash-chain commitment, configured boundary, active scoped service key, chain availability, and canonically confirmed immediately preceding batch anchor (except genesis)"
+        },
+        {
+          "id": "enforcement-bypass",
+          "expectedOutcome": "reject",
+          "specification": "Reject any direct or indirect execution path that bypasses: Only the anchor method is authorized; the contract accepts batches strictly in closed-batch order; confirmation/reorganization is tracked and re-anchored in order; failure leaves this and later anchors pending with visible open-tail exposure"
+        }
+      ]
+    }
+  ]
+}

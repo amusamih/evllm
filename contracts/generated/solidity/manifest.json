@@ -1,0 +1,141 @@
+{
+  "schema": "EVLLM_SOLIDITY_ARTIFACT_MANIFEST_V1",
+  "compiler": "solc-0.8.36",
+  "compilerLongVersion": "0.8.36+commit.8a079791",
+  "compilerType": "solc",
+  "preferWasm": true,
+  "evmVersion": "cancun",
+  "viaIR": false,
+  "optimizer": { "enabled": true, "runs": 200 },
+  "toolchain": {
+    "hardhat": "3.12.0",
+    "hardhatEthers": "4.0.15",
+    "hardhatIgnition": "3.1.8",
+    "hardhatIgnitionEthers": "3.1.6",
+    "hardhatVerify": "3.0.22",
+    "ethers": "6.17.0",
+    "openZeppelin": "5.6.1",
+    "forgeStdCommit": "bf647bd6046f2f7da30d0c2bf435e5c76a780c1b",
+    "slitherImage": "ghcr.io/crytic/slither:0.11.6@sha256:89d4127ec3bfeba9725a863c58dd96b01781ff73737871dd3b07606ebc4cf16b"
+  },
+  "networks": {
+    "local": { "chainId": 31337, "initialDate": "2026-08-11T00:00:00.000Z" },
+    "sepolia": { "chainId": 11155111 }
+  },
+  "deploymentOrder": [
+    "AuthorityProfileRegistry",
+    "ProtectedBundleRegistry",
+    "BatteryOwnershipRegistry",
+    "DeploymentRegistry",
+    "EvidenceRegistry",
+    "Marketplace",
+    "AuditAnchor"
+  ],
+  "constructorBindings": {
+    "AuthorityProfileRegistry": ["governance"],
+    "ProtectedBundleRegistry": ["AuthorityProfileRegistry"],
+    "BatteryOwnershipRegistry": ["governance"],
+    "DeploymentRegistry": [
+      "governance",
+      "AuthorityProfileRegistry",
+      "ProtectedBundleRegistry",
+      "BatteryOwnershipRegistry",
+      "reviewDelaySeconds"
+    ],
+    "EvidenceRegistry": ["AuthorityProfileRegistry", "ProtectedBundleRegistry"],
+    "Marketplace": [
+      "AuthorityProfileRegistry",
+      "ProtectedBundleRegistry",
+      "BatteryOwnershipRegistry",
+      "DeploymentRegistry",
+      "acceptanceWindowSeconds"
+    ],
+    "AuditAnchor": ["AuthorityProfileRegistry"]
+  },
+  "contracts": [
+    {
+      "contractName": "AuthorityProfileRegistry",
+      "sourceName": "contracts/AuthorityProfileRegistry.sol",
+      "abi": "abi/AuthorityProfileRegistry.json",
+      "creationBytecodeSha256": "0xdfbd16baab49811569bd85769d7af4baf7f4fc71ee29566e03fc85d938f40f35",
+      "deployedBytecodeSha256": "0x7590b24981c82bd1cf2ec191ecf489b648e3f8851d926ce8865b87ead6574f1c",
+      "buildInfoId": "solc-0_8_36-8a022be47bfa0ef10be9f196500d751eccbfbbd3",
+      "buildInfoInputSha256": "0xa02a859f6327181eae3288dac8a31f5e7adffa37e5799163a74991b5b15fa5b1",
+      "buildInfoOutputSha256": "0x4e933a1c32f3803afe33ebc1768713040f40c81f27ced4baea29439484340b0a",
+      "stableSharedBoundary": true,
+      "proxy": false
+    },
+    {
+      "contractName": "ProtectedBundleRegistry",
+      "sourceName": "contracts/ProtectedBundleRegistry.sol",
+      "abi": "abi/ProtectedBundleRegistry.json",
+      "creationBytecodeSha256": "0x0100506c5ae615345e46e2083cb3be4cf0e3080c3d1f799f761a7e7bf1be41b6",
+      "deployedBytecodeSha256": "0x11ad121a7065ed3bfe4fae702329c0fbb2ba66b9941771e9fcaf5974a3b468fb",
+      "buildInfoId": "solc-0_8_36-4d123ebe9899c14b7d526832782319ecfc872fec",
+      "buildInfoInputSha256": "0x9360effea3b3a98a24da1aabf0af87bae7b8d355e3fd8df59384903f6867dd0e",
+      "buildInfoOutputSha256": "0x3218582ae3b16e1d4bdcc288bac43ad21342ef2dc01b85afd48ac307de0a63ae",
+      "stableSharedBoundary": true,
+      "proxy": false
+    },
+    {
+      "contractName": "BatteryOwnershipRegistry",
+      "sourceName": "contracts/BatteryOwnershipRegistry.sol",
+      "abi": "abi/BatteryOwnershipRegistry.json",
+      "creationBytecodeSha256": "0x1dc522e33b87b647d6b1219837b04e472387b3682e8b396ec3b65d782cfa4984",
+      "deployedBytecodeSha256": "0x3780e931c2515fb5d9962aff7eb65c388e1af2aeaf53ea1924fc9c9cc35c55ab",
+      "buildInfoId": "solc-0_8_36-1300085946a0ac6451914a5aee137ef7fbaedbcc",
+      "buildInfoInputSha256": "0x0695090a426542dff60625f6e3051e1232c5c208f6cff49c05ad1da6276307f3",
+      "buildInfoOutputSha256": "0x5f6aa4c3544c78293945eacd75255a4b1f2954e4e726f6c7f6263b2af4911dfd",
+      "stableSharedBoundary": true,
+      "proxy": false
+    },
+    {
+      "contractName": "DeploymentRegistry",
+      "sourceName": "contracts/DeploymentRegistry.sol",
+      "abi": "abi/DeploymentRegistry.json",
+      "creationBytecodeSha256": "0x9951653956d0b6be09ea15fc4918a5d7b442d546aa75daf0d8337276d040bfdc",
+      "deployedBytecodeSha256": "0x80ee3deac23ad57cf55ee6c2d6eda9ed1114f14ce2dbc1ecbdd20af77a1d9453",
+      "buildInfoId": "solc-0_8_36-11e781217fc4905e32496fc91a381f590815ea89",
+      "buildInfoInputSha256": "0x2f7d3f8e15e9c7c016dc3af7e26df32cd6c25e14c2cf1fb0109493410d1dd893",
+      "buildInfoOutputSha256": "0xbc58ff4c6e8b06571d11e0e2a708615a26e7a6548f0e5306e9eacdf8a02d067a",
+      "stableSharedBoundary": true,
+      "proxy": false
+    },
+    {
+      "contractName": "EvidenceRegistry",
+      "sourceName": "contracts/EvidenceRegistry.sol",
+      "abi": "abi/EvidenceRegistry.json",
+      "creationBytecodeSha256": "0x38c2a55c5122849c63e3dc2843b5f936a59eeb6dfcc44be3ef52bd517343e3e2",
+      "deployedBytecodeSha256": "0x1a380680f727ebea78e13857b10e87bce8e14cd60fea7f799b9bd1af1c9e4c90",
+      "buildInfoId": "solc-0_8_36-7fe64a46801d4701edab67d1f3f825bf59a957c3",
+      "buildInfoInputSha256": "0x44bfd83ec8c4bed6c3747a83484292a7c99d711a35586edf417ae3289d0b453e",
+      "buildInfoOutputSha256": "0xb06121f9d4ab5d736d65cbfe843905cdf7e5f55184bf79cdb30f47666ffd453c",
+      "stableSharedBoundary": false,
+      "proxy": false
+    },
+    {
+      "contractName": "Marketplace",
+      "sourceName": "contracts/Marketplace.sol",
+      "abi": "abi/Marketplace.json",
+      "creationBytecodeSha256": "0x8bcb0e4353d630ce3e8f798d645f97f75e93738c158c0b43c9e87cb7d9888425",
+      "deployedBytecodeSha256": "0xffe776e8f898d874646639dcbe7dcfefb37cef62e87969ccab7a9a7d1cf10800",
+      "buildInfoId": "solc-0_8_36-8a31f64bfd10ccafa9af587c4c2c6eb54bbf9390",
+      "buildInfoInputSha256": "0xea0d5119efa1e76cd71556a045300276fac39bff8ca4967ec5fdf4d5f13e3212",
+      "buildInfoOutputSha256": "0xd65e377f9749cf813741fc3060b2bdb0fa7335c628be584ccd3eb9b5855596b4",
+      "stableSharedBoundary": false,
+      "proxy": false
+    },
+    {
+      "contractName": "AuditAnchor",
+      "sourceName": "contracts/AuditAnchor.sol",
+      "abi": "abi/AuditAnchor.json",
+      "creationBytecodeSha256": "0x04164c695de5fdd31afbac2f3e1022c5e1ec0bc9574fc2174dafd32ffe5b29cf",
+      "deployedBytecodeSha256": "0xc9b73a735f352ef9891fa4f2879d4864adf370d703bb3d912340988e30697a90",
+      "buildInfoId": "solc-0_8_36-e6f15e6ca536ac336e16dde8d301eef10f27bf59",
+      "buildInfoInputSha256": "0x1c107f5120c3b47f02cdd088bb1f31197d66f9e770c53594688cc1fbcaa54923",
+      "buildInfoOutputSha256": "0x7b1e8c9ca9fd57f865a9314cf5308edf8b52bae846c0261f7c411bef60933b03",
+      "stableSharedBoundary": false,
+      "proxy": false
+    }
+  ]
+}

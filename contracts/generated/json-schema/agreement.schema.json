@@ -1,0 +1,88 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "schema": { "type": "string", "const": "EVLLM_AGREEMENT_V1" },
+    "agreement_id": {
+      "type": "string",
+      "pattern": "^urn:evllm:agreement:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "agreement_version": { "type": "number", "const": 1 },
+    "terms_payload_ref": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "version": { "$ref": "#/$defs/__schema0" }
+      },
+      "required": ["id", "version"],
+      "additionalProperties": false
+    },
+    "domain_signature_record_id": {
+      "type": "string",
+      "pattern": "^urn:evllm:assertion:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "seller_selection_id": {
+      "type": "string",
+      "pattern": "^urn:evllm:transition:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "buyer_confirmation_id": {
+      "type": "string",
+      "pattern": "^urn:evllm:transition:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "escrow_amount": { "$ref": "#/$defs/__schema1" },
+    "seller_credit": { "$ref": "#/$defs/__schema1" },
+    "buyer_credit": { "$ref": "#/$defs/__schema1" },
+    "confirmation_deadline": { "$ref": "#/$defs/__schema2" },
+    "delivery_deadline": { "$ref": "#/$defs/__schema2" },
+    "state": {
+      "type": "string",
+      "enum": [
+        "awaiting-buyer-confirmation",
+        "awaiting-funding",
+        "funded",
+        "in-delivery",
+        "delivered",
+        "accepted",
+        "settled",
+        "cancelled",
+        "refund-and-cancel",
+        "disputed",
+        "timed-out-referred",
+        "release-and-transfer"
+      ]
+    },
+    "chain_locators": { "maxItems": 256, "type": "array", "items": { "$ref": "#/$defs/__schema3" } }
+  },
+  "required": [
+    "schema",
+    "agreement_id",
+    "agreement_version",
+    "terms_payload_ref",
+    "domain_signature_record_id",
+    "seller_selection_id",
+    "escrow_amount",
+    "seller_credit",
+    "buyer_credit",
+    "confirmation_deadline",
+    "delivery_deadline",
+    "state",
+    "chain_locators"
+  ],
+  "additionalProperties": false,
+  "$defs": {
+    "__schema0": { "type": "integer", "exclusiveMinimum": 0, "maximum": 9007199254740991 },
+    "__schema1": { "type": "string", "pattern": "^0x[0-9a-f]{64}$" },
+    "__schema2": { "type": "integer", "minimum": 0, "maximum": 9007199254740991 },
+    "__schema3": {
+      "type": "object",
+      "properties": {
+        "chain_id": { "$ref": "#/$defs/__schema0" },
+        "transaction_hash": { "type": "string", "pattern": "^0x[0-9a-f]{64}$" },
+        "block_number": { "type": "integer", "minimum": 0, "maximum": 9007199254740991 },
+        "log_index": { "type": "integer", "minimum": 0, "maximum": 9007199254740991 }
+      },
+      "required": ["chain_id", "transaction_hash", "block_number", "log_index"],
+      "additionalProperties": false
+    }
+  }
+}

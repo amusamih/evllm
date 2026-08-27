@@ -1,0 +1,307 @@
+[
+  {
+    "inputs": [
+      { "internalType": "address", "name": "authorityProfileRegistryAddress", "type": "address" }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "constructor"
+  },
+  { "inputs": [], "name": "AlreadyBound", "type": "error" },
+  { "inputs": [], "name": "AlreadyDecisionCritical", "type": "error" },
+  { "inputs": [], "name": "AttestationReplay", "type": "error" },
+  { "inputs": [], "name": "BootstrapUnavailable", "type": "error" },
+  { "inputs": [], "name": "ECDSAInvalidSignature", "type": "error" },
+  {
+    "inputs": [{ "internalType": "uint256", "name": "length", "type": "uint256" }],
+    "name": "ECDSAInvalidSignatureLength",
+    "type": "error"
+  },
+  {
+    "inputs": [{ "internalType": "bytes32", "name": "s", "type": "bytes32" }],
+    "name": "ECDSAInvalidSignatureS",
+    "type": "error"
+  },
+  { "inputs": [], "name": "InactiveControllerOrganization", "type": "error" },
+  { "inputs": [], "name": "InvalidAttestation", "type": "error" },
+  { "inputs": [], "name": "InvalidCommitment", "type": "error" },
+  { "inputs": [], "name": "InvalidReplicaReceipt", "type": "error" },
+  { "inputs": [], "name": "InvalidShortString", "type": "error" },
+  { "inputs": [], "name": "NotController", "type": "error" },
+  { "inputs": [], "name": "ReceiptReplay", "type": "error" },
+  { "inputs": [], "name": "ReplicaReceiptRequired", "type": "error" },
+  {
+    "inputs": [{ "internalType": "string", "name": "str", "type": "string" }],
+    "name": "StringTooLong",
+    "type": "error"
+  },
+  { "inputs": [], "name": "UnknownBundle", "type": "error" },
+  {
+    "anonymous": false,
+    "inputs": [
+      { "indexed": true, "internalType": "bytes32", "name": "bundleKey", "type": "bytes32" },
+      {
+        "indexed": true,
+        "internalType": "bytes32",
+        "name": "signerCredentialId",
+        "type": "bytes32"
+      },
+      { "indexed": true, "internalType": "uint256", "name": "nonce", "type": "uint256" },
+      { "indexed": false, "internalType": "bytes32", "name": "typedDataDigest", "type": "bytes32" }
+    ],
+    "name": "DomainAttestationConsumed",
+    "type": "event"
+  },
+  { "anonymous": false, "inputs": [], "name": "EIP712DomainChanged", "type": "event" },
+  {
+    "anonymous": false,
+    "inputs": [
+      { "indexed": true, "internalType": "bytes32", "name": "bundleKey", "type": "bytes32" },
+      { "indexed": true, "internalType": "bytes32", "name": "domainKey", "type": "bytes32" },
+      { "indexed": true, "internalType": "bytes32", "name": "bundleType", "type": "bytes32" },
+      { "indexed": false, "internalType": "address", "name": "controller", "type": "address" },
+      {
+        "indexed": false,
+        "internalType": "enum ProtectedBundleRegistry.CriticalityClass",
+        "name": "criticalityClass",
+        "type": "uint8"
+      }
+    ],
+    "name": "ProtectedBundleCommitted",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      { "indexed": true, "internalType": "bytes32", "name": "bundleKey", "type": "bytes32" }
+    ],
+    "name": "ProtectedBundlePromoted",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      { "indexed": true, "internalType": "bytes32", "name": "bundleKey", "type": "bytes32" },
+      {
+        "indexed": true,
+        "internalType": "bytes32",
+        "name": "replicaRepositoryId",
+        "type": "bytes32"
+      },
+      {
+        "indexed": true,
+        "internalType": "bytes32",
+        "name": "replicaCustodianOrganizationId",
+        "type": "bytes32"
+      },
+      {
+        "indexed": false,
+        "internalType": "bytes32",
+        "name": "signerCredentialId",
+        "type": "bytes32"
+      },
+      { "indexed": false, "internalType": "bytes32", "name": "nonce", "type": "bytes32" }
+    ],
+    "name": "ReplicaReceiptVerified",
+    "type": "event"
+  },
+  {
+    "inputs": [],
+    "name": "DOMAIN_ATTESTATION_TYPEHASH",
+    "outputs": [{ "internalType": "bytes32", "name": "", "type": "bytes32" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "authorityProfileRegistry",
+    "outputs": [
+      { "internalType": "contract IAuthorityProfileRegistry", "name": "", "type": "address" }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "bootstrapClosed",
+    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "bootstrapGovernance",
+    "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "bytes32", "name": "domainKey", "type": "bytes32" }],
+    "name": "bundleForDomain",
+    "outputs": [{ "internalType": "bytes32", "name": "bundleKey", "type": "bytes32" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "closeBootstrap",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "components": [
+          { "internalType": "bytes32", "name": "bundleId", "type": "bytes32" },
+          { "internalType": "uint64", "name": "bundleVersion", "type": "uint64" },
+          { "internalType": "bytes32", "name": "bundleType", "type": "bytes32" },
+          { "internalType": "bytes32", "name": "domainResourceId", "type": "bytes32" },
+          { "internalType": "uint64", "name": "domainResourceVersion", "type": "uint64" },
+          { "internalType": "bytes32", "name": "authorBindingProfileId", "type": "bytes32" },
+          { "internalType": "uint64", "name": "authorBindingProfileVersion", "type": "uint64" },
+          { "internalType": "bytes32", "name": "domainPayloadCommitment", "type": "bytes32" },
+          { "internalType": "bytes32", "name": "signerActorId", "type": "bytes32" },
+          { "internalType": "bytes32", "name": "signerOrgId", "type": "bytes32" },
+          { "internalType": "bytes32", "name": "signerCredentialId", "type": "bytes32" },
+          { "internalType": "uint256", "name": "nonce", "type": "uint256" },
+          { "internalType": "uint64", "name": "issuedAt", "type": "uint64" },
+          { "internalType": "uint64", "name": "expiresAt", "type": "uint64" }
+        ],
+        "internalType": "struct ProtectedBundleRegistry.DomainAttestation",
+        "name": "attestation",
+        "type": "tuple"
+      },
+      { "internalType": "bytes", "name": "signature", "type": "bytes" },
+      { "internalType": "bytes32", "name": "controllerOrganizationId", "type": "bytes32" },
+      { "internalType": "bytes32", "name": "controllerCredentialId", "type": "bytes32" },
+      { "internalType": "bytes32", "name": "contentEnvelopeDigest", "type": "bytes32" },
+      { "internalType": "uint64", "name": "storedEnvelopeLength", "type": "uint64" },
+      { "internalType": "bytes32", "name": "replicaPolicyDigest", "type": "bytes32" }
+    ],
+    "name": "commitAttestedProtectedBundle",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "bytes32", "name": "bundleKey", "type": "bytes32" },
+      { "internalType": "bytes32", "name": "domainKey", "type": "bytes32" },
+      { "internalType": "bytes32", "name": "controllerOrganizationId", "type": "bytes32" },
+      { "internalType": "bytes32", "name": "bundleType", "type": "bytes32" },
+      { "internalType": "bytes32", "name": "domainPayloadCommitment", "type": "bytes32" },
+      { "internalType": "bytes32", "name": "contentEnvelopeDigest", "type": "bytes32" },
+      { "internalType": "uint64", "name": "storedEnvelopeLength", "type": "uint64" },
+      { "internalType": "bytes32", "name": "replicaPolicyDigest", "type": "bytes32" },
+      {
+        "internalType": "enum ProtectedBundleRegistry.CriticalityClass",
+        "name": "initialCriticalityClass",
+        "type": "uint8"
+      }
+    ],
+    "name": "commitProtectedBundle",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "bytes32", "name": "bundleKey", "type": "bytes32" }],
+    "name": "commitments",
+    "outputs": [
+      { "internalType": "bytes32", "name": "domainKey", "type": "bytes32" },
+      { "internalType": "bytes32", "name": "controllerOrganizationId", "type": "bytes32" },
+      { "internalType": "address", "name": "controller", "type": "address" },
+      { "internalType": "bytes32", "name": "bundleType", "type": "bytes32" },
+      { "internalType": "bytes32", "name": "domainPayloadCommitment", "type": "bytes32" },
+      { "internalType": "bytes32", "name": "contentEnvelopeDigest", "type": "bytes32" },
+      { "internalType": "uint64", "name": "storedEnvelopeLength", "type": "uint64" },
+      { "internalType": "bytes32", "name": "replicaPolicyDigest", "type": "bytes32" },
+      {
+        "internalType": "enum ProtectedBundleRegistry.CriticalityClass",
+        "name": "criticalityClass",
+        "type": "uint8"
+      },
+      { "internalType": "bool", "name": "confirmed", "type": "bool" }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "bytes32", "name": "attestationNonceScope", "type": "bytes32" }],
+    "name": "consumedAttestationNonces",
+    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "bytes32", "name": "receiptScope", "type": "bytes32" }],
+    "name": "consumedReceiptNonces",
+    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "bytes32", "name": "bundleKey", "type": "bytes32" }],
+    "name": "controllerOf",
+    "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "eip712Domain",
+    "outputs": [
+      { "internalType": "bytes1", "name": "fields", "type": "bytes1" },
+      { "internalType": "string", "name": "name", "type": "string" },
+      { "internalType": "string", "name": "version", "type": "string" },
+      { "internalType": "uint256", "name": "chainId", "type": "uint256" },
+      { "internalType": "address", "name": "verifyingContract", "type": "address" },
+      { "internalType": "bytes32", "name": "salt", "type": "bytes32" },
+      { "internalType": "uint256[]", "name": "extensions", "type": "uint256[]" }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "bytes32", "name": "bundleKey", "type": "bytes32" },
+      { "internalType": "bytes32", "name": "domainKey", "type": "bytes32" },
+      { "internalType": "bytes32", "name": "bundleType", "type": "bytes32" },
+      { "internalType": "bytes32", "name": "domainPayloadCommitment", "type": "bytes32" },
+      { "internalType": "bool", "name": "requireDecisionCritical", "type": "bool" }
+    ],
+    "name": "isConfirmedLink",
+    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "bytes32", "name": "bundleKey", "type": "bytes32" }],
+    "name": "promoteToDecisionCritical",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "bytes32", "name": "bundleKey", "type": "bytes32" },
+      { "internalType": "bytes32", "name": "replicaRepositoryId", "type": "bytes32" },
+      { "internalType": "bytes32", "name": "replicaCustodianOrganizationId", "type": "bytes32" },
+      { "internalType": "bytes32", "name": "signerCredentialId", "type": "bytes32" },
+      { "internalType": "bytes32", "name": "observedContentEnvelopeDigest", "type": "bytes32" },
+      { "internalType": "uint64", "name": "observedStoredEnvelopeLength", "type": "uint64" },
+      { "internalType": "bytes32", "name": "nonce", "type": "bytes32" }
+    ],
+    "name": "submitReplicaReceipt",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "bytes32", "name": "bundleKey", "type": "bytes32" }],
+    "name": "verifiedReplicaReceipt",
+    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+    "stateMutability": "view",
+    "type": "function"
+  }
+]

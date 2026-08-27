@@ -1,0 +1,83 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "schema": { "type": "string", "const": "EVLLM_AUTHORITATIVE_SOURCE_V1" },
+    "source_id": {
+      "type": "string",
+      "pattern": "^urn:evllm:source:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "source_version": { "$ref": "#/$defs/__schema0" },
+    "predecessor_source_version": { "$ref": "#/$defs/__schema0" },
+    "successor_source_version": { "$ref": "#/$defs/__schema0" },
+    "public_metadata_ref": { "$ref": "#/$defs/__schema1" },
+    "licensed_payload_ref": { "$ref": "#/$defs/__schema1" },
+    "domain_signature_record_id": {
+      "type": "string",
+      "pattern": "^urn:evllm:assertion:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "source_class": { "type": "string", "enum": ["legal", "technical"] },
+    "access_state": { "type": "string", "enum": ["public", "licensed", "metadata-only"] },
+    "licence_state": { "type": "string", "enum": ["permitted", "restricted", "unavailable"] },
+    "review_due_at": { "$ref": "#/$defs/__schema2" },
+    "lifecycle": {
+      "type": "string",
+      "enum": ["pending", "active", "unavailable", "superseded", "withdrawn", "expired"]
+    },
+    "transition_actor_id": {
+      "type": "string",
+      "pattern": "^urn:evllm:actor:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "transition_reason": { "type": "string", "minLength": 1, "maxLength": 256 },
+    "effective_at": { "$ref": "#/$defs/__schema2" },
+    "reviewed_at": { "$ref": "#/$defs/__schema2" },
+    "permitted_rule_ids": {
+      "maxItems": 256,
+      "type": "array",
+      "items": { "$ref": "#/$defs/__schema3" }
+    },
+    "dependent_rule_ids": {
+      "maxItems": 256,
+      "type": "array",
+      "items": { "$ref": "#/$defs/__schema4" }
+    }
+  },
+  "required": [
+    "schema",
+    "source_id",
+    "source_version",
+    "source_class",
+    "access_state",
+    "licence_state",
+    "review_due_at",
+    "lifecycle",
+    "transition_actor_id",
+    "transition_reason",
+    "effective_at",
+    "reviewed_at",
+    "permitted_rule_ids",
+    "dependent_rule_ids"
+  ],
+  "additionalProperties": false,
+  "$defs": {
+    "__schema0": { "type": "integer", "exclusiveMinimum": 0, "maximum": 9007199254740991 },
+    "__schema1": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "version": { "$ref": "#/$defs/__schema0" }
+      },
+      "required": ["id", "version"],
+      "additionalProperties": false
+    },
+    "__schema2": { "type": "integer", "minimum": 0, "maximum": 9007199254740991 },
+    "__schema3": {
+      "type": "string",
+      "pattern": "^urn:evllm:rule:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "__schema4": {
+      "type": "string",
+      "pattern": "^urn:evllm:rule:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    }
+  }
+}

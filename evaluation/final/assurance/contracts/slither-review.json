@@ -1,0 +1,160 @@
+{
+  "schema": "EVLLM_SLITHER_REVIEW_V1",
+  "image": "ghcr.io/crytic/slither:0.11.6@sha256:89d4127ec3bfeba9725a863c58dd96b01781ff73737871dd3b07606ebc4cf16b",
+  "accepted_findings": [
+    {
+      "check": "timestamp",
+      "impact": "Low",
+      "confidence": "Medium",
+      "scope": "AuditAnchor.anchorBatch(bytes32,uint64,uint64,uint64,uint64,bytes32,bytes32,bytes32,bytes32,bytes32)",
+      "rationale": "The timestamp is used only to evaluate the active interval of the exact audit-anchor credential capability. Validator latitude cannot change the signed batch boundary, commitment, predecessor, organization, credential, or submitter."
+    },
+    {
+      "check": "timestamp",
+      "impact": "Low",
+      "confidence": "Medium",
+      "scope": "BatteryOwnershipRegistry.expireInitialOwnership(bytes32)",
+      "rationale": "This timestamp comparison closes an already-expired initial-ownership proposal. It cannot assign ownership, the expiry is immutable, and chain timestamp tolerance cannot bypass an authorization check."
+    },
+    {
+      "check": "timestamp",
+      "impact": "Low",
+      "confidence": "Medium",
+      "scope": "BatteryOwnershipRegistry.acceptInitialOwnership(bytes32)",
+      "rationale": "This comparison enforces the immutable acceptance deadline in addition to exact proposed-owner authorization. Validator timestamp tolerance is bounded and cannot redirect ownership."
+    },
+    {
+      "check": "timestamp",
+      "impact": "Low",
+      "confidence": "Medium",
+      "scope": "BatteryOwnershipRegistry.proposeInitialOwnership(bytes32,bytes32,bytes32,address,uint64)",
+      "rationale": "This rejects proposals whose immutable expiry is not in the future. Proposal creation remains registrar-only and acceptance remains restricted to the exact proposed owner."
+    },
+    {
+      "check": "timestamp",
+      "impact": "Low",
+      "confidence": "Medium",
+      "scope": "DeploymentRegistry.activateModule(bytes32)",
+      "rationale": "The timestamp comparison is the specified governance review-delay gate. Miner/validator timestamp latitude cannot bypass the configured delay by a material amount, and activation remains owner-only."
+    },
+    {
+      "check": "timestamp",
+      "impact": "Low",
+      "confidence": "Medium",
+      "scope": "ProtectedBundleRegistry.commitAttestedProtectedBundle(ProtectedBundleRegistry.DomainAttestation,bytes,bytes32,bytes32,bytes32,uint64,bytes32)",
+      "rationale": "The comparisons enforce the signed attestation's bounded issue and expiry window. Validator timestamp tolerance cannot change the signed author, controller, bundle, domain commitment, or consumed nonce, and the proof lifetime is deliberately short."
+    },
+    {
+      "check": "timestamp",
+      "impact": "Low",
+      "confidence": "Medium",
+      "scope": "Marketplace._authorized(bytes32,bytes32,bytes32,bytes32)",
+      "rationale": "The timestamp selects the active interval of an exact credential capability. Validator latitude cannot change its credential, organization, capability, or resource scope."
+    },
+    {
+      "check": "timestamp",
+      "impact": "Low",
+      "confidence": "Medium",
+      "scope": "Marketplace.expireListing(bytes32)",
+      "rationale": "This permissionless comparison materializes an immutable listing deadline and only closes activity and releases the battery lock."
+    },
+    {
+      "check": "timestamp",
+      "impact": "Low",
+      "confidence": "Medium",
+      "scope": "Marketplace.createListing(Marketplace.ListingInput)",
+      "rationale": "This rejects already-expired listings; owner, credential, protected link, payout, and amount checks remain independent."
+    },
+    {
+      "check": "timestamp",
+      "impact": "Low",
+      "confidence": "Medium",
+      "scope": "Marketplace.applyDeliveryOrAcceptanceTimeout(bytes32)",
+      "rationale": "The immutable deadline only enters a referred state and never releases funds or silently accepts delivery."
+    },
+    {
+      "check": "timestamp",
+      "impact": "Low",
+      "confidence": "Medium",
+      "scope": "Marketplace.confirmAgreement(bytes32,bytes32)",
+      "rationale": "This enforces the immutable confirmation window together with exact buyer identity and access-authorization digest."
+    },
+    {
+      "check": "timestamp",
+      "impact": "Low",
+      "confidence": "Medium",
+      "scope": "Marketplace.selectOfferAndCreateAgreement(Marketplace.AgreementInput)",
+      "rationale": "These checks bind unexpired immutable listing, offer, confirmation, and delivery windows; they cannot redirect parties, recipients, or value."
+    },
+    {
+      "check": "timestamp",
+      "impact": "Low",
+      "confidence": "Medium",
+      "scope": "Marketplace.cancelUnfundedAgreement(bytes32)",
+      "rationale": "The deadline permits only cancellation of an unfunded agreement; cutover also permits safe cancellation and no value can be redirected."
+    },
+    {
+      "check": "timestamp",
+      "impact": "Low",
+      "confidence": "Medium",
+      "scope": "Marketplace.fundAgreement(bytes32)",
+      "rationale": "The immutable deadline is checked alongside exact buyer and msg.value equality before accepting escrow."
+    },
+    {
+      "check": "timestamp",
+      "impact": "Low",
+      "confidence": "Medium",
+      "scope": "Marketplace.recordDispatch(bytes32,Marketplace.ProtectedAction)",
+      "rationale": "The delivery deadline is one of several exact state, credential, capability, and decision-critical logistics-link checks."
+    },
+    {
+      "check": "timestamp",
+      "impact": "Low",
+      "confidence": "Medium",
+      "scope": "Marketplace.applyDispatchTimeout(bytes32)",
+      "rationale": "After the immutable deadline this path only credits the pre-recorded buyer refund address and unlocks the battery."
+    },
+    {
+      "check": "timestamp",
+      "impact": "Low",
+      "confidence": "Medium",
+      "scope": "Marketplace.submitOffer(Marketplace.OfferInput)",
+      "rationale": "The checks constrain an offer to the active listing window; buyer credential, fixed refund address, amount, and commitment checks remain independent."
+    },
+    {
+      "check": "timestamp",
+      "impact": "Low",
+      "confidence": "Medium",
+      "scope": "Marketplace.recordDelivery(bytes32,Marketplace.ProtectedAction)",
+      "rationale": "The immutable delivery window is enforced with exact state, credential, capability, and protected logistics-link checks."
+    },
+    {
+      "check": "timestamp",
+      "impact": "Low",
+      "confidence": "Medium",
+      "scope": "Marketplace.effectiveOfferState(bytes32)",
+      "rationale": "This view derives expiry without writing state or moving value."
+    },
+    {
+      "check": "timestamp",
+      "impact": "Low",
+      "confidence": "Medium",
+      "scope": "Marketplace.acceptDelivery(bytes32)",
+      "rationale": "The acceptance deadline is enforced together with exact stored buyer identity and delivered state."
+    },
+    {
+      "check": "timestamp",
+      "impact": "Low",
+      "confidence": "Medium",
+      "scope": "Marketplace.expireOffer(bytes32)",
+      "rationale": "This permissionless operation only materializes the immutable terminal offer state and cannot move funds or alter the listing."
+    },
+    {
+      "check": "low-level-calls",
+      "impact": "Informational",
+      "confidence": "High",
+      "scope": "Marketplace.withdrawCredits()",
+      "rationale": "Native currency withdrawal deliberately uses call after checks-effects under nonReentrant. Credits are zeroed before the call, fixed at agreement creation, and the malicious-recipient regression proves no double withdrawal."
+    }
+  ]
+}

@@ -1,0 +1,678 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "schema": { "$ref": "#/$defs/__schema0" },
+    "assessment_input_id": { "$ref": "#/$defs/__schema1" },
+    "assessment_input_version": { "$ref": "#/$defs/__schema2" },
+    "battery_id": { "$ref": "#/$defs/__schema3" },
+    "jurisdiction": { "$ref": "#/$defs/__schema4" },
+    "as_of": { "$ref": "#/$defs/__schema5" },
+    "evidence": { "$ref": "#/$defs/__schema6" },
+    "rules": { "$ref": "#/$defs/__schema8" },
+    "method": { "$ref": "#/$defs/__schema7" },
+    "calculation_inputs_digest": {
+      "type": "object",
+      "properties": {
+        "alg": { "type": "string", "const": "SHA-256" },
+        "value": { "type": "string", "pattern": "^[A-Za-z0-9_-]{43}$" }
+      },
+      "required": ["alg", "value"],
+      "additionalProperties": false
+    },
+    "candidate_routes": { "$ref": "#/$defs/__schema9" },
+    "issuer_organization_id": { "$ref": "#/$defs/__schema16" },
+    "issuer_role_id": { "$ref": "#/$defs/__schema17" },
+    "issued_at": { "$ref": "#/$defs/__schema5" },
+    "protected_bundle_ref": { "$ref": "#/$defs/__schema18" }
+  },
+  "required": [
+    "schema",
+    "assessment_input_id",
+    "assessment_input_version",
+    "battery_id",
+    "jurisdiction",
+    "as_of",
+    "evidence",
+    "rules",
+    "method",
+    "calculation_inputs_digest",
+    "candidate_routes",
+    "issuer_organization_id",
+    "issuer_role_id",
+    "issued_at",
+    "protected_bundle_ref"
+  ],
+  "additionalProperties": false,
+  "$defs": {
+    "__schema0": { "type": "string", "const": "EVLLM_ASSESSMENT_INPUT_PAYLOAD_V1" },
+    "__schema1": {
+      "type": "string",
+      "pattern": "^urn:evllm:assessment:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "__schema2": { "type": "integer", "exclusiveMinimum": 0, "maximum": 9007199254740991 },
+    "__schema3": {
+      "type": "string",
+      "pattern": "^urn:evllm:battery:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "__schema4": { "type": "string", "minLength": 1, "maxLength": 256 },
+    "__schema5": { "type": "integer", "minimum": 0, "maximum": 9007199254740991 },
+    "__schema6": {
+      "minItems": 1,
+      "maxItems": 512,
+      "type": "array",
+      "items": { "$ref": "#/$defs/__schema7" }
+    },
+    "__schema7": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "version": { "$ref": "#/$defs/__schema2" }
+      },
+      "required": ["id", "version"],
+      "additionalProperties": false
+    },
+    "__schema8": { "maxItems": 256, "type": "array", "items": { "$ref": "#/$defs/__schema7" } },
+    "__schema9": {
+      "type": "array",
+      "prefixItems": [
+        {
+          "type": "object",
+          "properties": {
+            "route_id": { "type": "string", "const": "continued-compatible-ev-use" },
+            "application": { "$ref": "#/$defs/__schema4" },
+            "location": { "$ref": "#/$defs/__schema4" },
+            "functional_unit": { "$ref": "#/$defs/__schema10" },
+            "duty_context": { "$ref": "#/$defs/__schema12" },
+            "service_life": { "$ref": "#/$defs/__schema13" },
+            "transport_burden": { "$ref": "#/$defs/__schema10" },
+            "testing_burden": { "$ref": "#/$defs/__schema10" },
+            "energy_context": { "$ref": "#/$defs/__schema12" },
+            "displaced_alternative": { "$ref": "#/$defs/__schema12" },
+            "recovery_process": { "$ref": "#/$defs/__schema12" },
+            "inventories": {
+              "maxItems": 512,
+              "type": "array",
+              "items": { "$ref": "#/$defs/__schema10" }
+            },
+            "factors": {
+              "maxItems": 512,
+              "type": "array",
+              "items": { "$ref": "#/$defs/__schema10" }
+            },
+            "economic_assumptions": {
+              "maxItems": 128,
+              "type": "array",
+              "items": { "$ref": "#/$defs/__schema14" }
+            },
+            "uncertainty": {
+              "maxItems": 101,
+              "type": "array",
+              "items": { "$ref": "#/$defs/__schema15" }
+            }
+          },
+          "required": [
+            "route_id",
+            "application",
+            "location",
+            "functional_unit",
+            "duty_context",
+            "service_life",
+            "transport_burden",
+            "testing_burden",
+            "energy_context",
+            "displaced_alternative",
+            "recovery_process",
+            "inventories",
+            "factors",
+            "economic_assumptions",
+            "uncertainty"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "route_id": { "type": "string", "const": "stationary-storage-repurposing" },
+            "application": { "$ref": "#/$defs/__schema4" },
+            "location": { "$ref": "#/$defs/__schema4" },
+            "functional_unit": { "$ref": "#/$defs/__schema10" },
+            "duty_context": { "$ref": "#/$defs/__schema12" },
+            "service_life": { "$ref": "#/$defs/__schema13" },
+            "transport_burden": { "$ref": "#/$defs/__schema10" },
+            "testing_burden": { "$ref": "#/$defs/__schema10" },
+            "energy_context": { "$ref": "#/$defs/__schema12" },
+            "displaced_alternative": { "$ref": "#/$defs/__schema12" },
+            "recovery_process": { "$ref": "#/$defs/__schema12" },
+            "inventories": {
+              "maxItems": 512,
+              "type": "array",
+              "items": { "$ref": "#/$defs/__schema10" }
+            },
+            "factors": {
+              "maxItems": 512,
+              "type": "array",
+              "items": { "$ref": "#/$defs/__schema10" }
+            },
+            "economic_assumptions": {
+              "maxItems": 128,
+              "type": "array",
+              "items": { "$ref": "#/$defs/__schema14" }
+            },
+            "uncertainty": {
+              "maxItems": 101,
+              "type": "array",
+              "items": { "$ref": "#/$defs/__schema15" }
+            }
+          },
+          "required": [
+            "route_id",
+            "application",
+            "location",
+            "functional_unit",
+            "duty_context",
+            "service_life",
+            "transport_burden",
+            "testing_burden",
+            "energy_context",
+            "displaced_alternative",
+            "recovery_process",
+            "inventories",
+            "factors",
+            "economic_assumptions",
+            "uncertainty"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "route_id": { "type": "string", "const": "recycling" },
+            "application": { "$ref": "#/$defs/__schema4" },
+            "location": { "$ref": "#/$defs/__schema4" },
+            "functional_unit": { "$ref": "#/$defs/__schema10" },
+            "duty_context": { "$ref": "#/$defs/__schema12" },
+            "service_life": { "$ref": "#/$defs/__schema13" },
+            "transport_burden": { "$ref": "#/$defs/__schema10" },
+            "testing_burden": { "$ref": "#/$defs/__schema10" },
+            "energy_context": { "$ref": "#/$defs/__schema12" },
+            "displaced_alternative": { "$ref": "#/$defs/__schema12" },
+            "recovery_process": { "$ref": "#/$defs/__schema12" },
+            "inventories": {
+              "maxItems": 512,
+              "type": "array",
+              "items": { "$ref": "#/$defs/__schema10" }
+            },
+            "factors": {
+              "maxItems": 512,
+              "type": "array",
+              "items": { "$ref": "#/$defs/__schema10" }
+            },
+            "economic_assumptions": {
+              "maxItems": 128,
+              "type": "array",
+              "items": { "$ref": "#/$defs/__schema14" }
+            },
+            "uncertainty": {
+              "maxItems": 101,
+              "type": "array",
+              "items": { "$ref": "#/$defs/__schema15" }
+            }
+          },
+          "required": [
+            "route_id",
+            "application",
+            "location",
+            "functional_unit",
+            "duty_context",
+            "service_life",
+            "transport_burden",
+            "testing_burden",
+            "energy_context",
+            "displaced_alternative",
+            "recovery_process",
+            "inventories",
+            "factors",
+            "economic_assumptions",
+            "uncertainty"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "__schema10": {
+      "type": "object",
+      "properties": {
+        "value": { "$ref": "#/$defs/__schema11" },
+        "unit_id": {
+          "type": "string",
+          "pattern": "^urn:evllm:unit:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+        },
+        "unit_version": { "$ref": "#/$defs/__schema2" }
+      },
+      "required": ["value", "unit_id", "unit_version"],
+      "additionalProperties": false
+    },
+    "__schema11": {
+      "type": "string",
+      "pattern": "^(?:0|-?(?:[1-9][0-9]*)(?:\\.[0-9]*[1-9])?|-?0\\.[0-9]*[1-9])$"
+    },
+    "__schema12": { "type": "string", "minLength": 1, "maxLength": 16384 },
+    "__schema13": {
+      "type": "object",
+      "properties": {
+        "lower": { "$ref": "#/$defs/__schema11" },
+        "upper": { "$ref": "#/$defs/__schema11" }
+      },
+      "required": ["lower", "upper"],
+      "additionalProperties": false
+    },
+    "__schema14": {
+      "type": "object",
+      "properties": {
+        "amount": { "$ref": "#/$defs/__schema11" },
+        "currency": { "type": "string", "pattern": "^[A-Z]{3}$" },
+        "currency_profile_id": {
+          "type": "string",
+          "pattern": "^urn:evllm:profile:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+        },
+        "currency_profile_version": { "$ref": "#/$defs/__schema2" }
+      },
+      "required": ["amount", "currency", "currency_profile_id", "currency_profile_version"],
+      "additionalProperties": false
+    },
+    "__schema15": {
+      "type": "object",
+      "properties": {
+        "probability": { "$ref": "#/$defs/__schema11" },
+        "value": { "$ref": "#/$defs/__schema11" }
+      },
+      "required": ["probability", "value"],
+      "additionalProperties": false
+    },
+    "__schema16": {
+      "type": "string",
+      "pattern": "^urn:evllm:org:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "__schema17": {
+      "type": "string",
+      "pattern": "^urn:evllm:role:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "__schema18": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "schema": { "$ref": "#/$defs/__schema19" },
+            "bundle_id": { "$ref": "#/$defs/__schema20" },
+            "bundle_version": { "$ref": "#/$defs/__schema2" },
+            "domain_resource_version": { "$ref": "#/$defs/__schema2" },
+            "custody_controller_org_id": { "$ref": "#/$defs/__schema21" },
+            "content_schema_id": { "$ref": "#/$defs/__schema22" },
+            "content_schema_version": { "$ref": "#/$defs/__schema23" },
+            "initial_criticality_class": { "$ref": "#/$defs/__schema24" },
+            "criticality_profile_id": { "$ref": "#/$defs/__schema25" },
+            "criticality_profile_version": { "$ref": "#/$defs/__schema2" },
+            "bundle_type": { "type": "string", "const": "evidence" },
+            "domain_resource_id": {
+              "type": "string",
+              "pattern": "^urn:evllm:evidence:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+            }
+          },
+          "required": [
+            "schema",
+            "bundle_id",
+            "bundle_version",
+            "domain_resource_version",
+            "custody_controller_org_id",
+            "content_schema_id",
+            "content_schema_version",
+            "initial_criticality_class",
+            "criticality_profile_id",
+            "criticality_profile_version",
+            "bundle_type",
+            "domain_resource_id"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "schema": { "$ref": "#/$defs/__schema19" },
+            "bundle_id": { "$ref": "#/$defs/__schema20" },
+            "bundle_version": { "$ref": "#/$defs/__schema2" },
+            "domain_resource_version": { "$ref": "#/$defs/__schema2" },
+            "custody_controller_org_id": { "$ref": "#/$defs/__schema21" },
+            "content_schema_id": { "$ref": "#/$defs/__schema22" },
+            "content_schema_version": { "$ref": "#/$defs/__schema23" },
+            "initial_criticality_class": { "$ref": "#/$defs/__schema24" },
+            "criticality_profile_id": { "$ref": "#/$defs/__schema25" },
+            "criticality_profile_version": { "$ref": "#/$defs/__schema2" },
+            "bundle_type": { "type": "string", "const": "verification" },
+            "domain_resource_id": {
+              "type": "string",
+              "pattern": "^urn:evllm:verification:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+            }
+          },
+          "required": [
+            "schema",
+            "bundle_id",
+            "bundle_version",
+            "domain_resource_version",
+            "custody_controller_org_id",
+            "content_schema_id",
+            "content_schema_version",
+            "initial_criticality_class",
+            "criticality_profile_id",
+            "criticality_profile_version",
+            "bundle_type",
+            "domain_resource_id"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "schema": { "$ref": "#/$defs/__schema19" },
+            "bundle_id": { "$ref": "#/$defs/__schema20" },
+            "bundle_version": { "$ref": "#/$defs/__schema2" },
+            "domain_resource_version": { "$ref": "#/$defs/__schema2" },
+            "custody_controller_org_id": { "$ref": "#/$defs/__schema21" },
+            "content_schema_id": { "$ref": "#/$defs/__schema22" },
+            "content_schema_version": { "$ref": "#/$defs/__schema23" },
+            "initial_criticality_class": { "$ref": "#/$defs/__schema24" },
+            "criticality_profile_id": { "$ref": "#/$defs/__schema25" },
+            "criticality_profile_version": { "$ref": "#/$defs/__schema2" },
+            "bundle_type": { "type": "string", "const": "assessment" },
+            "domain_resource_id": {
+              "type": "string",
+              "pattern": "^urn:evllm:assessment:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+            }
+          },
+          "required": [
+            "schema",
+            "bundle_id",
+            "bundle_version",
+            "domain_resource_version",
+            "custody_controller_org_id",
+            "content_schema_id",
+            "content_schema_version",
+            "initial_criticality_class",
+            "criticality_profile_id",
+            "criticality_profile_version",
+            "bundle_type",
+            "domain_resource_id"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "schema": { "$ref": "#/$defs/__schema19" },
+            "bundle_id": { "$ref": "#/$defs/__schema20" },
+            "bundle_version": { "$ref": "#/$defs/__schema2" },
+            "domain_resource_version": { "$ref": "#/$defs/__schema2" },
+            "custody_controller_org_id": { "$ref": "#/$defs/__schema21" },
+            "content_schema_id": { "$ref": "#/$defs/__schema22" },
+            "content_schema_version": { "$ref": "#/$defs/__schema23" },
+            "initial_criticality_class": { "$ref": "#/$defs/__schema24" },
+            "criticality_profile_id": { "$ref": "#/$defs/__schema25" },
+            "criticality_profile_version": { "$ref": "#/$defs/__schema2" },
+            "bundle_type": { "type": "string", "const": "assistant-support" },
+            "domain_resource_id": {
+              "type": "string",
+              "pattern": "^urn:evllm:assistant:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+            }
+          },
+          "required": [
+            "schema",
+            "bundle_id",
+            "bundle_version",
+            "domain_resource_version",
+            "custody_controller_org_id",
+            "content_schema_id",
+            "content_schema_version",
+            "initial_criticality_class",
+            "criticality_profile_id",
+            "criticality_profile_version",
+            "bundle_type",
+            "domain_resource_id"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "schema": { "$ref": "#/$defs/__schema19" },
+            "bundle_id": { "$ref": "#/$defs/__schema20" },
+            "bundle_version": { "$ref": "#/$defs/__schema2" },
+            "domain_resource_version": { "$ref": "#/$defs/__schema2" },
+            "custody_controller_org_id": { "$ref": "#/$defs/__schema21" },
+            "content_schema_id": { "$ref": "#/$defs/__schema22" },
+            "content_schema_version": { "$ref": "#/$defs/__schema23" },
+            "initial_criticality_class": { "$ref": "#/$defs/__schema24" },
+            "criticality_profile_id": { "$ref": "#/$defs/__schema25" },
+            "criticality_profile_version": { "$ref": "#/$defs/__schema2" },
+            "bundle_type": { "type": "string", "const": "listing" },
+            "domain_resource_id": {
+              "type": "string",
+              "pattern": "^urn:evllm:listing:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+            }
+          },
+          "required": [
+            "schema",
+            "bundle_id",
+            "bundle_version",
+            "domain_resource_version",
+            "custody_controller_org_id",
+            "content_schema_id",
+            "content_schema_version",
+            "initial_criticality_class",
+            "criticality_profile_id",
+            "criticality_profile_version",
+            "bundle_type",
+            "domain_resource_id"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "schema": { "$ref": "#/$defs/__schema19" },
+            "bundle_id": { "$ref": "#/$defs/__schema20" },
+            "bundle_version": { "$ref": "#/$defs/__schema2" },
+            "domain_resource_version": { "$ref": "#/$defs/__schema2" },
+            "custody_controller_org_id": { "$ref": "#/$defs/__schema21" },
+            "content_schema_id": { "$ref": "#/$defs/__schema22" },
+            "content_schema_version": { "$ref": "#/$defs/__schema23" },
+            "initial_criticality_class": { "$ref": "#/$defs/__schema24" },
+            "criticality_profile_id": { "$ref": "#/$defs/__schema25" },
+            "criticality_profile_version": { "$ref": "#/$defs/__schema2" },
+            "bundle_type": { "type": "string", "const": "agreement" },
+            "domain_resource_id": {
+              "type": "string",
+              "pattern": "^urn:evllm:agreement:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+            }
+          },
+          "required": [
+            "schema",
+            "bundle_id",
+            "bundle_version",
+            "domain_resource_version",
+            "custody_controller_org_id",
+            "content_schema_id",
+            "content_schema_version",
+            "initial_criticality_class",
+            "criticality_profile_id",
+            "criticality_profile_version",
+            "bundle_type",
+            "domain_resource_id"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "schema": { "$ref": "#/$defs/__schema19" },
+            "bundle_id": { "$ref": "#/$defs/__schema20" },
+            "bundle_version": { "$ref": "#/$defs/__schema2" },
+            "domain_resource_version": { "$ref": "#/$defs/__schema2" },
+            "custody_controller_org_id": { "$ref": "#/$defs/__schema21" },
+            "content_schema_id": { "$ref": "#/$defs/__schema22" },
+            "content_schema_version": { "$ref": "#/$defs/__schema23" },
+            "initial_criticality_class": { "$ref": "#/$defs/__schema24" },
+            "criticality_profile_id": { "$ref": "#/$defs/__schema25" },
+            "criticality_profile_version": { "$ref": "#/$defs/__schema2" },
+            "bundle_type": { "type": "string", "const": "dispute" },
+            "domain_resource_id": {
+              "type": "string",
+              "pattern": "^urn:evllm:dispute:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+            }
+          },
+          "required": [
+            "schema",
+            "bundle_id",
+            "bundle_version",
+            "domain_resource_version",
+            "custody_controller_org_id",
+            "content_schema_id",
+            "content_schema_version",
+            "initial_criticality_class",
+            "criticality_profile_id",
+            "criticality_profile_version",
+            "bundle_type",
+            "domain_resource_id"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "schema": { "$ref": "#/$defs/__schema19" },
+            "bundle_id": { "$ref": "#/$defs/__schema20" },
+            "bundle_version": { "$ref": "#/$defs/__schema2" },
+            "domain_resource_version": { "$ref": "#/$defs/__schema2" },
+            "custody_controller_org_id": { "$ref": "#/$defs/__schema21" },
+            "content_schema_id": { "$ref": "#/$defs/__schema22" },
+            "content_schema_version": { "$ref": "#/$defs/__schema23" },
+            "initial_criticality_class": { "$ref": "#/$defs/__schema24" },
+            "criticality_profile_id": { "$ref": "#/$defs/__schema25" },
+            "criticality_profile_version": { "$ref": "#/$defs/__schema2" },
+            "bundle_type": { "type": "string", "const": "logistics" },
+            "domain_resource_id": {
+              "type": "string",
+              "pattern": "^urn:evllm:delivery:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+            }
+          },
+          "required": [
+            "schema",
+            "bundle_id",
+            "bundle_version",
+            "domain_resource_version",
+            "custody_controller_org_id",
+            "content_schema_id",
+            "content_schema_version",
+            "initial_criticality_class",
+            "criticality_profile_id",
+            "criticality_profile_version",
+            "bundle_type",
+            "domain_resource_id"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "schema": { "$ref": "#/$defs/__schema19" },
+            "bundle_id": { "$ref": "#/$defs/__schema20" },
+            "bundle_version": { "$ref": "#/$defs/__schema2" },
+            "domain_resource_version": { "$ref": "#/$defs/__schema2" },
+            "custody_controller_org_id": { "$ref": "#/$defs/__schema21" },
+            "content_schema_id": { "$ref": "#/$defs/__schema22" },
+            "content_schema_version": { "$ref": "#/$defs/__schema23" },
+            "initial_criticality_class": { "$ref": "#/$defs/__schema24" },
+            "criticality_profile_id": { "$ref": "#/$defs/__schema25" },
+            "criticality_profile_version": { "$ref": "#/$defs/__schema2" },
+            "bundle_type": { "type": "string", "const": "audit" },
+            "domain_resource_id": {
+              "type": "string",
+              "pattern": "^urn:evllm:audit:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+            }
+          },
+          "required": [
+            "schema",
+            "bundle_id",
+            "bundle_version",
+            "domain_resource_version",
+            "custody_controller_org_id",
+            "content_schema_id",
+            "content_schema_version",
+            "initial_criticality_class",
+            "criticality_profile_id",
+            "criticality_profile_version",
+            "bundle_type",
+            "domain_resource_id"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "schema": { "$ref": "#/$defs/__schema19" },
+            "bundle_id": { "$ref": "#/$defs/__schema20" },
+            "bundle_version": { "$ref": "#/$defs/__schema2" },
+            "domain_resource_version": { "$ref": "#/$defs/__schema2" },
+            "custody_controller_org_id": { "$ref": "#/$defs/__schema21" },
+            "content_schema_id": { "$ref": "#/$defs/__schema22" },
+            "content_schema_version": { "$ref": "#/$defs/__schema23" },
+            "initial_criticality_class": { "$ref": "#/$defs/__schema24" },
+            "criticality_profile_id": { "$ref": "#/$defs/__schema25" },
+            "criticality_profile_version": { "$ref": "#/$defs/__schema2" },
+            "bundle_type": { "type": "string", "const": "authoritative-source" },
+            "domain_resource_id": {
+              "type": "string",
+              "pattern": "^urn:evllm:source:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+            }
+          },
+          "required": [
+            "schema",
+            "bundle_id",
+            "bundle_version",
+            "domain_resource_version",
+            "custody_controller_org_id",
+            "content_schema_id",
+            "content_schema_version",
+            "initial_criticality_class",
+            "criticality_profile_id",
+            "criticality_profile_version",
+            "bundle_type",
+            "domain_resource_id"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "__schema19": { "type": "string", "const": "EVLLM_PROTECTED_BUNDLE_REF_V1" },
+    "__schema20": {
+      "type": "string",
+      "pattern": "^urn:evllm:bundle:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "__schema21": {
+      "type": "string",
+      "pattern": "^urn:evllm:org:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "__schema22": {
+      "type": "string",
+      "pattern": "^urn:evllm:schema:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "__schema23": {
+      "type": "string",
+      "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)$"
+    },
+    "__schema24": { "type": "string", "enum": ["decision-critical", "supplementary"] },
+    "__schema25": {
+      "type": "string",
+      "pattern": "^urn:evllm:profile:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    }
+  }
+}

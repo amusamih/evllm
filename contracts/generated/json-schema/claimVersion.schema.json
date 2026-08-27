@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "schema": { "type": "string", "const": "EVLLM_CLAIM_VERSION_V1" },
+    "claim_version_id": {
+      "type": "string",
+      "pattern": "^urn:evllm:evidence:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "claim_id": {
+      "type": "string",
+      "pattern": "^urn:evllm:claim:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "sequence": { "type": "integer", "exclusiveMinimum": 0, "maximum": 9007199254740991 },
+    "prior_version_id": {
+      "type": "string",
+      "pattern": "^urn:evllm:evidence:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "correction_reason": { "type": "string", "minLength": 1, "maxLength": 16384 },
+    "evidence_payload_commitment": {
+      "type": "object",
+      "properties": {
+        "alg": { "type": "string", "const": "SHA-256" },
+        "value": { "type": "string", "pattern": "^[A-Za-z0-9_-]{43}$" }
+      },
+      "required": ["alg", "value"],
+      "additionalProperties": false
+    },
+    "status": { "type": "string", "enum": ["active", "superseded", "revoked"] },
+    "issuer_signature_id": {
+      "type": "string",
+      "pattern": "^urn:evllm:assertion:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "recorded_at": { "type": "integer", "minimum": 0, "maximum": 9007199254740991 }
+  },
+  "required": [
+    "schema",
+    "claim_version_id",
+    "claim_id",
+    "sequence",
+    "evidence_payload_commitment",
+    "status",
+    "issuer_signature_id",
+    "recorded_at"
+  ],
+  "additionalProperties": false
+}

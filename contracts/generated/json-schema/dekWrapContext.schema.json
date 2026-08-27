@@ -1,0 +1,134 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "anyOf": [{ "$ref": "#/$defs/__schema0" }, { "$ref": "#/$defs/__schema10" }],
+  "$defs": {
+    "__schema0": {
+      "type": "object",
+      "properties": {
+        "schema": { "$ref": "#/$defs/__schema1" },
+        "envelope_id": { "$ref": "#/$defs/__schema2" },
+        "bundle_id": { "$ref": "#/$defs/__schema3" },
+        "bundle_version": { "$ref": "#/$defs/__schema4" },
+        "bundle_type": { "$ref": "#/$defs/__schema5" },
+        "domain_resource_id": { "$ref": "#/$defs/__schema6" },
+        "domain_resource_version": { "$ref": "#/$defs/__schema4" },
+        "domain_payload_commitment": { "$ref": "#/$defs/__schema7" },
+        "content_commitment": { "$ref": "#/$defs/__schema7" },
+        "content_envelope_digest": { "$ref": "#/$defs/__schema7" },
+        "recipient_org_id": { "$ref": "#/$defs/__schema8" },
+        "recipient_kid": { "$ref": "#/$defs/__schema9" },
+        "purpose": { "type": "string", "const": "controller-custody" },
+        "authorization_id": {
+          "type": "string",
+          "pattern": "^urn:evllm:authorization:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+        },
+        "scope": { "type": "string", "const": "protected-bundle:key-administration" }
+      },
+      "required": [
+        "schema",
+        "envelope_id",
+        "bundle_id",
+        "bundle_version",
+        "bundle_type",
+        "domain_resource_id",
+        "domain_resource_version",
+        "domain_payload_commitment",
+        "content_commitment",
+        "content_envelope_digest",
+        "recipient_org_id",
+        "recipient_kid",
+        "purpose",
+        "authorization_id",
+        "scope"
+      ],
+      "additionalProperties": false
+    },
+    "__schema1": { "type": "string", "const": "EVLLM_DEK_WRAP_CONTEXT_V1" },
+    "__schema2": {
+      "type": "string",
+      "pattern": "^urn:evllm:envelope:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "__schema3": {
+      "type": "string",
+      "pattern": "^urn:evllm:bundle:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "__schema4": { "type": "integer", "exclusiveMinimum": 0, "maximum": 9007199254740991 },
+    "__schema5": {
+      "type": "string",
+      "enum": [
+        "evidence",
+        "verification",
+        "assessment",
+        "assistant-support",
+        "listing",
+        "agreement",
+        "dispute",
+        "logistics",
+        "audit",
+        "authoritative-source"
+      ]
+    },
+    "__schema6": { "type": "string" },
+    "__schema7": {
+      "type": "object",
+      "properties": {
+        "alg": { "type": "string", "const": "SHA-256" },
+        "value": { "type": "string", "pattern": "^[A-Za-z0-9_-]{43}$" }
+      },
+      "required": ["alg", "value"],
+      "additionalProperties": false
+    },
+    "__schema8": {
+      "type": "string",
+      "pattern": "^urn:evllm:org:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "__schema9": {
+      "type": "string",
+      "pattern": "^urn:ietf:params:oauth:jwk-thumbprint:sha-256:[A-Za-z0-9_-]{43}$"
+    },
+    "__schema10": {
+      "type": "object",
+      "properties": {
+        "schema": { "$ref": "#/$defs/__schema1" },
+        "envelope_id": { "$ref": "#/$defs/__schema2" },
+        "bundle_id": { "$ref": "#/$defs/__schema3" },
+        "bundle_version": { "$ref": "#/$defs/__schema4" },
+        "bundle_type": { "$ref": "#/$defs/__schema5" },
+        "domain_resource_id": { "$ref": "#/$defs/__schema6" },
+        "domain_resource_version": { "$ref": "#/$defs/__schema4" },
+        "domain_payload_commitment": { "$ref": "#/$defs/__schema7" },
+        "content_commitment": { "$ref": "#/$defs/__schema7" },
+        "content_envelope_digest": { "$ref": "#/$defs/__schema7" },
+        "recipient_org_id": { "$ref": "#/$defs/__schema8" },
+        "recipient_kid": { "$ref": "#/$defs/__schema9" },
+        "purpose": { "$ref": "#/$defs/__schema11" },
+        "authorization_id": { "$ref": "#/$defs/__schema12" },
+        "scope": { "$ref": "#/$defs/__schema13" }
+      },
+      "required": [
+        "schema",
+        "envelope_id",
+        "bundle_id",
+        "bundle_version",
+        "bundle_type",
+        "domain_resource_id",
+        "domain_resource_version",
+        "domain_payload_commitment",
+        "content_commitment",
+        "content_envelope_digest",
+        "recipient_org_id",
+        "recipient_kid",
+        "purpose",
+        "authorization_id",
+        "scope"
+      ],
+      "additionalProperties": false
+    },
+    "__schema11": { "type": "string", "pattern": "^[a-z][a-z0-9.-]{0,63}$" },
+    "__schema12": {
+      "type": "string",
+      "pattern": "^urn:evllm:grant:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "__schema13": { "type": "string", "const": "protected-bundle:decrypt" }
+  }
+}

@@ -1,0 +1,103 @@
+{
+  "schema": "EU_REGULATORY_SOURCE_FIXTURE_V1",
+  "version": 1,
+  "fixture_id": "eu-regulation-2023-1542-battery-passport",
+  "source": {
+    "title": "Regulation (EU) 2023/1542 of the European Parliament and of the Council of 12 July 2023 concerning batteries and waste batteries",
+    "jurisdiction": "EU",
+    "celex_identifier": "32023R1542",
+    "eli_uri": "http://data.europa.eu/eli/reg/2023/1542/oj",
+    "official_eur_lex_uri": "https://eur-lex.europa.eu/eli/reg/2023/1542/oj?locale=en",
+    "official_journal_reference": "OJ L 191, 28.7.2023, pp. 1-117",
+    "language": "en",
+    "source_form": "Official Journal legal act"
+  },
+  "scope_boundary": {
+    "purpose": "Machine-readable provenance fixture for controlled date, jurisdiction, and clause-linkage evaluation.",
+    "legal_compliance_validation": false,
+    "legal_advice": false,
+    "synthetic_elements": [
+      "actor identities",
+      "battery facts",
+      "route parameters",
+      "expected outcomes"
+    ],
+    "statement": "The cited regulatory source and clause text are public legal-source facts. Actor identities, battery facts, route parameters, and expected outcomes in evaluation cases remain synthetic. This fixture does not validate legal compliance."
+  },
+  "clauses": [
+    {
+      "clause_id": "eu-2023-1542-art-77-1",
+      "reference": "Article 77(1)",
+      "article": 77,
+      "paragraph": "1",
+      "topic": "battery-passport-application-date-and-scope",
+      "official_text": "From 18 February 2027 each LMT battery, each industrial battery with a capacity greater than 2 kWh and each electric vehicle battery placed on the market or put into service shall have an electronic record ('battery passport').",
+      "normalized_requirement": "From 18 February 2027, LMT batteries, industrial batteries with capacity greater than 2 kWh, and electric vehicle batteries placed on the EU market or put into service require an electronic battery passport."
+    },
+    {
+      "clause_id": "eu-2023-1542-art-77-3-first-subparagraph",
+      "reference": "Article 77(3), first subparagraph",
+      "article": 77,
+      "paragraph": "3",
+      "subparagraph": "1",
+      "topic": "qr-code-and-unique-identifier",
+      "official_text": "The battery passport shall be accessible through the QR code referred to in Article 13(6) which links to a unique identifier that the economic operator placing the battery on the market shall attribute to it.",
+      "normalized_requirement": "The battery passport is accessible through a QR code linked to a unique identifier attributed by the economic operator placing the battery on the market."
+    },
+    {
+      "clause_id": "eu-2023-1542-art-77-4",
+      "reference": "Article 77(4)",
+      "article": 77,
+      "paragraph": "4",
+      "topic": "information-quality-and-delegation",
+      "official_text": "The economic operator placing the battery on the market shall ensure that the information in the battery passport is accurate, complete and up to date. It may give written authorisation to any other operator to act on its behalf.",
+      "normalized_requirement": "The responsible economic operator must keep battery-passport information accurate, complete, and up to date, and may authorize another operator in writing to act on its behalf."
+    },
+    {
+      "clause_id": "eu-2023-1542-art-77-5",
+      "reference": "Article 77(5)",
+      "article": 77,
+      "paragraph": "5",
+      "topic": "open-interoperable-machine-readable-information",
+      "official_text": "All information included in the battery passport shall be based on open standards and be in an interoperable format, transferable through an open interoperable data exchange network without vendor lock-in, machine-readable, structured and searchable, in accordance with the essential requirements laid down in Article 78.",
+      "normalized_requirement": "Battery-passport information must use open standards and an interoperable, transferable, vendor-neutral, machine-readable, structured, and searchable format."
+    },
+    {
+      "clause_id": "eu-2023-1542-art-77-7-first-subparagraph",
+      "reference": "Article 77(7), first subparagraph",
+      "article": 77,
+      "paragraph": "7",
+      "subparagraph": "1",
+      "topic": "responsibility-transfer-and-linked-passport",
+      "official_text": "For a battery that has been subject to preparation for re-use, preparation for repurposing, repurposing or remanufacturing, the responsibility for the fulfilment of the obligations under paragraph 4 of this Article shall be transferred to the economic operator that has placed that battery on the market or has put it into service. Such battery shall have a new battery passport linked to the battery passport or passports of the original battery or batteries.",
+      "normalized_requirement": "After preparation for re-use or repurposing, repurposing, or remanufacturing, responsibility transfers to the operator placing the resulting battery on the market or putting it into service, and its new passport must link to the original passport or passports."
+    },
+    {
+      "clause_id": "eu-2023-1542-art-78-f",
+      "reference": "Article 78(f)",
+      "article": 78,
+      "point": "f",
+      "topic": "restricted-information-rights",
+      "official_text": "The rights to access, introduce, modify or update information in the battery passport shall be restricted based on the access rights specified in Annex XIII and the implementing act adopted pursuant to Article 77(9).",
+      "normalized_requirement": "Rights to access, introduce, modify, or update battery-passport information must be restricted according to the applicable access rights."
+    },
+    {
+      "clause_id": "eu-2023-1542-art-78-g",
+      "reference": "Article 78(g)",
+      "article": 78,
+      "point": "g",
+      "topic": "data-authentication-reliability-and-integrity",
+      "official_text": "Data authentication, reliability and integrity shall be ensured.",
+      "normalized_requirement": "The battery passport must ensure data authentication, reliability, and integrity."
+    },
+    {
+      "clause_id": "eu-2023-1542-art-78-h",
+      "reference": "Article 78(h)",
+      "article": 78,
+      "point": "h",
+      "topic": "security-privacy-and-fraud-prevention",
+      "official_text": "The battery passport shall be such that a high level of security and privacy is ensured and fraud is avoided.",
+      "normalized_requirement": "The battery passport must ensure a high level of security and privacy and avoid fraud."
+    }
+  ]
+}

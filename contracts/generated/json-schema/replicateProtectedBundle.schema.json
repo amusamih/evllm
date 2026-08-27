@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "commandId": { "$ref": "#/$defs/__schema0" },
+    "bundleId": { "$ref": "#/$defs/__schema0" },
+    "bundleVersion": { "$ref": "#/$defs/__schema1" },
+    "bundleType": { "$ref": "#/$defs/__schema0" },
+    "domainResourceId": { "$ref": "#/$defs/__schema0" },
+    "domainResourceVersion": { "$ref": "#/$defs/__schema1" },
+    "controllerActorId": { "$ref": "#/$defs/__schema0" },
+    "controllerOrgId": { "$ref": "#/$defs/__schema0" },
+    "controllerCredentialId": { "$ref": "#/$defs/__schema0" },
+    "contentEnvelopeDigest": { "$ref": "#/$defs/__schema0" },
+    "storedEnvelopeLength": { "$ref": "#/$defs/__schema1" },
+    "criticalityProfileId": { "$ref": "#/$defs/__schema0" },
+    "criticalityProfileVersion": { "$ref": "#/$defs/__schema1" },
+    "replicaPolicyDigest": { "$ref": "#/$defs/__schema0" },
+    "replicaRepositoryId": { "$ref": "#/$defs/__schema0" },
+    "nonce": { "$ref": "#/$defs/__schema0" },
+    "issuedAt": { "$ref": "#/$defs/__schema1" },
+    "expiresAt": { "$ref": "#/$defs/__schema1" },
+    "idempotencyKeyHash": { "$ref": "#/$defs/__schema0" }
+  },
+  "required": [
+    "commandId",
+    "bundleId",
+    "bundleVersion",
+    "bundleType",
+    "domainResourceId",
+    "domainResourceVersion",
+    "controllerActorId",
+    "controllerOrgId",
+    "controllerCredentialId",
+    "contentEnvelopeDigest",
+    "storedEnvelopeLength",
+    "criticalityProfileId",
+    "criticalityProfileVersion",
+    "replicaPolicyDigest",
+    "replicaRepositoryId",
+    "nonce",
+    "issuedAt",
+    "expiresAt",
+    "idempotencyKeyHash"
+  ],
+  "additionalProperties": false,
+  "$defs": {
+    "__schema0": { "type": "string", "pattern": "^0x[0-9a-f]{64}$" },
+    "__schema1": { "type": "integer", "exclusiveMinimum": 0, "maximum": 9007199254740991 }
+  }
+}

@@ -1,0 +1,117 @@
+{
+  "schema": "EVLLM_DESIGN_REPOSITORY_OPERATION_CATALOG_V1",
+  "artifact_kind": "multi-organization-design-contract",
+  "runtime_boundary": "This catalog specifies repository operations for a complete organization-operated deployment. The local demonstration does not assemble every operation as an HTTP route.",
+  "operations": [
+    {
+      "name": "describe",
+      "purpose": "Return protocol, adapter, schema, crypto, size, and operation capabilities",
+      "controls": "Public non-secret response with exact versions"
+    },
+    {
+      "name": "health",
+      "purpose": "Report bounded liveness/readiness and dependency state",
+      "controls": "No inventory, locator, credential, or key disclosure"
+    },
+    {
+      "name": "prepareProtectedBundle",
+      "purpose": "Validate the exact canonical unsigned domain payload and materialize an immutable short-lived protected-bundle staging object plus canonical descriptor/receipt",
+      "controls": "Controller authentication/scope, closed bundle type, cross-object reference equality, and active `AuthorBindingProfileV1` intended-author/role/capability/conditional-relationship checks precede a locked repository-private request fingerprint, `preparing` reservation, unique bundle/domain version and unpublished IDs. Extract the exact minimized relationship context and selected discriminator/capability into the immutable `AuthorBindingDecision`. Create fresh content/domain salts, DEK and nonce, salted commitments, exact `create-staging-controller-envelope` capability/envelope and lifecycle-managed encrypted staging object; verify both artifacts and their full unwrap/decrypt round trip, then commit `prepared` plus decision, descriptor, and challenge metadata before returning only the descriptor. No raw payload/salt/assembled challenge is separately retained and staging is not retrievable content. Exact retry begins at the committed `prepared` result; pre-commit crash recovery follows the frozen request-bearing/request-free rules"
+    },
+    {
+      "name": "recoverProtectedBundlePreparation",
+      "purpose": "Resume or clean an unpublished `preparing` materialization after process/key-agent/object failure",
+      "controls": "Internal request-free repository job only; acquire the same idempotency/staging row lock, accept no caller-supplied locator, and finish `prepared` only if the complete reserved object/envelope result verifies. A missing or invalid artifact is cleaned/retired and closed `rejected`, or `expired` at the materialization deadline; this job never rematerializes from a noninvertible fingerprint. Only an authenticated same-key/same-fingerprint `prepareProtectedBundle` retry carrying the complete request may start a new internal materialization revision before that deadline. Each recovery/cleanup attempt is bounded by `maxCleanupRecoverySeconds`; never return a descriptor or release a challenge before `prepared`; audit only safe IDs/state/digests"
+    },
+    {
+      "name": "consumeDomainAttestationChallenge",
+      "purpose": "Deliver the exact no-store signing challenge once to the intended domain author",
+      "controls": "Authenticate the exact active intended-author credential; require unexpired `prepared` delivery state and exact `unwrap-staging-for-challenge` key capability derived from that record/request. Inside the controller boundary recompute the controller-envelope commitment, unwrap the staged DEK, decrypt/verify the package, and combine only its payload/salt with the frozen non-payload fields. Recompute the challenge digest, atomically mark `delivered`, return no-store, zero transient plaintext, and emit minimized audit; wrong issuer/audience/author/capability/replay/expiry fails generically"
+    },
+    {
+      "name": "finalizeProtectedBundle",
+      "purpose": "Publish the byte-identical staged envelope under its reserved non-lifecycle final object ID, then atomically make the finalized bundle metadata visible and, only for an initially decision-critical bundle, authorize mandatory initial replication",
+      "controls": "Acquire the exact `ProtectedBundleStagingState` row with a bounded `FOR UPDATE` lock before authoritative validation and hold it through verification, publication, and commit. A committed `finalized` row returns the retained manifest/activation result without re-execution only when descriptor, finalization command, signatures and idempotency/result hashes match exactly; any mismatch conflicts. Otherwise require committed state `prepared`, unexpired staging and matching revision; cleanup uses this same lock. Require the challenge delivery record to be `delivered` and the domain author's exact `DomainManifestAttestation` author/address, bundle/type/domain/commitment, profile/domain, nonce, issued/expiry, fields and signature to match that record, its descriptor and recomputed `domainAttestationChallengeDigest`; reject `prepared`/`expired` delivery or a wrong-challenge signature. Verify the custody controller's separate exact `FinalizeProtectedBundle` command bound to its signed-domain-envelope digest, descriptor/receipt, author-binding-decision digest, commitments, both object IDs, stored-envelope digest/length, schema/context, immutable initial criticality class/profile, replica-policy digest, separately scoped nonce, issued-at, profile-bounded expiry and idempotency hash. Recompute the exact controller `recipientEnvelopeCommitment`; require its authorization/envelope/key/profile IDs and authenticated context to equal the descriptor; unwrap exactly one 32-byte DEK through the staged controller key; decrypt the staged content JWE; and verify its tag/AAD, exact self-contained package, both salted commitments, schema/context and exact stored-envelope digest/octet length. While the same transaction/row lock is held, stream the bytes through `get(stagingObjectId)` to `putIfAbsent(primaryObjectId)`, accepting recovery only when an existing final object has the exact digest/length; verify final `head/get`, activate the exact controller authorization/envelope, insert immutable manifest/finalization/attempt records, and commit state `finalized`. The bounded operation must commit or abort within `maxFinalizationSeconds` from lock acquisition. Only that commit makes the final object referenceable. Staging deletion follows idempotently and native lifecycle is a fallback; a timeout/failure rolls back the metadata transaction and deterministic recovery handles any unpublished final object. No content regeneration, plaintext persistence, or optimistic domain activation"
+    },
+    {
+      "name": "expireProtectedBundleStaging",
+      "purpose": "Remove unfinalized staging material without creating a domain or bundle version",
+      "controls": "Acquire the same staging-state row lock with bounded timeout. A matching retry against committed `expired` or `rejected` returns the retained close result without deletion; a conflicting reason/command fails. Otherwise proceed from `preparing` or `prepared` after expiry/rejection; a concurrent materializer/finalizer owns the lock, and `finalized` is never cleaned. Under that serialization, idempotently delete every unpublished staging object and any byte-identical but unpublished reserved-final object, retire unpublished/staged controller-custody authorizations/envelopes and destroy staging DEK material where possible, then commit `expired` or `rejected`. Each attempt is bounded by `maxCleanupRecoverySeconds`; an incomplete cleanup remains unavailable and retryable without extending any deadline. Native staging lifecycle is fallback only; no content release; audit every retry/outcome"
+    },
+    {
+      "name": "headProtectedBundle",
+      "purpose": "Resolve permitted metadata and availability without content release",
+      "controls": "Resource and purpose authorization plus minimization"
+    },
+    {
+      "name": "fetchCiphertext",
+      "purpose": "Stream the exact encrypted package from primary or replica",
+      "controls": "Current grant or replication authority, digest verification, bounded stream, audit event"
+    },
+    {
+      "name": "fetchPermittedContent",
+      "purpose": "Release minimum authorized full content or an excerpt",
+      "controls": "Authorization before access/decryption; exact recipient-repository-issued `unwrap-for-retrieval` capability derived from the current access decision, active grant and envelope; tag/AAD/package/commitment/signature checks; audit event"
+    },
+    {
+      "name": "searchProtected",
+      "purpose": "Search the custodian-local protected index and return minimum support objects",
+      "controls": "Authorization before search, source status propagation, no cross-custodian index, bounded results, audit event"
+    },
+    {
+      "name": "createDerivedArtifact",
+      "purpose": "Create a repository-local extracted representation or index for one confirmed source bundle/domain version",
+      "controls": "Exact off-chain signed command authorized by the bundle policy controller; source custody controller's repository process executes; bind source/type/domain, purpose, artifact type, method/model profile, retention profile, policy version, nonce, issued-at, profile-bounded expiry and idempotency hash; authorize before decrypting; conditional immutable descriptor creation; no central or replica index"
+    },
+    {
+      "name": "invalidateDerivedArtifact",
+      "purpose": "Make one repository-local derived artifact unavailable without changing its source bundle",
+      "controls": "Actor-requested invalidation uses an exact signed policy-controller command with actor/organization/credential, artifact/source/version, reason, policy, nonce, issued-at, profile-bounded expiry and idempotency hash. Canonical source-status or policy propagation is a distinct deterministic event-driven path requiring no fabricated actor signature. Both are idempotent terminal invalidations with audit; stale artifact cannot be searched or restored in place"
+    },
+    {
+      "name": "prepareAccessGrant",
+      "purpose": "Record a non-authorizing recipient/purpose/bundle grant proposal",
+      "controls": "Exact policy-controller-signed off-chain command, active policy/key, bundle/domain scope, operations, purpose, grant effective/expiry times, command nonce, issued-at, profile-bounded command expiry and idempotency hash; stored state `prepared`; no key release"
+    },
+    {
+      "name": "createGrantEnvelope",
+      "purpose": "Custody-controller key agent creates recipient-specific protected access to the existing DEK",
+      "controls": "Exact `create-grant-envelope` authorization binds the SHA-256 digest of canonical recipient RSA SPKI material, grant, purpose/scope and controller path. The recipient organization separately signs the same operation context and proves possession of the matching RSA private key with a domain-separated RSA-PSS proof. The controller receives only the public key and proofs, verifies the exact canonical JWE context/header/commitment, and atomically persists the envelope before activating the grant; no recipient private key or plaintext DEK is persisted"
+    },
+    {
+      "name": "revokeGrant",
+      "purpose": "Block future mediated release",
+      "controls": "Exact policy-controller-signed off-chain command binding actor/organization/credential, grant and bundle/domain scope, purpose/policy/current state, reason, nonce, issued-at, profile-bounded expiry and idempotency hash; irreversible prepared-or-active grant transition, retained audit, explicit past-copy limitation"
+    },
+    {
+      "name": "rotateRecipientEnvelope",
+      "purpose": "Rewrap the unchanged DEK for a recipient organization's active successor encryption key",
+      "controls": "Exact signed `RecipientKeyRotationCampaign` item plus exact bundle-policy-controller-signed `RotateRecipientEnvelope`, unchanged active grant, and derived `rotate-recipient-envelope` capability. Verify campaign membership and both nonces/expiries/idempotency; create/verify and activate successor atomically. Failure keeps an uncompromised predecessor usable; normal predecessor-key retirement waits for complete required set; lost/compromised denies immediately and records unavailable items; package/replicas unchanged"
+    },
+    {
+      "name": "rotateControllerAuthorization",
+      "purpose": "Atomically move controller key administration to an active successor organization encryption key",
+      "controls": "Exact signed `RotateControllerAuthorization` plus derived `rotate-controller-envelope` capability binds the predecessor path and SHA-256 digest of canonical successor RSA SPKI material. The controller organization signs the same operation context and proves possession of the successor RSA private key with a domain-separated RSA-PSS proof; the private key is not supplied to the rotation service. The exact successor JWE context/header/commitment is verified before activation and predecessor retirement; failure retains the predecessor and last-usable retirement is rejected; package/replicas remain unchanged"
+    },
+    {
+      "name": "recordEncryptionKeyState",
+      "purpose": "Record `pending/active/retired/revoked/lost/compromised` and enforce its online effect",
+      "controls": "Organization-key authority plus governance containment where applicable, reason/effective time, append-only predecessor/successor link; revoked/lost/compromised denies unwrap, no operator recovery bypass, explicit affected-bundle/request outcome"
+    },
+    {
+      "name": "replicateCiphertext",
+      "purpose": "Store the identical exact canonical content-JWE envelope at the approved neutral custodian for initial decision-critical activation or a pending promotion",
+      "controls": "Verify the complete canonical signature and controller scope of `FinalizeProtectedBundle` for initial replication or `ReplicateProtectedBundle` for promotion; exact staged/committed bundle/type/domain, digest/length, profile, committed replica-policy/destination, separately scoped nonce/issued-at/profile-bounded expiry/idempotency hash; no implicit key envelope; digest equality and auditable receipt"
+    },
+    {
+      "name": "verifyReplica",
+      "purpose": "Compare primary/replica bundle identity/version, exact stored-envelope octet length, and content-envelope digest and issue a typed receipt",
+      "controls": "No decryption needed; the active approved neutral-custodian EVM attestation key signs bundle/type/domain reference, digest, exact stored-envelope octet length, repository, criticality-profile ID/version, nonce, observation time, and profile-bounded expiry; auditable result"
+    },
+    {
+      "name": "inventory",
+      "purpose": "Produce a scoped conformance/recovery inventory",
+      "controls": "Operator/auditor purpose only; no content or key material"
+    }
+  ]
+}

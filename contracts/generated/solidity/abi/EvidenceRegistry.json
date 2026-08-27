@@ -1,0 +1,332 @@
+[
+  {
+    "inputs": [
+      { "internalType": "address", "name": "authorityProfileRegistryAddress", "type": "address" },
+      { "internalType": "address", "name": "protectedBundleRegistryAddress", "type": "address" }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "constructor"
+  },
+  { "inputs": [], "name": "AlreadyBound", "type": "error" },
+  { "inputs": [], "name": "InvalidIdentifier", "type": "error" },
+  { "inputs": [], "name": "InvalidPriorVersion", "type": "error" },
+  { "inputs": [], "name": "InvalidProtectedBundleLink", "type": "error" },
+  { "inputs": [], "name": "InvalidState", "type": "error" },
+  { "inputs": [], "name": "SelfVerification", "type": "error" },
+  { "inputs": [], "name": "Unauthorized", "type": "error" },
+  {
+    "anonymous": false,
+    "inputs": [
+      { "indexed": true, "internalType": "bytes32", "name": "claimKey", "type": "bytes32" },
+      { "indexed": true, "internalType": "uint64", "name": "version", "type": "uint64" },
+      { "indexed": true, "internalType": "bytes32", "name": "bundleKey", "type": "bytes32" },
+      {
+        "indexed": false,
+        "internalType": "bytes32",
+        "name": "issuerOrganizationId",
+        "type": "bytes32"
+      }
+    ],
+    "name": "EvidenceActivated",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      { "indexed": true, "internalType": "bytes32", "name": "disputeKey", "type": "bytes32" },
+      { "indexed": true, "internalType": "bytes32", "name": "claimKey", "type": "bytes32" },
+      { "indexed": true, "internalType": "uint64", "name": "claimVersion", "type": "uint64" }
+    ],
+    "name": "EvidenceDisputeOpened",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      { "indexed": true, "internalType": "bytes32", "name": "disputeKey", "type": "bytes32" },
+      {
+        "indexed": false,
+        "internalType": "enum EvidenceRegistry.DisputeStatus",
+        "name": "status",
+        "type": "uint8"
+      }
+    ],
+    "name": "EvidenceDisputeStateChanged",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      { "indexed": true, "internalType": "bytes32", "name": "claimKey", "type": "bytes32" },
+      { "indexed": true, "internalType": "uint64", "name": "version", "type": "uint64" }
+    ],
+    "name": "EvidenceRevoked",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      { "indexed": true, "internalType": "bytes32", "name": "claimKey", "type": "bytes32" },
+      { "indexed": true, "internalType": "uint64", "name": "priorVersion", "type": "uint64" },
+      { "indexed": true, "internalType": "uint64", "name": "newVersion", "type": "uint64" }
+    ],
+    "name": "EvidenceSuperseded",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      { "indexed": true, "internalType": "bytes32", "name": "assertionKey", "type": "bytes32" },
+      { "indexed": true, "internalType": "bytes32", "name": "claimKey", "type": "bytes32" },
+      { "indexed": true, "internalType": "uint64", "name": "claimVersion", "type": "uint64" },
+      {
+        "indexed": false,
+        "internalType": "enum EvidenceRegistry.AssertionType",
+        "name": "assertionType",
+        "type": "uint8"
+      }
+    ],
+    "name": "VerificationAssertionCreated",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      { "indexed": true, "internalType": "bytes32", "name": "assertionKey", "type": "bytes32" }
+    ],
+    "name": "VerificationAssertionWithdrawn",
+    "type": "event"
+  },
+  {
+    "inputs": [],
+    "name": "CERTIFY_CAPABILITY",
+    "outputs": [{ "internalType": "bytes32", "name": "", "type": "bytes32" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "CORROBORATE_CAPABILITY",
+    "outputs": [{ "internalType": "bytes32", "name": "", "type": "bytes32" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "DISPUTE_BUNDLE_TYPE",
+    "outputs": [{ "internalType": "bytes32", "name": "", "type": "bytes32" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "DISPUTE_CAPABILITY",
+    "outputs": [{ "internalType": "bytes32", "name": "", "type": "bytes32" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "EVIDENCE_BUNDLE_TYPE",
+    "outputs": [{ "internalType": "bytes32", "name": "", "type": "bytes32" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "ISSUE_CAPABILITY",
+    "outputs": [{ "internalType": "bytes32", "name": "", "type": "bytes32" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "VERIFICATION_BUNDLE_TYPE",
+    "outputs": [{ "internalType": "bytes32", "name": "", "type": "bytes32" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "bytes32", "name": "claimKey", "type": "bytes32" },
+      { "internalType": "uint64", "name": "version", "type": "uint64" },
+      { "internalType": "uint64", "name": "expectedPriorVersion", "type": "uint64" },
+      { "internalType": "bytes32", "name": "bundleKey", "type": "bytes32" },
+      { "internalType": "bytes32", "name": "domainKey", "type": "bytes32" },
+      { "internalType": "bytes32", "name": "payloadCommitment", "type": "bytes32" },
+      { "internalType": "bytes32", "name": "issuerOrganizationId", "type": "bytes32" },
+      { "internalType": "bytes32", "name": "issuerCredentialId", "type": "bytes32" }
+    ],
+    "name": "activateEvidence",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "bytes32", "name": "assertionKey", "type": "bytes32" }],
+    "name": "assertions",
+    "outputs": [
+      { "internalType": "bytes32", "name": "claimKey", "type": "bytes32" },
+      { "internalType": "uint64", "name": "claimVersion", "type": "uint64" },
+      { "internalType": "bytes32", "name": "bundleKey", "type": "bytes32" },
+      { "internalType": "bytes32", "name": "verifierOrganizationId", "type": "bytes32" },
+      { "internalType": "bytes32", "name": "verifierCredentialId", "type": "bytes32" },
+      { "internalType": "address", "name": "verifier", "type": "address" },
+      {
+        "internalType": "enum EvidenceRegistry.AssertionType",
+        "name": "assertionType",
+        "type": "uint8"
+      },
+      { "internalType": "enum EvidenceRegistry.AssertionStatus", "name": "status", "type": "uint8" }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "authorityProfileRegistry",
+    "outputs": [
+      { "internalType": "contract IAuthorityProfileRegistry", "name": "", "type": "address" }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "bytes32", "name": "disputeKey", "type": "bytes32" },
+      {
+        "internalType": "enum EvidenceRegistry.DisputeStatus",
+        "name": "newStatus",
+        "type": "uint8"
+      }
+    ],
+    "name": "changeEvidenceDisputeState",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "bytes32", "name": "disputeKey", "type": "bytes32" }],
+    "name": "closeEvidenceDisputeForLifecycle",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "compatibilityVersion",
+    "outputs": [{ "internalType": "uint64", "name": "", "type": "uint64" }],
+    "stateMutability": "pure",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "bytes32", "name": "assertionKey", "type": "bytes32" },
+      { "internalType": "bytes32", "name": "claimKey", "type": "bytes32" },
+      { "internalType": "uint64", "name": "claimVersion", "type": "uint64" },
+      { "internalType": "bytes32", "name": "bundleKey", "type": "bytes32" },
+      { "internalType": "bytes32", "name": "domainKey", "type": "bytes32" },
+      { "internalType": "bytes32", "name": "payloadCommitment", "type": "bytes32" },
+      { "internalType": "bytes32", "name": "verifierOrganizationId", "type": "bytes32" },
+      { "internalType": "bytes32", "name": "verifierCredentialId", "type": "bytes32" },
+      {
+        "internalType": "enum EvidenceRegistry.AssertionType",
+        "name": "assertionType",
+        "type": "uint8"
+      }
+    ],
+    "name": "createVerificationAssertion",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "bytes32", "name": "claimKey", "type": "bytes32" }],
+    "name": "currentVersion",
+    "outputs": [{ "internalType": "uint64", "name": "", "type": "uint64" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "bytes32", "name": "disputeKey", "type": "bytes32" }],
+    "name": "disputes",
+    "outputs": [
+      { "internalType": "bytes32", "name": "claimKey", "type": "bytes32" },
+      { "internalType": "uint64", "name": "claimVersion", "type": "uint64" },
+      { "internalType": "bytes32", "name": "bundleKey", "type": "bytes32" },
+      { "internalType": "bytes32", "name": "openerOrganizationId", "type": "bytes32" },
+      { "internalType": "bytes32", "name": "openerCredentialId", "type": "bytes32" },
+      { "internalType": "address", "name": "opener", "type": "address" },
+      { "internalType": "enum EvidenceRegistry.DisputeStatus", "name": "status", "type": "uint8" }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "bytes32", "name": "claimKey", "type": "bytes32" },
+      { "internalType": "uint64", "name": "version", "type": "uint64" }
+    ],
+    "name": "evidenceVersions",
+    "outputs": [
+      { "internalType": "bytes32", "name": "bundleKey", "type": "bytes32" },
+      { "internalType": "bytes32", "name": "domainKey", "type": "bytes32" },
+      { "internalType": "bytes32", "name": "payloadCommitment", "type": "bytes32" },
+      { "internalType": "bytes32", "name": "issuerOrganizationId", "type": "bytes32" },
+      { "internalType": "bytes32", "name": "issuerCredentialId", "type": "bytes32" },
+      { "internalType": "address", "name": "issuer", "type": "address" },
+      { "internalType": "enum EvidenceRegistry.EvidenceStatus", "name": "status", "type": "uint8" }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "moduleType",
+    "outputs": [{ "internalType": "bytes32", "name": "", "type": "bytes32" }],
+    "stateMutability": "pure",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "bytes32", "name": "disputeKey", "type": "bytes32" },
+      { "internalType": "bytes32", "name": "claimKey", "type": "bytes32" },
+      { "internalType": "uint64", "name": "claimVersion", "type": "uint64" },
+      { "internalType": "bytes32", "name": "bundleKey", "type": "bytes32" },
+      { "internalType": "bytes32", "name": "domainKey", "type": "bytes32" },
+      { "internalType": "bytes32", "name": "payloadCommitment", "type": "bytes32" },
+      { "internalType": "bytes32", "name": "openerOrganizationId", "type": "bytes32" },
+      { "internalType": "bytes32", "name": "openerCredentialId", "type": "bytes32" }
+    ],
+    "name": "openEvidenceDispute",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "protectedBundleRegistry",
+    "outputs": [
+      { "internalType": "contract IProtectedBundleRegistry", "name": "", "type": "address" }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "bytes32", "name": "claimKey", "type": "bytes32" },
+      { "internalType": "uint64", "name": "version", "type": "uint64" }
+    ],
+    "name": "revokeEvidence",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "bytes32", "name": "assertionKey", "type": "bytes32" }],
+    "name": "withdrawVerificationAssertion",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  }
+]

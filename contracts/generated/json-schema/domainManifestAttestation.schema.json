@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "bundleId": { "$ref": "#/$defs/__schema0" },
+    "bundleVersion": { "$ref": "#/$defs/__schema1" },
+    "bundleType": { "$ref": "#/$defs/__schema0" },
+    "domainResourceId": { "$ref": "#/$defs/__schema0" },
+    "domainResourceVersion": { "$ref": "#/$defs/__schema1" },
+    "authorBindingProfileId": { "$ref": "#/$defs/__schema0" },
+    "authorBindingProfileVersion": { "$ref": "#/$defs/__schema1" },
+    "domainPayloadCommitment": { "$ref": "#/$defs/__schema0" },
+    "signerActorId": { "$ref": "#/$defs/__schema0" },
+    "signerOrgId": { "$ref": "#/$defs/__schema0" },
+    "signerCredentialId": { "$ref": "#/$defs/__schema0" },
+    "nonce": { "$ref": "#/$defs/__schema0" },
+    "issuedAt": { "$ref": "#/$defs/__schema1" },
+    "expiresAt": { "$ref": "#/$defs/__schema1" }
+  },
+  "required": [
+    "bundleId",
+    "bundleVersion",
+    "bundleType",
+    "domainResourceId",
+    "domainResourceVersion",
+    "authorBindingProfileId",
+    "authorBindingProfileVersion",
+    "domainPayloadCommitment",
+    "signerActorId",
+    "signerOrgId",
+    "signerCredentialId",
+    "nonce",
+    "issuedAt",
+    "expiresAt"
+  ],
+  "additionalProperties": false,
+  "$defs": {
+    "__schema0": { "type": "string", "pattern": "^0x[0-9a-f]{64}$" },
+    "__schema1": { "type": "integer", "exclusiveMinimum": 0, "maximum": 9007199254740991 }
+  }
+}

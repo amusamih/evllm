@@ -1,0 +1,286 @@
+[
+  {
+    "inputs": [{ "internalType": "address", "name": "governance", "type": "address" }],
+    "stateMutability": "nonpayable",
+    "type": "constructor"
+  },
+  { "inputs": [], "name": "AlreadyBound", "type": "error" },
+  { "inputs": [], "name": "InvalidIdentifier", "type": "error" },
+  { "inputs": [], "name": "InvalidTimeRange", "type": "error" },
+  { "inputs": [], "name": "InvalidVersion", "type": "error" },
+  {
+    "inputs": [{ "internalType": "address", "name": "owner", "type": "address" }],
+    "name": "OwnableInvalidOwner",
+    "type": "error"
+  },
+  {
+    "inputs": [{ "internalType": "address", "name": "account", "type": "address" }],
+    "name": "OwnableUnauthorizedAccount",
+    "type": "error"
+  },
+  { "inputs": [], "name": "TerminalOrganization", "type": "error" },
+  {
+    "anonymous": false,
+    "inputs": [
+      { "indexed": true, "internalType": "bytes32", "name": "credentialId", "type": "bytes32" },
+      { "indexed": true, "internalType": "bytes32", "name": "capabilityId", "type": "bytes32" },
+      { "indexed": true, "internalType": "bytes32", "name": "resourceScope", "type": "bytes32" },
+      { "indexed": false, "internalType": "uint64", "name": "effectiveAt", "type": "uint64" },
+      { "indexed": false, "internalType": "uint64", "name": "expiresAt", "type": "uint64" },
+      { "indexed": false, "internalType": "bool", "name": "active", "type": "bool" }
+    ],
+    "name": "CapabilityGrantSet",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      { "indexed": true, "internalType": "bytes32", "name": "credentialId", "type": "bytes32" },
+      { "indexed": true, "internalType": "bytes32", "name": "organizationId", "type": "bytes32" },
+      { "indexed": true, "internalType": "address", "name": "account", "type": "address" },
+      { "indexed": false, "internalType": "bool", "name": "active", "type": "bool" },
+      { "indexed": false, "internalType": "bool", "name": "replicaAttestation", "type": "bool" }
+    ],
+    "name": "CredentialSet",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      { "indexed": true, "internalType": "bytes32", "name": "organizationId", "type": "bytes32" },
+      {
+        "indexed": false,
+        "internalType": "enum AuthorityProfileRegistry.OrganizationStatus",
+        "name": "status",
+        "type": "uint8"
+      }
+    ],
+    "name": "OrganizationStatusChanged",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      { "indexed": true, "internalType": "address", "name": "previousOwner", "type": "address" },
+      { "indexed": true, "internalType": "address", "name": "newOwner", "type": "address" }
+    ],
+    "name": "OwnershipTransferred",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      { "indexed": true, "internalType": "bytes32", "name": "profileId", "type": "bytes32" },
+      { "indexed": true, "internalType": "uint64", "name": "version", "type": "uint64" },
+      { "indexed": false, "internalType": "bytes32", "name": "digest", "type": "bytes32" },
+      { "indexed": false, "internalType": "bool", "name": "active", "type": "bool" }
+    ],
+    "name": "ProfileSet",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      { "indexed": true, "internalType": "bytes32", "name": "repositoryId", "type": "bytes32" },
+      { "indexed": false, "internalType": "bool", "name": "approved", "type": "bool" }
+    ],
+    "name": "RepositoryApprovalChanged",
+    "type": "event"
+  },
+  {
+    "inputs": [{ "internalType": "bytes32", "name": "repositoryId", "type": "bytes32" }],
+    "name": "approvedRepositories",
+    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "bytes32", "name": "credentialId", "type": "bytes32" },
+      { "internalType": "bytes32", "name": "capabilityId", "type": "bytes32" }
+    ],
+    "name": "capabilityGrants",
+    "outputs": [
+      { "internalType": "bytes32", "name": "resourceScope", "type": "bytes32" },
+      { "internalType": "uint64", "name": "effectiveAt", "type": "uint64" },
+      { "internalType": "uint64", "name": "expiresAt", "type": "uint64" },
+      { "internalType": "bool", "name": "active", "type": "bool" }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "bytes32", "name": "credentialId", "type": "bytes32" }],
+    "name": "credentials",
+    "outputs": [
+      { "internalType": "bytes32", "name": "organizationId", "type": "bytes32" },
+      { "internalType": "address", "name": "account", "type": "address" },
+      { "internalType": "bool", "name": "active", "type": "bool" },
+      { "internalType": "bool", "name": "replicaAttestation", "type": "bool" }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "bytes32", "name": "credentialId", "type": "bytes32" },
+      { "internalType": "bytes32", "name": "capabilityId", "type": "bytes32" },
+      { "internalType": "bytes32", "name": "resourceScope", "type": "bytes32" },
+      { "internalType": "uint64", "name": "atTime", "type": "uint64" }
+    ],
+    "name": "hasCapability",
+    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "bytes32", "name": "credentialId", "type": "bytes32" },
+      { "internalType": "bytes32", "name": "organizationId", "type": "bytes32" },
+      { "internalType": "address", "name": "account", "type": "address" }
+    ],
+    "name": "isCredentialActive",
+    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "bytes32", "name": "organizationId", "type": "bytes32" }],
+    "name": "isOrganizationActive",
+    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "bytes32", "name": "profileId", "type": "bytes32" },
+      { "internalType": "uint64", "name": "version", "type": "uint64" },
+      { "internalType": "bytes32", "name": "digest", "type": "bytes32" }
+    ],
+    "name": "isProfileActive",
+    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "bytes32", "name": "credentialId", "type": "bytes32" },
+      { "internalType": "bytes32", "name": "organizationId", "type": "bytes32" },
+      { "internalType": "address", "name": "account", "type": "address" }
+    ],
+    "name": "isReplicaAttestationCredential",
+    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "bytes32", "name": "organizationId", "type": "bytes32" }],
+    "name": "organizationStatus",
+    "outputs": [
+      {
+        "internalType": "enum AuthorityProfileRegistry.OrganizationStatus",
+        "name": "",
+        "type": "uint8"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "owner",
+    "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "bytes32", "name": "profileId", "type": "bytes32" },
+      { "internalType": "uint64", "name": "version", "type": "uint64" }
+    ],
+    "name": "profiles",
+    "outputs": [
+      { "internalType": "bytes32", "name": "digest", "type": "bytes32" },
+      { "internalType": "bool", "name": "active", "type": "bool" }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "renounceOwnership",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "bytes32", "name": "credentialId", "type": "bytes32" },
+      { "internalType": "bytes32", "name": "capabilityId", "type": "bytes32" },
+      { "internalType": "bytes32", "name": "resourceScope", "type": "bytes32" },
+      { "internalType": "uint64", "name": "effectiveAt", "type": "uint64" },
+      { "internalType": "uint64", "name": "expiresAt", "type": "uint64" },
+      { "internalType": "bool", "name": "active", "type": "bool" }
+    ],
+    "name": "setCapabilityGrant",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "bytes32", "name": "credentialId", "type": "bytes32" },
+      { "internalType": "bytes32", "name": "organizationId", "type": "bytes32" },
+      { "internalType": "address", "name": "account", "type": "address" },
+      { "internalType": "bool", "name": "active", "type": "bool" },
+      { "internalType": "bool", "name": "replicaAttestation", "type": "bool" }
+    ],
+    "name": "setCredential",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "bytes32", "name": "organizationId", "type": "bytes32" },
+      {
+        "internalType": "enum AuthorityProfileRegistry.OrganizationStatus",
+        "name": "status",
+        "type": "uint8"
+      }
+    ],
+    "name": "setOrganizationStatus",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "bytes32", "name": "profileId", "type": "bytes32" },
+      { "internalType": "uint64", "name": "version", "type": "uint64" },
+      { "internalType": "bytes32", "name": "digest", "type": "bytes32" },
+      { "internalType": "bool", "name": "active", "type": "bool" }
+    ],
+    "name": "setProfile",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "bytes32", "name": "repositoryId", "type": "bytes32" },
+      { "internalType": "bool", "name": "approved", "type": "bool" }
+    ],
+    "name": "setRepositoryApproval",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "address", "name": "newOwner", "type": "address" }],
+    "name": "transferOwnership",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  }
+]

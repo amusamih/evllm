@@ -1,0 +1,636 @@
+{
+  "openapi": "3.1.1",
+  "info": {
+    "title": "EVLLM Multi-Organization Design API Contract",
+    "version": "1.0.0-contract-slice.2",
+    "description": "Design-level interface contract for a multi-organization deployment. It documents the complete composable service boundary and is not a claim that every operation is mounted by the local demonstration server. The local runtime surface is documented in README.md."
+  },
+  "x-evllm-artifact-kind": "multi-organization-design-contract",
+  "paths": {
+    "/api/v1/auth": {
+      "post": {
+        "operationId": "postAuth",
+        "summary": "Challenge, wallet verification, current session, logout",
+        "security": [{ "walletSession": [] }],
+        "responses": {
+          "200": {
+            "description": "Successful response at an explicit version and as-of boundary.",
+            "content": { "application/json": { "schema": { "type": "object" } } }
+          },
+          "default": {
+            "description": "Safe versioned error response.",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ErrorResponse" } }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/query/organizations": {
+      "get": {
+        "operationId": "getQueryOrganizations",
+        "summary": "Organization, actor, role, key, repository, and status queries",
+        "security": [{ "walletSession": [] }],
+        "responses": {
+          "200": {
+            "description": "Successful response at an explicit version and as-of boundary.",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/QueryResponse" } }
+            }
+          },
+          "default": {
+            "description": "Safe versioned error response.",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ErrorResponse" } }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/query/batteries": {
+      "get": {
+        "operationId": "getQueryBatteries",
+        "summary": "Identity/hierarchy, identifier bindings, recorded owner/current state, and full history",
+        "security": [{ "walletSession": [] }],
+        "responses": {
+          "200": {
+            "description": "Successful response at an explicit version and as-of boundary.",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/QueryResponse" } }
+            }
+          },
+          "default": {
+            "description": "Safe versioned error response.",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ErrorResponse" } }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/query/claims": {
+      "get": {
+        "operationId": "getQueryClaims",
+        "summary": "Claim/version, orthogonal verification/dispute/admissibility, and support/history queries",
+        "security": [{ "walletSession": [] }],
+        "responses": {
+          "200": {
+            "description": "Successful response at an explicit version and as-of boundary.",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/QueryResponse" } }
+            }
+          },
+          "default": {
+            "description": "Safe versioned error response.",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ErrorResponse" } }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/protected-bundles/staging": {
+      "post": {
+        "operationId": "prepareProtectedBundle",
+        "summary": "Prepare an immutable protected-bundle staging object",
+        "security": [{ "walletSession": [] }],
+        "parameters": [
+          {
+            "name": "Idempotency-Key",
+            "in": "header",
+            "required": true,
+            "schema": { "type": "string", "pattern": "^[A-Za-z0-9_-]{43}$" }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "./json-schema/prepareProtectedBundleRequest.schema.json" }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Prepared descriptor, including an exact idempotent replay of an existing result.",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "./json-schema/protectedBundleStagingDescriptor.schema.json" }
+              }
+            }
+          },
+          "default": {
+            "description": "Generic rejected or unavailable preparation result.",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ErrorResponse" } }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/protected-bundles/staging/{stagingId}/domain-attestation-challenge": {
+      "post": {
+        "operationId": "consumeDomainAttestationChallenge",
+        "summary": "Consume the intended author's one-use domain-attestation challenge",
+        "security": [{ "walletSession": [] }],
+        "parameters": [
+          {
+            "name": "stagingId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^urn:evllm:staging:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The reconstructed one-use challenge for the exact intended author.",
+            "headers": { "Cache-Control": { "schema": { "type": "string", "const": "no-store" } } },
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "./json-schema/domainAttestationChallenge.schema.json" }
+              }
+            }
+          },
+          "default": {
+            "description": "Generic unavailable response for unauthorized, expired, replayed, finalized, or absent challenges.",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ErrorResponse" } }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/query/protected-bundles": {
+      "get": {
+        "operationId": "getQueryProtectedBundles",
+        "summary": "Controller/type/domain linkage, access/criticality/replica/availability metadata, authorized ciphertext/content retrieval and repository-local search; no domain-state mutation occurs. The route may append only its immutable access decision, one-use/idempotent key-capability issue/consume/result state, and minimized access audit required to enforce the read",
+        "security": [{ "walletSession": [] }],
+        "responses": {
+          "200": {
+            "description": "Successful response at an explicit version and as-of boundary.",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/QueryResponse" } }
+            }
+          },
+          "default": {
+            "description": "Safe versioned error response.",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ErrorResponse" } }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/query/evidence": {
+      "get": {
+        "operationId": "getQueryEvidence",
+        "summary": "Metadata, existing-grant status, request-specific access outcome, repository availability, authorized fetch/search, replica state, and protocol support; no domain-state mutation occurs. The route may append only the same fail-closed access-security/idempotency records and minimized audit required for the read",
+        "security": [{ "walletSession": [] }],
+        "responses": {
+          "200": {
+            "description": "Successful response at an explicit version and as-of boundary.",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/QueryResponse" } }
+            }
+          },
+          "default": {
+            "description": "Safe versioned error response.",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ErrorResponse" } }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/query/sources": {
+      "get": {
+        "operationId": "getQuerySources",
+        "summary": "Dated source and applicable-rule queries",
+        "security": [{ "walletSession": [] }],
+        "responses": {
+          "200": {
+            "description": "Successful response at an explicit version and as-of boundary.",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/QueryResponse" } }
+            }
+          },
+          "default": {
+            "description": "Safe versioned error response.",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ErrorResponse" } }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/query/rules": {
+      "get": {
+        "operationId": "getQueryRules",
+        "summary": "Dated source and applicable-rule queries",
+        "security": [{ "walletSession": [] }],
+        "responses": {
+          "200": {
+            "description": "Successful response at an explicit version and as-of boundary.",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/QueryResponse" } }
+            }
+          },
+          "default": {
+            "description": "Safe versioned error response.",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ErrorResponse" } }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/query/assessments": {
+      "get": {
+        "operationId": "getQueryAssessments",
+        "summary": "Input requirements, deterministic preview/run, route profiles, reproduction, and support",
+        "security": [{ "walletSession": [] }],
+        "responses": {
+          "200": {
+            "description": "Successful response at an explicit version and as-of boundary.",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/QueryResponse" } }
+            }
+          },
+          "default": {
+            "description": "Safe versioned error response.",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ErrorResponse" } }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/query/marketplace": {
+      "get": {
+        "operationId": "getQueryMarketplace",
+        "summary": "Listings, offers, agreements, escrow, delivery, dispute, settlement, and history queries",
+        "security": [{ "walletSession": [] }],
+        "responses": {
+          "200": {
+            "description": "Successful response at an explicit version and as-of boundary.",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/QueryResponse" } }
+            }
+          },
+          "default": {
+            "description": "Safe versioned error response.",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ErrorResponse" } }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/query/assistant": {
+      "post": {
+        "operationId": "postQueryAssistant",
+        "summary": "Read-only question endpoint, ephemeral response/support view, validation state, immutable minimized `AssistantRequest` with its requester principal, and replayable minimized audit reference; no sensitive protected bundle or domain/business state is persisted by this query",
+        "security": [{ "walletSession": [] }],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["question", "purpose_id", "as_of", "requests"],
+                "properties": {
+                  "question": { "type": "string", "minLength": 1 },
+                  "purpose_id": { "type": "string", "minLength": 1 },
+                  "as_of": { "type": "integer", "minimum": 0 },
+                  "idempotency_key": { "type": "string", "format": "uuid" },
+                  "requests": { "type": "array", "minItems": 1, "items": { "type": "object" } }
+                },
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response at an explicit version and as-of boundary.",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/QueryResponse" } }
+            }
+          },
+          "default": {
+            "description": "Safe versioned error response.",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ErrorResponse" } }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/query/audit": {
+      "get": {
+        "operationId": "getQueryAudit",
+        "summary": "Actor-permitted lifecycle or answer reconstruction, batch/anchor verification, and bounded export",
+        "security": [{ "walletSession": [] }],
+        "responses": {
+          "200": {
+            "description": "Successful response at an explicit version and as-of boundary.",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/QueryResponse" } }
+            }
+          },
+          "default": {
+            "description": "Safe versioned error response.",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ErrorResponse" } }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/commands": {
+      "post": {
+        "operationId": "postCommands",
+        "summary": "Prepare a typed `on-chain-transaction` or `off-chain-signed` intent and return its policy/precondition decision plus EIP-712 payload or unsigned transaction; finalizing any protected domain submission must bind an unexpired staging descriptor/receipt and exact salted domain-payload commitment",
+        "security": [{ "walletSession": [] }],
+        "responses": {
+          "200": {
+            "description": "Successful response at an explicit version and as-of boundary.",
+            "content": { "application/json": { "schema": { "type": "object" } } }
+          },
+          "default": {
+            "description": "Safe versioned error response.",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ErrorResponse" } }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/commands/{id}/confirmations": {
+      "post": {
+        "operationId": "postCommandsIdConfirmations",
+        "summary": "Accept the actor signature for verified idempotent off-chain execution, including exact staged protected-bundle/domain finalization, or an externally submitted transaction hash for chain observation; never sign for the actor",
+        "security": [{ "walletSession": [] }],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "string", "minLength": 1 }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response at an explicit version and as-of boundary.",
+            "content": { "application/json": { "schema": { "type": "object" } } }
+          },
+          "default": {
+            "description": "Safe versioned error response.",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ErrorResponse" } }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/query/commands/{id}": {
+      "get": {
+        "operationId": "getQueryCommandsId",
+        "summary": "Observe command kind and its exact kind-specific prepared, signature/submission, execution/confirmation, failure/expiry/replacement, or reorganization state",
+        "security": [{ "walletSession": [] }],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "string", "minLength": 1 }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response at an explicit version and as-of boundary.",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/QueryResponse" } }
+            }
+          },
+          "default": {
+            "description": "Safe versioned error response.",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ErrorResponse" } }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/evaluation": {
+      "post": {
+        "operationId": "postEvaluation",
+        "summary": "Development-only case execution and status; disabled in the public runtime profile",
+        "security": [{ "walletSession": [] }],
+        "responses": {
+          "200": {
+            "description": "Successful response at an explicit version and as-of boundary.",
+            "content": { "application/json": { "schema": { "type": "object" } } }
+          },
+          "default": {
+            "description": "Safe versioned error response.",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ErrorResponse" } }
+            }
+          }
+        }
+      }
+    },
+    "/health": {
+      "get": {
+        "operationId": "getHealth",
+        "summary": "Bounded liveness and readiness without secrets or stack traces",
+        "security": [],
+        "responses": {
+          "200": {
+            "description": "Successful response at an explicit version and as-of boundary.",
+            "content": { "application/json": { "schema": { "type": "object" } } }
+          },
+          "default": {
+            "description": "Safe versioned error response.",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ErrorResponse" } }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "unitDefinition": { "$ref": "./json-schema/unitDefinition.schema.json" },
+      "organization": { "$ref": "./json-schema/organization.schema.json" },
+      "actorCredential": { "$ref": "./json-schema/actorCredential.schema.json" },
+      "organizationEncryptionKey": {
+        "$ref": "./json-schema/organizationEncryptionKey.schema.json"
+      },
+      "capabilityGrant": { "$ref": "./json-schema/capabilityGrant.schema.json" },
+      "roleCapabilityDefinition": { "$ref": "./json-schema/roleCapabilityDefinition.schema.json" },
+      "authorBindingProfileV1": { "$ref": "./json-schema/authorBindingProfileV1.schema.json" },
+      "authorBindingDecision": { "$ref": "./json-schema/authorBindingDecision.schema.json" },
+      "purposeDefinition": { "$ref": "./json-schema/purposeDefinition.schema.json" },
+      "accessPolicy": { "$ref": "./json-schema/accessPolicy.schema.json" },
+      "replicaPolicyProfile": { "$ref": "./json-schema/replicaPolicyProfile.schema.json" },
+      "repositoryRegistration": { "$ref": "./json-schema/repositoryRegistration.schema.json" },
+      "custodyRelationship": { "$ref": "./json-schema/custodyRelationship.schema.json" },
+      "batterySubject": { "$ref": "./json-schema/batterySubject.schema.json" },
+      "identifierBinding": { "$ref": "./json-schema/identifierBinding.schema.json" },
+      "ownershipTransition": { "$ref": "./json-schema/ownershipTransition.schema.json" },
+      "initialOwnershipBinding": { "$ref": "./json-schema/initialOwnershipBinding.schema.json" },
+      "claimVersion": { "$ref": "./json-schema/claimVersion.schema.json" },
+      "verificationAssertion": { "$ref": "./json-schema/verificationAssertion.schema.json" },
+      "protectedBundleStagingState": {
+        "$ref": "./json-schema/protectedBundleStagingState.schema.json"
+      },
+      "domainAttestationChallengeDeliveryRecord": {
+        "$ref": "./json-schema/domainAttestationChallengeDeliveryRecord.schema.json"
+      },
+      "protectedBundleManifest": { "$ref": "./json-schema/protectedBundleManifest.schema.json" },
+      "resolvedProtectedBundleView": {
+        "$ref": "./json-schema/resolvedProtectedBundleView.schema.json"
+      },
+      "domainSignatureRecord": { "$ref": "./json-schema/domainSignatureRecord.schema.json" },
+      "evidenceManifest": { "$ref": "./json-schema/evidenceManifest.schema.json" },
+      "protectedDomainActivationAttempt": {
+        "$ref": "./json-schema/protectedDomainActivationAttempt.schema.json"
+      },
+      "protectedBundleCriticalityTransition": {
+        "$ref": "./json-schema/protectedBundleCriticalityTransition.schema.json"
+      },
+      "recipientKeyEnvelope": { "$ref": "./json-schema/recipientKeyEnvelope.schema.json" },
+      "controllerKeyAuthorization": {
+        "$ref": "./json-schema/controllerKeyAuthorization.schema.json"
+      },
+      "accessGrant": { "$ref": "./json-schema/accessGrant.schema.json" },
+      "authorizationDecision": { "$ref": "./json-schema/authorizationDecision.schema.json" },
+      "keyOperationAuthorization": {
+        "$ref": "./json-schema/keyOperationAuthorization.schema.json"
+      },
+      "recipientKeyRotationCampaign": {
+        "$ref": "./json-schema/recipientKeyRotationCampaign.schema.json"
+      },
+      "replicaRecord": { "$ref": "./json-schema/replicaRecord.schema.json" },
+      "replicaReceipt": { "$ref": "./json-schema/replicaReceipt.schema.json" },
+      "derivedArtifactDescriptor": {
+        "$ref": "./json-schema/derivedArtifactDescriptor.schema.json"
+      },
+      "evidenceClaimPayload": { "$ref": "./json-schema/evidenceClaimPayload.schema.json" },
+      "verificationPayload": { "$ref": "./json-schema/verificationPayload.schema.json" },
+      "assessmentInputPayload": { "$ref": "./json-schema/assessmentInputPayload.schema.json" },
+      "assessmentResultPayload": { "$ref": "./json-schema/assessmentResultPayload.schema.json" },
+      "listingTermsPayload": { "$ref": "./json-schema/listingTermsPayload.schema.json" },
+      "agreementTermsPayload": { "$ref": "./json-schema/agreementTermsPayload.schema.json" },
+      "logisticsReportPayload": { "$ref": "./json-schema/logisticsReportPayload.schema.json" },
+      "disputeSubmissionPayload": { "$ref": "./json-schema/disputeSubmissionPayload.schema.json" },
+      "sensitiveAuditPayload": { "$ref": "./json-schema/sensitiveAuditPayload.schema.json" },
+      "assistantSupportPayload": { "$ref": "./json-schema/assistantSupportPayload.schema.json" },
+      "licensedSourcePayload": { "$ref": "./json-schema/licensedSourcePayload.schema.json" },
+      "authoritativeSource": { "$ref": "./json-schema/authoritativeSource.schema.json" },
+      "ruleProfile": { "$ref": "./json-schema/ruleProfile.schema.json" },
+      "routeAssessmentProfile": { "$ref": "./json-schema/routeAssessmentProfile.schema.json" },
+      "listing": { "$ref": "./json-schema/listing.schema.json" },
+      "offer": { "$ref": "./json-schema/offer.schema.json" },
+      "agreement": { "$ref": "./json-schema/agreement.schema.json" },
+      "deliveryRecord": { "$ref": "./json-schema/deliveryRecord.schema.json" },
+      "disputeRecord": { "$ref": "./json-schema/disputeRecord.schema.json" },
+      "commandIntent": { "$ref": "./json-schema/commandIntent.schema.json" },
+      "auditEvent": { "$ref": "./json-schema/auditEvent.schema.json" },
+      "auditBatchAnchor": { "$ref": "./json-schema/auditBatchAnchor.schema.json" },
+      "assistantRequest": { "$ref": "./json-schema/assistantRequest.schema.json" },
+      "assistantSupportRetentionLink": {
+        "$ref": "./json-schema/assistantSupportRetentionLink.schema.json"
+      },
+      "sensitiveAuditRetentionLink": {
+        "$ref": "./json-schema/sensitiveAuditRetentionLink.schema.json"
+      },
+      "evaluationCase": { "$ref": "./json-schema/evaluationCase.schema.json" },
+      "canonicalDecimal": { "$ref": "./json-schema/canonicalDecimal.schema.json" },
+      "contentJwe": { "$ref": "./json-schema/contentJwe.schema.json" },
+      "decimalQuantity": { "$ref": "./json-schema/decimalQuantity.schema.json" },
+      "decimalRange": { "$ref": "./json-schema/decimalRange.schema.json" },
+      "dekWrapContext": { "$ref": "./json-schema/dekWrapContext.schema.json" },
+      "deploymentReceipt": { "$ref": "./json-schema/deploymentReceipt.schema.json" },
+      "domainAttestationChallenge": {
+        "$ref": "./json-schema/domainAttestationChallenge.schema.json"
+      },
+      "domainManifestAttestation": {
+        "$ref": "./json-schema/domainManifestAttestation.schema.json"
+      },
+      "evaluationConfigManifest": { "$ref": "./json-schema/evaluationConfigManifest.schema.json" },
+      "evaluationRunManifest": { "$ref": "./json-schema/evaluationRunManifest.schema.json" },
+      "finalizeProtectedBundle": { "$ref": "./json-schema/finalizeProtectedBundle.schema.json" },
+      "fixtureManifest": { "$ref": "./json-schema/fixtureManifest.schema.json" },
+      "moneyValue": { "$ref": "./json-schema/moneyValue.schema.json" },
+      "percentilePoint": { "$ref": "./json-schema/percentilePoint.schema.json" },
+      "protectedContentAad": { "$ref": "./json-schema/protectedContentAad.schema.json" },
+      "protectedPackage": { "$ref": "./json-schema/protectedPackage.schema.json" },
+      "recipientJwe": { "$ref": "./json-schema/recipientJwe.schema.json" },
+      "prepareProtectedBundleRequest": {
+        "$ref": "./json-schema/prepareProtectedBundleRequest.schema.json"
+      },
+      "protectedBundleRef": { "$ref": "./json-schema/protectedBundleRef.schema.json" },
+      "protectedBundleStagingDescriptor": {
+        "$ref": "./json-schema/protectedBundleStagingDescriptor.schema.json"
+      },
+      "replicateProtectedBundle": { "$ref": "./json-schema/replicateProtectedBundle.schema.json" },
+      "replicaPolicy": { "$ref": "./json-schema/replicaPolicy.schema.json" },
+      "weiAmount": { "$ref": "./json-schema/weiAmount.schema.json" },
+      "ErrorResponse": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["schema_version", "correlation_id", "code", "message"],
+        "properties": {
+          "schema_version": { "type": "string", "const": "1.0.0" },
+          "correlation_id": { "type": "string", "format": "uuid" },
+          "code": { "type": "string", "pattern": "^[A-Z][A-Z0-9_]*$" },
+          "message": { "type": "string", "minLength": 1 },
+          "field_violations": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["field", "code"],
+              "properties": { "field": { "type": "string" }, "code": { "type": "string" } }
+            }
+          }
+        }
+      },
+      "QueryResponse": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["schema_version", "correlation_id", "as_of", "data"],
+        "properties": {
+          "schema_version": { "type": "string", "const": "1.0.0" },
+          "correlation_id": { "type": "string", "format": "uuid" },
+          "as_of": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["chain_id", "block_number", "observed_at"],
+            "properties": {
+              "chain_id": { "type": "integer", "minimum": 1 },
+              "block_number": { "type": "integer", "minimum": 0 },
+              "observed_at": { "type": "integer", "minimum": 0 }
+            }
+          },
+          "data": {}
+        }
+      }
+    },
+    "securitySchemes": {
+      "walletSession": {
+        "type": "apiKey",
+        "in": "cookie",
+        "name": "evllm_session",
+        "description": "Opaque short-lived server-side wallet session identifier."
+      }
+    }
+  }
+}

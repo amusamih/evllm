@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "schema": { "type": "string", "const": "EVLLM_LISTING_V1" },
+    "listing_id": {
+      "type": "string",
+      "pattern": "^urn:evllm:listing:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "listing_version": { "type": "number", "const": 1 },
+    "terms_payload_ref": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "version": { "$ref": "#/$defs/__schema0" }
+      },
+      "required": ["id", "version"],
+      "additionalProperties": false
+    },
+    "domain_signature_record_id": {
+      "type": "string",
+      "pattern": "^urn:evllm:assertion:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "state": {
+      "type": "string",
+      "enum": ["active", "matched", "withdrawn", "expired", "closed-settled", "closed-cancelled"]
+    },
+    "accepted_offer_id": {
+      "type": "string",
+      "pattern": "^urn:evllm:offer:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "history": { "maxItems": 256, "type": "array", "items": { "$ref": "#/$defs/__schema1" } },
+    "chain_locators": { "maxItems": 256, "type": "array", "items": { "$ref": "#/$defs/__schema2" } }
+  },
+  "required": [
+    "schema",
+    "listing_id",
+    "listing_version",
+    "terms_payload_ref",
+    "domain_signature_record_id",
+    "state",
+    "history",
+    "chain_locators"
+  ],
+  "additionalProperties": false,
+  "$defs": {
+    "__schema0": { "type": "integer", "exclusiveMinimum": 0, "maximum": 9007199254740991 },
+    "__schema1": {
+      "type": "string",
+      "pattern": "^urn:evllm:transition:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "__schema2": {
+      "type": "object",
+      "properties": {
+        "chain_id": { "$ref": "#/$defs/__schema0" },
+        "transaction_hash": { "type": "string", "pattern": "^0x[0-9a-f]{64}$" },
+        "block_number": { "type": "integer", "minimum": 0, "maximum": 9007199254740991 },
+        "log_index": { "type": "integer", "minimum": 0, "maximum": 9007199254740991 }
+      },
+      "required": ["chain_id", "transaction_hash", "block_number", "log_index"],
+      "additionalProperties": false
+    }
+  }
+}

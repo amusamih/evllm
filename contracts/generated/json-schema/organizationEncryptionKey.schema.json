@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "schema": { "type": "string", "const": "EVLLM_ORGANIZATION_ENCRYPTION_KEY_V1" },
+    "organization_id": {
+      "type": "string",
+      "pattern": "^urn:evllm:org:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "key_id": {
+      "type": "string",
+      "pattern": "^urn:evllm:key:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "key_version": { "type": "integer", "exclusiveMinimum": 0, "maximum": 9007199254740991 },
+    "thumbprint_uri": {
+      "type": "string",
+      "pattern": "^urn:ietf:params:oauth:jwk-thumbprint:sha-256:[A-Za-z0-9_-]{43}$"
+    },
+    "public_jwk": {
+      "type": "object",
+      "properties": {
+        "kty": { "type": "string", "const": "RSA" },
+        "kid": { "type": "string", "minLength": 1 },
+        "n": { "type": "string", "pattern": "^[A-Za-z0-9_-]{512}$" },
+        "e": { "type": "string", "const": "AQAB" },
+        "alg": { "type": "string", "const": "RSA-OAEP-256" },
+        "use": { "type": "string", "const": "enc" },
+        "key_ops": { "type": "array", "prefixItems": [{ "type": "string", "const": "wrapKey" }] }
+      },
+      "required": ["kty", "kid", "n", "e", "alg", "use", "key_ops"],
+      "additionalProperties": false
+    },
+    "status": {
+      "type": "string",
+      "enum": ["pending", "active", "retired", "revoked", "lost", "compromised"]
+    },
+    "key_authority_actor_id": {
+      "type": "string",
+      "pattern": "^urn:evllm:actor:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "predecessor_key_id": {
+      "type": "string",
+      "pattern": "^urn:evllm:key:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "successor_key_id": {
+      "type": "string",
+      "pattern": "^urn:evllm:key:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "effective_at": { "$ref": "#/$defs/__schema0" },
+    "recorded_at": { "$ref": "#/$defs/__schema0" },
+    "status_reason": { "type": "string", "minLength": 1, "maxLength": 256 }
+  },
+  "required": [
+    "schema",
+    "organization_id",
+    "key_id",
+    "key_version",
+    "thumbprint_uri",
+    "public_jwk",
+    "status",
+    "key_authority_actor_id",
+    "effective_at",
+    "recorded_at"
+  ],
+  "additionalProperties": false,
+  "$defs": { "__schema0": { "type": "integer", "minimum": 0, "maximum": 9007199254740991 } }
+}

@@ -1,0 +1,634 @@
+[
+  {
+    "inputs": [
+      { "internalType": "address", "name": "authorityProfileRegistryAddress", "type": "address" },
+      { "internalType": "address", "name": "protectedBundleRegistryAddress", "type": "address" },
+      { "internalType": "address", "name": "batteryOwnershipRegistryAddress", "type": "address" },
+      { "internalType": "address", "name": "deploymentRegistryAddress", "type": "address" },
+      { "internalType": "uint64", "name": "acceptanceWindowSeconds", "type": "uint64" }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "constructor"
+  },
+  { "inputs": [], "name": "AlreadyBound", "type": "error" },
+  { "inputs": [], "name": "DeadlineNotReached", "type": "error" },
+  { "inputs": [], "name": "Expired", "type": "error" },
+  { "inputs": [], "name": "InactiveModule", "type": "error" },
+  { "inputs": [], "name": "InvalidIdentifier", "type": "error" },
+  { "inputs": [], "name": "InvalidPayment", "type": "error" },
+  { "inputs": [], "name": "InvalidProtectedBundleLink", "type": "error" },
+  { "inputs": [], "name": "InvalidState", "type": "error" },
+  { "inputs": [], "name": "ReentrancyGuardReentrantCall", "type": "error" },
+  { "inputs": [], "name": "Unauthorized", "type": "error" },
+  {
+    "anonymous": false,
+    "inputs": [
+      { "indexed": true, "internalType": "bytes32", "name": "agreementId", "type": "bytes32" },
+      { "indexed": true, "internalType": "bytes32", "name": "listingId", "type": "bytes32" },
+      { "indexed": true, "internalType": "bytes32", "name": "offerId", "type": "bytes32" }
+    ],
+    "name": "AgreementCreated",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      { "indexed": true, "internalType": "bytes32", "name": "agreementId", "type": "bytes32" },
+      {
+        "indexed": false,
+        "internalType": "enum Marketplace.AgreementState",
+        "name": "state",
+        "type": "uint8"
+      }
+    ],
+    "name": "AgreementStateChanged",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      { "indexed": true, "internalType": "bytes32", "name": "agreementId", "type": "bytes32" },
+      { "indexed": true, "internalType": "address", "name": "recipient", "type": "address" },
+      { "indexed": false, "internalType": "uint256", "name": "amount", "type": "uint256" }
+    ],
+    "name": "CreditCreated",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      { "indexed": true, "internalType": "address", "name": "recipient", "type": "address" },
+      { "indexed": false, "internalType": "uint256", "name": "amount", "type": "uint256" }
+    ],
+    "name": "CreditWithdrawn",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      { "indexed": true, "internalType": "bytes32", "name": "listingId", "type": "bytes32" },
+      { "indexed": true, "internalType": "bytes32", "name": "batteryId", "type": "bytes32" },
+      {
+        "indexed": false,
+        "internalType": "bytes32",
+        "name": "sellerOrganizationId",
+        "type": "bytes32"
+      }
+    ],
+    "name": "ListingCreated",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      { "indexed": true, "internalType": "bytes32", "name": "listingId", "type": "bytes32" },
+      {
+        "indexed": false,
+        "internalType": "enum Marketplace.ListingState",
+        "name": "state",
+        "type": "uint8"
+      }
+    ],
+    "name": "ListingStateChanged",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      { "indexed": true, "internalType": "bytes32", "name": "agreementId", "type": "bytes32" },
+      { "indexed": true, "internalType": "bytes32", "name": "actionId", "type": "bytes32" },
+      { "indexed": false, "internalType": "bool", "name": "delivered", "type": "bool" }
+    ],
+    "name": "LogisticsRecorded",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      { "indexed": true, "internalType": "bytes32", "name": "offerId", "type": "bytes32" },
+      {
+        "indexed": false,
+        "internalType": "enum Marketplace.OfferState",
+        "name": "state",
+        "type": "uint8"
+      }
+    ],
+    "name": "OfferStateChanged",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      { "indexed": true, "internalType": "bytes32", "name": "offerId", "type": "bytes32" },
+      { "indexed": true, "internalType": "bytes32", "name": "listingId", "type": "bytes32" },
+      {
+        "indexed": false,
+        "internalType": "bytes32",
+        "name": "buyerOrganizationId",
+        "type": "bytes32"
+      }
+    ],
+    "name": "OfferSubmitted",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      { "indexed": true, "internalType": "bytes32", "name": "agreementId", "type": "bytes32" },
+      { "indexed": true, "internalType": "bytes32", "name": "disputeId", "type": "bytes32" }
+    ],
+    "name": "TransactionDisputeOpened",
+    "type": "event"
+  },
+  {
+    "inputs": [],
+    "name": "AGREEMENT_BUNDLE_TYPE",
+    "outputs": [{ "internalType": "bytes32", "name": "", "type": "bytes32" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "DISPUTE_BUNDLE_TYPE",
+    "outputs": [{ "internalType": "bytes32", "name": "", "type": "bytes32" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "DISPUTE_CAPABILITY",
+    "outputs": [{ "internalType": "bytes32", "name": "", "type": "bytes32" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "LISTING_BUNDLE_TYPE",
+    "outputs": [{ "internalType": "bytes32", "name": "", "type": "bytes32" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "LISTING_CAPABILITY",
+    "outputs": [{ "internalType": "bytes32", "name": "", "type": "bytes32" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "LOGISTICS_BUNDLE_TYPE",
+    "outputs": [{ "internalType": "bytes32", "name": "", "type": "bytes32" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "LOGISTICS_CAPABILITY",
+    "outputs": [{ "internalType": "bytes32", "name": "", "type": "bytes32" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "MARKETPLACE_TYPE",
+    "outputs": [{ "internalType": "bytes32", "name": "", "type": "bytes32" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "OFFER_CAPABILITY",
+    "outputs": [{ "internalType": "bytes32", "name": "", "type": "bytes32" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "RESOLVE_CAPABILITY",
+    "outputs": [{ "internalType": "bytes32", "name": "", "type": "bytes32" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "bytes32", "name": "agreementId", "type": "bytes32" }],
+    "name": "acceptDelivery",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "acceptanceWindow",
+    "outputs": [{ "internalType": "uint64", "name": "", "type": "uint64" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "bytes32", "name": "agreementId", "type": "bytes32" }],
+    "name": "agreementParties",
+    "outputs": [
+      { "internalType": "bytes32", "name": "sellerOrganizationId", "type": "bytes32" },
+      { "internalType": "bytes32", "name": "buyerOrganizationId", "type": "bytes32" },
+      { "internalType": "address", "name": "seller", "type": "address" },
+      { "internalType": "address", "name": "buyer", "type": "address" },
+      { "internalType": "address", "name": "sellerPayoutAddress", "type": "address" },
+      { "internalType": "address", "name": "buyerRefundAddress", "type": "address" }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "bytes32", "name": "agreementId", "type": "bytes32" }],
+    "name": "agreementState",
+    "outputs": [{ "internalType": "enum Marketplace.AgreementState", "name": "", "type": "uint8" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "bytes32", "name": "agreementId", "type": "bytes32" }],
+    "name": "agreementTerms",
+    "outputs": [
+      { "internalType": "bytes32", "name": "listingId", "type": "bytes32" },
+      { "internalType": "bytes32", "name": "offerId", "type": "bytes32" },
+      { "internalType": "bytes32", "name": "batteryId", "type": "bytes32" },
+      { "internalType": "bytes32", "name": "bundleKey", "type": "bytes32" },
+      { "internalType": "bytes32", "name": "payloadCommitment", "type": "bytes32" },
+      { "internalType": "bytes32", "name": "accessAuthorizationDigest", "type": "bytes32" },
+      { "internalType": "uint256", "name": "amount", "type": "uint256" },
+      { "internalType": "uint64", "name": "confirmationDeadline", "type": "uint64" },
+      { "internalType": "uint64", "name": "deliveryDeadline", "type": "uint64" }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "bytes32", "name": "agreementId", "type": "bytes32" }],
+    "name": "applyDeliveryOrAcceptanceTimeout",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "bytes32", "name": "agreementId", "type": "bytes32" }],
+    "name": "applyDispatchTimeout",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "authorityProfileRegistry",
+    "outputs": [
+      { "internalType": "contract IAuthorityProfileRegistry", "name": "", "type": "address" }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "batteryOwnershipRegistry",
+    "outputs": [
+      { "internalType": "contract IBatteryOwnershipRegistry", "name": "", "type": "address" }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "bytes32", "name": "agreementId", "type": "bytes32" }],
+    "name": "cancelUnfundedAgreement",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "compatibilityVersion",
+    "outputs": [{ "internalType": "uint64", "name": "", "type": "uint64" }],
+    "stateMutability": "pure",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "bytes32", "name": "agreementId", "type": "bytes32" },
+      { "internalType": "bytes32", "name": "accessAuthorizationDigest", "type": "bytes32" }
+    ],
+    "name": "confirmAgreement",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "components": [
+          { "internalType": "bytes32", "name": "listingId", "type": "bytes32" },
+          { "internalType": "bytes32", "name": "batteryId", "type": "bytes32" },
+          { "internalType": "bytes32", "name": "sellerOrganizationId", "type": "bytes32" },
+          { "internalType": "bytes32", "name": "sellerCredentialId", "type": "bytes32" },
+          { "internalType": "bytes32", "name": "bundleKey", "type": "bytes32" },
+          { "internalType": "bytes32", "name": "payloadCommitment", "type": "bytes32" },
+          { "internalType": "uint256", "name": "testPrice", "type": "uint256" },
+          { "internalType": "address payable", "name": "sellerPayoutAddress", "type": "address" },
+          { "internalType": "uint64", "name": "expiresAt", "type": "uint64" }
+        ],
+        "internalType": "struct Marketplace.ListingInput",
+        "name": "input",
+        "type": "tuple"
+      }
+    ],
+    "name": "createListing",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "deploymentRegistry",
+    "outputs": [{ "internalType": "contract IDeploymentRegistry", "name": "", "type": "address" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "bytes32", "name": "offerId", "type": "bytes32" }],
+    "name": "effectiveOfferState",
+    "outputs": [{ "internalType": "enum Marketplace.OfferState", "name": "", "type": "uint8" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "bytes32", "name": "listingId", "type": "bytes32" }],
+    "name": "expireListing",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "bytes32", "name": "offerId", "type": "bytes32" }],
+    "name": "expireOffer",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "bytes32", "name": "agreementId", "type": "bytes32" }],
+    "name": "fundAgreement",
+    "outputs": [],
+    "stateMutability": "payable",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "bytes32", "name": "listingId", "type": "bytes32" }],
+    "name": "listingExpiry",
+    "outputs": [{ "internalType": "uint64", "name": "", "type": "uint64" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "bytes32", "name": "listingId", "type": "bytes32" }],
+    "name": "listingState",
+    "outputs": [{ "internalType": "enum Marketplace.ListingState", "name": "", "type": "uint8" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "bytes32", "name": "listingId", "type": "bytes32" }],
+    "name": "listings",
+    "outputs": [
+      { "internalType": "bytes32", "name": "batteryId", "type": "bytes32" },
+      { "internalType": "bytes32", "name": "sellerOrganizationId", "type": "bytes32" },
+      { "internalType": "bytes32", "name": "sellerCredentialId", "type": "bytes32" },
+      { "internalType": "bytes32", "name": "bundleKey", "type": "bytes32" },
+      { "internalType": "bytes32", "name": "payloadCommitment", "type": "bytes32" },
+      { "internalType": "bytes32", "name": "acceptedOfferId", "type": "bytes32" },
+      { "internalType": "address", "name": "seller", "type": "address" },
+      { "internalType": "address payable", "name": "sellerPayoutAddress", "type": "address" },
+      { "internalType": "uint256", "name": "testPrice", "type": "uint256" },
+      { "internalType": "uint64", "name": "expiresAt", "type": "uint64" },
+      { "internalType": "enum Marketplace.ListingState", "name": "state", "type": "uint8" }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "moduleType",
+    "outputs": [{ "internalType": "bytes32", "name": "", "type": "bytes32" }],
+    "stateMutability": "pure",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "bytes32", "name": "offerId", "type": "bytes32" }],
+    "name": "offerExpiry",
+    "outputs": [{ "internalType": "uint64", "name": "", "type": "uint64" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "bytes32", "name": "offerId", "type": "bytes32" }],
+    "name": "offerState",
+    "outputs": [{ "internalType": "enum Marketplace.OfferState", "name": "", "type": "uint8" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "bytes32", "name": "offerId", "type": "bytes32" }],
+    "name": "offers",
+    "outputs": [
+      { "internalType": "bytes32", "name": "listingId", "type": "bytes32" },
+      { "internalType": "bytes32", "name": "buyerOrganizationId", "type": "bytes32" },
+      { "internalType": "bytes32", "name": "buyerCredentialId", "type": "bytes32" },
+      { "internalType": "bytes32", "name": "termsCommitment", "type": "bytes32" },
+      { "internalType": "address", "name": "buyer", "type": "address" },
+      { "internalType": "address payable", "name": "buyerRefundAddress", "type": "address" },
+      { "internalType": "uint256", "name": "amount", "type": "uint256" },
+      { "internalType": "uint64", "name": "expiresAt", "type": "uint64" },
+      { "internalType": "enum Marketplace.OfferState", "name": "state", "type": "uint8" }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "bytes32", "name": "agreementId", "type": "bytes32" },
+      {
+        "components": [
+          { "internalType": "bytes32", "name": "actionId", "type": "bytes32" },
+          { "internalType": "bytes32", "name": "bundleKey", "type": "bytes32" },
+          { "internalType": "bytes32", "name": "payloadCommitment", "type": "bytes32" },
+          { "internalType": "bytes32", "name": "organizationId", "type": "bytes32" },
+          { "internalType": "bytes32", "name": "credentialId", "type": "bytes32" }
+        ],
+        "internalType": "struct Marketplace.ProtectedAction",
+        "name": "action",
+        "type": "tuple"
+      }
+    ],
+    "name": "openTransactionDispute",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "bytes32", "name": "actionId", "type": "bytes32" }],
+    "name": "protectedActions",
+    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "protectedBundleRegistry",
+    "outputs": [
+      { "internalType": "contract IProtectedBundleRegistry", "name": "", "type": "address" }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "bytes32", "name": "agreementId", "type": "bytes32" },
+      {
+        "components": [
+          { "internalType": "bytes32", "name": "actionId", "type": "bytes32" },
+          { "internalType": "bytes32", "name": "bundleKey", "type": "bytes32" },
+          { "internalType": "bytes32", "name": "payloadCommitment", "type": "bytes32" },
+          { "internalType": "bytes32", "name": "organizationId", "type": "bytes32" },
+          { "internalType": "bytes32", "name": "credentialId", "type": "bytes32" }
+        ],
+        "internalType": "struct Marketplace.ProtectedAction",
+        "name": "action",
+        "type": "tuple"
+      }
+    ],
+    "name": "recordDelivery",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "bytes32", "name": "agreementId", "type": "bytes32" },
+      {
+        "components": [
+          { "internalType": "bytes32", "name": "actionId", "type": "bytes32" },
+          { "internalType": "bytes32", "name": "bundleKey", "type": "bytes32" },
+          { "internalType": "bytes32", "name": "payloadCommitment", "type": "bytes32" },
+          { "internalType": "bytes32", "name": "organizationId", "type": "bytes32" },
+          { "internalType": "bytes32", "name": "credentialId", "type": "bytes32" }
+        ],
+        "internalType": "struct Marketplace.ProtectedAction",
+        "name": "action",
+        "type": "tuple"
+      }
+    ],
+    "name": "recordDispatch",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "bytes32", "name": "offerId", "type": "bytes32" }],
+    "name": "rejectOffer",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "bytes32", "name": "agreementId", "type": "bytes32" },
+      { "internalType": "bytes32", "name": "resolverOrganizationId", "type": "bytes32" },
+      { "internalType": "bytes32", "name": "resolverCredentialId", "type": "bytes32" },
+      { "internalType": "enum Marketplace.Resolution", "name": "resolution", "type": "uint8" }
+    ],
+    "name": "resolveAgreement",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "components": [
+          { "internalType": "bytes32", "name": "agreementId", "type": "bytes32" },
+          { "internalType": "bytes32", "name": "listingId", "type": "bytes32" },
+          { "internalType": "bytes32", "name": "offerId", "type": "bytes32" },
+          { "internalType": "bytes32", "name": "bundleKey", "type": "bytes32" },
+          { "internalType": "bytes32", "name": "payloadCommitment", "type": "bytes32" },
+          {
+            "internalType": "bytes32",
+            "name": "buyerAccessAuthorizationDigest",
+            "type": "bytes32"
+          },
+          { "internalType": "uint64", "name": "confirmationDeadline", "type": "uint64" },
+          { "internalType": "uint64", "name": "deliveryDeadline", "type": "uint64" }
+        ],
+        "internalType": "struct Marketplace.AgreementInput",
+        "name": "input",
+        "type": "tuple"
+      }
+    ],
+    "name": "selectOfferAndCreateAgreement",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "bytes32", "name": "agreementId", "type": "bytes32" }],
+    "name": "settleAccepted",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "components": [
+          { "internalType": "bytes32", "name": "offerId", "type": "bytes32" },
+          { "internalType": "bytes32", "name": "listingId", "type": "bytes32" },
+          { "internalType": "bytes32", "name": "buyerOrganizationId", "type": "bytes32" },
+          { "internalType": "bytes32", "name": "buyerCredentialId", "type": "bytes32" },
+          { "internalType": "uint256", "name": "amount", "type": "uint256" },
+          { "internalType": "address payable", "name": "buyerRefundAddress", "type": "address" },
+          { "internalType": "bytes32", "name": "termsCommitment", "type": "bytes32" },
+          { "internalType": "uint64", "name": "expiresAt", "type": "uint64" }
+        ],
+        "internalType": "struct Marketplace.OfferInput",
+        "name": "input",
+        "type": "tuple"
+      }
+    ],
+    "name": "submitOffer",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "withdrawCredits",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "bytes32", "name": "listingId", "type": "bytes32" }],
+    "name": "withdrawListing",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "bytes32", "name": "offerId", "type": "bytes32" }],
+    "name": "withdrawOffer",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "address", "name": "recipient", "type": "address" }],
+    "name": "withdrawableCredits",
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "stateMutability": "view",
+    "type": "function"
+  }
+]

@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "schema": { "type": "string", "const": "EVLLM_DEPLOYMENT_RECEIPT_V1" },
+    "network": { "type": "string", "pattern": "^[a-z][a-z0-9_-]*$" },
+    "chain_id": { "type": "string", "pattern": "^[1-9][0-9]*$" },
+    "deployed_at": {
+      "type": "string",
+      "format": "date-time",
+      "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d(?::[0-5]\\d(?:\\.\\d+)?)?(?:Z|([+-](?:[01]\\d|2[0-3]):[0-5]\\d)))$"
+    },
+    "artifact_manifest_sha256": { "type": "string", "pattern": "^0x[0-9a-f]{64}$" },
+    "deployer": { "$ref": "#/$defs/__schema0" },
+    "governance": { "$ref": "#/$defs/__schema0" },
+    "review_delay_seconds": { "type": "integer", "minimum": 0, "maximum": 9007199254740991 },
+    "contracts": {
+      "type": "object",
+      "properties": {
+        "AuthorityProfileRegistry": { "$ref": "#/$defs/__schema0" },
+        "ProtectedBundleRegistry": { "$ref": "#/$defs/__schema0" },
+        "BatteryOwnershipRegistry": { "$ref": "#/$defs/__schema0" },
+        "DeploymentRegistry": { "$ref": "#/$defs/__schema0" },
+        "EvidenceRegistry": { "$ref": "#/$defs/__schema0" },
+        "Marketplace": { "$ref": "#/$defs/__schema0" },
+        "AuditAnchor": { "$ref": "#/$defs/__schema0" }
+      },
+      "required": [
+        "AuthorityProfileRegistry",
+        "ProtectedBundleRegistry",
+        "BatteryOwnershipRegistry",
+        "DeploymentRegistry",
+        "EvidenceRegistry",
+        "Marketplace",
+        "AuditAnchor"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "schema",
+    "network",
+    "chain_id",
+    "deployed_at",
+    "artifact_manifest_sha256",
+    "deployer",
+    "governance",
+    "review_delay_seconds",
+    "contracts"
+  ],
+  "additionalProperties": false,
+  "$defs": { "__schema0": { "type": "string", "pattern": "^0x[0-9a-f]{40}$" } }
+}

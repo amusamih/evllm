@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "schema": { "type": "string", "const": "EVLLM_IDENTIFIER_BINDING_V1" },
+    "binding_id": {
+      "type": "string",
+      "pattern": "^urn:evllm:link:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "binding_version": { "$ref": "#/$defs/__schema0" },
+    "battery_id": {
+      "type": "string",
+      "pattern": "^urn:evllm:battery:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "external_identifier": { "$ref": "#/$defs/__schema1" },
+    "identifier_scheme": { "$ref": "#/$defs/__schema1" },
+    "issuer_organization_id": {
+      "type": "string",
+      "pattern": "^urn:evllm:org:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "source_evidence_id": {
+      "type": "string",
+      "pattern": "^urn:evllm:evidence:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "source_evidence_version": { "$ref": "#/$defs/__schema0" },
+    "uncertainty": { "type": "string", "enum": ["none", "estimated", "conflicting"] },
+    "effective_at": { "type": "integer", "minimum": 0, "maximum": 9007199254740991 },
+    "status": { "type": "string", "enum": ["active", "superseded", "withdrawn"] }
+  },
+  "required": [
+    "schema",
+    "binding_id",
+    "binding_version",
+    "battery_id",
+    "external_identifier",
+    "identifier_scheme",
+    "issuer_organization_id",
+    "source_evidence_id",
+    "source_evidence_version",
+    "uncertainty",
+    "effective_at",
+    "status"
+  ],
+  "additionalProperties": false,
+  "$defs": {
+    "__schema0": { "type": "integer", "exclusiveMinimum": 0, "maximum": 9007199254740991 },
+    "__schema1": { "type": "string", "minLength": 1, "maxLength": 256 }
+  }
+}

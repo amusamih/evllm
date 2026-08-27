@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "schema": { "type": "string", "const": "EVLLM_PROTECTED_PACKAGE_V1" },
+    "content_media_type": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9!#$&^_.+-]*\\/[a-z0-9][a-z0-9!#$&^_.+-]*(?:;[a-z0-9!#$&^_.+-]+=[a-z0-9!#$&^_.+-]+)*$"
+    },
+    "content_bytes": { "$ref": "#/$defs/__schema0" },
+    "content_commitment_salt": { "$ref": "#/$defs/__schema1" },
+    "domain_payload_bytes": { "$ref": "#/$defs/__schema0" },
+    "domain_payload_commitment_salt": { "$ref": "#/$defs/__schema1" }
+  },
+  "required": [
+    "schema",
+    "content_media_type",
+    "content_bytes",
+    "content_commitment_salt",
+    "domain_payload_bytes",
+    "domain_payload_commitment_salt"
+  ],
+  "additionalProperties": false,
+  "$defs": {
+    "__schema0": {
+      "type": "string",
+      "pattern": "^(?:[A-Za-z0-9_-]{4})*(?:[A-Za-z0-9_-]{2}|[A-Za-z0-9_-]{3})?$"
+    },
+    "__schema1": { "type": "string", "pattern": "^[A-Za-z0-9_-]{43}$" }
+  }
+}

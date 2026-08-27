@@ -1,0 +1,12 @@
+artifacts/
+cache/
+coverage/
+dist/
+node_modules/
+
+# These generated evaluation files are byte-bound by their freeze digests.
+evaluation/formal/task-corpus-v2.json
+evaluation/formal/evaluation-freeze-v2.json
+evaluation/complementary/synthesis-corpus-v2.json
+evaluation/complementary/synthesis-freeze-v2.json
+evaluation/final/**/*.json

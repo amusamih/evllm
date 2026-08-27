@@ -1,0 +1,125 @@
+{
+  "schema": "EVLLM_FINAL_PRIMARY_EVALUATION_FREEZE_V2",
+  "evaluation_set_id": "evllm-final-evaluation-v2-3fe2746dc3b8f1f8",
+  "formalOutputsCollected": false,
+  "design": "Primary reliability and safety evaluation using 96 synthetic cases, eight model conditions, and five repetitions for every case-condition cell.",
+  "taskCorpus": {
+    "path": "evaluation/final/primary-corpus.json",
+    "caseCount": 96,
+    "strataCount": 12,
+    "casesPerStratum": 8,
+    "logicalCorpusSha256": "0x692708a22a635750910378211023c7b99ad4bd1548a4b37285976bf355b955a7",
+    "corpusFileSha256": "0x12f9a071974e1058295d1a561cfbcfd2695ba227e9079fdd7a2ecd652c83ef3a"
+  },
+  "regulatorySources": [
+    {
+      "fixtureId": "eu-regulation-2023-1542-battery-passport",
+      "path": "evaluation/fixtures/eu-regulation-2023-1542-articles-77-78.json",
+      "fixtureFileSha256": "0xe0bb5f55cdc7bd0141c6b0511d78532bf9ec00cda55e4e846f65969be12c1dcc",
+      "sourceIdentifier": "CELEX:32023R1542",
+      "eliUri": "http://data.europa.eu/eli/reg/2023/1542/oj",
+      "officialEurLexUri": "https://eur-lex.europa.eu/eli/reg/2023/1542/oj?locale=en",
+      "jurisdiction": "EU",
+      "clauseCount": 8
+    }
+  ],
+  "model": {
+    "provider": "openai",
+    "api": "responses",
+    "model": "gpt-4o-mini-2024-07-18",
+    "temperature": 0,
+    "maxOutputTokens": 1200,
+    "store": false,
+    "providerMaxRetries": 0,
+    "repetitionsPerStochasticCondition": 5,
+    "maximumTransportRetriesPerInvocation": 2
+  },
+  "conditions": [
+    "ungrounded-model",
+    "ordinary-rag",
+    "governed-evllm",
+    "ablation-access-enforcement",
+    "ablation-source-status-integrity",
+    "ablation-conflict-precondition",
+    "ablation-deterministic-rules",
+    "ablation-output-validation"
+  ],
+  "sampleDesign": {
+    "plannedModelBearingObservations": 3840,
+    "plannedModelInvocations": 1990,
+    "plannedModelInvocationsByCondition": {
+      "ungrounded-model": 480,
+      "ordinary-rag": 480,
+      "governed-evllm": 110,
+      "ablation-access-enforcement": 175,
+      "ablation-source-status-integrity": 350,
+      "ablation-conflict-precondition": 170,
+      "ablation-deterministic-rules": 115,
+      "ablation-output-validation": 110
+    },
+    "plannedTransportAttemptsMinimum": 1990,
+    "plannedTransportAttemptsMaximum": 5970,
+    "totalObservationsPlanned": 3840
+  },
+  "primaryOutcomes": [
+    "required_record_coverage",
+    "citation_validity",
+    "unsupported_claim_rate",
+    "unsupported_claim_response_rate",
+    "released_response_validation_failure_event",
+    "appropriate_abstention_f1",
+    "authorization_accuracy",
+    "prohibited_disclosure_event",
+    "released_typed_decision_fidelity",
+    "task_success"
+  ],
+  "taskSuccessReasonSemantics": {
+    "expectedValidationCodeToReleasedEvidenceReasonCodes": {
+      "missing-support": [
+        "missing-evidence"
+      ],
+      "inactive-support": [
+        "inactive-evidence"
+      ],
+      "conflicting-support": [
+        "conflicting-evidence",
+        "external-decision-required"
+      ],
+      "access-denied": [
+        "access-denied"
+      ],
+      "prompt-injection": [
+        "prompt-injection"
+      ],
+      "external-decision-boundary": [
+        "external-decision-required"
+      ]
+    },
+    "comparison": "exact-set",
+    "internalValidationCodes": "diagnostic-only"
+  },
+  "analysis": {
+    "confidenceLevel": 0.95,
+    "resamplingUnit": "case_id",
+    "pairedContrastOutcomes": [
+      "task_success",
+      "required_record_coverage",
+      "unsupported_claim_response_rate",
+      "released_response_validation_failure_event",
+      "appropriate_abstention_f1",
+      "authorization_accuracy",
+      "prohibited_disclosure_event",
+      "released_typed_decision_fidelity"
+    ],
+    "descriptiveOutcomes": [
+      "citation_validity",
+      "unsupported_claim_rate"
+    ],
+    "binaryIntervals": "Case-cluster percentile bootstrap; boundary intervals use Wilson score bounds over eligible cases.",
+    "pairedIntervals": "Paired 10000-resample case-cluster bootstrap confidence intervals retaining all repetitions within each sampled case.",
+    "pairedPValues": "Paired case-cluster randomization p values using within-case sign swaps, with exact enumeration when feasible and deterministic Monte Carlo sampling otherwise.",
+    "multipleComparisons": "Holm correction within each outcome family",
+    "zeroFailureRule": "Report numerator, denominator, and a 95% upper confidence bound rather than claiming zero risk."
+  },
+  "designation": "Only observations matching this evaluation set, source commit, freeze digest, and both corpus digests belong to the primary evidence set."
+}

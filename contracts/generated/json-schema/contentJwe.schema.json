@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "protected": { "$ref": "#/$defs/__schema0" },
+    "aad": { "$ref": "#/$defs/__schema0" },
+    "iv": { "type": "string", "pattern": "^[A-Za-z0-9_-]{16}$" },
+    "ciphertext": { "$ref": "#/$defs/__schema0" },
+    "tag": { "type": "string", "pattern": "^[A-Za-z0-9_-]{22}$" }
+  },
+  "required": ["protected", "aad", "iv", "ciphertext", "tag"],
+  "additionalProperties": false,
+  "$defs": {
+    "__schema0": {
+      "type": "string",
+      "pattern": "^(?:[A-Za-z0-9_-]{4})*(?:[A-Za-z0-9_-]{2}|[A-Za-z0-9_-]{3})?$"
+    }
+  }
+}
