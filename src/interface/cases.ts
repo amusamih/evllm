@@ -144,7 +144,7 @@ export class ControlledCaseCatalog {
 }
 
 function isDecisionExplanationQuestion(question: string): boolean {
-  return /\b(?:recorded\s+(?:decision|outcome|conclusion)|decision\s+code|eligible|eligibility|ready\s+to\s+(?:be\s+)?(?:list(?:ed|ing)?|resell)|(?:can|may|should)\b.{0,60}\b(?:list(?:ed|ing)?|resell|recover|enter|proceed)|(?:route|option)\b.{0,50}\b(?:preferred|recommended|selected|supported)|(?:preferred|recommended|selected)\s+(?:route|option)|workflow\s+action\b.{0,40}\b(?:permitted|allowed|authorized)|information\s+(?:is\s+)?still\s+needed|inspections?\s+disagree)\b/iu.test(
+  return /\b(?:recorded\s+(?:decision|outcome|conclusion)|decision\s+code|eligible|eligibility|ready\s+to\s+(?:be\s+)?(?:list(?:ed|ing)?|resell)|(?:can|may|should)\b.{0,60}\b(?:list(?:ed|ing)?|resell|recover|enter|proceed)|(?:routes?|options?)\b.{0,50}\b(?:preferred|recommended|selected|supported)|(?:preferred|recommended|selected)\s+(?:routes?|options?)|workflow\s+action\b.{0,40}\b(?:permitted|allowed|authorized)|information\s+(?:is\s+)?still\s+needed|inspections?\s+disagree)\b/iu.test(
     question,
   );
 }

@@ -202,9 +202,15 @@ describe("research web interface", () => {
   });
 
   it("explains the deterministic route record but does not generate an authority decision", async () => {
-    const route = await ask(
-      "Which second life route is supported for Battery ID 121, and why? Please explain the six assessment components separately.",
-    );
+    const routeQuestion =
+      "Which of the three second life routes is preferred for Battery ID 121, and why? Please cite each available record and clarify whether the system combines the assessment components into one sustainability score or keeps them separate.";
+    const resolvedRoute = runtime.cases.resolve(routeQuestion, 1_776_033_600);
+    expect(resolvedRoute.query.mode).toBe("explain_recorded_decision");
+    expect(resolvedRoute.query.requests).toEqual([
+      { tool: "assessment", arguments: { case_id: "synthesis-121" } },
+    ]);
+
+    const route = await ask(routeQuestion);
     expect(route).toMatchObject({
       caseId: "synthesis-121",
       response: {
