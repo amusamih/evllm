@@ -134,10 +134,10 @@
           "count": 2
         },
         "setRepositoryApproval": {
-          "min": 29054,
+          "min": 28718,
           "max": 50990,
-          "avg": 40860,
-          "median": 31090,
+          "avg": 40089,
+          "median": 31078,
           "count": 1001
         },
         "transferOwnership": {
@@ -948,10 +948,10 @@
           "count": 1
         },
         "setRepositoryApproval": {
-          "min": 38701,
-          "max": 98053,
-          "avg": 56888,
-          "median": 61041,
+          "min": 39141,
+          "max": 81313,
+          "avg": 56074,
+          "median": 44301,
           "count": 1000
         }
       }

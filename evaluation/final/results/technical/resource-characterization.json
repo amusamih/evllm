@@ -1,0 +1,57 @@
+{
+  "schema": "EVLLM_RESOURCE_CHARACTERIZATION_V2",
+  "measured_at": "2026-08-28T07:56:24.482Z",
+  "source_commit": "8d059455b3273e46b28d1d3a34a23879610b5201",
+  "evaluation_set_id": "evllm-final-evaluation-v2-3fe2746dc3b8f1f8",
+  "source_scope": "controlled local deterministic assessment microbenchmark and exact artifact sizes",
+  "environment": {
+    "node": "v24.18.1",
+    "platform": "win32",
+    "release": "10.0.26200",
+    "logical_cpu_count": 12,
+    "cpu_model": "Intel(R) Core(TM) 5 120U"
+  },
+  "deterministic_assessment": {
+    "first_call_ms": 28.913699999999835,
+    "warm_runs": 1000,
+    "warm_p50_ms": 0.4290499999999611,
+    "warm_p95_ms": 1.6385400000001364,
+    "warm_min_ms": 0.3835999999998876,
+    "warm_max_ms": 15.579700000000003,
+    "first_reproduction_hash": {
+      "alg": "SHA-256",
+      "value": "JRBfLGWlX-VoN6uQ5HLymK36v05tbCwxwHdneI0k5K0"
+    }
+  },
+  "artifact_storage": {
+    "files": [
+      {
+        "path": "evaluation/final/results/primary/observations.jsonl",
+        "bytes": 9826520,
+        "sha256": "0x4a5f580fe8a3653ab10b7e61b7dd89b2ca2b8eb760b3167bc23e788c2797f57f"
+      },
+      {
+        "path": "evaluation/final/results/synthesis/observations.jsonl",
+        "bytes": 743333,
+        "sha256": "0x46f08935a4c4d2252581c6cd9404a1ead915cf981bb08de5a3f208e3880e8506"
+      },
+      {
+        "path": "evaluation/final/primary-corpus.json",
+        "bytes": 186115,
+        "sha256": "0x12f9a071974e1058295d1a561cfbcfd2695ba227e9079fdd7a2ecd652c83ef3a"
+      },
+      {
+        "path": "evaluation/final/synthesis-corpus.json",
+        "bytes": 83814,
+        "sha256": "0xa254f42b9092bb2f686c72b5f0f9075d2979ffe1cd39b8f44bd71517b2d18687"
+      },
+      {
+        "path": "evaluation/final/sustainability-validation.json",
+        "bytes": 37038,
+        "sha256": "0x90801f48e6cca08c875ba3a090959d0d3cca3781e409493d8f4852342384e7c3"
+      }
+    ],
+    "total_bytes": 10876820
+  },
+  "interpretation_boundary": "This is a local implementation characterization, not a production throughput or end-to-end network benchmark."
+}

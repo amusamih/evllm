@@ -1,0 +1,41 @@
+{
+  "schema": "EVLLM_COMPLEMENTARY_SYNTHESIS_CONFIG_MANIFEST_V2",
+  "evaluation_set_id": "evllm-final-evaluation-v2-3fe2746dc3b8f1f8",
+  "source_commit": "8d059455b3273e46b28d1d3a34a23879610b5201",
+  "source_remote": "https://github.com/amusamih/evllm.git",
+  "freeze_sha256": "0x4e6267f5b0052d152f6e4bb72aade2723e64bf1e59bec4cb2459da0887488c9d",
+  "corpus_file_sha256": "0xa254f42b9092bb2f686c72b5f0f9075d2979ffe1cd39b8f44bd71517b2d18687",
+  "logical_corpus_sha256": "0xafed67651ef602fc55c5bf9da6380686f0255fdea0b54f8e48d51f844aee0a94",
+  "execution_pipeline": "GovernedAssistantService",
+  "support_access": "authorized TypedQueryTool request",
+  "output_validation": "production assistant candidate validator",
+  "deterministic_decision_binding": "typed recorded decision metadata applied before release; raw model candidate retained separately",
+  "model": "gpt-4o-mini-2024-07-18",
+  "temperature": 0,
+  "max_output_tokens": 1200,
+  "provider_internal_retries": 0,
+  "store": false,
+  "planned_observations": 150,
+  "planned_model_bearing_observations": 150,
+  "planned_model_invocations": 150,
+  "planned_transport_attempts_minimum": 150,
+  "planned_transport_attempts_maximum": 450,
+  "maximum_transport_retries_per_invocation": 2,
+  "conditions": [
+    "raw-structured-record-access",
+    "sequential-deterministic-query",
+    "governed-evllm-synthesis"
+  ],
+  "primary_metrics": [
+    "user_visible_operation_count",
+    "required_record_coverage",
+    "recorded_decision_and_outcome_accuracy",
+    "citation_validity",
+    "unsupported_claim_rate",
+    "missing_information_detection",
+    "conflicting_information_detection",
+    "single_response_supported_synthesis_success"
+  ],
+  "plan_sha256": "0x01509ac1416ddc590a9d36fc8ac1307f1e04aa83ffde08b9b84ccff80c128f17",
+  "transport_attempt_journal": "transport-attempts.jsonl"
+}

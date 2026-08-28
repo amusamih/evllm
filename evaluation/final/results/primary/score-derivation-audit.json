@@ -1,0 +1,16 @@
+{
+  "schema": "EVLLM_FORMAL_SCORE_DERIVATION_AUDIT_V1",
+  "generated_at": "2026-08-28T07:51:31.544Z",
+  "evaluation_set_id": "evllm-final-evaluation-v2-3fe2746dc3b8f1f8",
+  "collection_source_commit": "8d059455b3273e46b28d1d3a34a23879610b5201",
+  "analysis_source_commit": "8d059455b3273e46b28d1d3a34a23879610b5201",
+  "freeze_sha256": "0x4091b7739ac98ffac6884732aa6d2aea49e8a6057a1db1134ff47ed29d2d608b",
+  "corpus_file_sha256": "0x12f9a071974e1058295d1a561cfbcfd2695ba227e9079fdd7a2ecd652c83ef3a",
+  "logical_corpus_sha256": "0x692708a22a635750910378211023c7b99ad4bd1548a4b37285976bf355b955a7",
+  "observations_sha256": "0x4a5f580fe8a3653ab10b7e61b7dd89b2ca2b8eb760b3167bc23e788c2797f57f",
+  "observations": 3840,
+  "stored_score_differences": 0,
+  "changed_scores": [],
+  "raw_observations_modified": false,
+  "note": "Scores are derived from the checksum-bound collected response and validation fields. This artifact does not replace or rewrite observations.jsonl."
+}

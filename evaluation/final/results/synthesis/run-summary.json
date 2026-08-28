@@ -1,0 +1,23 @@
+{
+  "schema": "EVLLM_FINAL_SYNTHESIS_RUN_SUMMARY_V2",
+  "evaluation_set_id": "evllm-final-evaluation-v2-3fe2746dc3b8f1f8",
+  "source_commit": "8d059455b3273e46b28d1d3a34a23879610b5201",
+  "freeze_sha256": "0x4e6267f5b0052d152f6e4bb72aade2723e64bf1e59bec4cb2459da0887488c9d",
+  "corpus_file_sha256": "0xa254f42b9092bb2f686c72b5f0f9075d2979ffe1cd39b8f44bd71517b2d18687",
+  "logical_corpus_sha256": "0xafed67651ef602fc55c5bf9da6380686f0255fdea0b54f8e48d51f844aee0a94",
+  "completed_observations": 150,
+  "planned_observations": 150,
+  "planned_model_bearing_observations": 150,
+  "planned_model_invocations": 150,
+  "completed_model_bearing_observations": 150,
+  "successful_model_invocations": 150,
+  "model_transport_attempts": 150,
+  "model_transport_retries": 0,
+  "failed_model_transport_attempts": 0,
+  "interrupted_model_transport_attempts": 0,
+  "open_model_transport_attempts": 0,
+  "input_tokens": 172335,
+  "output_tokens": 43090,
+  "transport_attempt_journal_sha256": "0x4fdfa5263b411ce6fbd1acd466cf04e64e2bceddf5fda8ef7979e5130d6d0278",
+  "complete": true
+}

@@ -1,0 +1,275 @@
+{
+  "schema": "EVLLM_FINAL_EVIDENCE_MANIFEST_V3",
+  "generated_at": "2026-08-28T08:28:10.770Z",
+  "evaluation_set_id": "evllm-final-evaluation-v2-3fe2746dc3b8f1f8",
+  "source_commit": "8d059455b3273e46b28d1d3a34a23879610b5201",
+  "generation_source_commit": "8d059455b3273e46b28d1d3a34a23879610b5201",
+  "primary_source_commit": "8d059455b3273e46b28d1d3a34a23879610b5201",
+  "synthesis_source_commit": "8d059455b3273e46b28d1d3a34a23879610b5201",
+  "primary_analysis_source_commit": "8d059455b3273e46b28d1d3a34a23879610b5201",
+  "synthesis_analysis_source_commit": "8d059455b3273e46b28d1d3a34a23879610b5201",
+  "retained_workflow_source_revision": "2346f02a638921bcfd4418960450b91aff9f3ffa",
+  "primary_freeze_sha256": "0x4091b7739ac98ffac6884732aa6d2aea49e8a6057a1db1134ff47ed29d2d608b",
+  "synthesis_freeze_sha256": "0x4e6267f5b0052d152f6e4bb72aade2723e64bf1e59bec4cb2459da0887488c9d",
+  "primary_corpus_file_sha256": "0x12f9a071974e1058295d1a561cfbcfd2695ba227e9079fdd7a2ecd652c83ef3a",
+  "synthesis_corpus_file_sha256": "0xa254f42b9092bb2f686c72b5f0f9075d2979ffe1cd39b8f44bd71517b2d18687",
+  "primary_observations_sha256": "0x4a5f580fe8a3653ab10b7e61b7dd89b2ca2b8eb760b3167bc23e788c2797f57f",
+  "synthesis_observations_sha256": "0x46f08935a4c4d2252581c6cd9404a1ead915cf981bb08de5a3f208e3880e8506",
+  "entries": [
+    {
+      "path": "evaluation/final/FINAL_RESULTS.md",
+      "bytes": 18716,
+      "sha256": "0x0d1b21ba1f2de3ccfd37f128184f46015cbf8fd3861c97658bb3cff46a3cd325"
+    },
+    {
+      "path": "evaluation/final/SUSTAINABILITY_RESULTS.md",
+      "bytes": 2495,
+      "sha256": "0x40e1ab28700af5ab87332153099a6491928e2ca9092e5c231f9b1853d26855a9"
+    },
+    {
+      "path": "evaluation/final/sustainability-validation.json",
+      "bytes": 37038,
+      "sha256": "0x90801f48e6cca08c875ba3a090959d0d3cca3781e409493d8f4852342384e7c3"
+    },
+    {
+      "path": "evaluation/final/primary-corpus.json",
+      "bytes": 186115,
+      "sha256": "0x12f9a071974e1058295d1a561cfbcfd2695ba227e9079fdd7a2ecd652c83ef3a"
+    },
+    {
+      "path": "evaluation/final/primary-freeze.json",
+      "bytes": 4648,
+      "sha256": "0x4091b7739ac98ffac6884732aa6d2aea49e8a6057a1db1134ff47ed29d2d608b"
+    },
+    {
+      "path": "evaluation/final/synthesis-corpus.json",
+      "bytes": 83814,
+      "sha256": "0xa254f42b9092bb2f686c72b5f0f9075d2979ffe1cd39b8f44bd71517b2d18687"
+    },
+    {
+      "path": "evaluation/final/synthesis-freeze.json",
+      "bytes": 3184,
+      "sha256": "0x4e6267f5b0052d152f6e4bb72aade2723e64bf1e59bec4cb2459da0887488c9d"
+    },
+    {
+      "path": "evaluation/fixtures/eu-regulation-2023-1542-articles-77-78.json",
+      "bytes": 6536,
+      "sha256": "0xe0bb5f55cdc7bd0141c6b0511d78532bf9ec00cda55e4e846f65969be12c1dcc"
+    },
+    {
+      "path": "evaluation/final/results/primary/observations.jsonl",
+      "bytes": 9826520,
+      "sha256": "0x4a5f580fe8a3653ab10b7e61b7dd89b2ca2b8eb760b3167bc23e788c2797f57f"
+    },
+    {
+      "path": "evaluation/final/results/primary/transport-attempts.jsonl",
+      "bytes": 4747724,
+      "sha256": "0xafac7f0dc21f8a7b7d860ce4dcb7459ed66a584af2fc5d9fc4a3c5ec16753cde"
+    },
+    {
+      "path": "evaluation/final/results/primary/analysis.json",
+      "bytes": 76990,
+      "sha256": "0xa28173735944fd555ee7ad527789ce53e58bf20510d521e35f9a16c771edf073"
+    },
+    {
+      "path": "evaluation/final/results/primary/run-summary.json",
+      "bytes": 1075,
+      "sha256": "0x9958182fc698cab8d96a383316158f7687881a7763717935b290f0c77a5ea3a8"
+    },
+    {
+      "path": "evaluation/final/results/primary/evaluation-config-manifest.json",
+      "bytes": 1113,
+      "sha256": "0x050c73c1a20f0f4ab17c9c8d6f0aa11623d48e360782fe95a744e387f2a8ecba"
+    },
+    {
+      "path": "evaluation/final/results/primary/score-derivation-audit.json",
+      "bytes": 972,
+      "sha256": "0xfbffb0e3a3600bb6227248f76f76c562a06b4f18dc9ce14b0f11f0ce31a02d67"
+    },
+    {
+      "path": "evaluation/final/results/primary/condition-summary.csv",
+      "bytes": 5009,
+      "sha256": "0x5dabf1327b61a89fcbf0f9aa37c5cf3137366ff7abb26875ed3a38f2f4fb54ed"
+    },
+    {
+      "path": "evaluation/final/results/primary/contrasts.csv",
+      "bytes": 6025,
+      "sha256": "0xf0a63ae66e65aa3659ea39b1b6f473460e48c7c6173d0ca9cd3992f9e5718ecb"
+    },
+    {
+      "path": "evaluation/final/results/primary/failure-taxonomy.csv",
+      "bytes": 2323,
+      "sha256": "0xc1dbe3c7a3e2390e4e6732c4f6a21a261c6e99e1eb92e29dae69fd2eccb92847"
+    },
+    {
+      "path": "evaluation/final/results/primary/stratum-summary.csv",
+      "bytes": 5913,
+      "sha256": "0x83544d2431f0566593496aad310dacaf256c516da1a3c692b49c139b26a456ba"
+    },
+    {
+      "path": "evaluation/final/results/primary/summary.md",
+      "bytes": 12830,
+      "sha256": "0xcb116a3cd80fc462516dc34d6bbfa3fb62f7aba051b0f09cf799bed174f8161e"
+    },
+    {
+      "path": "evaluation/final/results/primary/task-success.svg",
+      "bytes": 1844,
+      "sha256": "0x75d2b92718a5e3c769ca674e31bd59a9781954cd778dd8e2b67cc6508bd00483"
+    },
+    {
+      "path": "evaluation/final/results/synthesis/observations.jsonl",
+      "bytes": 743333,
+      "sha256": "0x46f08935a4c4d2252581c6cd9404a1ead915cf981bb08de5a3f208e3880e8506"
+    },
+    {
+      "path": "evaluation/final/results/synthesis/transport-attempts.jsonl",
+      "bytes": 371537,
+      "sha256": "0x4fdfa5263b411ce6fbd1acd466cf04e64e2bceddf5fda8ef7979e5130d6d0278"
+    },
+    {
+      "path": "evaluation/final/results/synthesis/analysis.json",
+      "bytes": 22660,
+      "sha256": "0x4bef874a7c1a09ea46ed026acb6bf6a4a34608e28642f5ebd9c58970da6e2a9d"
+    },
+    {
+      "path": "evaluation/final/results/synthesis/run-summary.json",
+      "bytes": 1068,
+      "sha256": "0x5b8b565f167df5fe0dc912ce257a445b6a77bcca2bf6bc721fb038af252bc00a"
+    },
+    {
+      "path": "evaluation/final/results/synthesis/evaluation-config-manifest.json",
+      "bytes": 1839,
+      "sha256": "0x7b100bf00421184bb55580c1f69f566cf85318bd17e6fe962d3435f267031261"
+    },
+    {
+      "path": "evaluation/final/results/synthesis/condition-summary.csv",
+      "bytes": 2199,
+      "sha256": "0x516a7358fe1b80ff046dc963f78dac223c7d7b13409cc66980ece671c37f1cdb"
+    },
+    {
+      "path": "evaluation/final/results/synthesis/raw-generation-summary.csv",
+      "bytes": 1547,
+      "sha256": "0xe1e115dc176a3e2578d43631a270b589d19dc36ce3e712ee3a0347f8f910a3af"
+    },
+    {
+      "path": "evaluation/final/results/synthesis/raw-generation-stratum-summary.csv",
+      "bytes": 7493,
+      "sha256": "0xa96a3226a6d1ce734496caa36e1d7fdad649ee701851e2105125be1c85805c88"
+    },
+    {
+      "path": "evaluation/final/results/synthesis/stratum-summary.csv",
+      "bytes": 420,
+      "sha256": "0xf6b2624553eeecd4cd46626e70c8aa830ddc1dfd7e5b74e0e0bb1eef06bb432a"
+    },
+    {
+      "path": "evaluation/final/results/synthesis/summary.md",
+      "bytes": 2313,
+      "sha256": "0x0e5535b5dcf0c9008cd4c50c640cb834fa18c61b26dd7f8fe6b479fa315f6201"
+    },
+    {
+      "path": "evaluation/final/results/synthesis/interaction-burden.svg",
+      "bytes": 764,
+      "sha256": "0xf903f4212d67b6a46b22fc7c15cd45190f6cb17bd7b4a7b6bd2d99418d1c91a1"
+    },
+    {
+      "path": "evaluation/final/results/technical/resource-characterization.json",
+      "bytes": 2078,
+      "sha256": "0x693c0e2bfd14c39fbb93561073ba408cff7cf8b27671444332a3e8fbd4a3eddc"
+    },
+    {
+      "path": "evaluation/fixtures/openai-gpt-4o-mini-pricing-2026-08-27.json",
+      "bytes": 724,
+      "sha256": "0xaf420ab7bb22e35b8e009908d00337c38a59f56cc7d8041ec7f3e2cba80418ad"
+    },
+    {
+      "path": "evaluation/final/BLOCKCHAIN_RESULTS.md",
+      "bytes": 3629,
+      "sha256": "0x332a667fb819ee82d985f45c4ef8e65984125d6a184526d2b326c32460a30443"
+    },
+    {
+      "path": "evaluation/final/RESOURCE_RESULTS.md",
+      "bytes": 3388,
+      "sha256": "0x25356f0bf89b460c2647cf62df7b5e0fdeef895bdd4ed770e06adc0fdd6bfdf0"
+    },
+    {
+      "path": "contracts/generated/solidity/sepolia-deployment.json",
+      "bytes": 5469,
+      "sha256": "0x3f48ca16281ce39a168a3b9b17e3f1ff2c598f6d02d3dda0ac60517ced0af531"
+    },
+    {
+      "path": "contracts/generated/solidity/manifest.json",
+      "bytes": 6634,
+      "sha256": "0xe8ea4761570e051b5d3b1280cecfa685b7a026d4c792863a12d2cd1787f143e4"
+    },
+    {
+      "path": "evaluation/final/assurance/contracts/coverage.json",
+      "bytes": 1004,
+      "sha256": "0x570220e55089edc7807956a61e3c08beb391285d656270dd23b65bd885333c5c"
+    },
+    {
+      "path": "evaluation/final/assurance/contracts/security.json",
+      "bytes": 1059,
+      "sha256": "0x48fba7cb1f088cfcc5739febbe31d230bd03f8f70e374042c9fe8b0acd4e36da"
+    },
+    {
+      "path": "evaluation/final/assurance/contracts/gas-stats.json",
+      "bytes": 22499,
+      "sha256": "0x48f44ff6343abc6dfae01f584780ce546f8c7615fde41324225d1ba3e82db3c8"
+    },
+    {
+      "path": "evaluation/final/assurance/contracts/slither.json",
+      "bytes": 795721,
+      "sha256": "0xeb00cefeade050b895bd62b8640be4a26c05b31ba504105b91eaeee0a4139487"
+    },
+    {
+      "path": "evaluation/final/assurance/contracts/slither-review.json",
+      "bytes": 7652,
+      "sha256": "0xbba6fa451782923e009a0a5214c4027a9d4df68c3782e11e40b3612f97731d08"
+    },
+    {
+      "path": "evaluation/final/assurance/application-tests.json",
+      "bytes": 6616,
+      "sha256": "0xb964ea2fc6863afd18355f67228ef656c2cd917e30180b784eee2258c427a317"
+    },
+    {
+      "path": "evaluation/final/assurance/deployment/sepolia-verification.json",
+      "bytes": 96334,
+      "sha256": "0x7c3dbde1c73643950cc99d0012823c457cb5421b15591d2ee4fab908086a7e54"
+    },
+    {
+      "path": "evaluation/final/assurance/deployment/sepolia-full-workflow.json",
+      "bytes": 54716,
+      "sha256": "0x093ce95ccb7e4f4d5287fcf7cc9b179c4562a15fa58722d323e3ec4ff0482b26"
+    },
+    {
+      "path": "evaluation/final/assurance/deployment/cross-network-cost-snapshot.json",
+      "bytes": 4889,
+      "sha256": "0x51fb2961ff4f0aa622663097215a31c5b06678faf12182f38994f2f460e3084f"
+    },
+    {
+      "path": "evaluation/final/demonstrations/assistant-case-runs.json",
+      "bytes": 23238,
+      "sha256": "0x6343ebc96fda56344924defb6c812d582153f41bbfee775ff0f8708ae0ea6ddf"
+    },
+    {
+      "path": "evaluation/final/demonstrations/marketplace-workflow.json",
+      "bytes": 4315,
+      "sha256": "0x5846e5766ae94670238def5f025a072d610cca6a23fa41a581bc13d0fd004eb8"
+    },
+    {
+      "path": "evaluation/final/demonstrations/screenshots/decision-support/QA_MultiRecordBatterySummary.png",
+      "bytes": 613830,
+      "sha256": "0xcbebf24cd06764fdb079e2f95153b4059d7a4635c2b51f9be7eecff328a0e3bf"
+    },
+    {
+      "path": "evaluation/final/demonstrations/screenshots/system-capabilities/RouteAssessment_ActualNominalCase.png",
+      "bytes": 337454,
+      "sha256": "0x5c3de71a377d2728ef73387e80b3f4a995745614396ab9ac8e281e125d0aa36a"
+    },
+    {
+      "path": "evaluation/final/demonstrations/screenshots/system-capabilities/RouteAssessment_ActualConflictCase.png",
+      "bytes": 325183,
+      "sha256": "0x33c7851b44b14a0c94e7e8d579e5cd27f7e59dfea15d55aa3ee56aff8d9b3db3"
+    }
+  ]
+}

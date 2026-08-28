@@ -1,0 +1,7 @@
+stratum,observations,record_coverage,recorded_decision_and_outcome_accuracy,citation_validity,unsupported_claim_rate,missing_information_detection,conflicting_information_detection,synthesis_success
+resale-readiness,25,1,1,1,0,,,1
+missing-evidence,25,1,1,1,0,1,,1
+conflicting-evidence,25,1,1,1,0,,1,1
+lifecycle-eligibility,25,1,1,1,0,,,1
+route-comparison,25,0.9200000000000002,1,1,0,,,0.6
+custody-replica,25,1,1,1,0,,,1

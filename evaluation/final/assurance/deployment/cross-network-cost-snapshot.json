@@ -1,0 +1,121 @@
+{
+  "schema": "EVLLM_CROSS_NETWORK_COST_SNAPSHOT_V2",
+  "created_at": "2026-08-28T08:10:24.467Z",
+  "generation_source_commit": "8d059455b3273e46b28d1d3a34a23879610b5201",
+  "evaluation_set_id": "evllm-final-evaluation-v2-3fe2746dc3b8f1f8",
+  "source_workflow": "evaluation/final/assurance/deployment/sepolia-full-workflow.json",
+  "source_workflow_sha256": "0x093ce95ccb7e4f4d5287fcf7cc9b179c4562a15fa58722d323e3ec4ff0482b26",
+  "artifact_manifest_sha256": "0xe8ea4761570e051b5d3b1280cecfa685b7a026d4c792863a12d2cd1787f143e4",
+  "workflow_source_revision": "2346f02a638921bcfd4418960450b91aff9f3ffa",
+  "verified_receipt_count": 57,
+  "measured_transaction_count": 57,
+  "measured_gas_used": "6610960",
+  "measured_calldata_bytes": 11844,
+  "eth_usd_spot": 2499.02,
+  "eth_usd_source": "https://api.coinbase.com/v2/prices/ETH-USD/spot",
+  "fee_parameter_sources": {
+    "ethereum": {
+      "rpc_host": "ethereum-rpc.publicnode.com",
+      "method": "eth_gasPrice",
+      "chain_id": 1
+    },
+    "optimism": {
+      "rpc_host": "mainnet.optimism.io",
+      "method": "eth_gasPrice and GasPriceOracle.getL1Fee(bytes)",
+      "chain_id": 10
+    },
+    "arbitrum": {
+      "rpc_host": "arb1.arbitrum.io",
+      "method": "ArbGasInfo.getPricesInWei()",
+      "chain_id": 42161
+    },
+    "base": {
+      "rpc_host": "mainnet.base.org",
+      "method": "eth_gasPrice and GasPriceOracle.getL1Fee(bytes)",
+      "chain_id": 8453
+    }
+  },
+  "interpretation": "Sepolia is observed. Other networks are contemporaneous scenario estimates that hold the measured execution-gas trace constant and apply the queried network fee parameters; they are not receipts from deployments on those networks.",
+  "networks": [
+    {
+      "network": "Sepolia",
+      "chain_id": 11155111,
+      "estimate_type": "observed",
+      "method": "sum of the 57 confirmed transaction receipt fees",
+      "total_fee_wei": "6920297001991101",
+      "total_fee_eth": "0.006920297001991101",
+      "total_fee_usd": null
+    },
+    {
+      "network": "Ethereum Mainnet",
+      "chain_id": 1,
+      "estimate_type": "snapshot estimate",
+      "method": "measured Sepolia gas held constant and multiplied by the live mainnet gas price",
+      "gas_price_wei": "111311519",
+      "serialized_transaction_bytes": 14127,
+      "execution_fee_wei": "735875999648240",
+      "l1_data_fee_wei": "0",
+      "operator_fee_wei": "0",
+      "total_fee_wei": "735875999648240",
+      "total_fee_eth": "0.00073587599964824",
+      "block_number": 25852441,
+      "block_timestamp": "2026-08-28T08:08:11.000Z",
+      "total_fee_usd": 1.8389688406409448
+    },
+    {
+      "network": "Optimism",
+      "chain_id": 10,
+      "estimate_type": "snapshot estimate",
+      "method": "measured gas held constant plus live OP Stack execution, L1-data, and operator fees",
+      "gas_price_wei": "1000429",
+      "serialized_transaction_bytes": 14070,
+      "execution_fee_wei": "6613796101840",
+      "l1_data_fee_wei": "177899733910",
+      "operator_fee_wei": "0",
+      "total_fee_wei": "6791695835750",
+      "total_fee_eth": "0.00000679169583575",
+      "block_number": 156152869,
+      "block_timestamp": "2026-08-28T08:08:35.000Z",
+      "total_fee_usd": 0.016972583727455966
+    },
+    {
+      "network": "Arbitrum One",
+      "chain_id": 42161,
+      "estimate_type": "snapshot estimate",
+      "method": "measured gas held constant plus live ArbGas execution, per-transaction, and calldata-byte prices",
+      "gas_price_wei": "20012000",
+      "calldata_bytes": 11844,
+      "execution_fee_wei": "132298531520000",
+      "l1_data_fee_wei": "559114827264",
+      "operator_fee_wei": "0",
+      "total_fee_wei": "132857646347264",
+      "total_fee_eth": "0.000132857646347264",
+      "per_l2_transaction_wei": "3948551040",
+      "per_l1_calldata_byte_wei": "28203936",
+      "block_number": 499198889,
+      "block_timestamp": "2026-08-28T08:08:21.000Z",
+      "total_fee_usd": 0.3320139153747397
+    },
+    {
+      "network": "Base",
+      "chain_id": 8453,
+      "estimate_type": "snapshot estimate",
+      "method": "measured gas held constant plus live OP Stack execution, L1-data, and operator fees",
+      "gas_price_wei": "6000000",
+      "serialized_transaction_bytes": 14184,
+      "execution_fee_wei": "39665760000000",
+      "l1_data_fee_wei": "114008807017",
+      "operator_fee_wei": "0",
+      "total_fee_wei": "39779768807017",
+      "total_fee_eth": "0.000039779768807017",
+      "block_number": 50557638,
+      "block_timestamp": "2026-08-28T08:10:23.000Z",
+      "total_fee_usd": 0.09941043784411162
+    }
+  ],
+  "source_documentation": {
+    "optimism": "https://docs.optimism.io/app-developers/guides/transactions/estimates",
+    "arbitrum": "https://github.com/OffchainLabs/nitro-precompile-interfaces/blob/main/ArbGasInfo.sol",
+    "base": "https://docs.base.org/base-chain/network-information/network-fees"
+  }
+}

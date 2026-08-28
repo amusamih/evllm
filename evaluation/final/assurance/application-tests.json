@@ -1,0 +1,214 @@
+{
+  "schema": "APPLICATION_ASSURANCE_SUMMARY_V2",
+  "generated_at": "2026-08-28T08:11:30.123Z",
+  "source_commit": "8d059455b3273e46b28d1d3a34a23879610b5201",
+  "status": "passed",
+  "commands": [
+    {
+      "id": "unit",
+      "command": "node ./node_modules/vitest/vitest.mjs run test/unit --reporter=json --outputFile ..\\AppData\\Local\\Temp\\application-assurance-aiBH7a\\unit.json",
+      "status": "passed",
+      "test_files": {
+        "total": 59,
+        "passed": 59,
+        "failed": 0,
+        "skipped": 0
+      },
+      "tests": {
+        "total": 613,
+        "passed": 613,
+        "failed": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "id": "postgresql-integration",
+      "command": "node --env-file=.env/test.env ./node_modules/vitest/vitest.mjs run test/integration/postgres.test.ts test/integration/migrations.test.ts test/integration/evidence-postgres.test.ts test/integration/key-operation-authorization-postgres.test.ts --no-file-parallelism --maxWorkers=1 --reporter=json --outputFile ..\\AppData\\Local\\Temp\\application-assurance-aiBH7a\\postgresql-integration.json",
+      "status": "passed",
+      "test_files": {
+        "total": 4,
+        "passed": 4,
+        "failed": 0,
+        "skipped": 0
+      },
+      "tests": {
+        "total": 6,
+        "passed": 6,
+        "failed": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "id": "typecheck",
+      "command": "node ./node_modules/typescript/bin/tsc -p tsconfig.json --noEmit",
+      "status": "passed"
+    }
+  ],
+  "test_files": {
+    "total": 63,
+    "passed": 63,
+    "failed": 0,
+    "skipped": 0
+  },
+  "tests": {
+    "total": 619,
+    "passed": 619,
+    "failed": 0,
+    "skipped": 0
+  },
+  "groups": [
+    {
+      "name": "Protected records, authorization and storage",
+      "files": [
+        "test/integration/evidence-postgres.test.ts",
+        "test/integration/key-operation-authorization-postgres.test.ts",
+        "test/unit/contract-source-isolation.test.ts",
+        "test/unit/eip712-profile-artifact.test.ts",
+        "test/unit/eip712-signatures.test.ts",
+        "test/unit/evidence-bundle-service.test.ts",
+        "test/unit/evidence-http.test.ts",
+        "test/unit/evidence-ledger.test.ts",
+        "test/unit/key-lifecycle.test.ts",
+        "test/unit/persistent-crypto-leakage.test.ts",
+        "test/unit/protected-content-crypto.test.ts",
+        "test/unit/recipient-envelope-crypto.test.ts",
+        "test/unit/repository-object-operations.test.ts",
+        "test/unit/storage-conformance.test.ts"
+      ],
+      "test_files": {
+        "total": 14,
+        "passed": 14,
+        "failed": 0,
+        "skipped": 0
+      },
+      "tests": {
+        "total": 84,
+        "passed": 84,
+        "failed": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "name": "Decision support and route assessment",
+      "files": [
+        "test/unit/assistant-governance.test.ts",
+        "test/unit/assistant-http.test.ts",
+        "test/unit/assistant-model-config.test.ts",
+        "test/unit/canonical-projector.test.ts",
+        "test/unit/dated-rules.test.ts",
+        "test/unit/decision-query-http.test.ts",
+        "test/unit/decision-source-example.test.ts",
+        "test/unit/research-interface.test.ts",
+        "test/unit/route-assessment.test.ts"
+      ],
+      "test_files": {
+        "total": 9,
+        "passed": 9,
+        "failed": 0,
+        "skipped": 0
+      },
+      "tests": {
+        "total": 295,
+        "passed": 295,
+        "failed": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "name": "Application interfaces and operations",
+      "files": [
+        "test/unit/combined-command-routing.test.ts",
+        "test/unit/config.test.ts",
+        "test/unit/contract-toolchain.test.ts",
+        "test/unit/health.test.ts",
+        "test/unit/marketplace-http.test.ts",
+        "test/unit/observability.test.ts",
+        "test/unit/operations.test.ts"
+      ],
+      "test_files": {
+        "total": 7,
+        "passed": 7,
+        "failed": 0,
+        "skipped": 0
+      },
+      "tests": {
+        "total": 29,
+        "passed": 29,
+        "failed": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "name": "Data models and PostgreSQL integration",
+      "files": [
+        "test/integration/migrations.test.ts",
+        "test/integration/postgres.test.ts",
+        "test/unit/domain-payload-schemas.test.ts",
+        "test/unit/exact-decimal.test.ts",
+        "test/unit/migration-catalog.test.ts",
+        "test/unit/migration-policy.test.ts",
+        "test/unit/schemas.test.ts"
+      ],
+      "test_files": {
+        "total": 7,
+        "passed": 7,
+        "failed": 0,
+        "skipped": 0
+      },
+      "tests": {
+        "total": 28,
+        "passed": 28,
+        "failed": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "name": "Evaluation methods and reproducibility",
+      "files": [
+        "test/unit/application-assurance.test.ts",
+        "test/unit/complementary-evaluation-freeze.test.ts",
+        "test/unit/complementary-evaluation-preflight.test.ts",
+        "test/unit/complementary-evaluation.test.ts",
+        "test/unit/eu-regulatory-fixture.test.ts",
+        "test/unit/evaluation-freeze.test.ts",
+        "test/unit/evaluation-manifests.test.ts",
+        "test/unit/evaluation-source.test.ts",
+        "test/unit/evaluation-statistics.test.ts",
+        "test/unit/final-evaluation-corpus.test.ts",
+        "test/unit/final-evaluation-freeze.test.ts",
+        "test/unit/final-evaluation-provenance.test.ts",
+        "test/unit/final-evidence-provenance.test.ts",
+        "test/unit/final-results-rendering.test.ts",
+        "test/unit/formal-analysis-metrics.test.ts",
+        "test/unit/formal-condition-adapters.test.ts",
+        "test/unit/formal-evaluation-runner.test.ts",
+        "test/unit/formal-failure-taxonomy.test.ts",
+        "test/unit/formal-rescoring.test.ts",
+        "test/unit/formal-score.test.ts",
+        "test/unit/live-evaluation-runner.test.ts",
+        "test/unit/model-pricing-snapshot.test.ts",
+        "test/unit/readme-claims.test.ts",
+        "test/unit/sepolia-deployment-verification.test.ts",
+        "test/unit/sustainability-evidence.test.ts",
+        "test/unit/transport-attempt-journal.test.ts"
+      ],
+      "test_files": {
+        "total": 26,
+        "passed": 26,
+        "failed": 0,
+        "skipped": 0
+      },
+      "tests": {
+        "total": 183,
+        "passed": 183,
+        "failed": 0,
+        "skipped": 0
+      }
+    }
+  ],
+  "typecheck": {
+    "command": "node ./node_modules/typescript/bin/tsc -p tsconfig.json --noEmit",
+    "status": "passed",
+    "errors": 0
+  }
+}
